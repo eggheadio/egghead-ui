@@ -1,6 +1,6 @@
 {
   "name": "egghead-ui",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -39,7 +39,9 @@
       "babel-preset-react",
       "latest"
     ],
-    "plugins": ["transform-class-properties"]
+    "plugins": [
+      "transform-class-properties"
+    ]
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
