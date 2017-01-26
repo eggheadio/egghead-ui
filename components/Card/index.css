@@ -1,0 +1,184 @@
+/* Move to the general styles override */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --navy: #1b1f24;
+  --light-navy: #292f36;
+  --dark-gray: #434b56;
+  --gray: #646e7b;
+  --light-gray: #d1d2d3;
+  --tag-gray: #f6f6f6;
+  --yellow: #ffce51;
+  --orange: #f59e33;
+  --dark-orange: #df6941;
+  --tag-orange: #fef3e7;
+  --dark-blue: #0064af;
+  --blue: #009dcf;
+  --tag-blue: #edf0ff;
+  --dark-green: #3ab66e;
+  --green: #add960;
+  --turquoise: #42c2b3;
+  --tag-turquoise: #d9f3f0;
+  --dark-red: #8f1233;
+  --red: #e13f58;
+}
+
+.card-course,
+.card-lesson,
+.card-playlist {
+  max-width: 380px;
+}
+.card-course.expanded-horizontal {
+  max-width: 760px;
+}
+
+/* Course Card */
+.card-course .card-play-btn {
+  top: 50%;
+  margin-top: -2rem;
+}
+.card-course:hover .card-play-btn {
+  opacity: 1;
+}
+.card-course .card-progress-list-item {
+  
+}
+
+/* Lesson Card */
+.card-lesson .card-play-btn {
+  top: 50%;
+  margin-top: -2rem;
+}
+.card-lesson:hover .card-play-btn {
+  opacity: 1;
+}
+
+/* Playlist Card */
+.card-playlist .card-progress-list-item.viewed:before {
+  border: 1px solid var(--turquoise);
+  background: var(--turquoise);
+}
+.card-playlist .card-progress-list-item.viewed:after {
+  border-color: var(--turquoise);
+}
+.card-playlist .card-progress-list-item.next:before {
+  border-color: transparent transparent transparent var(--turquoise);
+  box-shadow: 0 0 0 6px var(--tag-gray);
+  background: var(--tag-gray);
+}
+.card-playlist .card-progress-list-item.next:hover:before {
+  box-shadow: 0 0 0 6px var(--white);
+  background: var(--white);
+}
+.card-playlist .card-play-btn {
+  bottom: -2.5rem;
+}
+
+
+/* ------------- */
+/* Miscellaneous */
+/* ------------- */
+
+/* Card Stacked Shadow */
+.card-stacked-shadow {
+  padding-bottom: 10px;
+}
+.card-stacked-shadow:before,
+.card-stacked-shadow:after {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 10px;
+  border-radius: 5px;
+}
+.card-stacked-shadow:before {
+  bottom: 5px;
+  left: 9px;
+  right: 9px;
+  background: var(--gray);
+  z-index: 1;
+}
+.card-stacked-shadow:after {
+  bottom: 0px;
+  left: 18px;
+  right: 18px;
+  background: var(--dark-gray);
+  z-index: 0;
+}
+
+/* Card Progress List */
+.card-progress-list-item {
+  transition: 150ms;
+}
+.card-progress-list-item:before,
+.card-progress-list-item:after {
+  content: '';
+  position: absolute;
+  transition: 150ms;
+}
+.card-progress-list-item:before {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid var(--light-gray);
+  background: var(--tag-gray);
+  box-shadow: 0 0 0 1px var(--tag-gray);
+  left: 20px;
+  top: 22px;
+  z-index: 2;
+}
+.card-progress-list-item:hover:before {
+  background: var(--white);
+  box-shadow: 0 0 0 1px var(--white);
+}
+.card-progress-list-item.viewed {
+  color: var(--gray); /* could be applied to markup as Tachyons class */
+}
+.card-progress-list-item.viewed:before {
+  border: 1px solid var(--orange);
+  background: var(--orange);
+}
+.card-progress-list-item:after {
+  width: 1px;
+  height: 100%;
+  border-width: 0 0 0 1px;
+  border-style: solid;
+  border-color: var(--light-gray);
+  left: 24px;
+  top: 32px;
+  z-index: 1;
+}
+.card-progress-list-item.viewed:after {
+  border-color: var(--orange);
+}
+.card-progress-list-item.pre-next:after {
+  border-style: dashed;
+}
+.card-progress-list-item.next:before {
+  left: 21px;
+  border-radius: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 0px 6px 9px;
+  border-color: transparent transparent transparent var(--orange);
+}
+
+/* Card Play Button */
+.card-play-btn {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.17);
+  left: 50%;
+  margin-left: -34px;
+  display: flex;
+  transition: 150ms;
+}
+.card-play-btn:before {
+  position: relative;
+  left: 3px;
+}
