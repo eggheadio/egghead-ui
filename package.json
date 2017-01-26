@@ -2,10 +2,10 @@
   "name": "egghead-ui",
   "version": "1.0.3",
   "description": "",
-  "main": "build/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "dev": "start-storybook -p 2000",
-    "build:library": "react-scripts build",
+    "build:library": "babel src -d lib",
     "build:storybook": "build-storybook",
     "verify": "yarn build:library && yarn build:storybook",
     "prepublish": "yarn build:library",
@@ -33,5 +33,18 @@
     "react-storybook-addon-props-combinations": "^0.0.1",
     "react-tabs": "^0.8.2",
     "tachyons-egghead": "^1.1.8"
+  },
+  "babel": {
+    "presets": [
+      "babel-preset-react",
+      "latest"
+    ],
+    "plugins": ["transform-class-properties"]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-plugin-transform-class-properties": "^6.22.0",
+    "babel-preset-latest": "^6.22.0",
+    "babel-preset-react": "^6.22.0"
   }
 }

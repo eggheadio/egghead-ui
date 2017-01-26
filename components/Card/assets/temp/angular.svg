@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>angular</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="angular">
+            <g id="Page-1">
+                <g id="shield-large">
+                    <g id="Imported-Layers">
+                        <polyline id="Fill-1" fill="#E23237" points="7.47865169 0 7.47865169 0 0.0269662921 2.64269663 1.15955056 12.458427 7.46067416 15.9460674 13.8516854 12.4134831 15.1011236 2.59775281 7.47865169 0"></polyline>
+                        <polygon id="Fill-2" fill="#B52E31" points="15.0831461 2.59775281 7.46067416 0 7.46067416 15.9460674 13.8516854 12.4134831"></polygon>
+                        <polygon id="Fill-3" fill="#E23237" points="0.0179775281 2.64269663 1.1505618 12.458427 7.45168539 15.9460674 7.45168539 0"></polygon>
+                        <path d="M9.05168539,8.37752809 L7.46067416,5.09662921 L6.09438202,8.37752809 L9.05168539,8.37752809 L9.05168539,8.37752809 Z M9.65393258,9.76179775 L5.4741573,9.76179775 L4.53932584,12.0898876 L2.80449438,12.1258427 L7.46067416,1.77977528 L12.2876404,12.1258427 L10.6786517,12.1258427 L9.65393258,9.76179775 L9.65393258,9.76179775 Z" id="Fill-4" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
