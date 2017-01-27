@@ -4,7 +4,6 @@ import { CourseMeta, CourseHeader } from './CourseCard'
 import { LessonMeta, LessonHeader } from './LessonCard'
 import { PlaylistMeta, PlaylistHeader } from './PlaylistCard'
 import Playlist from '../Playlist/'
-import './index.css'
 
 const commonCardClasses = 'relative card'
 const commonInnerClasses = 'flex flex-column items-center bg-white navy relative z-1 card-course-inner br2'
