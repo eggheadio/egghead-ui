@@ -1,6 +1,10 @@
 import AnchorSource from './components/Anchor'
 import AvatarSource from './components/Avatar'
 import ButtonSource from './components/Button'
+import CardSource from './components/Card'
+import CourseCardSource from './components/Card/CourseCard'
+import LessonCardSource from './components/Card/LessonCard'
+import PlaylistCardSource from './components/Card/PlaylistCard'
 import CheckboxSource from './components/Checkbox'
 import HeadingSource from './components/Heading'
 import IconSource from './components/Icon'
@@ -15,6 +19,10 @@ import WellSource from './components/Well'
 export const Anchor = AnchorSource
 export const Avatar = AvatarSource
 export const Button = ButtonSource
+export const Card = CardSource
+export const CourseCard = CourseCardSource
+export const LessonCard = LessonCardSource
+export const PlaylistCard = PlaylistCardSource
 export const Checkbox = CheckboxSource
 export const Heading = HeadingSource
 export const Icon = IconSource
