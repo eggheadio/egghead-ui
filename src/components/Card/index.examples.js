@@ -4,8 +4,6 @@ import CourseCard from './CourseCard'
 import LessonCard from './LessonCard'
 import PlaylistCard from './PlaylistCard'
 import testData from './testData'
-import './index.css'
-
 import imgCourseCard from './assets/temp/img-course-card.png'
 import imgRx from './assets/temp/rx.svg'
 import imgAngular from './assets/temp/angular.svg'
