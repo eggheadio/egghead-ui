@@ -56,7 +56,7 @@ const Icon = ({
 )
 
 Icon.propTypes = {
-  type: PropTypes.oneOf(keys(types)).isRequired,
+  type: PropTypes.oneOf(keys(types)),
   size: PropTypes.oneOf(keys(sizes)),
   color: PropTypes.oneOf(keys(colors)),
   spin: PropTypes.bool,

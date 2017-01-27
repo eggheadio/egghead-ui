@@ -25,7 +25,7 @@ storiesOf('Button')
       <div className={btnDisp}>
         {standardButtonExamples.map((btn, i) => {
           return (
-            <Button type={btn.type} onClick={clickHandlerFixture}>
+            <Button type={btn.type} onClick={clickHandlerFixture} key={i}>
               {btn.children}
             </Button>
           )
@@ -43,7 +43,7 @@ storiesOf('Button')
       <div className={btnDisp}>
         {standardButtonExamples.map((btn, i) => {
           return (
-            <Button type={btn.type.toLowerCase()} size='small' onClick={clickHandlerFixture}>
+            <Button type={btn.type.toLowerCase()} size='small' onClick={clickHandlerFixture} key={i}>
               {btn.type}
             </Button>
           )
@@ -60,7 +60,7 @@ storiesOf('Button')
       <div className={btnDisp}>
         {standardButtonExamples.map((btn, i) => {
           return (
-            <Button type={btn.type.toLowerCase()} size='extra-large' onClick={clickHandlerFixture}>
+            <Button type={btn.type.toLowerCase()} size='extra-large' onClick={clickHandlerFixture} key={i}>
               {btn.type}
             </Button>
           )
@@ -78,7 +78,7 @@ storiesOf('Button')
       {standardButtonExamples.map((btn, i) => {
         return (
           <div className='mb2 mh2' key={i}>
-            <Button type={btn.type.toLowerCase()} outline onClick={clickHandlerFixture}>
+            <Button type={btn.type.toLowerCase()} outline onClick={clickHandlerFixture} key={i}>
               {btn.type}
             </Button>
           </div>
