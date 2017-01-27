@@ -4,9 +4,10 @@
   "description": "Official living style guide app and component library for egghead.io",
   "main": "lib/index.js",
   "scripts": {
-    "dev": "start-storybook -p 2000",
-    "build:library": "babel src -d lib",
+    "dev:styleguide": "start-storybook -p 2000",
+    "dev:library": "babel src -w -d lib",
     "build:styleguide": "build-storybook",
+    "build:library": "babel src -d lib",
     "verify": "yarn build:library && yarn build:styleguide",
     "prepublish": "yarn build:library",
     "start": "react-scripts start"

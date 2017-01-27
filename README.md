@@ -31,7 +31,8 @@ View [the style guide](https://styleguide.egghead.io) for visual examples and co
 ## Workflow
 
 - `yarn` to install latest packages.
-- `yarn dev` to develop using the style guide.
+- `yarn dev:styleguide` to develop using the style guide.
+- `yarn dev:library` to develop the library [with yarn link](https://yarnpkg.com/en/docs/cli/link).
 - [localhost:2000](http://localhost:2000) to view the style guide.
 - Submit pull requests:
   - Continuous integration runs in Codeship to ensure builds succeed
