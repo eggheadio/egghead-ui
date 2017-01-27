@@ -1,30 +1,23 @@
 {
   "name": "egghead-ui",
   "version": "1.0.4",
-  "description": "",
+  "description": "Official living style guide app and component library for egghead.io",
   "main": "lib/index.js",
   "scripts": {
     "dev": "start-storybook -p 2000",
     "build:library": "babel src -d lib",
-    "build:storybook": "build-storybook",
-    "verify": "yarn build:library && yarn build:storybook",
+    "build:styleguide": "build-storybook",
+    "verify": "yarn build:library && yarn build:styleguide",
     "prepublish": "yarn build:library",
     "start": "react-scripts start"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/eggheadio/egghead-ui.git"
-  },
-  "author": "egghead.io",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/eggheadio/egghead-ui/issues"
-  },
-  "homepage": "https://github.com/eggheadio/egghead-ui#readme",
   "dependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
     "@kadira/storybook": "^2.5.2",
-    "css-loader": "^0.26.1",
+    "babel-cli": "^6.22.2",
+    "babel-plugin-transform-class-properties": "^6.22.0",
+    "babel-preset-latest": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
     "font-awesome": "^4.6.3",
     "lodash": "^4.16.2",
     "react": "^15.4.1",
@@ -43,10 +36,13 @@
       "transform-class-properties"
     ]
   },
-  "devDependencies": {
-    "babel-cli": "^6.22.2",
-    "babel-plugin-transform-class-properties": "^6.22.0",
-    "babel-preset-latest": "^6.22.0",
-    "babel-preset-react": "^6.22.0"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eggheadio/egghead-ui.git"
+  },
+  "author": "egghead.io",
+  "bugs": {
+    "url": "https://github.com/eggheadio/egghead-ui/issues"
+  },
+  "homepage": "https://github.com/eggheadio/egghead-ui#readme"
 }
