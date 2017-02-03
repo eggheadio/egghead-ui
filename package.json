@@ -2,9 +2,9 @@
   "name": "egghead-ui",
   "version": "1.0.7",
   "description": "Official living style guide app and component library for egghead.io",
-  "main": "lib/index.js",
+  "main": "build/index.js",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=7.0.0"
   },
   "scripts": {
     "dev:styleguide": "start-storybook -p 2000",
@@ -13,7 +13,8 @@
     "build:library": "babel src -d lib",
     "verify": "yarn build:library && yarn build:styleguide",
     "prepublish": "yarn build:library",
-    "start": "react-scripts start"
+    "start": "react-scripts start",
+    "build": "yarn verify"
   },
   "dependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
