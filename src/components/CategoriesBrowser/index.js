@@ -8,8 +8,4 @@ const CategoriesBrowser = () => {
   )
 }
 
-Card.propTypes = {
-  className: PropTypes.string,
-}
-
 export default CategoriesBrowser
