@@ -3,6 +3,9 @@
   "version": "1.0.7",
   "description": "Official living style guide app and component library for egghead.io",
   "main": "lib/index.js",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "scripts": {
     "dev:styleguide": "start-storybook -p 2000",
     "dev:library": "babel src -w -d lib",
