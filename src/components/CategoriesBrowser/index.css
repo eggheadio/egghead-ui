@@ -1,0 +1,48 @@
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --navy: #1b1f24;
+  --light-navy: #292f36;
+  --dark-gray: #434b56;
+  --gray: #646e7b;
+  --light-gray: #d1d2d3;
+  --tag-gray: #f6f6f6;
+  --yellow: #ffce51;
+  --orange: #f59e33;
+  --dark-orange: #df6941;
+  --tag-orange: #fef3e7;
+  --dark-blue: #0064af;
+  --blue: #009dcf;
+  --tag-blue: #edf0ff;
+  --dark-green: #3ab66e;
+  --green: #add960;
+  --turquoise: #42c2b3;
+  --tag-turquoise: #d9f3f0;
+  --dark-red: #8f1233;
+  --red: #e13f58;
+}
+
+.categories-switchers-holder {
+  background: #1f2329; /* decide what to do with this color - it is absent in our palette  */
+}
+.categories-items-holder {
+  background: #22272d; /* decide what to do with this color - it is absent in our palette  */
+}
+@media screen and (min-width: 30em) {
+  .category-item {
+    height: 6rem;
+  }
+  .category-item.expanded {
+    height: 12rem;
+  }
+}
+.category-item:hover {
+  background: #1f2329; /* decide what to do with this color - it is absent in our palette  */
+}
+.category-item:hover .category-item-counter {
+  background: #36312c; /* decide what to do with this color - it is absent in our palette  */
+  color: var(--dark-orange);
+}
+.categories-item-description {
+  margin-top: -1px;
+}
