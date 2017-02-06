@@ -14,12 +14,20 @@ const orangePillClasses = `${pillClasses} orange bg-tag-orange`
 const bluePillClasses = `${pillClasses} blue bg-tag-blue`
 const greenPillClasses = `${pillClasses} dark-green bg-tag-turquoise tracked`
 
+const buildCardMeta = (type, response) => {
+  if (type.toLowerCase() === 'course') {
+    return {lessonCount: response.lesson_count}
+  }
+
+  return { meta: response }
+}
+
 const cardTypes = {
   'course': {
     'cardClasses': `${commonCardClasses} card-stacked-shadow card-course`,
     'innerClasses': `${enhancedInnerClasses}`,
     'pillClasses': `${orangePillClasses}`,
-    'metaComponent': (response) => <CourseMeta response={response} />,
+    'metaComponent': (response) => <CourseMeta meta={buildCardMeta('course', response)} />,
     'headerComponent': (response) => <CourseHeader response={response} />
   },
   'lesson': {
@@ -67,10 +75,10 @@ CardHeader.propTypes = {
 }
 
 const CardFooter = ({response, type}) => {
-  const responseComponent = cardTypes[type].responseComponent ? cardTypes[type].responseComponent(response) : null
+  const metaComponent = cardTypes[type].metaComponent ? cardTypes[type].metaComponent(response) : null
   return (
     <div className={`${footerClasses} ${cardTypes[type]['footerClasses']}`}>
-      {responseComponent}
+      {metaComponent}
       <MaterialType type={type} />
     </div>
   ) 

@@ -5,6 +5,7 @@ import Card from './'
 const expansions = [false, 'horizontal', 'vertical']
 
 export const CourseMeta = ({meta}) => {
+  console.log('coursemeta meta', meta)
   return (
     <div className='f6 dark-gray o-50'>
       {meta.lessonCount} {meta.lessonCount === 1 ? 'lesson' : 'lessons'}
