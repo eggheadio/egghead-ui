@@ -31,7 +31,7 @@ export const PlaylistMeta = ({meta}) => {
   )
 }
 PlaylistMeta.propTypes = {
-  meta: PropTypes.object.isRequired
+  meta: PropTypes.object
 }
 
 const PlaylistSummary = ({timeRemaining, lessonsLeft}) => {
@@ -63,7 +63,7 @@ export const PlaylistHeader = ({meta}) => {
   )
 }
 PlaylistHeader.propTypes = {
-  meta: PropTypes.object.isRequired
+  meta: PropTypes.object
 }
 
 export default PlaylistCard

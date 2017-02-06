@@ -12,14 +12,14 @@ export const LessonMeta = ({meta}) => {
   )
 }
 LessonMeta.propTypes = {
-  meta: PropTypes.object.isRequired
+  meta: PropTypes.object
 }
 
 export const LessonHeader = ({meta}) => {
   return <PlayButton hover />
 }
 LessonHeader.propTypes = {
-  meta: PropTypes.object.isRequired
+  meta: PropTypes.object
 }
 
 const LessonCard = ({title, instructor, type, meta}) => {

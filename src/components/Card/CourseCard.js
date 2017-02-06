@@ -12,7 +12,7 @@ export const CourseMeta = ({meta}) => {
   )
 }
 CourseMeta.propTypes = {
-  meta: PropTypes.object.isRequired
+  meta: PropTypes.object
 }
 
 export const CourseHeader = ({meta}) => {
@@ -26,7 +26,7 @@ export const CourseHeader = ({meta}) => {
   )
 }
 CourseHeader.propTypes = {
-  meta: PropTypes.object.isRequired
+  meta: PropTypes.object
 }
 
 
