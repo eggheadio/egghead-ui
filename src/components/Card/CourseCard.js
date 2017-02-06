@@ -30,16 +30,15 @@ CourseHeader.propTypes = {
 }
 
 
-const CourseCard = ({title, instructor, meta, expanded=false}) => {
+const CourseCard = ({response, expanded=false}) => {
+  const { title, instructor: { full_name } } = response
   return (
-    <Card title={title} instructor={instructor} type='course' meta={meta} expanded={expanded}/>
+    <Card title={title} instructor={full_name} type='course' expanded={expanded} {...response} />
   )
 }
 CourseCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  instructor: PropTypes.string.isRequired,
-  expanded: PropTypes.oneOf(expansions),
-  meta: PropTypes.object
+  response: PropTypes.object.isRequired,
+  expanded: PropTypes.oneOf(expansions)
 }
 
 export default CourseCard

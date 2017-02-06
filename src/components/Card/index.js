@@ -93,7 +93,10 @@ CardBody.propTypes = {
   instructor: PropTypes.string.isRequired
 }
 
-const Card = ({title, instructor, type, meta, expanded}) => {
+// const Card = ({title, instructor, type, meta, expanded}) => {
+const Card = (props) => {
+  console.log(props)
+
   const extendedClasses = 'relative w-100 z-1 overflow-hidden pv3 bg-tag-gray br2'
   return (
     <div className={`${cardTypes[type]['cardClasses']} ${expanded === 'horizontal' ? 'flex expanded-horizontal' : ''}`}> 
