@@ -15,25 +15,25 @@ CourseMeta.propTypes = {
   meta: PropTypes.object
 }
 
-export const CourseHeader = ({meta}) => {
+export const CourseHeader = ({response}) => {
+  console.log('courseHeader response: ', response)
   return (
     <div>
       <PlayButton hover />
       <div className='mw5 mt3 center ph3'>
-        <img alt='' src={meta.courseImg} />
+        <img alt='' src={response.square_cover_url} />
       </div>
     </div>
   )
 }
 CourseHeader.propTypes = {
-  meta: PropTypes.object
+  response: PropTypes.object
 }
-
 
 const CourseCard = ({response, expanded=false}) => {
   const { title, instructor: { full_name } } = response
   return (
-    <Card title={title} instructor={full_name} type='course' expanded={expanded} {...response} />
+    <Card type='course' response={response} expanded={expanded} />
   )
 }
 CourseCard.propTypes = {

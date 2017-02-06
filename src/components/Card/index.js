@@ -19,15 +19,15 @@ const cardTypes = {
     'cardClasses': `${commonCardClasses} card-stacked-shadow card-course`,
     'innerClasses': `${enhancedInnerClasses}`,
     'pillClasses': `${orangePillClasses}`,
-    'metaComponent': (meta) => <CourseMeta meta={meta} />,
-    'headerComponent': (meta) => <CourseHeader meta={meta} />
+    'metaComponent': (response) => <CourseMeta response={response} />,
+    'headerComponent': (response) => <CourseHeader response={response} />
   },
   'lesson': {
     'cardClasses': `${commonCardClasses} card-lesson`,
     'innerClasses': `${enhancedInnerClasses}`,
     'pillClasses': `${bluePillClasses}`,
-    'metaComponent': (meta) => <LessonMeta meta={meta} />,
-    'headerComponent': (meta) => <LessonHeader meta={meta} />
+    'metaComponent': (response) => <LessonMeta response={response} />,
+    'headerComponent': (response) => <LessonHeader response={response} />
 
 
   },
@@ -36,8 +36,8 @@ const cardTypes = {
     'innerClasses': `${commonInnerClasses}`,
     'pillClasses': `${greenPillClasses}`,
     'footerClasses': 'pb4 ph4',
-    'metaComponent': (meta) => <PlaylistMeta meta={meta} />,
-    'headerComponent': (meta) => <PlaylistHeader meta={meta} />
+    'metaComponent': (response) => <PlaylistMeta response={response} />,
+    'headerComponent': (response) => <PlaylistHeader response={response} />
   }
 }
 
@@ -53,8 +53,8 @@ MaterialType.propTypes = {
   type: PropTypes.string.isRequired
 }
 
-const CardHeader = ({meta, type}) => {
-  const headerComponent = cardTypes[type].headerComponent ? cardTypes[type].headerComponent(meta) : null
+const CardHeader = ({response, type}) => {
+  const headerComponent = cardTypes[type].headerComponent ? cardTypes[type].headerComponent(response) : null
   return (
     <div className='w-100'>
       {headerComponent}
@@ -62,21 +62,21 @@ const CardHeader = ({meta, type}) => {
   )  
 }
 CardHeader.propTypes = {
-  meta: PropTypes.object,
+  response: PropTypes.object,
   type: PropTypes.string.isRequired
 }
 
-const CardFooter = ({meta, type}) => {
-  const metaComponent = cardTypes[type].metaComponent ? cardTypes[type].metaComponent(meta) : null
+const CardFooter = ({response, type}) => {
+  const responseComponent = cardTypes[type].responseComponent ? cardTypes[type].responseComponent(response) : null
   return (
     <div className={`${footerClasses} ${cardTypes[type]['footerClasses']}`}>
-      {metaComponent}
+      {responseComponent}
       <MaterialType type={type} />
     </div>
   ) 
 }
 CardFooter.propTypes = {
-  meta: PropTypes.object,
+  response: PropTypes.object,
   type: PropTypes.string.isRequired
 }
 
@@ -93,17 +93,15 @@ CardBody.propTypes = {
   instructor: PropTypes.string.isRequired
 }
 
-// const Card = ({title, instructor, type, meta, expanded}) => {
-const Card = (props) => {
-  console.log(props)
-
+const Card = ({type, expanded, response}) => {
+  const { title, instructor: { full_name } } = response
   const extendedClasses = 'relative w-100 z-1 overflow-hidden pv3 bg-tag-gray br2'
   return (
     <div className={`${cardTypes[type]['cardClasses']} ${expanded === 'horizontal' ? 'flex expanded-horizontal' : ''}`}> 
       <div className={`${cardTypes[type]['innerClasses']} ${!expanded ? 'br2' : ''} ${expanded === 'vertical' ? 'br2 br--top' : ''} ${expanded === 'horizontal' ? 'br2 br--left' : ''}`}>
-        <CardHeader type={type} meta={meta} />
-        <CardBody title={title} instructor={instructor} />
-        <CardFooter type={type} meta={meta} />
+        <CardHeader type={type} response={response} />
+        <CardBody title={title} instructor={full_name} />
+        <CardFooter type={type} response={response} />
       </div>
       <div className={`${expanded === 'vertical' ? `${extendedClasses} br--bottom` : ''} ${expanded === 'horizontal' ? `${extendedClasses} br--right` : ''}`}
         style={{height: 'auto', maxHeight: '475px'}}
@@ -129,10 +127,8 @@ const Card = (props) => {
   )
 }
 Card.propTypes = {
-  title: PropTypes.string.isRequired,
-  instructor: PropTypes.string.isRequired,
   type: PropTypes.oneOf(keys(cardTypes)),
-  meta: PropTypes.object
+  response: PropTypes.object
 }
 
 
