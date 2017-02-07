@@ -20,6 +20,15 @@ const buildCardMeta = (type, response) => {
     return {lessonCount: response.lesson_count}
   }
 
+  if (type.toLowerCase() === 'lesson') {
+    return {
+      langImg: response.tech_logo_http_url,
+      videoLength: response.duration
+      
+    }
+  }
+  
+
   return { meta: response }
 }
 
