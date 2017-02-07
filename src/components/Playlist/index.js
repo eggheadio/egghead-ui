@@ -55,7 +55,9 @@ const Playlist = ({playlist}) => {
         {playlist.map((i, k) => {
             const extraClasses = playlist[k+1] && playlist[k+1]['current'] ? 'pre-next' : null
             return (
-              <PlaylistItem item={i} key={k} extraClasses={extraClasses}/>
+              <a href={i.http_url} key={k} className='no-underline'>
+                <PlaylistItem item={i} extraClasses={extraClasses}/>
+              </a>
             )
           })
         
