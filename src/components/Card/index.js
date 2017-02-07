@@ -20,7 +20,6 @@ const bluePillClasses = `${pillClasses} blue bg-tag-blue`
 const greenPillClasses = `${pillClasses} dark-green bg-tag-turquoise tracked`
 
 const buildCardMeta = (type, response) => {
-  console.log('build card meta response', response)
   if (type.toLowerCase() === 'course') {
     return {lessonCount: response.lesson_count}
   }

@@ -2,7 +2,9 @@ import React, { PropTypes } from 'react'
 import PlayButton from '../Button/PlayButton'
 import Playlist from '../Playlist/'
 import Card from './'
-import { buildPlaylistMeta } from '../../utils/Playlist'
+import { buildPlaylistMeta, findVidNumber, getTimeLeft } from '../../utils/Playlist'
+import { secondsToString } from '../../utils/Time'
+
 
 export const PlaylistCard = ({response}) => {
   return (
@@ -14,9 +16,8 @@ PlaylistCard.propTypes = {
 }
 
 export const PlaylistMeta = ({meta}) => {
-  console.log('playlistmeta response', meta)
   const { playlist, lessonsLeft, currentLesson } = meta
-  const currentLessonNum = playlist.indexOf(currentLesson)
+  const currentLessonNum = findVidNumber(playlist, currentLesson)
   const lessonCount = playlist.length
 
   return (
@@ -28,14 +29,14 @@ export const PlaylistMeta = ({meta}) => {
       </div>
       <div className='w4 br1 bg-tag-turquoise mt1 overflow-hidden'>
         <div className='pt1 bg-turquoise' style={{
-          width: `${Math.round((currentLesson / lessonCount) * 100)}%`
+          width: `${Math.round((currentLessonNum / lessonCount) * 100)}%`
         }} />
       </div>
     </div>
   )
 }
 PlaylistMeta.propTypes = {
-  response: PropTypes.object
+  meta: PropTypes.object
 }
 
 const PlaylistSummary = ({timeRemaining, lessonsLeft}) => {
@@ -53,8 +54,9 @@ PlaylistSummary.propTypes = {
 }
 
 export const PlaylistHeader = ({response}) => {
-  console.log('playlistHeader response', response)
-  const { lessons, progress, timeRemaining, lessonsLeft } = response
+  const { lessons, progress, duration } = response
+  const lessonsLeft = lessons.length - progress.completed_lessons.length
+  const timeRemaining = secondsToString(getTimeLeft(duration, progress))
   return (
     <div>
       <div className='relative w-100' style={{

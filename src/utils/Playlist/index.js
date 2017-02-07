@@ -1,13 +1,7 @@
 export const buildPlaylistMeta = (lessons, progress) => {
-  console.log('build playlist meta lessons', lessons)
-  console.log('build playlist meta progress', progress)
   const { completed_lessons, current_lesson } = progress
   const watchedVids = completed_lessons.map((l) => l.series_row_order)
   const currentVid = current_lesson.series_row_order
-
-  console.log('completed_lessons: ', completed_lessons)
-  console.log('current_lesson: ', current_lesson)
-
 
   return lessons.reduce((playlist, lesson) => {
     if (watchedVids.includes(lesson.series_row_order)) {
@@ -24,3 +18,20 @@ export const buildPlaylistMeta = (lessons, progress) => {
     return playlist
   }, [])
 }
+
+export const findVidNumber = (playlist, current) => {
+  for (let v of playlist) {
+    if (current.series_row_order === v.series_row_order) {
+      return playlist.indexOf(v)
+    }
+  }
+}
+
+export const getTimeLeft = (totalDuration, progress) => {
+  const watchedTime = progress.completed_lessons.reduce((p, i) => {
+    return p + i.duration
+  }, 0)
+
+  return totalDuration - watchedTime
+}
+
