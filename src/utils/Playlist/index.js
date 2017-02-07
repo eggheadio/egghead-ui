@@ -6,13 +6,15 @@ export const buildPlaylistMeta = (lessons, progress) => {
   return lessons.reduce((playlist, lesson) => {
     if (watchedVids.includes(lesson.series_row_order)) {
       playlist.push(Object.assign({watched: true}, lesson))
+      return playlist
     }
 
-   if (currentVid === current_lesson.series_row_order) {
+   if (currentVid === lesson.series_row_order) {
       playlist.push(Object.assign({current: true}, lesson))
-     
+      return playlist
    }
     
+    playlist.push(lesson)
     return playlist
   }, [])
 }
