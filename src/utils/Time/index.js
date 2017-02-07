@@ -7,5 +7,5 @@ export const secondsToString = (secs) => {
   const minStr = minutes < 10 ? `0${minutes}` : minutes
   const secStr = seconds < 10 ? `0${seconds}` : seconds
 
-  return `${hourStr !== '00' ? `${hourStr}:` : '' }${minStr !== '00' ? `${minStr}:` : '' }${secStr !== '00' ? secStr : ''}`
+  return `${hourStr !== '00' ? `${hourStr}:` : '' }${minStr !== '00' ? `${minStr}:` : '' }${secStr}`
 }
