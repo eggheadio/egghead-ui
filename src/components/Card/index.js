@@ -5,6 +5,10 @@ import { LessonMeta, LessonHeader } from './LessonCard'
 import { PlaylistMeta, PlaylistHeader } from './PlaylistCard'
 import Playlist from '../Playlist/'
 import { buildPlaylistMeta } from '../../utils/Playlist'
+import { secondsToString } from '../../utils/Time'
+
+
+
 
 const commonCardClasses = 'relative card'
 const commonInnerClasses = 'flex flex-column items-center bg-white navy relative z-1 card-course-inner br2'
@@ -23,7 +27,7 @@ const buildCardMeta = (type, response) => {
   if (type.toLowerCase() === 'lesson') {
     return {
       langImg: response.tech_logo_http_url,
-      videoLength: response.duration
+      videoLength: secondsToString(response.duration)
       
     }
   }
