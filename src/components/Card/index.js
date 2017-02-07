@@ -20,6 +20,7 @@ const bluePillClasses = `${pillClasses} blue bg-tag-blue`
 const greenPillClasses = `${pillClasses} dark-green bg-tag-turquoise tracked`
 
 const buildCardMeta = (type, response) => {
+  console.log('build card meta response', response)
   if (type.toLowerCase() === 'course') {
     return {lessonCount: response.lesson_count}
   }
@@ -31,8 +32,16 @@ const buildCardMeta = (type, response) => {
       
     }
   }
-  
 
+  if (type.toLowerCase() === 'playlist') {
+    return {
+      timeRemaining: 'temp',
+      lessonsLeft: response.lesson_count - response.completed_lesson_count,
+      currentLesson: response.progress.current_lesson,
+      playlist: buildPlaylistMeta(response.lessons, response.progress)
+    }
+  }
+  
   return { meta: response }
 }
 

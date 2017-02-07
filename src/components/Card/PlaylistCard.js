@@ -2,36 +2,40 @@ import React, { PropTypes } from 'react'
 import PlayButton from '../Button/PlayButton'
 import Playlist from '../Playlist/'
 import Card from './'
+import { buildPlaylistMeta } from '../../utils/Playlist'
 
-export const PlaylistCard = ({title, instructor, meta}) => {
+export const PlaylistCard = ({response}) => {
   return (
-    <Card title={title} instructor={instructor} type='playlist' meta={meta} />
+    <Card type='playlist' response={response} />
   )
 }
 PlaylistCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  instructor: PropTypes.string.isRequired,
   meta: PropTypes.object
 }
 
 export const PlaylistMeta = ({meta}) => {
+  console.log('playlistmeta response', meta)
+  const { playlist, lessonsLeft, currentLesson } = meta
+  const currentLessonNum = playlist.indexOf(currentLesson)
+  const lessonCount = playlist.length
+
   return (
     <div className='flex flex-column items-center'>
       <div className='f6 dark-gray o-50'>
-        <span className='dark-green'>{meta.currentLesson}</span>
+        <span className='dark-green'>{currentLessonNum}</span>
         <span className='mh1'>/</span>
-        <span>{meta.lessonCount} {meta.lessonCount === 1 ? 'lesson' : 'lessons'}</span>
+        <span>{lessonCount} {lessonCount === 1 ? 'lesson' : 'lessons'}</span>
       </div>
       <div className='w4 br1 bg-tag-turquoise mt1 overflow-hidden'>
         <div className='pt1 bg-turquoise' style={{
-          width: `${Math.round((meta.currentLesson / meta.lessonCount) * 100)}%`
+          width: `${Math.round((currentLesson / lessonCount) * 100)}%`
         }} />
       </div>
     </div>
   )
 }
 PlaylistMeta.propTypes = {
-  meta: PropTypes.object
+  response: PropTypes.object
 }
 
 const PlaylistSummary = ({timeRemaining, lessonsLeft}) => {
@@ -48,15 +52,16 @@ PlaylistSummary.propTypes = {
   lessonsLeft: PropTypes.number.isRequired
 }
 
-export const PlaylistHeader = ({meta}) => {
-  const { timeRemaining, lessonsLeft } = meta
+export const PlaylistHeader = ({response}) => {
+  console.log('playlistHeader response', response)
+  const { lessons, progress, timeRemaining, lessonsLeft } = response
   return (
     <div>
       <div className='relative w-100' style={{
         height: '290px'
       }}>
         <PlayButton />
-        <Playlist playlist={meta.playlist} />
+        <Playlist playlist={buildPlaylistMeta(lessons, progress)} />
       </div>
       <PlaylistSummary timeRemaining={timeRemaining} lessonsLeft={lessonsLeft} />
     </div>
