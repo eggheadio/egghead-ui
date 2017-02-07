@@ -55,8 +55,6 @@ const cardTypes = {
     'pillClasses': `${bluePillClasses}`,
     'metaComponent': (response) => <LessonMeta meta={buildCardMeta('lesson', response)} />,
     'headerComponent': (response) => <LessonHeader response={response} />
-
-
   },
   'playlist': {
     'cardClasses': `${commonCardClasses} card-stacked-shadow sans-serif card-playlist`,
@@ -158,6 +156,5 @@ Card.propTypes = {
   type: PropTypes.oneOf(keys(cardTypes)),
   response: PropTypes.object
 }
-
 
 export default Card
