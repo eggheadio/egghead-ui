@@ -5,7 +5,6 @@ import Card from './'
 const expansions = [false, 'horizontal', 'vertical']
 
 export const CourseMeta = ({meta}) => {
-  console.log('coursemeta meta', meta)
   return (
     <div className='f6 dark-gray o-50'>
       {meta.lessonCount} {meta.lessonCount === 1 ? 'lesson' : 'lessons'}
@@ -17,7 +16,6 @@ CourseMeta.propTypes = {
 }
 
 export const CourseHeader = ({response}) => {
-  console.log('courseHeader response: ', response)
   return (
     <div>
       <PlayButton hover />

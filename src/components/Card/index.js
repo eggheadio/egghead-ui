@@ -4,6 +4,7 @@ import { CourseMeta, CourseHeader } from './CourseCard'
 import { LessonMeta, LessonHeader } from './LessonCard'
 import { PlaylistMeta, PlaylistHeader } from './PlaylistCard'
 import Playlist from '../Playlist/'
+import { buildPlaylistMeta } from '../../utils/Playlist'
 
 const commonCardClasses = 'relative card'
 const commonInnerClasses = 'flex flex-column items-center bg-white navy relative z-1 card-course-inner br2'
@@ -34,7 +35,7 @@ const cardTypes = {
     'cardClasses': `${commonCardClasses} card-lesson`,
     'innerClasses': `${enhancedInnerClasses}`,
     'pillClasses': `${bluePillClasses}`,
-    'metaComponent': (response) => <LessonMeta response={response} />,
+    'metaComponent': (response) => <LessonMeta meta={buildCardMeta('lesson', response)} />,
     'headerComponent': (response) => <LessonHeader response={response} />
 
 
@@ -44,7 +45,7 @@ const cardTypes = {
     'innerClasses': `${commonInnerClasses}`,
     'pillClasses': `${greenPillClasses}`,
     'footerClasses': 'pb4 ph4',
-    'metaComponent': (response) => <PlaylistMeta response={response} />,
+    'metaComponent': (response) => <PlaylistMeta meta={buildCardMeta('playlist', response)} />,
     'headerComponent': (response) => <PlaylistHeader response={response} />
   }
 }
@@ -102,7 +103,8 @@ CardBody.propTypes = {
 }
 
 const Card = ({type, expanded, response}) => {
-  const { title, instructor: { full_name } } = response
+  const { title, instructor: { full_name }, lessons, progress } = response
+  const cardPlaylist = buildPlaylistMeta(lessons, progress)
   const extendedClasses = 'relative w-100 z-1 overflow-hidden pv3 bg-tag-gray br2'
   return (
     <div className={`${cardTypes[type]['cardClasses']} ${expanded === 'horizontal' ? 'flex expanded-horizontal' : ''}`}> 
@@ -117,7 +119,7 @@ const Card = ({type, expanded, response}) => {
         { expanded === 'vertical'
           ? (
             <div style={{height: '290px'}}>
-              <Playlist playlist={meta.playlist} />
+              <Playlist playlist={cardPlaylist} />
             </div>
           )
           : null
@@ -125,7 +127,7 @@ const Card = ({type, expanded, response}) => {
         { expanded === 'horizontal'
           ? (
             <div style={{height: 'auto', maxHeight: '475px'}}>
-              <Playlist playlist={meta.playlist} />
+              <Playlist playlist={cardPlaylist} />
             </div>
           )
           : null
