@@ -124,7 +124,9 @@ const Card = ({type, expanded, response}) => {
   const extendedClasses = 'relative w-100 z-1 overflow-hidden pv3 bg-tag-gray br2'
   return (
     <div className={`${cardTypes[type]['cardClasses']} ${expanded === 'horizontal' ? 'flex expanded-horizontal' : ''}`}> 
-      <div className={`${cardTypes[type]['innerClasses']} ${!expanded ? 'br2' : ''} ${expanded === 'vertical' ? 'br2 br--top' : ''} ${expanded === 'horizontal' ? 'br2 br--left' : ''}`}>
+      <div className={`${cardTypes[type]['innerClasses']} ${!expanded ? 'br2' : ''} ${expanded === 'vertical' ? 'br2 br--top' : ''} ${expanded === 'horizontal' ? 'br2 br--left' : ''}`}
+        style={expanded === 'horizontal' ? {maxHeight: '475px'} : {}}
+      >
         <CardHeader type={type} response={response} />
         <CardBody title={title} instructor={full_name} />
         <CardFooter type={type} response={response} />
@@ -142,9 +144,7 @@ const Card = ({type, expanded, response}) => {
         }
         { expanded === 'horizontal'
           ? (
-            <div style={{height: 'auto', maxHeight: '475px'}}>
-              <Playlist playlist={cardPlaylist} />
-            </div>
+            <Playlist playlist={cardPlaylist} />
           )
           : null
         }
