@@ -21,7 +21,7 @@ VideoTitle.propTypes = {
 }
 
 const CategoryIcon = ({icon}) => {
-  return <img src={icon} className='ml2 mt1' alt='' />
+  return <img src={icon} className='ml2 mt1 h1' alt='' />
 }
 
 const PlaylistItem = ({item, extraClasses}) => {
