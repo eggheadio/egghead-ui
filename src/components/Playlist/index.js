@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react'
+import { secondsToString } from '../../utils/Time'
+
 
 const VideoLength = ({length}) => {
   return <div className='w3 ml3 tr o-60'>{length}</div>
@@ -23,7 +25,8 @@ const CategoryIcon = ({icon}) => {
 }
 
 const PlaylistItem = ({item, extraClasses}) => {
-  const { watched, current, icon, title, length } = item
+  const { watched, current, icon, title, duration } = item
+  const length = secondsToString(duration)
   const liClasses = 'flex items-start relative f6 lh-solid pointer pv3 pl4 pr3 gray hover-bg-white card-progress-list-item' 
   const textClasses = 'ml2 flex justify-between flex-grow-1 lh-copy overflow-hidden lesson-title'
 
@@ -52,7 +55,9 @@ const Playlist = ({playlist}) => {
         {playlist.map((i, k) => {
             const extraClasses = playlist[k+1] && playlist[k+1]['current'] ? 'pre-next' : null
             return (
-              <PlaylistItem item={i} key={k} extraClasses={extraClasses}/>
+              <a href={i.http_url} key={k} className='no-underline'>
+                <PlaylistItem item={i} extraClasses={extraClasses}/>
+              </a>
             )
           })
         

@@ -12,25 +12,23 @@ export const LessonMeta = ({meta}) => {
   )
 }
 LessonMeta.propTypes = {
-  meta: PropTypes.object.isRequired
+  meta: PropTypes.object
 }
 
 export const LessonHeader = ({meta}) => {
   return <PlayButton hover />
 }
 LessonHeader.propTypes = {
-  meta: PropTypes.object.isRequired
+  meta: PropTypes.object
 }
 
-const LessonCard = ({title, instructor, type, meta}) => {
+const LessonCard = ({response}) => {
   return (
-    <Card title={title} instructor={instructor} type='lesson' meta={meta} />
+    <Card type='lesson' response={response} />
   )
 }
 LessonCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  instructor: PropTypes.string.isRequired,
-  meta: PropTypes.object
+  response: PropTypes.object
 }
 
 export default LessonCard

@@ -12,34 +12,32 @@ export const CourseMeta = ({meta}) => {
   )
 }
 CourseMeta.propTypes = {
-  meta: PropTypes.object.isRequired
+  meta: PropTypes.object
 }
 
-export const CourseHeader = ({meta}) => {
+export const CourseHeader = ({response}) => {
   return (
     <div>
       <PlayButton hover />
       <div className='mw5 mt3 center ph3'>
-        <img alt='' src={meta.courseImg} />
+        <img alt='' src={response.square_cover_url} />
       </div>
     </div>
   )
 }
 CourseHeader.propTypes = {
-  meta: PropTypes.object.isRequired
+  response: PropTypes.object
 }
 
-
-const CourseCard = ({title, instructor, meta, expanded=false}) => {
+const CourseCard = ({response, expanded=false}) => {
+  const { title, instructor: { full_name } } = response
   return (
-    <Card title={title} instructor={instructor} type='course' meta={meta} expanded={expanded}/>
+    <Card type='course' response={response} expanded={expanded} />
   )
 }
 CourseCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  instructor: PropTypes.string.isRequired,
-  expanded: PropTypes.oneOf(expansions),
-  meta: PropTypes.object
+  response: PropTypes.object.isRequired,
+  expanded: PropTypes.oneOf(expansions)
 }
 
 export default CourseCard
