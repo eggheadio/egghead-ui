@@ -142,12 +142,7 @@ const Card = ({type, expanded, response}) => {
           )
           : null
         }
-        { expanded === 'horizontal'
-          ? (
-            <Playlist playlist={cardPlaylist} />
-          )
-          : null
-        }
+        { expanded === 'horizontal' ? <Playlist playlist={cardPlaylist} /> : null }
       </div>
     </div>
   )
