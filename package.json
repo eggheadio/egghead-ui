@@ -14,7 +14,8 @@
     "verify": "yarn build:library && yarn build:styleguide",
     "prepublish": "yarn build:library",
     "start": "react-scripts start",
-    "build": "yarn verify"
+    "build": "yarn verify",
+    "release": "np"
   },
   "dependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
@@ -51,5 +52,8 @@
   "bugs": {
     "url": "https://github.com/eggheadio/egghead-ui/issues"
   },
-  "homepage": "https://github.com/eggheadio/egghead-ui#readme"
+  "homepage": "https://github.com/eggheadio/egghead-ui#readme",
+  "devDependencies": {
+    "np": "^2.12.0"
+  }
 }
