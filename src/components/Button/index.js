@@ -30,8 +30,8 @@ const outlineBtnClasses = {
 
 const styleMap = (size) => {
   const classes = {
-    'large': ['line-height: 2rem;', 'min-width: 200px;'],
     'small': ['min-width: 140px;', 'height: 3rem;'],
+    'large': ['line-height: 2rem;', 'min-width: 200px;'],
     'extra-large': ['min-width: 280px;', 'height: 5rem;']
   }
 
