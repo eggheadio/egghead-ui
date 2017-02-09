@@ -28,19 +28,19 @@ const outlineBtnClasses = {
   default: 'b--white white hover-dark-navy hover-bg-white'
 }
 
-const styleMap = (className) => {
-  if (className === undefined) {
+const styleMap = (size) => {
+  if (size === undefined) {
     return ['line-height: 2rem;', 'min-width: 200px;']
   }
-  if (className === 'small') {
+  if (size === 'small') {
     return ['min-width: 140px;', 'height: 3rem;']
   }
-  if (className === 'extra-large') {
+  if (size === 'extra-large') {
     return ['min-width: 280px;', 'height: 5rem;']
   }
 }
 
-let Button = ({href, type='default', size='large', outline=false, children, className}) => {
+const Button = styled(({href, type='default', size='large', outline=false, children, className}) => {
     const btnClasses = outline ? outlineBtnClasses[type] : solidBtnClasses[type]
     const sizeClasses = sizedBtnClasses[size]
 
@@ -49,11 +49,7 @@ let Button = ({href, type='default', size='large', outline=false, children, clas
         {children}
       </a>
     )
-}
-
-Button = styled(Button)`
-  ${props => styleMap(props.size)}
-`
+})`${props => styleMap(props.size)}`
 
 Button.propTypes = {
   href: PropTypes.string,
