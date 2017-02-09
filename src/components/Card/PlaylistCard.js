@@ -5,6 +5,28 @@ import Card from './'
 import { buildPlaylistMeta, findVidNumber, getTimeLeft } from '../../utils/Playlist'
 import { secondsToString } from '../../utils/Time'
 
+/**
+ *
+ .card-playlist .card-progress-list-item.viewed:before {
+  border: 1px solid var(--turquoise);
+  background: var(--turquoise);
+}
+.card-playlist .card-progress-list-item.viewed:after {
+  border-color: var(--turquoise);
+}
+.card-playlist .card-progress-list-item.next:before {
+  border-color: transparent transparent transparent var(--turquoise);
+  box-shadow: 0 0 0 6px var(--tag-gray);
+  background: var(--tag-gray);
+}
+.card-playlist .card-progress-list-item.next:hover:before {
+  box-shadow: 0 0 0 6px var(--white);
+  background: var(--white);
+}
+.card-playlist .card-play-btn {
+  bottom: -2.5rem;
+}
+ * */
 
 export const PlaylistCard = ({response}) => {
   return (

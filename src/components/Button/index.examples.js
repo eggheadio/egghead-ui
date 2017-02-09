@@ -13,7 +13,7 @@ const standardButtonExamples = [
 
 
 const decoratorClasses = 'flex flex-column content-center justify-around flex-wrap items-center vh-100 bg-navy'
-const btnDisp = 'flex flex-column justify-around items-center vh-50'
+const btnDisp = 'flex flex-column justify-around items-center vh-100'
 
 
 // Standard Large Button (Default)

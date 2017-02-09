@@ -2,6 +2,71 @@ import React, {PropTypes} from 'react'
 import {keys} from 'lodash'
 import Icon from '../Icon'
 
+/**
+ * .eh-text-field {
+    font-size: 1.125em;
+}
+.eh-text-field::-webkit-input-placeholder {
+    color: gray;
+    transition: 150ms;
+}
+.eh-text-field::-moz-placeholder {
+    color: gray;
+    transition: 150ms;
+}
+.eh-text-field:-ms-input-placeholder {
+    color: gray;
+    transition: 150ms;
+}
+.eh-text-field:-moz-placeholder {
+    color: gray;
+    transition: 150ms;
+}
+.eh-text-field:focus {}
+.eh-text-field:focus::-webkit-input-placeholder {
+    color: transparent;
+    transition: 150ms;
+}
+.eh-text-field:focus::-moz-placeholder {
+    color: transparent;
+    transition: 150ms;
+}
+.eh-text-field:focus:-ms-input-placeholder {
+    color: transparent;
+    transition: 150ms;
+}
+.eh-text-field:focus:-moz-placeholder {
+    color: transparent;
+    transition: 150ms;
+}
+.eh-text-field.disabled {
+    border-color: #292f36;
+    background: #1b1f24;
+    color: #646e7b;
+    cursor: not-allowed;
+}
+.eh-input-tooltip:before {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0px 8px 9px 8px;
+    border-color: transparent transparent #ffffff transparent;
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: -9px;
+}
+.eh-input-status-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.5rem;
+    top: 1.25rem;
+    right: 1.25rem;
+}
+ * 
+ */
+
+
 const commonClasses = 'db w-100 pl3 pr5 pv3 lh-copy br2 bg-dark-navy ba eh-text-field sans-serif'
 const standardClasses = 'white b--gray focus-b-gray'
 const errorClasses = 'red b--red focus-b--red'

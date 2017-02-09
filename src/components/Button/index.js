@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import styled from 'styled-components'
 
 const commonClasses = 'link dib f5 fw6 tracked tc br2 ttu ba pointer'
 
@@ -6,9 +7,9 @@ const sizes = ['large', 'small', 'extra-large']
 const types = ['success', 'warning', 'danger', 'primary', 'default']
 
 const sizedBtnClasses = {
-  'large': 'h3 pa3 eh-btn-primary',
-  'small': 'h2 lh-solid pa3 eh-btn',
-  'extra-large': 'lh-solid ph4 pv4 eh-cta'
+  'large': 'h3 pa3',
+  'small': 'h2 lh-solid pa3',
+  'extra-large': 'lh-solid ph4 pv4'
 }
 
 const solidBtnClasses = {
@@ -27,16 +28,28 @@ const outlineBtnClasses = {
   default: 'b--white white hover-dark-navy hover-bg-white'
 }
 
-const Button = ({href, type='default', size='large', outline=false, children}) => {
+const styleMap = (size) => {
+  if (size === undefined) {
+    return ['line-height: 2rem;', 'min-width: 200px;']
+  }
+  if (size === 'small') {
+    return ['min-width: 140px;', 'height: 3rem;']
+  }
+  if (size === 'extra-large') {
+    return ['min-width: 280px;', 'height: 5rem;']
+  }
+}
+
+const Button = styled(({href, type='default', size='large', outline=false, children, className}) => {
     const btnClasses = outline ? outlineBtnClasses[type] : solidBtnClasses[type]
     const sizeClasses = sizedBtnClasses[size]
 
     return (
-      <a href={href} className={`${commonClasses} ${btnClasses} ${sizeClasses}`}>
+      <a href={href} className={`${commonClasses} ${btnClasses} ${sizeClasses} ${className}`}>
         {children}
       </a>
     )
-}
+})`${props => styleMap(props.size)}`
 
 Button.propTypes = {
   href: PropTypes.string,
