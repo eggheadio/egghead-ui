@@ -7,6 +7,107 @@ import Playlist from '../Playlist/'
 import { buildPlaylistMeta } from '../../utils/Playlist'
 import { secondsToString } from '../../utils/Time'
 
+/**
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.card-course,
+.card-lesson,
+.card-playlist {
+  max-width: 380px;
+}
+.card-course.expanded-horizontal {
+  max-width: 760px;
+}
+.card-stacked-shadow {
+  padding-bottom: 10px;
+}
+.card-stacked-shadow:before,
+.card-stacked-shadow:after {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 10px;
+  border-radius: 5px;
+}
+.card-stacked-shadow:before {
+  bottom: 5px;
+  left: 9px;
+  right: 9px;
+  background: var(--gray);
+  z-index: 1;
+}
+.card-stacked-shadow:after {
+  bottom: 0px;
+  left: 18px;
+  right: 18px;
+  background: var(--dark-gray);
+  z-index: 0;
+}
+
+
+.card-progress-list-item {
+  transition: 150ms;
+}
+.card-progress-list-item:before,
+.card-progress-list-item:after {
+  content: '';
+  position: absolute;
+  transition: 150ms;
+}
+.card-progress-list-item:before {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid var(--light-gray);
+  background: var(--tag-gray);
+  box-shadow: 0 0 0 1px var(--tag-gray);
+  left: 20px;
+  top: 22px;
+  z-index: 2;
+}
+.card-progress-list-item:hover:before {
+  background: var(--white);
+  box-shadow: 0 0 0 1px var(--white);
+}
+.card-progress-list-item.viewed {
+  color: var(--gray);
+}
+.card-progress-list-item.viewed:before {
+  border: 1px solid var(--orange);
+  background: var(--orange);
+}
+.card-progress-list-item:after {
+  width: 1px;
+  height: 100%;
+  border-width: 0 0 0 1px;
+  border-style: solid;
+  border-color: var(--light-gray);
+  left: 24px;
+  top: 32px;
+  z-index: 1;
+}
+.card-progress-list-item.viewed:after {
+  border-color: var(--orange);
+}
+.card-progress-list-item.pre-next:after {
+  border-style: dashed;
+}
+.card-progress-list-item.next:before {
+  left: 21px;
+  border-radius: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 0px 6px 9px;
+  border-color: transparent transparent transparent var(--orange);
+}
+ * */
+
 const commonCardClasses = 'relative card'
 const commonInnerClasses = 'flex flex-column items-center bg-white navy relative z-1 card-course-inner br2'
 const enhancedInnerClasses = `${commonInnerClasses} overflow-hidden pa4 pointer`
