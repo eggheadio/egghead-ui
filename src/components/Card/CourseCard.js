@@ -46,7 +46,7 @@ CourseMeta.propTypes = {
   meta: PropTypes.object
 }
 
-export const CourseHeader = ({response}) => {
+export const CourseHeader = ({response, expanded}) => {
   return (
     <div>
       <PlayButton hover />

@@ -148,14 +148,14 @@ const cardTypes = {
     'innerClasses': `${enhancedInnerClasses}`,
     'pillClasses': `${orangePillClasses}`,
     'metaComponent': (response) => <CourseMeta meta={buildCardMeta('course', response)} />,
-    'headerComponent': (response) => <CourseHeader response={response} />
+    'headerComponent': (response, expanded) => <CourseHeader response={response} expanded={expanded} />
   },
   'lesson': {
     'cardClasses': `${commonCardClasses} card-lesson`,
     'innerClasses': `${enhancedInnerClasses}`,
     'pillClasses': `${bluePillClasses}`,
     'metaComponent': (response) => <LessonMeta meta={buildCardMeta('lesson', response)} />,
-    'headerComponent': (response) => <LessonHeader response={response} />
+    'headerComponent': (response, expanded) => <LessonHeader response={response} expanded={expanded} />
   },
   'playlist': {
     'cardClasses': `${commonCardClasses} card-stacked-shadow sans-serif card-playlist`,
@@ -163,7 +163,7 @@ const cardTypes = {
     'pillClasses': `${greenPillClasses}`,
     'footerClasses': 'pb4 ph4',
     'metaComponent': (response) => <PlaylistMeta meta={buildCardMeta('playlist', response)} />,
-    'headerComponent': (response) => <PlaylistHeader response={response} />
+    'headerComponent': (response, expanded) => <PlaylistHeader response={response} expanded={expanded} />
   }
 }
 
@@ -179,8 +179,8 @@ MaterialType.propTypes = {
   type: PropTypes.string.isRequired
 }
 
-const CardHeader = ({response, type}) => {
-  const headerComponent = cardTypes[type].headerComponent ? cardTypes[type].headerComponent(response) : null
+const CardHeader = ({response, type, expanded}) => {
+  const headerComponent = cardTypes[type].headerComponent ? cardTypes[type].headerComponent(response, expanded) : null
   return (
     <div className='w-100'>
       {headerComponent}
@@ -228,7 +228,7 @@ const Card = ({type, expanded, response}) => {
       <div className={`${cardTypes[type]['innerClasses']} ${!expanded ? 'br2' : ''} ${expanded === 'vertical' ? 'br2 br--top' : ''} ${expanded === 'horizontal' ? 'br2 br--left' : ''}`}
         style={expanded === 'horizontal' ? {maxHeight: '475px'} : {}}
       >
-        <CardHeader type={type} response={response} />
+        <CardHeader type={type} response={response} expanded={expanded} />
         <CardBody title={title} instructor={full_name} />
         <CardFooter type={type} response={response} />
       </div>

@@ -15,7 +15,7 @@ LessonMeta.propTypes = {
   meta: PropTypes.object
 }
 
-export const LessonHeader = ({meta}) => {
+export const LessonHeader = ({meta, expanded}) => {
   return <PlayButton hover />
 }
 LessonHeader.propTypes = {
