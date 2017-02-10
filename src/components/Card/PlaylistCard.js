@@ -75,7 +75,7 @@ PlaylistSummary.propTypes = {
   lessonsLeft: PropTypes.number.isRequired
 }
 
-export const PlaylistHeader = ({response}) => {
+export const PlaylistHeader = ({response, expanded}) => {
   const { lessons, progress, duration } = response
   const lessonsLeft = lessons.length - progress.completed_lessons.length
   const timeRemaining = secondsToString(getTimeLeft(duration, progress))
