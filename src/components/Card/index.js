@@ -142,6 +142,33 @@ const buildCardMeta = (type, response) => {
   return { meta: response }
 }
 
+const cardStackedShadow = ['padding-bottom: 10px;']
+const cardStackedShadowBACommon = [
+  'content: \'\';',
+  'position: absolute;',
+  'display: block;',
+  'height: 10px;',
+  'border-radius: 5px;'
+]
+const cardStackedShadowBefore = [
+  `${cardStackedShadowBACommon}`,
+  'bottom: 5px;',
+  'left: 9px;',
+  'right: 9px;',
+  'background: var(--gray);',
+  'z-index: 1;'
+]
+
+const cardStackedShadowAfter = [
+  `${cardStackedShadowBACommon}`,
+  'bottom: 0px;',
+  'left: 18px;',
+  'right: 18px;',
+  'background: var(--dark-gray);',
+  'z-index: 0;'
+]
+
+
 const cardTypes = {
   'course': {
     'cardClasses': `${commonCardClasses} card-stacked-shadow card-course`,
