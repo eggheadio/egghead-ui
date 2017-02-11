@@ -18,32 +18,6 @@ const greenPillClasses = `${pillClasses} dark-green bg-tag-turquoise tracked`
 const titleHeadingClasses = 'f3 tc mt4 mb2 avenir fw5'
 const instructorNameClasses = 'f6 dark-gray o-50 mb4 tc'
 
-const cardStackedShadow = ['padding-bottom: 10px;']
-const cardStackedShadowBACommon = [
-  'content: \'\';',
-  'position: absolute;',
-  'display: block;',
-  'height: 10px;',
-  'border-radius: 5px;'
-]
-const cardStackedShadowBefore = [
-  cardStackedShadowBACommon,
-  'content: \'\';',
-  'bottom: 5px;',
-  'left: 9px;',
-  'right: 9px;',
-  'background: var(--gray);',
-  'z-index: 1;'
-]
-
-const cardStackedShadowAfter = [
-  'bottom: 0px;',
-  'left: 18px;',
-  'right: 18px;',
-  'background: var(--dark-gray);',
-  'z-index: 0;'
-]
-
 const cardTypes = {
   'course': {
     'cardStyles': [
@@ -152,17 +126,6 @@ CardFooter.propTypes = {
   response: PropTypes.object,
   type: PropTypes.string.isRequired
 }
-
-
-
-
-
-/**
- *
- *    Styled Components
- *
- */
-
 
 const StyledCardContainer = styled.div`
   ${props => cardTypes[props.type]['cardStyles']} 
