@@ -56,6 +56,12 @@ storiesOf('Cards')
     </div>
   ))
 
+  .addWithInfo('Styled Course Card Expanded Horizontal', () => (
+    <div className={representClasses}>
+      <StyledCard type={'course'} response={response} expanded={'horizontal'} />
+    </div>
+  ))
+
 storiesOf('Static: Cards')
   .addWithInfo('Course Card', () => (
     <div className={representClasses}>

@@ -79,10 +79,6 @@ MaterialType.propTypes = {
   type: PropTypes.string.isRequired
 }
 
-const expandedHorizontalClasses = [
-  'max-width: 760px;' 
-]
-
 const CardHeader = ({response, type, expanded}) => {
   const headerComponent = cardTypes[type].headerComponent ? cardTypes[type].headerComponent(response, expanded) : null
   return (
@@ -125,7 +121,7 @@ CardFooter.propTypes = {
 
 const StyledCardContainer = styled.div`
   ${props => cardTypes[props.type]['cardStyles']} 
-  ${props => props.expanded === 'horizontal' ? `${expandedHorizontalClasses}` : ''}
+  ${props => props.expanded === 'horizontal' ? 'max-width: 760px' : ''}
   ${props => cardTypes[props.type]['shadow']
     ? `
         padding-bottom: 10px;
@@ -166,7 +162,6 @@ const StyledExpansionContainer = styled.div`
   height: auto;
   max-height: 475px;
 `
-
 const StyledCard = ({type, expanded, response}) => {
   const { title, instructor: { full_name }, lessons, progress } = response
   const cardPlaylist = buildPlaylistMeta(lessons, progress)
@@ -190,9 +185,14 @@ const StyledCard = ({type, expanded, response}) => {
   return (
     <StyledCardContainer type={type} expanded={expanded}
       className={`${cardTypes[type]['cardClasses']} ${expanded === 'horizontal' ? 'flex' : ''}`}
+      style={expanded === 'horizontal' ? {maxHeight: '475px'} : {}}
     >
       <StyledInnerCard type={type} expanded={expanded} response={response}
-        className={`${cardTypes[type]['innerClasses']} ${expanded !== 'vertical' ? 'br2' : 'br2 br--top'}`}
+        className={`${cardTypes[type]['innerClasses']}
+                    ${!expanded ? 'br2': ''}
+                    ${expanded === 'vertical' ? 'br2 br--top' : ''}
+                    ${expanded === 'horizontal' ? 'br2 br--left' : ''}
+                  `}
       >
         <CardHeader type={type} response={response} expanded={expanded} />
         <CardBody title={title} instructor={full_name} />
