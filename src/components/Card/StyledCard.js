@@ -50,28 +50,23 @@ const cardTypes = {
 }
 
 const buildCardMeta = (type, response) => {
-  if (type.toLowerCase() === 'course') {
-    return {lessonCount: response.lesson_count}
-  }
-
-  if (type.toLowerCase() === 'lesson') {
-    return {
+  const cardMetaMap = {
+    'course': {
+      lessonCount: response.lesson_count
+    },
+    'lesson': {
       langImg: response.tech_logo_http_url,
       videoLength: secondsToString(response.duration)
-      
+    },
+    'playlist': {
+        timeRemaining: 'temp',
+        lessonsLeft: response.lesson_count - response.completed_lesson_count,
+        currentLesson: response.progress.current_lesson,
+        playlist: buildPlaylistMeta(response.lessons, response.progress)
     }
   }
 
-  if (type.toLowerCase() === 'playlist') {
-    return {
-      timeRemaining: 'temp',
-      lessonsLeft: response.lesson_count - response.completed_lesson_count,
-      currentLesson: response.progress.current_lesson,
-      playlist: buildPlaylistMeta(response.lessons, response.progress)
-    }
-  }
-  
-  return { meta: response }
+  return cardMetaMap[type] || { meta: response }
 }
 
 const MaterialType = ({type}) => {
