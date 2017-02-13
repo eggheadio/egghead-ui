@@ -44,6 +44,10 @@ const cardTypes = {
     'headerComponent': (response, expanded) => <LessonHeader response={response} expanded={expanded} />
   },
   'playlist': {
+    'cardStyles': [
+      'max-width: 380px;',
+      'box-sizing: border-box;'
+    ],
     'cardClasses': `${commonCardClasses} card-stacked-shadow sans-serif card-playlist`,
     'innerClasses': `${commonInnerClasses}`,
     'pillClasses': `${greenPillClasses}`,

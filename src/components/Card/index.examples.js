@@ -70,7 +70,7 @@ storiesOf('Cards')
 
   .addWithInfo('Styled Playlist Card', () => (
     <div className={representClasses}>
-      <StyledCard type={'playlist'} response={response} />
+      <PlaylistCard type={'playlist'} response={response} />
     </div>
   ))
 
