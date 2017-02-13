@@ -62,6 +62,18 @@ storiesOf('Cards')
     </div>
   ))
 
+  .addWithInfo('Styled Lesson Card', () => (
+    <div className={representClasses}>
+      <StyledCard type={'lesson'} response={response} />
+    </div>
+  ))
+
+  .addWithInfo('Styled Playlist Card', () => (
+    <div className={representClasses}>
+      <StyledCard type={'playlist'} response={response} />
+    </div>
+  ))
+
 storiesOf('Static: Cards')
   .addWithInfo('Course Card', () => (
     <div className={representClasses}>
