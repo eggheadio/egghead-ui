@@ -160,6 +160,7 @@ const StyledCardContainer = styled.div`
         }
       `
     : ''}
+  ${props => props.expanded === 'vertical' ? `.card-play-btn { opacity: 1 }` : ''}
 `
 
 const StyledInnerCard = styled.div`
