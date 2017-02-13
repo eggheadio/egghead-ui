@@ -28,7 +28,7 @@ const cardTypes = {
     'cardClasses' : 'relative',
     'shadow': true,
     'innerStyles': `${enhancedInnerClasses}`,
-    'innerClasses': 'flex flex-column items-center bg-white navy relative z-1 br2 overflow-hidden pa4 pointer',
+    'innerClasses': 'flex flex-column items-center bg-white navy relative z-1 overflow-hidden pa4 pointer',
     'pillClasses': `${orangePillClasses}`,
     'metaComponent': (response) => <CourseMeta meta={buildCardMeta('course', response)} />,
     'headerComponent': (response, expanded) => <CourseHeader response={response} expanded={expanded} />
@@ -192,7 +192,7 @@ const StyledCard = ({type, expanded, response}) => {
       className={`${cardTypes[type]['cardClasses']} ${expanded === 'horizontal' ? 'flex' : ''}`}
     >
       <StyledInnerCard type={type} expanded={expanded} response={response}
-        className={`${cardTypes[type]['innerClasses']}`}
+        className={`${cardTypes[type]['innerClasses']} ${expanded !== 'vertical' ? 'br2' : 'br2 br--top'}`}
       >
         <CardHeader type={type} response={response} expanded={expanded} />
         <CardBody title={title} instructor={full_name} />
