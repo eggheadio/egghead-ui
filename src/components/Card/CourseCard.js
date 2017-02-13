@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 import PlayButton from '../Button/PlayButton'
-import Card from './'
+import Card from './StyledCard'
 
 
 /**
@@ -37,9 +37,6 @@ import Card from './'
 const StyledPlayButton = styled(PlayButton)`
   top: 50%;
   margin-top: -2rem;
-  &:hover {
-    opacity: 1;
-  }
 `
 
 const expansions = [false, 'horizontal', 'vertical']

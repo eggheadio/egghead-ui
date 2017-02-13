@@ -18,10 +18,11 @@ import styled, { css } from 'styled-components'
  * */
 
 const commonPlayBtnClasses = 'fa fa-play w3 h3 f3 absolute z-1 gray items-center justify-center br-pill pointer'
-const hoverPlayBtnClasses = `${commonPlayBtnClasses} bg-white-70 o-0`
+const hoverPlayBtnClasses = `${commonPlayBtnClasses} bg-white-70`
 const playBtnClasses = `${commonPlayBtnClasses} hover-turquoise bg-white`
 
 const StyledPlayButton = styled.div`
+  ${props => props.hover ? 'opacity: 0' : ''},
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.17);
   left: 50%;
   margin-left: -34px;
@@ -30,11 +31,11 @@ const StyledPlayButton = styled.div`
   &:before {
     position: relative;
     left: 3px;
-  } 
+  }
 `
 
-const PlayButton = ({ hover=false }) => {
-    return <StyledPlayButton className={hover ? hoverPlayBtnClasses : playBtnClasses} />
+const PlayButton = ({ hover=false, className }) => {
+    return <StyledPlayButton className={`${hover ? hoverPlayBtnClasses : playBtnClasses} ${className}`}/>
 }
 
 PlayButton.propTypes = {
