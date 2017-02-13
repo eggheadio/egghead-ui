@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import PlayButton from '../Button/PlayButton'
-import Card from './'
+import Card from './StyledCard'
 
 export const LessonMeta = ({meta}) => {
   return (

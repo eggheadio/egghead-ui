@@ -36,7 +36,7 @@ const StyledPlayButton = styled.div`
 `
 
 const PlayButton = ({ hover=false, className }) => {
-    return <StyledPlayButton hover={hover} className={`${hover ? hoverPlayBtnClasses : playBtnClasses} ${className}`}/>
+    return <StyledPlayButton hover={hover} className={`${hover ? `${hoverPlayBtnClasses} card-play-btn` : playBtnClasses} ${className}`}/>
 }
 
 PlayButton.propTypes = {

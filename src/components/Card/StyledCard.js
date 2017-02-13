@@ -151,6 +151,15 @@ const StyledCardContainer = styled.div`
         }
       `
     : ''}
+  ${props => props.type === 'course' && (props.expanded === false || props.expanded === 'horizontal')
+    ? `
+        &:hover {
+          .card-play-btn {
+            opacity: 1;
+          }
+        }
+      `
+    : ''}
 `
 
 const StyledInnerCard = styled.div`
