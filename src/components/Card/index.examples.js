@@ -64,7 +64,7 @@ storiesOf('Cards')
 
   .addWithInfo('Styled Lesson Card', () => (
     <div className={representClasses}>
-      <StyledCard type={'lesson'} response={response} />
+      <LessonCard type={'lesson'} response={response} />
     </div>
   ))
 

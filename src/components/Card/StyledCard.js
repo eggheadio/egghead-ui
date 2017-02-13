@@ -34,7 +34,10 @@ const cardTypes = {
     'headerComponent': (response, expanded) => <CourseHeader response={response} expanded={expanded} />
   },
   'lesson': {
-    'cardClasses': `${commonCardClasses} card-lesson`,
+    'cardStyles': [
+      'max-width: 380px;',
+      'box-sizing: border-box;'
+    ],
     'innerClasses': `${enhancedInnerClasses}`,
     'pillClasses': `${bluePillClasses}`,
     'metaComponent': (response) => <LessonMeta meta={buildCardMeta('lesson', response)} />,
@@ -151,7 +154,7 @@ const StyledCardContainer = styled.div`
         }
       `
     : ''}
-  ${props => props.type === 'course' && (props.expanded === false || props.expanded === 'horizontal')
+  ${props => props.type === 'lesson' || (props.type === 'course' && (props.expanded === false || props.expanded === 'horizontal'))
     ? `
         &:hover {
           .card-play-btn {

@@ -3,37 +3,6 @@ import styled, { css } from 'styled-components'
 import PlayButton from '../Button/PlayButton'
 import Card from './StyledCard'
 
-
-/**
- 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-.card-course,
-.card-lesson,
-.card-playlist {
-  max-width: 380px;
-}
-.card-course.expanded-horizontal {
-  max-width: 760px;
-}
-
-.card-course .card-play-btn {
-  top: 50%;
-  margin-top: -2rem;
-}
-.card-course:hover .card-play-btn {
-  opacity: 1;
-}
-.card-course .card-progress-list-item {
-  
-}
-
- * **/
-
 const StyledPlayButton = styled(PlayButton)`
   top: 50%;
   margin-top: -2rem;
