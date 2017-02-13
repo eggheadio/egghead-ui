@@ -37,6 +37,7 @@ import Card from './StyledCard'
 const StyledPlayButton = styled(PlayButton)`
   top: 50%;
   margin-top: -2rem;
+  ${props => props.hover ? `&:hover { opacity: 1; }` : ''}
 `
 
 const expansions = [false, 'horizontal', 'vertical']

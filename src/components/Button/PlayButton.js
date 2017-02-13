@@ -22,7 +22,6 @@ const hoverPlayBtnClasses = `${commonPlayBtnClasses} bg-white-70`
 const playBtnClasses = `${commonPlayBtnClasses} hover-turquoise bg-white`
 
 const StyledPlayButton = styled.div`
-  ${props => props.hover ? 'opacity: 0' : ''},
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.17);
   left: 50%;
   margin-left: -34px;
@@ -32,10 +31,12 @@ const StyledPlayButton = styled.div`
     position: relative;
     left: 3px;
   }
+  ${props => props.hover ? 'opacity: 0;' : ''},
+
 `
 
 const PlayButton = ({ hover=false, className }) => {
-    return <StyledPlayButton className={`${hover ? hoverPlayBtnClasses : playBtnClasses} ${className}`}/>
+    return <StyledPlayButton hover={hover} className={`${hover ? hoverPlayBtnClasses : playBtnClasses} ${className}`}/>
 }
 
 PlayButton.propTypes = {
