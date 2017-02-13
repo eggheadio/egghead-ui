@@ -44,9 +44,15 @@ storiesOf('Cards')
     </div>
   ))
 
-  .addWithInfo('Styled Card', () => (
+  .addWithInfo('Styled Course Card', () => (
     <div className={representClasses}>
       <StyledCard type={'course'} response={response} />
+    </div>
+  ))
+
+  .addWithInfo('Styled Course Card Expanded Vertical', () => (
+    <div className={representClasses}>
+      <StyledCard type={'course'} response={response} expanded={'vertical'} />
     </div>
   ))
 

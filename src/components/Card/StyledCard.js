@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { keys } from 'lodash'
 import styled, { css } from 'styled-components'
 import { CourseMeta, CourseHeader } from './CourseCard'
 import { LessonMeta, LessonHeader } from './LessonCard'
@@ -162,17 +163,29 @@ const StyledInnerCard = styled.div`
 `
 
 const StyledExpansionContainer = styled.div`
-  color: red;
-
+  height: auto;
+  max-height: 475px;
 `
-
-const StyledExpansion = styled.div`
-  color: red;
-`
-
 
 const StyledCard = ({type, expanded, response}) => {
   const { title, instructor: { full_name }, lessons, progress } = response
+  const cardPlaylist = buildPlaylistMeta(lessons, progress)
+  const extendedClasses = 'relative w-100 z-1 overflow-hidden pv3 bg-tag-gray br2'
+
+  const expansionMap = {
+    vertical: {
+      classes: `${extendedClasses} br--bottom`,
+      component: (
+        <div style={{height: '290px'}}>
+          <Playlist playlist={cardPlaylist} />
+        </div>
+      )
+    },
+    horizontal: {
+      classes: `${extendedClasses} br--right`,
+      component: <Playlist playlist={cardPlaylist} />
+    }
+  }
 
   return (
     <StyledCardContainer type={type} expanded={expanded}
@@ -185,9 +198,19 @@ const StyledCard = ({type, expanded, response}) => {
         <CardBody title={title} instructor={full_name} />
         <CardFooter type={type} response={response} />
       </StyledInnerCard>
+      { expanded ?
+        <StyledExpansionContainer className={expansionMap[expanded]['classes']}>
+          {expansionMap[expanded]['component']}
+        </StyledExpansionContainer>
+        : null
+      }
     </StyledCardContainer>
   )
 } 
-
+StyledCard.propTypes = {
+  type: PropTypes.oneOf(keys(cardTypes)),
+  response: PropTypes.object,
+  expanded: PropTypes.string
+}
 
 export default StyledCard
