@@ -15,7 +15,7 @@
     "prepublish": "yarn build:library",
     "start": "react-scripts start",
     "build": "yarn verify",
-    "release": "np"
+    "release": "np --any-branch"
   },
   "dependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
