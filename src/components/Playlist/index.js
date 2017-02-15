@@ -110,7 +110,6 @@ PlaylistItem.propTypes = {
 }
 
 const Playlist = ({playlist, card=false}) => {
-	console.log('plCard prop', card)
   return (
     <div className='pr3 pt3 bg-tag-gray self-stretch h-100 br2 overflow-y-scroll'>
       <ul className='list pa0 ma0 overflow-hidden card-progress-list'>
