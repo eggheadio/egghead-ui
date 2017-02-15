@@ -7,107 +7,6 @@ import Playlist from '../Playlist/'
 import { buildPlaylistMeta } from '../../utils/Playlist'
 import { secondsToString } from '../../utils/Time'
 
-/**
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-.card-course,
-.card-lesson,
-.card-playlist {
-  max-width: 380px;
-}
-.card-course.expanded-horizontal {
-  max-width: 760px;
-}
-.card-stacked-shadow {
-  padding-bottom: 10px;
-}
-.card-stacked-shadow:before,
-.card-stacked-shadow:after {
-  content: '';
-  position: absolute;
-  display: block;
-  height: 10px;
-  border-radius: 5px;
-}
-.card-stacked-shadow:before {
-  bottom: 5px;
-  left: 9px;
-  right: 9px;
-  background: var(--gray);
-  z-index: 1;
-}
-.card-stacked-shadow:after {
-  bottom: 0px;
-  left: 18px;
-  right: 18px;
-  background: var(--dark-gray);
-  z-index: 0;
-}
-
-
-.card-progress-list-item {
-  transition: 150ms;
-}
-.card-progress-list-item:before,
-.card-progress-list-item:after {
-  content: '';
-  position: absolute;
-  transition: 150ms;
-}
-.card-progress-list-item:before {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  border: 1px solid var(--light-gray);
-  background: var(--tag-gray);
-  box-shadow: 0 0 0 1px var(--tag-gray);
-  left: 20px;
-  top: 22px;
-  z-index: 2;
-}
-.card-progress-list-item:hover:before {
-  background: var(--white);
-  box-shadow: 0 0 0 1px var(--white);
-}
-.card-progress-list-item.viewed {
-  color: var(--gray);
-}
-.card-progress-list-item.viewed:before {
-  border: 1px solid var(--orange);
-  background: var(--orange);
-}
-.card-progress-list-item:after {
-  width: 1px;
-  height: 100%;
-  border-width: 0 0 0 1px;
-  border-style: solid;
-  border-color: var(--light-gray);
-  left: 24px;
-  top: 32px;
-  z-index: 1;
-}
-.card-progress-list-item.viewed:after {
-  border-color: var(--orange);
-}
-.card-progress-list-item.pre-next:after {
-  border-style: dashed;
-}
-.card-progress-list-item.next:before {
-  left: 21px;
-  border-radius: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 6px 0px 6px 9px;
-  border-color: transparent transparent transparent var(--orange);
-}
- * */
-
 const commonCardClasses = 'relative card'
 const commonInnerClasses = 'flex flex-column items-center bg-white navy relative z-1 card-course-inner br2'
 const enhancedInnerClasses = `${commonInnerClasses} overflow-hidden pa4 pointer`
@@ -142,20 +41,47 @@ const buildCardMeta = (type, response) => {
   return { meta: response }
 }
 
+const cardStackedShadow = ['padding-bottom: 10px;']
+const cardStackedShadowBACommon = [
+  'content: \'\';',
+  'position: absolute;',
+  'display: block;',
+  'height: 10px;',
+  'border-radius: 5px;'
+]
+const cardStackedShadowBefore = [
+  `${cardStackedShadowBACommon}`,
+  'bottom: 5px;',
+  'left: 9px;',
+  'right: 9px;',
+  'background: var(--gray);',
+  'z-index: 1;'
+]
+
+const cardStackedShadowAfter = [
+  `${cardStackedShadowBACommon}`,
+  'bottom: 0px;',
+  'left: 18px;',
+  'right: 18px;',
+  'background: var(--dark-gray);',
+  'z-index: 0;'
+]
+
+
 const cardTypes = {
   'course': {
     'cardClasses': `${commonCardClasses} card-stacked-shadow card-course`,
     'innerClasses': `${enhancedInnerClasses}`,
     'pillClasses': `${orangePillClasses}`,
     'metaComponent': (response) => <CourseMeta meta={buildCardMeta('course', response)} />,
-    'headerComponent': (response) => <CourseHeader response={response} />
+    'headerComponent': (response, expanded) => <CourseHeader response={response} expanded={expanded} />
   },
   'lesson': {
     'cardClasses': `${commonCardClasses} card-lesson`,
     'innerClasses': `${enhancedInnerClasses}`,
     'pillClasses': `${bluePillClasses}`,
     'metaComponent': (response) => <LessonMeta meta={buildCardMeta('lesson', response)} />,
-    'headerComponent': (response) => <LessonHeader response={response} />
+    'headerComponent': (response, expanded) => <LessonHeader response={response} expanded={expanded} />
   },
   'playlist': {
     'cardClasses': `${commonCardClasses} card-stacked-shadow sans-serif card-playlist`,
@@ -163,7 +89,7 @@ const cardTypes = {
     'pillClasses': `${greenPillClasses}`,
     'footerClasses': 'pb4 ph4',
     'metaComponent': (response) => <PlaylistMeta meta={buildCardMeta('playlist', response)} />,
-    'headerComponent': (response) => <PlaylistHeader response={response} />
+    'headerComponent': (response, expanded) => <PlaylistHeader response={response} expanded={expanded} />
   }
 }
 
@@ -179,8 +105,8 @@ MaterialType.propTypes = {
   type: PropTypes.string.isRequired
 }
 
-const CardHeader = ({response, type}) => {
-  const headerComponent = cardTypes[type].headerComponent ? cardTypes[type].headerComponent(response) : null
+const CardHeader = ({response, type, expanded}) => {
+  const headerComponent = cardTypes[type].headerComponent ? cardTypes[type].headerComponent(response, expanded) : null
   return (
     <div className='w-100'>
       {headerComponent}
@@ -228,7 +154,7 @@ const Card = ({type, expanded, response}) => {
       <div className={`${cardTypes[type]['innerClasses']} ${!expanded ? 'br2' : ''} ${expanded === 'vertical' ? 'br2 br--top' : ''} ${expanded === 'horizontal' ? 'br2 br--left' : ''}`}
         style={expanded === 'horizontal' ? {maxHeight: '475px'} : {}}
       >
-        <CardHeader type={type} response={response} />
+        <CardHeader type={type} response={response} expanded={expanded} />
         <CardBody title={title} instructor={full_name} />
         <CardFooter type={type} response={response} />
       </div>

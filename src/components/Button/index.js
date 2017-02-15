@@ -29,15 +29,13 @@ const outlineBtnClasses = {
 }
 
 const styleMap = (size) => {
-  if (size === undefined) {
-    return ['line-height: 2rem;', 'min-width: 200px;']
+  const classes = {
+    'small': ['min-width: 140px;', 'height: 3rem;'],
+    'large': ['line-height: 2rem;', 'min-width: 200px;'],
+    'extra-large': ['min-width: 280px;', 'height: 5rem;']
   }
-  if (size === 'small') {
-    return ['min-width: 140px;', 'height: 3rem;']
-  }
-  if (size === 'extra-large') {
-    return ['min-width: 280px;', 'height: 5rem;']
-  }
+
+  return size === undefined ? classes['large'] : classes[size]
 }
 
 const Button = styled(({href, type='default', size='large', outline=false, children, className}) => {

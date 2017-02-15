@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react'
 import PlayButton from '../Button/PlayButton'
 import Playlist from '../Playlist/'
-import Card from './'
+import Card from './StyledCard'
+import styled from 'styled-components'
 import { buildPlaylistMeta, findVidNumber, getTimeLeft } from '../../utils/Playlist'
 import { secondsToString } from '../../utils/Time'
 
@@ -75,18 +76,23 @@ PlaylistSummary.propTypes = {
   lessonsLeft: PropTypes.number.isRequired
 }
 
-export const PlaylistHeader = ({response}) => {
+const StyledPlaylistHeader = styled.div`
+  height: 290px;
+  .card-play-btn {
+    bottom: -2.5rem
+  }
+`
+
+export const PlaylistHeader = ({response, expanded}) => {
   const { lessons, progress, duration } = response
   const lessonsLeft = lessons.length - progress.completed_lessons.length
   const timeRemaining = secondsToString(getTimeLeft(duration, progress))
   return (
     <div>
-      <div className='relative w-100' style={{
-        height: '290px'
-      }}>
-        <PlayButton />
-        <Playlist playlist={buildPlaylistMeta(lessons, progress)} />
-      </div>
+      <StyledPlaylistHeader className='relative w-100'>
+        <PlayButton className='card-play-btn' />
+        <Playlist playlist={buildPlaylistMeta(lessons, progress)} card='playlist' />
+      </StyledPlaylistHeader>
       <PlaylistSummary timeRemaining={timeRemaining} lessonsLeft={lessonsLeft} />
     </div>
   )
