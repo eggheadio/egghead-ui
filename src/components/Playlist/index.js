@@ -26,6 +26,39 @@ const CategoryIcon = ({icon}) => {
 }
 
 const StyledPlaylistItem = styled.li`
+	&:before, &:after {
+		content: '';
+		position: absolute;
+		transition: 150ms;
+	}
+	&:before {
+		width: 9px;
+		height: 9px;
+		border-radius: 50%;
+		border: 1px solid var(--light-gray);
+		background: var(--tag-gray);
+		box-shadow: 0 0 0 1px var(--tag-gray);
+		left: 20px;
+		top: 22px;
+		z-index: 2;
+	}
+	&:after {
+		width: 1px;
+		height: 100%;
+		border-width: 0 0 0 1px;
+		border-style: solid;
+		border-color: var(--light-gray);
+		left: 24px;
+		top: 32px;
+		z-index: 1;
+	}
+	&:hover:before {
+		background: var(--white);
+		box-shadow: 0 0 0 1px var(--white);
+	}
+	.viewed {
+		color: var(--gray);
+	}
   .viewed:before {
     border: 1px solid var(--turquoise);
     background: var(--turquoise);
@@ -33,8 +66,17 @@ const StyledPlaylistItem = styled.li`
   .viewed:after {
     border-color: var(--turquoise);
   }
+	.pre-next:after {
+		border-style dashed;
+	}
   .next:before {
-    border-color: transparent transparent transparent var(--turquoise);
+		left: 21px;
+		border-radius: 0;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 6px 0px 6px 9px;
+		border-color: transparent transparent transparent var(--orange);
     box-shadow: 0 0 0 6px var(--tag-gray);
     background: var(--tag-gray);
   }
