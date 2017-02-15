@@ -2,7 +2,7 @@ import AnchorSource from './components/Anchor'
 import AvatarSource from './components/Avatar'
 import ButtonSource from './components/Button'
 import CardSource from './components/Card'
-import CategoriesBrowserImport from './components/CategoriesBrowser'
+// import CategoriesBrowserImport from './components/CategoriesBrowser'
 import CourseCardSource from './components/Card/CourseCard'
 import LessonCardSource from './components/Card/LessonCard'
 import PlaylistCardSource from './components/Card/PlaylistCard'
@@ -21,7 +21,7 @@ export const Anchor = AnchorSource
 export const Avatar = AvatarSource
 export const Button = ButtonSource
 export const Card = CardSource
-export const CategoriesBrowser = CategoriesBrowserImport
+// export const CategoriesBrowser = CategoriesBrowserImport
 export const CourseCard = CourseCardSource
 export const LessonCard = LessonCardSource
 export const PlaylistCard = PlaylistCardSource
