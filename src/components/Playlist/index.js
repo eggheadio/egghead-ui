@@ -60,11 +60,11 @@ const StyledPlaylistItem = styled.li`
 		color: var(--gray);
 	}
   &.viewed:before {
-    border: 1px solid var(--turquoise);
-    background: var(--turquoise);
+    border: 1px solid ${props => props.card === 'playlist' ? 'var(--turquoise)' : 'var(--orange)'};
+    background: ${props => props.card === 'playlist' ? 'var(--turquoise)' : 'var(--orange)'};
   }
   &.viewed:after {
-    border-color: var(--turquoise);
+    border-color: ${props => props.card === 'playlist' ? 'var(--turquoise)' : 'var(--orange)'};
   }
 	&.pre-next:after {
 		border-style dashed;
@@ -76,7 +76,7 @@ const StyledPlaylistItem = styled.li`
 		height: 0;
 		border-style: solid;
 		border-width: 6px 0px 6px 9px;
-		border-color: transparent transparent transparent var(--turquoise);
+		border-color: transparent transparent transparent ${props => props.card ? 'var(--turquoise)' : 'var(--orange)'};
     box-shadow: 0 0 0 6px var(--tag-gray);
     background: var(--tag-gray);
   }
@@ -85,7 +85,7 @@ const StyledPlaylistItem = styled.li`
     background: var(--white);
   }
 `
-const PlaylistItem = ({item, extraClasses}) => {
+const PlaylistItem = ({item, extraClasses, card=false}) => {
   const { watched, current, icon_url, title, duration } = item
   const length = secondsToString(duration)
   const liClasses = 'flex items-start relative f6 lh-solid pointer pv3 pl4 pr3 gray hover-bg-white card-progress-list-item' 
@@ -96,7 +96,7 @@ const PlaylistItem = ({item, extraClasses}) => {
   const currentClasses = 'next'
 
   return (
-    <StyledPlaylistItem className={`${liClasses} ${extraClasses} ${watched ? watchedClasses : ''} ${current ? currentClasses : ''}`}>
+    <StyledPlaylistItem className={`${liClasses} ${extraClasses} ${watched ? watchedClasses : ''} ${current ? currentClasses : ''}`} card={card} >
       <CategoryIcon icon={icon_url} />
       <div className={`${textClasses} ${watched ? watchedTitleClasses : ''}`}>
         <VideoTitle title={title} />
@@ -109,15 +109,16 @@ PlaylistItem.propTypes = {
   item: PropTypes.object.isRequired
 }
 
-const Playlist = ({playlist}) => {
+const Playlist = ({playlist, card=false}) => {
+	console.log('plCard prop', card)
   return (
     <div className='pr3 pt3 bg-tag-gray self-stretch h-100 br2 overflow-y-scroll'>
       <ul className='list pa0 ma0 overflow-hidden card-progress-list'>
         {playlist.map((i, k) => {
-            const extraClasses = playlist[k+1] && playlist[k+1]['current'] ? 'pre-next' : null
+            const extraClasses = playlist[k+1] && playlist[k+1]['current'] ? 'pre-next' : ''
             return (
               <a href={i.http_url} key={k} className='no-underline'>
-                <PlaylistItem item={i} extraClasses={extraClasses}/>
+                <PlaylistItem item={i} extraClasses={extraClasses} card={card} />
               </a>
             )
           })
@@ -128,7 +129,8 @@ const Playlist = ({playlist}) => {
   )
 }
 Playlist.propTypes = {
-  playlist: PropTypes.array.isRequired
+  playlist: PropTypes.array.isRequired,
+	card: PropTypes.string
 }
 
 export default Playlist

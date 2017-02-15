@@ -91,7 +91,7 @@ export const PlaylistHeader = ({response, expanded}) => {
     <div>
       <StyledPlaylistHeader className='relative w-100'>
         <PlayButton className='card-play-btn' />
-        <Playlist playlist={buildPlaylistMeta(lessons, progress)} />
+        <Playlist playlist={buildPlaylistMeta(lessons, progress)} card='playlist' />
       </StyledPlaylistHeader>
       <PlaylistSummary timeRemaining={timeRemaining} lessonsLeft={lessonsLeft} />
     </div>
