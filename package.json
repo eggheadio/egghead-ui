@@ -33,7 +33,7 @@
     "react-storybook-addon-props-combinations": "^0.0.1",
     "react-tabs": "^0.8.2",
     "styled-components": "^1.4.3",
-    "tachyons-egghead": "^1.1.9"
+    "tachyons-egghead": "^1.2.1"
   },
   "babel": {
     "presets": [

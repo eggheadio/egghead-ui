@@ -6273,9 +6273,9 @@ tachyons-display@^5.0.3:
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/tachyons-display/-/tachyons-display-5.0.4.tgz#9ec6918b0695753b7c296c0a1275c8b214b25b9a"
 
-tachyons-egghead@^1.1.9:
-  version "1.1.9"
-  resolved "https://registry.yarnpkg.com/tachyons-egghead/-/tachyons-egghead-1.1.9.tgz#0df6377f329f6bcfa07e921d0e41ebcb8d029b7c"
+tachyons-egghead@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/tachyons-egghead/-/tachyons-egghead-1.2.1.tgz#191488e6d7e95340ec2e8139a8062d3f20736f76"
   dependencies:
     normalize.css "^5.0.0"
     tachyons-aspect-ratios "^1.0.1"

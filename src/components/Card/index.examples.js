@@ -3,6 +3,7 @@ import {storiesOf} from '@kadira/storybook'
 import CourseCard from './CourseCard'
 import LessonCard from './LessonCard'
 import PlaylistCard from './PlaylistCard'
+import StyledCard from './StyledCard'
 import imgCourseCard from './assets/temp/img-course-card.png'
 import imgRx from './assets/temp/rx.svg'
 import imgAngular from './assets/temp/angular.svg'
@@ -40,6 +41,36 @@ storiesOf('Cards')
   .addWithInfo('Playlist Card', () => (
     <div className={representClasses}>
       <PlaylistCard response={response} />
+    </div>
+  ))
+
+  .addWithInfo('Styled Course Card', () => (
+    <div className={representClasses}>
+      <CourseCard response={response} />
+    </div>
+  ))
+
+  .addWithInfo('Styled Course Card Expanded Vertical', () => (
+    <div className={representClasses}>
+      <StyledCard type={'course'} response={response} expanded={'vertical'} />
+    </div>
+  ))
+
+  .addWithInfo('Styled Course Card Expanded Horizontal', () => (
+    <div className={representClasses}>
+      <StyledCard type={'course'} response={response} expanded={'horizontal'} />
+    </div>
+  ))
+
+  .addWithInfo('Styled Lesson Card', () => (
+    <div className={representClasses}>
+      <LessonCard type={'lesson'} response={response} />
+    </div>
+  ))
+
+  .addWithInfo('Styled Playlist Card', () => (
+    <div className={representClasses}>
+      <PlaylistCard type={'playlist'} response={response} />
     </div>
   ))
 
