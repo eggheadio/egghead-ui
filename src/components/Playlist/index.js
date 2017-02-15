@@ -129,7 +129,7 @@ const Playlist = ({playlist, card=false}) => {
 }
 Playlist.propTypes = {
   playlist: PropTypes.array.isRequired,
-	card: PropTypes.string
+  card: PropTypes.string
 }
 
 export default Playlist
