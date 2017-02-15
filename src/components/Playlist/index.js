@@ -56,31 +56,31 @@ const StyledPlaylistItem = styled.li`
 		background: var(--white);
 		box-shadow: 0 0 0 1px var(--white);
 	}
-	.viewed {
+	&.viewed {
 		color: var(--gray);
 	}
-  .viewed:before {
+  &.viewed:before {
     border: 1px solid var(--turquoise);
     background: var(--turquoise);
   }
-  .viewed:after {
+  &.viewed:after {
     border-color: var(--turquoise);
   }
-	.pre-next:after {
+	&.pre-next:after {
 		border-style dashed;
 	}
-  .next:before {
+  &.next:before {
 		left: 21px;
 		border-radius: 0;
 		width: 0;
 		height: 0;
 		border-style: solid;
 		border-width: 6px 0px 6px 9px;
-		border-color: transparent transparent transparent var(--orange);
+		border-color: transparent transparent transparent var(--turquoise);
     box-shadow: 0 0 0 6px var(--tag-gray);
     background: var(--tag-gray);
   }
-  .next:hover:before {
+  &.next:hover:before {
     box-shadow: 0 0 0 6px var(--white);
     background: var(--white);
   }
