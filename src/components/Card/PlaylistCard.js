@@ -29,7 +29,6 @@ import { secondsToString } from '../../utils/Time'
 }
  * */
 
-
 export const PlaylistCard = ({response}) => {
   return (
     <Card type='playlist' response={response} />
@@ -79,7 +78,9 @@ PlaylistSummary.propTypes = {
 
 const StyledPlaylistHeader = styled.div`
   height: 290px;
-  .card-play-btn { bottom: -2.5rem }
+  .card-play-btn {
+    bottom: -2.5rem
+  }
 `
 
 export const PlaylistHeader = ({response, expanded}) => {

@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import styled from 'styled-components'
 import { secondsToString } from '../../utils/Time'
 
 
@@ -24,6 +25,24 @@ const CategoryIcon = ({icon}) => {
   return <img src={icon} className='ml2 mt1 h1' alt='' />
 }
 
+const StyledPlaylistItem = styled.li`
+  .viewed:before {
+    border: 1px solid var(--turquoise);
+    background: var(--turquoise);
+  }
+  .viewed:after {
+    border-color: var(--turquoise);
+  }
+  .next:before {
+    border-color: transparent transparent transparent var(--turquoise);
+    box-shadow: 0 0 0 6px var(--tag-gray);
+    background: var(--tag-gray);
+  }
+  .next:hover:before {
+    box-shadow: 0 0 0 6px var(--white);
+    background: var(--white);
+  }
+`
 const PlaylistItem = ({item, extraClasses}) => {
   const { watched, current, icon_url, title, duration } = item
   const length = secondsToString(duration)
@@ -35,13 +54,13 @@ const PlaylistItem = ({item, extraClasses}) => {
   const currentClasses = 'next'
 
   return (
-    <li className={`${liClasses} ${extraClasses} ${watched ? watchedClasses : ''} ${current ? currentClasses : ''}`}>
+    <StyledPlaylistItem className={`${liClasses} ${extraClasses} ${watched ? watchedClasses : ''} ${current ? currentClasses : ''}`}>
       <CategoryIcon icon={icon_url} />
       <div className={`${textClasses} ${watched ? watchedTitleClasses : ''}`}>
         <VideoTitle title={title} />
         <VideoLength length={length} />
       </div>
-    </li>
+    </StyledPlaylistItem>
   )
 }
 PlaylistItem.propTypes = {
