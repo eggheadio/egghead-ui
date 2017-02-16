@@ -1,9 +1,6 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 
-// TODO: Figure out why "link" is not applying "no-underline"
-// TODO: Figure out vertical alignment small bottom space
-
 const commonClasses = 'link dib f5 fw6 tracked tc br2 ttu ba pointer'
 
 const sizes = ['large', 'small', 'extra-large']
