@@ -2,7 +2,7 @@
   "name": "egghead-ui",
   "version": "1.3.0",
   "description": "Official living style guide app and component library for egghead.io",
-  "main": "build/index.js",
+  "main": "lib/index.js",
   "engines": {
     "node": ">=7.0.0"
   },
@@ -43,6 +43,9 @@
     "plugins": [
       "transform-class-properties"
     ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "repository": {
     "type": "git",
