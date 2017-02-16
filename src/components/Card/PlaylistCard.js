@@ -5,6 +5,8 @@ import Card from './StyledCard'
 import styled from 'styled-components'
 import { buildPlaylistMeta, findVidNumber, getTimeLeft } from '../../utils/Playlist'
 import { secondsToString } from '../../utils/Time'
+import { expansions } from './'
+
 
 export const PlaylistCard = ({response}) => {
   return (
@@ -75,7 +77,8 @@ export const PlaylistHeader = ({response, expanded}) => {
   )
 }
 PlaylistHeader.propTypes = {
-  meta: PropTypes.object
+  meta: PropTypes.object,
+  expanded: PropTypes.oneOf(expansions)
 }
 
 export default PlaylistCard
