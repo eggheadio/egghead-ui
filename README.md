@@ -30,16 +30,21 @@ View [the style guide](https://styleguide.egghead.io) for visual examples and co
 
 ## Workflow
 
-- `yarn` to install latest packages.
-- `yarn dev:styleguide` to develop using the style guide.
-- `yarn dev:library` to develop the library [with yarn link](https://yarnpkg.com/en/docs/cli/link).
-- [localhost:2000](http://localhost:2000) to view the style guide.
-- Submit pull requests:
-  - Continuous integration runs in Codeship to ensure builds succeed
-  - Pull request is merged into master
-  - Continuous deployment runs in Codeship
-    - Deploys the latest style guide app on [styleguide.egghead.io](https://styleguide.egghead.io).
-    - Publishes the latest component library version [on npm](https://www.npmjs.com/package/egghead-ui).
+- checkout and pull latest from master
+- create feature branch and check it out
+- `yarn` to install latest packages
+- `yarn dev:styleguide` to develop using the style guide
+- `yarn dev:library` to develop the library [with yarn link](https://yarnpkg.com/en/docs/cli/link)
+- [localhost:2000](http://localhost:2000) to view the style guide
+- use [`yarn link`](https://yarnpkg.com/lang/en/docs/cli/link/) to test consuming components in another project
+- submit a pull request for your feature branch
+- continuous integration runs in Codeship to ensure builds succeed
+- once continuous integration passes and you have an approved review, merge the pull request into master
+- continuous deployment runs in Codeship and deploys the latest style guide app to [styleguide.egghead.io](https://styleguide.egghead.io)
+- checkout `release` and pull latest from master
+- run `yarn release` which will ask you some questions to bump the verison and publish the latest library [on npm](https://www.npmjs.com/package/egghead-ui)
+- merge release into master
+- Notify consumers to run `yarn upgrade egghead-ui` in their projects to get latest, with a list of changes
 
 ## Folders and files
 
