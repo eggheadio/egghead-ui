@@ -1,8 +1,8 @@
 import React from 'react'
-import Icon from '../Icon'
+import Icon from '../../../Icon'
 
 const Loading = () => (
-  <div className='mv3 gray'>
+  <div className='mv3 white'>
     <Icon
       type='refresh'
       size='2'
