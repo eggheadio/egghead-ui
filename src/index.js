@@ -4,6 +4,7 @@ import ButtonSource from './components/Button'
 import CardSource from './components/Card'
 // import CategoriesBrowserImport from './components/CategoriesBrowser'
 import CourseCardSource from './components/Card/CourseCard'
+import ErrorSource from './components/Error'
 import LessonCardSource from './components/Card/LessonCard'
 import PlaylistCardSource from './components/Card/PlaylistCard'
 import CheckboxSource from './components/Checkbox'
@@ -23,6 +24,7 @@ export const Button = ButtonSource
 export const Card = CardSource
 // export const CategoriesBrowser = CategoriesBrowserImport
 export const CourseCard = CourseCardSource
+export const Error = ErrorSource
 export const LessonCard = LessonCardSource
 export const PlaylistCard = PlaylistCardSource
 export const Checkbox = CheckboxSource
