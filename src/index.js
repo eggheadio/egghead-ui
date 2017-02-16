@@ -13,6 +13,7 @@ import IconSource from './components/Icon'
 import InputSource from './components/Input'
 import LoadingSource from './components/Loading'
 import RadioGroupSource from './components/RadioGroup'
+import RequestSource from './components/Request'
 import SplitSource from './components/Split'
 import TabsSource from './components/Tabs'
 import TooltipSource from './components/Tooltip'
@@ -33,6 +34,7 @@ export const Icon = IconSource
 export const Input = InputSource
 export const Loading = LoadingSource
 export const RadioGroup = RadioGroupSource
+export const Request = RequestSource
 export const Split = SplitSource
 export const Tabs = TabsSource
 export const Tooltip = TooltipSource
