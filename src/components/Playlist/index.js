@@ -76,7 +76,7 @@ const StyledPlaylistItem = styled.li`
     height: 0;
     border-style: solid;
     border-width: 6px 0px 6px 9px;
-    border-color: transparent transparent transparent ${props => props.card ? 'var(--turquoise)' : 'var(--orange)'};
+    border-color: transparent transparent transparent ${props => props.card === 'playlist' ? 'var(--turquoise)' : 'var(--orange)'};
     box-shadow: 0 0 0 6px var(--tag-gray);
     background: var(--tag-gray);
   }
