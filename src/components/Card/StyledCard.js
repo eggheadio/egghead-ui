@@ -109,7 +109,8 @@ const CardBody = ({title, instructor, type}) => {
 }
 CardBody.propTypes = {
   title: PropTypes.string.isRequired,
-  instructor: PropTypes.string.isRequired
+  instructor: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired
 }
 
 const CardFooter = ({response, type}) => {
@@ -130,7 +131,7 @@ const StyledCardContainer = styled.div`
   ${props => cardTypes[props.type]['cardStyles']}
   ${props => props.expanded === 'horizontal' ? 'max-width: 760px' : ''}
   ${props => cardTypes[props.type]['shadow']
-  ? `
+    ? `
         padding-bottom: 10px;
         &:before {
           content: '';
@@ -157,16 +158,16 @@ const StyledCardContainer = styled.div`
           z-index: 0;
         }
       `
-  : ''}
+    : ''}
   ${props => props.type === 'lesson' || (props.type === 'course' && (props.expanded === false || props.expanded === 'horizontal'))
-  ? `
+    ? `
         &:hover {
           .card-play-btn {
             opacity: 1;
           }
         }
       `
-  : ''}
+    : ''}
   ${props => props.expanded === 'vertical' ? `.card-play-btn { opacity: 1 }` : ''}
 `
 
@@ -205,8 +206,8 @@ const StyledCard = ({type, expanded, response}) => {
                          style={expanded === 'horizontal' ? {maxHeight: '475px'} : {}}
     >
       <StyledInnerCard type={type} expanded={expanded} response={response}
-                       className={`${cardTypes[type]['innerClasses']}
-                    ${!expanded ? 'br2': ''}
+        className={`${cardTypes[type]['innerClasses']}
+                    ${!expanded ? 'br2' : ''}
                     ${expanded === 'vertical' ? 'br2 br--top' : ''}
                     ${expanded === 'horizontal' ? 'br2 br--left' : ''}
                   `}
