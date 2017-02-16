@@ -11,7 +11,7 @@ import { secondsToString } from '../../utils/Time'
 const commonCardClasses = 'relative'
 const commonInnerClasses = 'flex flex-column items-center bg-white navy relative z-1 br2'
 const enhancedInnerClasses = `${commonInnerClasses} overflow-hidden pa4 pointer`
-const footerClasses = 'flex justify-between self-stretch items-center' 
+const footerClasses = 'flex justify-between self-stretch items-center'
 const pillClasses = 'f6 lh-title ttu fw6 ph3 pv1 br-pill tracked'
 const orangePillClasses = `${pillClasses} orange bg-tag-orange`
 const bluePillClasses = `${pillClasses} blue bg-tag-blue`
@@ -67,10 +67,10 @@ const buildCardMeta = (type, response) => {
       videoLength: secondsToString(response.duration)
     },
     'playlist': {
-        timeRemaining: 'temp',
-        lessonsLeft: response.lesson_count - response.completed_lesson_count,
-        currentLesson: response.progress.current_lesson,
-        playlist: buildPlaylistMeta(response.lessons, response.progress)
+      timeRemaining: 'temp',
+      lessonsLeft: response.lesson_count - response.completed_lesson_count,
+      currentLesson: response.progress.current_lesson,
+      playlist: buildPlaylistMeta(response.lessons, response.progress)
     }
   }
 
@@ -79,7 +79,7 @@ const buildCardMeta = (type, response) => {
 
 const MaterialType = ({type}) => {
   return (
-    <div className={cardTypes[type]['pillClasses']}>{type}</div> 
+    <div className={cardTypes[type]['pillClasses']}>{type}</div>
   )
 }
 MaterialType.propTypes = {
@@ -92,16 +92,16 @@ const CardHeader = ({response, type, expanded}) => {
     <div className='w-100'>
       {headerComponent}
     </div>
-  )  
+  )
 }
 CardHeader.propTypes = {
   response: PropTypes.object,
   type: PropTypes.string.isRequired
 }
 
-const CardBody = ({title, instructor}) => {
+const CardBody = ({title, instructor, type}) => {
   return (
-    <div>
+    <div className={`${type === 'playlist' ? 'ph4' : ''}`}>
       <h3 className={titleHeadingClasses}>{title}</h3>
       <div className={instructorNameClasses}>{instructor}</div>
     </div>
@@ -109,7 +109,8 @@ const CardBody = ({title, instructor}) => {
 }
 CardBody.propTypes = {
   title: PropTypes.string.isRequired,
-  instructor: PropTypes.string.isRequired
+  instructor: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(keys(cardTypes))
 }
 
 const CardFooter = ({response, type}) => {
@@ -119,7 +120,7 @@ const CardFooter = ({response, type}) => {
       {metaComponent}
       <MaterialType type={type} />
     </div>
-  ) 
+  )
 }
 CardFooter.propTypes = {
   response: PropTypes.object,
@@ -127,7 +128,7 @@ CardFooter.propTypes = {
 }
 
 const StyledCardContainer = styled.div`
-  ${props => cardTypes[props.type]['cardStyles']} 
+  ${props => cardTypes[props.type]['cardStyles']}
   ${props => props.expanded === 'horizontal' ? 'max-width: 760px' : ''}
   ${props => cardTypes[props.type]['shadow']
     ? `
@@ -201,18 +202,18 @@ const StyledCard = ({type, expanded, response}) => {
 
   return (
     <StyledCardContainer type={type} expanded={expanded}
-      className={`${cardTypes[type]['cardClasses']} ${expanded === 'horizontal' ? 'flex' : ''}`}
-      style={expanded === 'horizontal' ? {maxHeight: '475px'} : {}}
+                         className={`${cardTypes[type]['cardClasses']} ${expanded === 'horizontal' ? 'flex' : ''}`}
+                         style={expanded === 'horizontal' ? {maxHeight: '475px'} : {}}
     >
       <StyledInnerCard type={type} expanded={expanded} response={response}
         className={`${cardTypes[type]['innerClasses']}
-                    ${!expanded ? 'br2': ''}
+                    ${!expanded ? 'br2' : ''}
                     ${expanded === 'vertical' ? 'br2 br--top' : ''}
                     ${expanded === 'horizontal' ? 'br2 br--left' : ''}
                   `}
       >
         <CardHeader type={type} response={response} expanded={expanded} />
-        <CardBody title={title} instructor={full_name} />
+        <CardBody title={title} instructor={full_name} type={type} />
         <CardFooter type={type} response={response} />
       </StyledInnerCard>
       { expanded ?
@@ -223,7 +224,7 @@ const StyledCard = ({type, expanded, response}) => {
       }
     </StyledCardContainer>
   )
-} 
+}
 StyledCard.propTypes = {
   type: PropTypes.oneOf(keys(cardTypes)),
   response: PropTypes.object,
