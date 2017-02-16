@@ -5,6 +5,17 @@ const commonPlayBtnClasses = 'fa fa-play w3 h3 f3 absolute z-1 gray items-center
 const hoverPlayBtnClasses = `${commonPlayBtnClasses} bg-white-70 hover-bg-white`
 const playBtnClasses = `${commonPlayBtnClasses} bg-white`
 
+const hoverColorClasses = {
+  course: 'hover-orange',
+  lesson: 'hover-blue',
+  playlist: 'hover-turquoise'
+}
+
+const centerButtonRules = [
+  'top: 50%;',
+  'bottom: auto;'
+]
+
 const StyledPlayButton = styled.div`
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.17);
   left: 50%;
@@ -15,15 +26,32 @@ const StyledPlayButton = styled.div`
     position: relative;
     left: 3px;
   }
-  ${props => props.hover ? 'opacity: 0;' : ''},
+  ${props => props.hover ? 'opacity: 0;' : ''}
+  ${props => 
+    props.type === 'lesson' ||
+    (props.type === 'course' && (props.expanded === false || props.expanded === 'horizontal'))
+     ? `${centerButtonRules}`
+     : ''
+   }
 `
 
-const PlayButton = ({ hover=false, className }) => {
-  return <StyledPlayButton hover={hover} className={`${hover ? `${hoverPlayBtnClasses} card-play-btn` : playBtnClasses} ${className}`}/>
+const PlayButton = ({ hover=false, type, expanded, className }) => {
+  return <StyledPlayButton hover={hover}
+            className={`${hover
+                          ? `${hoverPlayBtnClasses} ${hoverColorClasses[type] ? hoverColorClasses[type] : ''} card-play-btn`
+                          : playBtnClasses
+                         }
+                        ${type === 'playlist' ? `${hoverColorClasses[type]}` : ''}
+                        ${type === 'course' && expanded === 'vertical' ? 'bottom-1' : ''}
+                        ${className}`
+                      }
+         />
 }
 
 PlayButton.propTypes = {
-  hover: PropTypes.bool
+  hover: PropTypes.bool,
+  type: PropTypes.string,
+  expanded: PropTypes.string
 }
 
 export default PlayButton
