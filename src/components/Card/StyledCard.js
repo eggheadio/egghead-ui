@@ -110,7 +110,7 @@ const CardBody = ({title, instructor, type}) => {
 CardBody.propTypes = {
   title: PropTypes.string.isRequired,
   instructor: PropTypes.string.isRequired,
-  PropTypes.oneOf(keys(cardTypes))
+  type: PropTypes.oneOf(keys(cardTypes))
 }
 
 const CardFooter = ({response, type}) => {
