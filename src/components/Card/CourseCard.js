@@ -25,7 +25,7 @@ CourseMeta.propTypes = {
 export const CourseHeader = ({response, expanded}) => {
   return (
     <div>
-      <StyledPlayButton hover />
+      <StyledPlayButton hover type='course' epanded={expanded} />
       <div className='mw5 mt3 center ph3'>
         <img alt='' src={response.square_cover_url} />
       </div>
@@ -33,7 +33,8 @@ export const CourseHeader = ({response, expanded}) => {
   )
 }
 CourseHeader.propTypes = {
-  response: PropTypes.object
+  response: PropTypes.object,
+  expanded: PropTypes.oneOf(expansions)
 }
 
 const CourseCard = ({response, expanded=false}) => {
