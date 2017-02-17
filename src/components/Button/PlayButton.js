@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import styled, { css } from 'styled-components'
 
+import { expansions } from './'
+
 const commonPlayBtnClasses = 'fa fa-play w3 h3 f3 absolute z-1 gray items-center justify-center br-pill pointer grow-large'
 const hoverPlayBtnClasses = `${commonPlayBtnClasses} bg-white-70 hover-bg-white`
 const playBtnClasses = `${commonPlayBtnClasses} bg-white`
@@ -12,8 +14,7 @@ const hoverColorClasses = {
 }
 
 const centerButtonRules = [
-  'top: 50%;',
-  'bottom: auto;'
+  'top: 50%; margin-top: -2rem;'
 ]
 
 const StyledPlayButton = styled.div`
@@ -37,6 +38,8 @@ const StyledPlayButton = styled.div`
 
 const PlayButton = ({ hover=false, type, expanded, className }) => {
   return <StyledPlayButton hover={hover}
+            type={type}
+            expanded={expanded}
             className={`${hover
                           ? `${hoverPlayBtnClasses} ${hoverColorClasses[type] ? hoverColorClasses[type] : ''} card-play-btn`
                           : playBtnClasses
@@ -51,7 +54,7 @@ const PlayButton = ({ hover=false, type, expanded, className }) => {
 PlayButton.propTypes = {
   hover: PropTypes.bool,
   type: PropTypes.string,
-  expanded: PropTypes.string
+  expanded: PropTypes.oneOf(expansions)
 }
 
 export default PlayButton

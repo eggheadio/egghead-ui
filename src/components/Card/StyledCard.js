@@ -7,6 +7,7 @@ import { PlaylistMeta, PlaylistHeader } from './PlaylistCard'
 import Playlist from '../Playlist/'
 import { buildPlaylistMeta } from '../../utils/Playlist'
 import { secondsToString } from '../../utils/Time'
+import { expansions } from './'
 
 const commonCardClasses = 'relative'
 const commonInnerClasses = 'flex flex-column items-center bg-white navy relative z-1 br2'
@@ -89,7 +90,7 @@ MaterialType.propTypes = {
 const CardHeader = ({response, type, expanded}) => {
   const headerComponent = cardTypes[type].headerComponent ? cardTypes[type].headerComponent(response, expanded) : null
   return (
-    <div className='w-100'>
+    <div className='flex flex-column items-center w-100'>
       {headerComponent}
     </div>
   )
@@ -183,7 +184,7 @@ const StyledExpansionContainer = styled.div`
 const StyledCard = ({type, expanded, response}) => {
   const { title, instructor: { full_name }, lessons, progress } = response
   const cardPlaylist = buildPlaylistMeta(lessons, progress)
-  const extendedClasses = 'relative w-100 z-1 overflow-hidden pv3 bg-tag-gray br2'
+  const extendedClasses = 'relative w-100 z-1 overflow-scroll pv3 bg-tag-gray br2'
 
   const expansionMap = {
     vertical: {
@@ -228,7 +229,7 @@ const StyledCard = ({type, expanded, response}) => {
 StyledCard.propTypes = {
   type: PropTypes.oneOf(keys(cardTypes)),
   response: PropTypes.object,
-  expanded: PropTypes.string
+  expanded: PropTypes.oneOf(expansions)
 }
 
 export default StyledCard
