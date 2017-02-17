@@ -125,16 +125,16 @@ export default styled(Checkbox)`
       background-color: #add960;
       border-color: #add960;
   }
-  .disabled {
+  &.disabled {
       color: #646e7b;
       cursor: not-allowed;
   }
-  .eh-checkbox.disabled .eh-checkbox-icon {
+  &.disabled .eh-checkbox-icon {
       border-color: #434b56;
   }
-  .eh-checkbox.disabled input[type='checkbox'] {}
-  .eh-checkbox.disabled input[type='checkbox']:checked {}
-  .eh-checkbox.disabled input[type='checkbox']:checked + .eh-checkbox-icon {
+  &.disabled input[type='checkbox'] {}
+  &.disabled input[type='checkbox']:checked {}
+  &.disabled input[type='checkbox']:checked + .eh-checkbox-icon {
       background-color: #434b56;
       border-color: #434b56;
   }
