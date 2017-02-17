@@ -71,15 +71,21 @@ export const inputClasses = 'o-0 absolute left--1'
 export const disabledClasses = 'disabled'
 
 
-const checkboxClasses = 'pointer eh-checkbox'
+const checkboxClasses = 'eh-checkbox'
 const boxIconClasses = `${commonIconClasses} br2 eh-checkbox-icon`
 
 const StyledIcon = styled(Icon)`
-  width: 21px;
-  height: 21px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .eh-checkbox-icon {
+    width: 21px;
+    height: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`
+
+const StyledLabel = styled.label`
+
 `
 
 class Checkbox extends Component {
@@ -115,7 +121,7 @@ class Checkbox extends Component {
       <label name={name}
         className={`${commonLabelClasses} ${checkboxClasses} ${className} ${disabled ? disabledClasses : ''}`}
       >
-          <input type='checkbox' className={`${inputClasses} ${className}`} disabled={disabled} checked={checked}
+          <input type='checkbox' className={`${inputClasses}`} disabled={disabled} checked={checked}
             onClick={onClick} onChange={this.handleChange}
           />
           <StyledIcon type={checked ? 'check' : null} className={boxIconClasses} />
@@ -126,22 +132,62 @@ class Checkbox extends Component {
 }
 
 export default styled(Checkbox)`
-   input[type='checkbox']:checked + -icon {
+  .eh-checkbox input[type='checkbox'] {}
+  .eh-checkbox input[type='checkbox']:checked {}
+  .eh-checkbox input[type='checkbox']:checked + .eh-checkbox-icon {
       color: #1b1f24;
       background-color: #add960;
       border-color: #add960;
   }
-  .disabled {
+  .eh-checkbox.disabled {
       color: #646e7b;
       cursor: not-allowed;
   }
-  .disabled -icon {
+  .eh-checkbox.disabled .eh-checkbox-icon {
       border-color: #434b56;
   }
-  .disabled input[type='checkbox'] {}
-  .disabled input[type='checkbox']:checked {}
-  .disabled input[type='checkbox']:checked + -icon {
+  .eh-checkbox.disabled input[type='checkbox'] {}
+  .eh-checkbox.disabled input[type='checkbox']:checked {}
+  .eh-checkbox.disabled input[type='checkbox']:checked + .eh-checkbox-icon {
       background-color: #434b56;
       border-color: #434b56;
   }
+  .eh-radio input[type='radio'] {}
+  .eh-radio input[type='radio']:checked {}
+  .eh-radio input[type='radio']:checked + .eh-radio-icon {
+      background-color: #add960;
+      border-color: #add960;
+  }
+  .eh-radio.disabled {
+      color: #646e7b;
+      cursor: not-allowed;
+  }
+  .eh-radio.disabled .eh-radio-icon {
+      border-color: #434b56;
+  }
+  .eh-radio.disabled input[type='radio'] {}
+  .eh-radio.disabled input[type='radio']:checked {}
+  .eh-radio.disabled input[type='radio']:checked + .eh-radio-icon {
+      background-color: #434b56;
+      border-color: #434b56;
+  }
+  .eh-checkbox-icon, .eh-radio-icon {
+      width: 21px;
+      height: 21px;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: center;
+          justify-content: center;
+      -ms-flex-align: center;
+          align-items: center;
+  }
+  .eh-radio-icon {}
+  .eh-radio-icon:before {
+      content: '';
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background-color: #1b1f24;
+  } 
+    
 `
