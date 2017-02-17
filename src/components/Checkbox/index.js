@@ -74,20 +74,6 @@ export const disabledClasses = 'disabled'
 const checkboxClasses = 'eh-checkbox'
 const boxIconClasses = `${commonIconClasses} br2 eh-checkbox-icon`
 
-const StyledIcon = styled(Icon)`
-  .eh-checkbox-icon {
-    width: 21px;
-    height: 21px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-`
-
-const StyledLabel = styled.label`
-
-`
-
 class Checkbox extends Component {
   static propTypes = {
     name: PropTypes.string,
@@ -124,7 +110,7 @@ class Checkbox extends Component {
           <input type='checkbox' className={`${inputClasses}`} disabled={disabled} checked={checked}
             onClick={onClick} onChange={this.handleChange}
           />
-          <StyledIcon type={checked ? 'check' : null} className={boxIconClasses} />
+          <Icon type={checked ? 'check' : null} className={boxIconClasses} />
           {label}
       </label>
     )
@@ -132,14 +118,14 @@ class Checkbox extends Component {
 }
 
 export default styled(Checkbox)`
-  .eh-checkbox input[type='checkbox'] {}
-  .eh-checkbox input[type='checkbox']:checked {}
-  .eh-checkbox input[type='checkbox']:checked + .eh-checkbox-icon {
+  input[type='checkbox'] {}
+  input[type='checkbox']:checked {}
+  input[type='checkbox']:checked + .eh-checkbox-icon {
       color: #1b1f24;
       background-color: #add960;
       border-color: #add960;
   }
-  .eh-checkbox.disabled {
+  .disabled {
       color: #646e7b;
       cursor: not-allowed;
   }
