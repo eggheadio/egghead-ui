@@ -6,8 +6,6 @@ import { expansions } from './'
 
 
 const StyledPlayButton = styled(PlayButton)`
-  top: 50%;
-  margin-top: -2rem;
   ${props => props.hover ? `&:hover { opacity: 1; }` : ''}
 `
 
@@ -24,8 +22,8 @@ CourseMeta.propTypes = {
 
 export const CourseHeader = ({response, expanded}) => {
   return (
-    <div>
-      <StyledPlayButton hover type='course' epanded={expanded} />
+    <div className='flex flex-column items-center'>
+      <StyledPlayButton hover type='course' expanded={expanded} />
       <div className='mw5 mt3 center ph3'>
         <img alt='' src={response.square_cover_url} />
       </div>
