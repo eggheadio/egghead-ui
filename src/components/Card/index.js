@@ -42,7 +42,7 @@ const cardTypes = {
     'innerClasses': `${enhancedInnerClasses}`,
     'pillClasses': `${bluePillClasses}`,
     'metaComponent': (response) => <LessonMeta meta={buildCardMeta('lesson', response)} />,
-    'headerComponent': (response, expanded) => <LessonHeader response={response} expanded={expanded} />
+    'headerComponent': (response) => <LessonHeader response={response} />
   },
   'playlist': {
     'cardStyles': [
