@@ -7,6 +7,7 @@ import { PlaylistMeta, PlaylistHeader } from './PlaylistCard'
 import Playlist from '../Playlist/'
 import { buildPlaylistMeta } from '../../utils/Playlist'
 import { secondsToString } from '../../utils/Time'
+import { expansions } from './'
 
 const commonCardClasses = 'relative'
 const commonInnerClasses = 'flex flex-column items-center bg-white navy relative z-1 br2'
@@ -89,7 +90,7 @@ MaterialType.propTypes = {
 const CardHeader = ({response, type, expanded}) => {
   const headerComponent = cardTypes[type].headerComponent ? cardTypes[type].headerComponent(response, expanded) : null
   return (
-    <div className='w-100'>
+    <div className='flex flex-column items-center w-100'>
       {headerComponent}
     </div>
   )
@@ -226,9 +227,9 @@ const StyledCard = ({type, expanded, response}) => {
   )
 }
 StyledCard.propTypes = {
-  type: PropTypes.oneOf(keys(cardTypes)),
+  type: PropTypes.oneOf(['course', 'lesson', 'playlist']),
   response: PropTypes.object,
-  expanded: PropTypes.string
+  expanded: PropTypes.oneOf([false, 'horizontal', 'vertical'])
 }
 
 export default StyledCard

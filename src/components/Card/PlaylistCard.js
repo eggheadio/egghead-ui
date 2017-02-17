@@ -67,8 +67,8 @@ export const PlaylistHeader = ({response, expanded}) => {
   const lessonsLeft = lessons.length - progress.completed_lessons.length
   const timeRemaining = secondsToString(getTimeLeft(duration, progress))
   return (
-    <div>
-      <StyledPlaylistHeader className='relative w-100'>
+    <div className='w-100'>
+      <StyledPlaylistHeader className='relative w-100 flex flex-column items-center'>
         <PlayButton type='playlist' className='card-play-btn' />
         <Playlist playlist={buildPlaylistMeta(lessons, progress)} card='playlist' />
       </StyledPlaylistHeader>
@@ -78,7 +78,7 @@ export const PlaylistHeader = ({response, expanded}) => {
 }
 PlaylistHeader.propTypes = {
   meta: PropTypes.object,
-  expanded: PropTypes.oneOf(expansions)
+  expanded: PropTypes.oneOf([false, 'horizontal', 'vertical'])
 }
 
 export default PlaylistCard
