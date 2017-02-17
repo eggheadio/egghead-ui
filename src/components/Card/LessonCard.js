@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 import PlayButton from '../Button/PlayButton'
-import Card from './StyledCard'
+import Card from './'
 import { expansions } from './'
 
 
