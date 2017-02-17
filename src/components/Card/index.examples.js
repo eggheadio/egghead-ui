@@ -16,19 +16,19 @@ const representClasses = 'flex justify-center items-center bg-dark-navy pv5'
 storiesOf('Cards')
   .addWithInfo('Course Card', () => (
     <div className={representClasses}>
-      <CourseCard response={sampleData} />
+      <CourseCard course={sampleData} />
     </div>
   ))
 
   .addWithInfo('Course Card Expanded Vertical', () => (
     <div className={representClasses}>
-      <CourseCard type={'course'} response={sampleData} expanded={'vertical'} />
+      <CourseCard type={'course'} course={sampleData} expanded={'vertical'} />
     </div>
   ))
 
   .addWithInfo('Course Card Expanded Horizontal', () => (
     <div className={representClasses}>
-      <CourseCard type={'course'} response={sampleData} expanded={'horizontal'} />
+      <CourseCard type={'course'} course={sampleData} expanded={'horizontal'} />
     </div>
   ))
 
