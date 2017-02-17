@@ -35,7 +35,7 @@ storiesOf('Cards')
 
   .addWithInfo('Lesson Card', () => (
     <div className={representClasses}>
-      <LessonCard response={lessonResponse} />
+      <LessonCard lesson={lessonResponse} />
     </div>
   ))
 
@@ -65,7 +65,7 @@ storiesOf('Cards')
 
   .addWithInfo('Styled Lesson Card', () => (
     <div className={representClasses}>
-      <LessonCard type={'lesson'} response={lessonResponse} />
+      <LessonCard type={'lesson'} lesson={lessonResponse} />
     </div>
   ))
 

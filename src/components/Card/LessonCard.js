@@ -32,13 +32,13 @@ LessonHeader.propTypes = {
   expanded: PropTypes.oneOf(expansions)
 }
 
-const LessonCard = ({response}) => {
+const LessonCard = ({lesson}) => {
   return (
-    <Card type='lesson' response={response} />
+    <Card type='lesson' response={lesson} />
   )
 }
 LessonCard.propTypes = {
-  response: PropTypes.object
+  lesson: PropTypes.object
 }
 
 export default LessonCard
