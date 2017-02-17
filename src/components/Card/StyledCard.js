@@ -183,7 +183,7 @@ const StyledExpansionContainer = styled.div`
 `
 const StyledCard = ({type, expanded, response}) => {
   const { title, instructor: { full_name }, lessons, progress } = response
-  const cardPlaylist = type === 'playlist' || expanded ? buildPlaylistMeta(lessons, progress) : {}
+  const cardPlaylist = type === 'playlist' || expanded ? buildPlaylistMeta(lessons, progress) : []
   const extendedClasses = 'relative w-100 z-1 overflow-hidden pv3 bg-tag-gray br2'
 
   const expansionMap = {
