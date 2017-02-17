@@ -9,6 +9,7 @@ import imgRx from './assets/temp/rx.svg'
 import imgAngular from './assets/temp/angular.svg'
 import imgJs from './assets/temp/js.svg'
 import response from './courseJSON'
+import lessonResponse from './lessonJSON'
 
 const representClasses = 'flex justify-center items-center bg-dark-navy pv5'
 
@@ -34,7 +35,7 @@ storiesOf('Cards')
 
   .addWithInfo('Lesson Card', () => (
     <div className={representClasses}>
-      <LessonCard response={response} />
+      <LessonCard response={lessonResponse} />
     </div>
   ))
 
@@ -64,7 +65,7 @@ storiesOf('Cards')
 
   .addWithInfo('Styled Lesson Card', () => (
     <div className={representClasses}>
-      <LessonCard type={'lesson'} response={response} />
+      <LessonCard type={'lesson'} response={lessonResponse} />
     </div>
   ))
 

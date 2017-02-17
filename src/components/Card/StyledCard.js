@@ -63,14 +63,14 @@ const buildCardMeta = (type, response) => {
       lessonCount: response.lesson_count
     },
     'lesson': {
-      langImg: response.tech_logo_http_url,
+      langImg: response.icon_url,
       videoLength: secondsToString(response.duration)
     },
     'playlist': {
       timeRemaining: 'temp',
       lessonsLeft: response.lesson_count - response.completed_lesson_count,
-      currentLesson: response.progress.current_lesson,
-      playlist: buildPlaylistMeta(response.lessons, response.progress)
+      currentLesson: type === 'playlist' ? response.progress.current_lesson : 0,
+      playlist: type === 'playlist' ? buildPlaylistMeta(response.lessons, response.progress) : null
     }
   }
 
@@ -182,7 +182,7 @@ const StyledExpansionContainer = styled.div`
 `
 const StyledCard = ({type, expanded, response}) => {
   const { title, instructor: { full_name }, lessons, progress } = response
-  const cardPlaylist = buildPlaylistMeta(lessons, progress)
+  const cardPlaylist = type === 'playlist' || expanded ? buildPlaylistMeta(lessons, progress) : {}
   const extendedClasses = 'relative w-100 z-1 overflow-hidden pv3 bg-tag-gray br2'
 
   const expansionMap = {
