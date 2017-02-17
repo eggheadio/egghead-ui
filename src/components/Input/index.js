@@ -1,71 +1,7 @@
 import React, {PropTypes} from 'react'
+import styled from 'styled-components'
 import {keys} from 'lodash'
 import Icon from '../Icon'
-
-/**
- * .eh-text-field {
-    font-size: 1.125em;
-}
-.eh-text-field::-webkit-input-placeholder {
-    color: gray;
-    transition: 150ms;
-}
-.eh-text-field::-moz-placeholder {
-    color: gray;
-    transition: 150ms;
-}
-.eh-text-field:-ms-input-placeholder {
-    color: gray;
-    transition: 150ms;
-}
-.eh-text-field:-moz-placeholder {
-    color: gray;
-    transition: 150ms;
-}
-.eh-text-field:focus {}
-.eh-text-field:focus::-webkit-input-placeholder {
-    color: transparent;
-    transition: 150ms;
-}
-.eh-text-field:focus::-moz-placeholder {
-    color: transparent;
-    transition: 150ms;
-}
-.eh-text-field:focus:-ms-input-placeholder {
-    color: transparent;
-    transition: 150ms;
-}
-.eh-text-field:focus:-moz-placeholder {
-    color: transparent;
-    transition: 150ms;
-}
-.eh-text-field.disabled {
-    border-color: #292f36;
-    background: #1b1f24;
-    color: #646e7b;
-    cursor: not-allowed;
-}
-.eh-input-tooltip:before {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0px 8px 9px 8px;
-    border-color: transparent transparent #ffffff transparent;
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: -9px;
-}
-.eh-input-status-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    font-size: 1.5rem;
-    top: 1.25rem;
-    right: 1.25rem;
-}
- * 
- */
-
 
 const commonClasses = 'db w-100 pl3 pr5 pv3 lh-copy br2 bg-dark-navy ba eh-text-field sans-serif'
 const standardClasses = 'white b--gray focus-b-gray'
@@ -84,24 +20,23 @@ const iconMap = {
 
 
 const Input = ({type='text', placeholder, required=false, error=false,
-                errorMsg, disabled=false, value, icon}) => {
+                errorMsg, disabled=false, value, icon, className}) => {
   let inputStyles = standardClasses
 
   const fieldIcon = iconMap[icon]
 
-  // If field is required, set style to error or success
   if (required) {
     inputStyles = error ? errorClasses : successClasses
   }
 
   return (
-    <div className='relative eh-text-field-wrapper'>
+    <div className={`${className} relative eh-text-field-wrapper`}>
       <input type={type}
         placeholder={placeholder}
         required={required}
         disabled={disabled}
         defaultValue={value}
-        className={`${commonClasses} ${inputStyles} ${disabled ? disabledClasses : ''}`}
+        className={`${commonClasses} ${inputStyles} ${className} ${disabled ? disabledClasses : ''}`}
       />
       {fieldIcon}
       {errorMsg
@@ -123,4 +58,66 @@ Input.propTypes = {
   defaultValue: React.PropTypes.string
 }
 
-export default Input
+export default styled(Input)`
+   .eh-text-field {
+      font-size: 1.125em;
+  }
+  .eh-text-field::-webkit-input-placeholder {
+      color: gray;
+      transition: 150ms;
+  }
+  .eh-text-field::-moz-placeholder {
+      color: gray;
+      transition: 150ms;
+  }
+  .eh-text-field:-ms-input-placeholder {
+      color: gray;
+      transition: 150ms;
+  }
+  .eh-text-field:-moz-placeholder {
+      color: gray;
+      transition: 150ms;
+  }
+  .eh-text-field:focus {}
+  .eh-text-field:focus::-webkit-input-placeholder {
+      color: transparent;
+      transition: 150ms;
+  }
+  .eh-text-field:focus::-moz-placeholder {
+      color: transparent;
+      transition: 150ms;
+  }
+  .eh-text-field:focus:-ms-input-placeholder {
+      color: transparent;
+      transition: 150ms;
+  }
+  .eh-text-field:focus:-moz-placeholder {
+      color: transparent;
+      transition: 150ms;
+  }
+  .eh-text-field.disabled {
+      border-color: #292f36;
+      background: #1b1f24;
+      color: #646e7b;
+      cursor: not-allowed;
+  }
+  .eh-input-tooltip:before {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0px 8px 9px 8px;
+      border-color: transparent transparent #ffffff transparent;
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: -9px;
+  }
+  .eh-input-status-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      font-size: 1.5rem;
+      top: 1.25rem;
+      right: 1.25rem;
+  }
+
+`

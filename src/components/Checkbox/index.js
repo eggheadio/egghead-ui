@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import styled from 'styled-components'
 import Icon from '../Icon'
 
 /**
@@ -99,14 +100,14 @@ class Checkbox extends Component {
   }
 
   render() {
-    const { name, label, disabled, onClick } = this.props
+    const { name, label, disabled, onClick, className } = this.props
     const { checked } = this.state
     
     return (
       <label name={name}
-        className={`${commonLabelClasses} ${checkboxClasses} ${disabled ? disabledClasses : ''}`}
+        className={`${commonLabelClasses} ${checkboxClasses} ${className} ${disabled ? disabledClasses : ''}`}
       >
-          <input type='checkbox' className={inputClasses} disabled={disabled} checked={checked}
+          <input type='checkbox' className={`${inputClasses} ${className}`} disabled={disabled} checked={checked}
             onClick={onClick} onChange={this.handleChange}
           />
           <Icon type={checked ? 'check' : null} className={boxIconClasses} />
@@ -116,4 +117,23 @@ class Checkbox extends Component {
   }
 }
 
-export default Checkbox
+export default styled(Checkbox)`
+   input[type='checkbox']:checked + -icon {
+      color: #1b1f24;
+      background-color: #add960;
+      border-color: #add960;
+  }
+  .disabled {
+      color: #646e7b;
+      cursor: not-allowed;
+  }
+  .disabled -icon {
+      border-color: #434b56;
+  }
+  .disabled input[type='checkbox'] {}
+  .disabled input[type='checkbox']:checked {}
+  .disabled input[type='checkbox']:checked + -icon {
+      background-color: #434b56;
+      border-color: #434b56;
+  }
+`
