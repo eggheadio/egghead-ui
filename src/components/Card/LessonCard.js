@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 import PlayButton from '../Button/PlayButton'
-import Card from './StyledCard'
+import Card from './'
+
 
 const StyledPlayButton = styled(PlayButton)`
   top: 50%;
@@ -22,20 +23,20 @@ LessonMeta.propTypes = {
   meta: PropTypes.object
 }
 
-export const LessonHeader = ({meta, expanded}) => {
-  return <StyledPlayButton hover />
+export const LessonHeader = ({meta}) => {
+  return <StyledPlayButton hover type='lesson' />
 }
 LessonHeader.propTypes = {
   meta: PropTypes.object
 }
 
-const LessonCard = ({response}) => {
+const LessonCard = ({lesson}) => {
   return (
-    <Card type='lesson' response={response} />
+    <Card type='lesson' response={lesson} />
   )
 }
 LessonCard.propTypes = {
-  response: PropTypes.object
+  lesson: PropTypes.object
 }
 
 export default LessonCard

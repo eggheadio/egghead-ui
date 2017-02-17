@@ -1,15 +1,13 @@
 import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 import PlayButton from '../Button/PlayButton'
-import Card from './StyledCard'
+import Card from './'
+import { expansions } from './'
+
 
 const StyledPlayButton = styled(PlayButton)`
-  top: 50%;
-  margin-top: -2rem;
   ${props => props.hover ? `&:hover { opacity: 1; }` : ''}
 `
-
-const expansions = [false, 'horizontal', 'vertical']
 
 export const CourseMeta = ({meta}) => {
   return (
@@ -24,8 +22,8 @@ CourseMeta.propTypes = {
 
 export const CourseHeader = ({response, expanded}) => {
   return (
-    <div>
-      <StyledPlayButton hover />
+    <div className='flex flex-column items-center'>
+      <StyledPlayButton hover type='course' expanded={expanded} />
       <div className='mw5 mt3 center ph3'>
         <img alt='' src={response.square_cover_url} />
       </div>
@@ -33,17 +31,18 @@ export const CourseHeader = ({response, expanded}) => {
   )
 }
 CourseHeader.propTypes = {
-  response: PropTypes.object
+  response: PropTypes.object,
+  expanded: PropTypes.oneOf(expansions)
 }
 
-const CourseCard = ({response, expanded=false}) => {
-  const { title, instructor: { full_name } } = response
+const CourseCard = ({course, expanded}) => {
+  const { title, instructor: { full_name } } = course
   return (
-    <Card type='course' response={response} expanded={expanded} />
+    <Card type='course' response={course} expanded={expanded} />
   )
 }
 CourseCard.propTypes = {
-  response: PropTypes.object.isRequired,
+  course: PropTypes.object.isRequired,
   expanded: PropTypes.oneOf(expansions)
 }
 

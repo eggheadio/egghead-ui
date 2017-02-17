@@ -1,41 +1,20 @@
 import React, { PropTypes } from 'react'
 import PlayButton from '../Button/PlayButton'
 import Playlist from '../Playlist/'
-import Card from './StyledCard'
+import Card from './'
 import styled from 'styled-components'
 import { buildPlaylistMeta, findVidNumber, getTimeLeft } from '../../utils/Playlist'
 import { secondsToString } from '../../utils/Time'
+import { expansions } from './'
 
-/**
- *
- .card-playlist .card-progress-list-item.viewed:before {
-  border: 1px solid var(--turquoise);
-  background: var(--turquoise);
-}
-.card-playlist .card-progress-list-item.viewed:after {
-  border-color: var(--turquoise);
-}
-.card-playlist .card-progress-list-item.next:before {
-  border-color: transparent transparent transparent var(--turquoise);
-  box-shadow: 0 0 0 6px var(--tag-gray);
-  background: var(--tag-gray);
-}
-.card-playlist .card-progress-list-item.next:hover:before {
-  box-shadow: 0 0 0 6px var(--white);
-  background: var(--white);
-}
-.card-playlist .card-play-btn {
-  bottom: -2.5rem;
-}
- * */
 
-export const PlaylistCard = ({response}) => {
+export const PlaylistCard = ({playlist}) => {
   return (
-    <Card type='playlist' response={response} />
+    <Card type='playlist' response={playlist} />
   )
 }
 PlaylistCard.propTypes = {
-  meta: PropTypes.object
+  playlist: PropTypes.object
 }
 
 export const PlaylistMeta = ({meta}) => {
@@ -88,9 +67,9 @@ export const PlaylistHeader = ({response, expanded}) => {
   const lessonsLeft = lessons.length - progress.completed_lessons.length
   const timeRemaining = secondsToString(getTimeLeft(duration, progress))
   return (
-    <div>
-      <StyledPlaylistHeader className='relative w-100'>
-        <PlayButton className='card-play-btn' />
+    <div className='w-100'>
+      <StyledPlaylistHeader className='relative w-100 flex flex-column items-center'>
+        <PlayButton type='playlist' className='card-play-btn' />
         <Playlist playlist={buildPlaylistMeta(lessons, progress)} card='playlist' />
       </StyledPlaylistHeader>
       <PlaylistSummary timeRemaining={timeRemaining} lessonsLeft={lessonsLeft} />
@@ -98,7 +77,8 @@ export const PlaylistHeader = ({response, expanded}) => {
   )
 }
 PlaylistHeader.propTypes = {
-  meta: PropTypes.object
+  meta: PropTypes.object,
+  expanded: PropTypes.oneOf([false, 'horizontal', 'vertical'])
 }
 
 export default PlaylistCard
