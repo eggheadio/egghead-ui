@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import { commonLabelClasses, commonIconClasses, inputClasses, disabledClasses } from '../Checkbox'
 
 const radioClasses = 'mb2 mh2 eh-radio'
@@ -24,7 +25,7 @@ class RadioButtonGroup extends Component {
   }
 
   render() {
-    const { optionList } = this.props
+    const { optionList, className } = this.props
     const radioButton = (item) => {
       if (item.checked) {
         this.setState({ selectedItem: item.value })
@@ -33,7 +34,7 @@ class RadioButtonGroup extends Component {
 
       return (
         <label key={item.value}
-          className={`${commonLabelClasses} ${radioClasses} ${item.disabled ? disabledClasses : ''}`}
+          className={`${commonLabelClasses} ${radioClasses} ${className} ${item.disabled ? disabledClasses : ''}`}
         >
           <input type='radio' className={inputClasses} disabled={item.disabled}
             checked={this.state.selectedItem === item.value}
@@ -53,4 +54,42 @@ class RadioButtonGroup extends Component {
   }
 }
 
-export default RadioButtonGroup
+export default styled(RadioButtonGroup)`
+  input[type='radio'] {}
+  input[type='radio']:checked {}
+  input[type='radio']:checked + .eh-radio-icon {
+      background-color: #add960;
+      border-color: #add960;
+  }
+  &.disabled {
+      color: #646e7b;
+      cursor: not-allowed;
+  }
+  &.disabled .eh-radio-icon {
+      border-color: #434b56;
+  }
+  &.disabled input[type='radio'] {}
+  &.disabled input[type='radio']:checked {}
+  &.disabled input[type='radio']:checked + .eh-radio-icon {
+      background-color: #434b56;
+      border-color: #434b56;
+  }
+  .eh-radio-icon {
+      width: 21px;
+      height: 21px;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: center;
+          justify-content: center;
+      -ms-flex-align: center;
+          align-items: center;
+  }
+  .eh-radio-icon {}
+  .eh-radio-icon:before {
+      content: '';
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background-color: #1b1f24;
+  } 
+`
