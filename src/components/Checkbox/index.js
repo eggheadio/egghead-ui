@@ -74,6 +74,14 @@ export const disabledClasses = 'disabled'
 const checkboxClasses = 'pointer eh-checkbox'
 const boxIconClasses = `${commonIconClasses} br2 eh-checkbox-icon`
 
+const StyledIcon = styled(Icon)`
+  width: 21px;
+  height: 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 class Checkbox extends Component {
   static propTypes = {
     name: PropTypes.string,
@@ -110,7 +118,7 @@ class Checkbox extends Component {
           <input type='checkbox' className={`${inputClasses} ${className}`} disabled={disabled} checked={checked}
             onClick={onClick} onChange={this.handleChange}
           />
-          <Icon type={checked ? 'check' : null} className={boxIconClasses} />
+          <StyledIcon type={checked ? 'check' : null} className={boxIconClasses} />
           {label}
       </label>
     )
