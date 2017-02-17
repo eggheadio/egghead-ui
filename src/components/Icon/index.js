@@ -33,18 +33,30 @@ export const types = {
   'subscriber-minutes': 'clock-o',
   'success': 'check-circle',
   'warning': 'exclamation-circle',
+  'info': 'info-circle',
+  'dollar': 'money'
+}
+
+export const colors = {
+  'success': 'green',
+  'primary': 'blue',
+  'warning': 'yellow',
+  'danger': 'red',
+  'light': 'light-gray'
 }
 
 const Icon = ({
   type,
-  size = '1',
-  spin = false,
-  className = '',
+  size,
+  color,
+  spin,
+  className,
 }) => (
   <span className={`
     fa
     fa-${types[type]} 
     ${sizes[size]}
+    ${colors[color]}
     ${className}
     ${spin ? 'fa-spin' : ''}
   `} />
@@ -53,8 +65,14 @@ const Icon = ({
 Icon.propTypes = {
   type: PropTypes.oneOf(keys(types)).isRequired,
   size: PropTypes.oneOf(keys(sizes)),
+  color: PropTypes.oneOf(keys(colors)),
   spin: PropTypes.bool,
   className:  PropTypes.string,
+}
+
+Icon.defaultProps = {
+  size: '1',
+  spin: false,
 }
 
 export default Icon

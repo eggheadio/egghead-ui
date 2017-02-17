@@ -1,6 +1,6 @@
 {
   "name": "egghead-ui",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "Official living style guide app and component library for egghead.io",
   "main": "lib/index.js",
   "engines": {
@@ -15,7 +15,7 @@
     "prepublish": "yarn build:library",
     "start": "react-scripts start",
     "build": "yarn verify",
-    "release": "np"
+    "release": "np --any-branch"
   },
   "dependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
