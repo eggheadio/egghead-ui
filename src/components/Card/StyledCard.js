@@ -226,9 +226,9 @@ const StyledCard = ({type, expanded, response}) => {
   )
 }
 StyledCard.propTypes = {
-  type: PropTypes.oneOf(keys(cardTypes)),
+  type: PropTypes.oneOf(['course', 'lesson', 'playlist']),
   response: PropTypes.object,
-  expanded: PropTypes.string
+  expanded: PropTypes.oneOf([false, 'horizontal', 'vertical'])
 }
 
 export default StyledCard
