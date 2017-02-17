@@ -71,7 +71,7 @@ const buildCardMeta = (type, response) => {
       timeRemaining: 'temp',
       lessonsLeft: response.lesson_count - response.completed_lesson_count,
       currentLesson: type === 'playlist' ? response.progress.current_lesson : 0,
-      playlist: type === 'playlist' ? buildPlaylistMeta(response.lessons, response.progress) : null
+      playlist: type === 'playlist' ? buildPlaylistMeta(response.lessons, response.progress) : []
     }
   }
 
@@ -184,7 +184,7 @@ const StyledExpansionContainer = styled.div`
 const StyledCard = ({type, expanded, response}) => {
   const { title, instructor: { full_name }, lessons, progress } = response
   const cardPlaylist = type === 'playlist' || expanded ? buildPlaylistMeta(lessons, progress) : []
-  const extendedClasses = 'relative w-100 z-1 overflow-hidden pv3 bg-tag-gray br2'
+  const extendedClasses = 'relative w-100 z-1 overflow-scroll pv3 bg-tag-gray br2'
 
   const expansionMap = {
     vertical: {
