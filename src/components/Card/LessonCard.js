@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 import PlayButton from '../Button/PlayButton'
-import Card from './StyledCard'
-import { expansions } from './'
+import Card from './'
 
 
 const StyledPlayButton = styled(PlayButton)`
@@ -24,21 +23,20 @@ LessonMeta.propTypes = {
   meta: PropTypes.object
 }
 
-export const LessonHeader = ({meta, expanded}) => {
+export const LessonHeader = ({meta}) => {
   return <StyledPlayButton hover type='lesson' />
 }
 LessonHeader.propTypes = {
-  meta: PropTypes.object,
-  expanded: PropTypes.oneOf(expansions)
+  meta: PropTypes.object
 }
 
-const LessonCard = ({response}) => {
+const LessonCard = ({lesson}) => {
   return (
-    <Card type='lesson' response={response} />
+    <Card type='lesson' response={lesson} />
   )
 }
 LessonCard.propTypes = {
-  response: PropTypes.object
+  lesson: PropTypes.object
 }
 
 export default LessonCard

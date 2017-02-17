@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 import PlayButton from '../Button/PlayButton'
-import Card from './StyledCard'
+import Card from './'
 import { expansions } from './'
 
 
@@ -35,14 +35,14 @@ CourseHeader.propTypes = {
   expanded: PropTypes.oneOf(expansions)
 }
 
-const CourseCard = ({response, expanded=false}) => {
-  const { title, instructor: { full_name } } = response
+const CourseCard = ({course, expanded}) => {
+  const { title, instructor: { full_name } } = course
   return (
-    <Card type='course' response={response} expanded={expanded} />
+    <Card type='course' response={course} expanded={expanded} />
   )
 }
 CourseCard.propTypes = {
-  response: PropTypes.object.isRequired,
+  course: PropTypes.object.isRequired,
   expanded: PropTypes.oneOf(expansions)
 }
 

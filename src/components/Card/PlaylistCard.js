@@ -1,20 +1,20 @@
 import React, { PropTypes } from 'react'
 import PlayButton from '../Button/PlayButton'
 import Playlist from '../Playlist/'
-import Card from './StyledCard'
+import Card from './'
 import styled from 'styled-components'
 import { buildPlaylistMeta, findVidNumber, getTimeLeft } from '../../utils/Playlist'
 import { secondsToString } from '../../utils/Time'
 import { expansions } from './'
 
 
-export const PlaylistCard = ({response}) => {
+export const PlaylistCard = ({playlist}) => {
   return (
-    <Card type='playlist' response={response} />
+    <Card type='playlist' response={playlist} />
   )
 }
 PlaylistCard.propTypes = {
-  meta: PropTypes.object
+  playlist: PropTypes.object
 }
 
 export const PlaylistMeta = ({meta}) => {
