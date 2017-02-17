@@ -58,31 +58,31 @@ export default styled(Checkbox)`
   input[type='checkbox'] {}
   input[type='checkbox']:checked {}
   input[type='checkbox']:checked + .eh-checkbox-icon {
-      color: #1b1f24;
-      background-color: #add960;
-      border-color: #add960;
+    color: #1b1f24;
+    background-color: #add960;
+    border-color: #add960;
   }
   &.disabled {
-      color: #646e7b;
-      cursor: not-allowed;
+    color: #646e7b;
+    cursor: not-allowed;
   }
   &.disabled .eh-checkbox-icon {
-      border-color: #434b56;
+    border-color: #434b56;
   }
   &.disabled input[type='checkbox'] {}
   &.disabled input[type='checkbox']:checked {}
   &.disabled input[type='checkbox']:checked + .eh-checkbox-icon {
-      background-color: #434b56;
-      border-color: #434b56;
+    background-color: #434b56;
+    border-color: #434b56;
   }
   .eh-checkbox-icon {
-      width: 21px;
-      height: 21px;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-pack: center;
-          justify-content: center;
-      -ms-flex-align: center;
-          align-items: center;
+    width: 21px;
+    height: 21px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
 `

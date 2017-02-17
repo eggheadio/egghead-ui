@@ -58,38 +58,38 @@ export default styled(RadioButtonGroup)`
   input[type='radio'] {}
   input[type='radio']:checked {}
   input[type='radio']:checked + .eh-radio-icon {
-      background-color: #add960;
-      border-color: #add960;
+    background-color: #add960;
+    border-color: #add960;
   }
   &.disabled {
-      color: #646e7b;
-      cursor: not-allowed;
+    color: #646e7b;
+    cursor: not-allowed;
   }
   &.disabled .eh-radio-icon {
-      border-color: #434b56;
+    border-color: #434b56;
   }
   &.disabled input[type='radio'] {}
   &.disabled input[type='radio']:checked {}
   &.disabled input[type='radio']:checked + .eh-radio-icon {
-      background-color: #434b56;
-      border-color: #434b56;
+    background-color: #434b56;
+    border-color: #434b56;
   }
   .eh-radio-icon {
-      width: 21px;
-      height: 21px;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-pack: center;
-          justify-content: center;
-      -ms-flex-align: center;
-          align-items: center;
+    width: 21px;
+    height: 21px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
   .eh-radio-icon {}
   .eh-radio-icon:before {
-      content: '';
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      background-color: #1b1f24;
+    content: '';
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background-color: #1b1f24;
   } 
 `
