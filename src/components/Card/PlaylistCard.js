@@ -78,7 +78,7 @@ export const PlaylistHeader = ({response, expanded}) => {
 }
 PlaylistHeader.propTypes = {
   meta: PropTypes.object,
-  expanded: PropTypes.oneOf(expansions)
+  expanded: PropTypes.oneOf([false, 'horizontal', 'vertical'])
 }
 
 export default PlaylistCard

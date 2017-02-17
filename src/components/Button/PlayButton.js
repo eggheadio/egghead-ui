@@ -54,7 +54,7 @@ const PlayButton = ({ hover=false, type, expanded, className }) => {
 PlayButton.propTypes = {
   hover: PropTypes.bool,
   type: PropTypes.string,
-  expanded: PropTypes.oneOf(expansions)
+  expanded: PropTypes.oneOf([false, 'horizontal', 'vertical'])
 }
 
 export default PlayButton
