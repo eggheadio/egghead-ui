@@ -7,16 +7,25 @@ import Request from './index'
 const Comments = ({comments}) => (
   <div>
     {map(comments, (comment, index) => (
-      <div key={index}>
-        <div>By {comment.email}</div>
-        <div>{comment.body}</div>
-        <hr />
+      <div
+        key={index}
+        className='pb3'
+      >
+        <div className='b'>
+          By {comment.email}
+        </div>
+        <div className='gray'>
+          {comment.body}
+        </div>
       </div>
     ))}
   </div>
 )
 
+const decoratorClasses = 'mh-vh-100 bg-navy white pa3'
+
 storiesOf('Request')
+  .addDecorator((story) => (<div className={decoratorClasses}>{story()}</div>))
 
   .addWithInfo('Automatic', () => (
     <Request url={apiFixture}>
