@@ -7,7 +7,7 @@ const Loading = () => (
       type='refresh'
       size='2'
       spin
-      className='mr2'
+      className='mr2 pa3'
     />
     Loading...
   </div>
