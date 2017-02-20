@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 import PlayButton from '../Button/PlayButton'
 import Card from './'
-import { expansions } from './'
+const expansions = ['vertical', 'horizontal']
 
 
 const StyledPlayButton = styled(PlayButton)`

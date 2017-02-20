@@ -5,7 +5,6 @@ import Card from './'
 import styled from 'styled-components'
 import { buildPlaylistMeta, findVidNumber, getTimeLeft } from '../../utils/Playlist'
 import { secondsToString } from '../../utils/Time'
-import { expansions } from './'
 
 
 export const PlaylistCard = ({playlist}) => {
