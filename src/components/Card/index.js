@@ -159,7 +159,7 @@ const StyledCardContainer = styled.div`
         }
       `
     : ''}
-  ${props => props.type === 'lesson' || (props.type === 'course' && (props.expanded === false || props.expanded === 'horizontal'))
+  ${props => props.type === 'lesson' || (props.type === 'course' && (!props.expanded || props.expanded === 'horizontal'))
     ? `
         &:hover {
           .card-play-btn {
