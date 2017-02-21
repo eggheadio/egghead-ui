@@ -2,7 +2,7 @@ import React from 'react'
 
 import logo from './assets/egghead-logo-white.svg'
 
-const Footer = () => (
+const StaticFooter = () => (
   <footer className='bg-dark-navy pb2 ph3'>
     <div className='mw8 center'>
       <div className='flex justify-between items-center pv3 bb b--light-navy'>
@@ -103,4 +103,4 @@ const Footer = () => (
   </footer>
 )
 
-export default Footer
+export default StaticFooter
