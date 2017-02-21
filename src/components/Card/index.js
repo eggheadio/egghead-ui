@@ -8,7 +8,6 @@ import Playlist from '../Playlist/'
 import { buildPlaylistMeta } from '../../utils/Playlist'
 import { secondsToString } from '../../utils/Time'
 
-export const expansions = ['vertical', 'horizontal']
 const commonCardClasses = 'relative'
 const commonInnerClasses = 'flex flex-column items-center bg-white navy relative z-1 br2'
 const enhancedInnerClasses = `${commonInnerClasses} overflow-hidden pa4 pointer`
@@ -160,7 +159,7 @@ const StyledCardContainer = styled.div`
         }
       `
     : ''}
-  ${props => props.type === 'lesson' || (props.type === 'course' && (props.expanded === false || props.expanded === 'horizontal'))
+  ${props => props.type === 'lesson' || (props.type === 'course' && (!props.expanded || props.expanded === 'horizontal'))
     ? `
         &:hover {
           .card-play-btn {
