@@ -3,15 +3,11 @@ import {storiesOf} from '@kadira/storybook'
 import {stringFixture} from '../../utils/Fixtures'
 import Paragraph, {types} from '.'
 
-const decoratorClasses = 'min-vh-100 bg-navy'
+const decoratorClasses = 'bg-navy pa3 h-100 min-vh-100'
 
 storiesOf('Paragraph')
 
   .addDecorator((story) => (<div className={decoratorClasses}>{story()}</div>))
-
-  .addWithInfo('Default', () => (
-    <Paragraph>{stringFixture}</Paragraph>
-  ))
 
   .addWithPropsCombinations('Variations', Paragraph, {
     children: [stringFixture],

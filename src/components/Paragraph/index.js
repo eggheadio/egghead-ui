@@ -10,7 +10,10 @@ const classNameByType = {
 
 export const types = keys(classNameByType)
 
-const Paragraph = ({children, type = first(types)}) => (
+const Paragraph = ({
+  children,
+  type = first(types),
+}) => (
   <p className={`${sharedClassName} ${classNameByType[type]}`}>
     {children}
   </p>
