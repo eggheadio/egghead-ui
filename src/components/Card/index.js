@@ -8,7 +8,6 @@ import Playlist from '../Playlist/'
 import { buildPlaylistMeta } from '../../utils/Playlist'
 import { secondsToString } from '../../utils/Time'
 
-export const expansions = ['vertical', 'horizontal']
 const commonCardClasses = 'relative'
 const commonInnerClasses = 'flex flex-column items-center bg-white navy relative z-1 br2'
 const enhancedInnerClasses = `${commonInnerClasses} overflow-hidden pa4 pointer`
