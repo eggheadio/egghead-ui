@@ -3,7 +3,7 @@ import AvatarSource from './components/Avatar'
 import ButtonSource from './components/Button'
 import CardSource from './components/Card'
 // import CategoriesBrowserImport from './components/CategoriesBrowser'
-import FooterImport from './components/Footer'
+// import FooterImport from './components/Footer'
 import CourseCardSource from './components/Card/CourseCard'
 import ErrorSource from './components/Error'
 import LessonCardSource from './components/Card/LessonCard'
@@ -25,7 +25,7 @@ export const Avatar = AvatarSource
 export const Button = ButtonSource
 export const Card = CardSource
 // export const CategoriesBrowser = CategoriesBrowserImport
-export const Footer = FooterImport
+// export const Footer = FooterImport
 export const CourseCard = CourseCardSource
 export const Error = ErrorSource
 export const LessonCard = LessonCardSource
