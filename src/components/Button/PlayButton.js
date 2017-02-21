@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import styled, { css } from 'styled-components'
+import expansions from '../../utils/expansions'
 
 
 const commonPlayBtnClasses = 'fa fa-play w3 h3 f3 absolute z-1 gray items-center justify-center br-pill pointer grow-large'
@@ -29,7 +30,7 @@ const StyledPlayButton = styled.div`
   ${props => props.hover ? 'opacity: 0;' : ''}
   ${props => 
     props.type === 'lesson' ||
-    (props.type === 'course' && (props.expanded === false || props.expanded === 'horizontal'))
+    (props.type === 'course' && (!props.expanded || props.expanded === 'horizontal'))
      ? `${centerButtonRules}`
      : ''
    }
@@ -53,7 +54,7 @@ const PlayButton = ({ hover=false, type, expanded, className }) => {
 PlayButton.propTypes = {
   hover: PropTypes.bool,
   type: PropTypes.string,
-  expanded: PropTypes.oneOf(['horizontal', 'vertical'])
+  expanded: PropTypes.oneOf(expansions)
 }
 
 export default PlayButton

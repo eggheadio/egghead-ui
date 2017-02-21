@@ -2,11 +2,11 @@ import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 import PlayButton from '../Button/PlayButton'
 import Card from './'
-const expansions = ['vertical', 'horizontal']
+import expansions from '../../utils/expansions'
 
 
 const StyledPlayButton = styled(PlayButton)`
-  ${props => props.hover ? `&:hover { opacity: 1; }` : ''}
+  ${props => props.hover ? '&:hover { opacity: 1; }' : ''}
 `
 
 export const CourseMeta = ({meta}) => {
