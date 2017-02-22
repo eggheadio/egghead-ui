@@ -9,13 +9,13 @@ const npmVersion = `${execSync(`npm show ${moduleName} version`)}`
 console.log('npmVersion', npmVersion)
 
 const publish = () => {
-  console.log(`Adding git tag v${packageVersion} to repo`)
-  execSync(`git tag v${packageVersion}`)
-  execSync(`git push ${remoteRepo} master --tags`)
-
   console.log(`Publishing ${packageVersion} to npm`)
   writeFileSync('.npmrc', `//registry.npmjs.org/:_authToken=${npmToken}\n`)
   execSync('npm publish')
+
+  console.log(`Adding git tag v${packageVersion} to repo`)
+  execSync(`git tag v${packageVersion}`)
+  execSync(`git push ${remoteRepo} master --tags`)
 
   console.log('Publishing complete')
 }
