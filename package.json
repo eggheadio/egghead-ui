@@ -14,7 +14,8 @@
     "verify": "yarn build:library && yarn build:styleguide",
     "prepublish": "yarn build:library",
     "start": "react-scripts start",
-    "build": "yarn verify"
+    "build": "yarn verify",
+    "release": "node scripts/release"
   },
   "dependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
@@ -31,6 +32,7 @@
     "react-scripts": "^0.8.4",
     "react-storybook-addon-props-combinations": "^0.0.1",
     "react-tabs": "^0.8.2",
+    "semver": "^5.3.0",
     "styled-components": "^1.4.3",
     "tachyons-egghead": "^1.2.1"
   },
@@ -54,6 +56,5 @@
   "bugs": {
     "url": "https://github.com/eggheadio/egghead-ui/issues"
   },
-  "homepage": "https://github.com/eggheadio/egghead-ui#readme",
-  "devDependencies": {}
+  "homepage": "https://github.com/eggheadio/egghead-ui#readme"
 }

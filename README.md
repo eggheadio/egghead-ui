@@ -36,6 +36,7 @@ View [the style guide](https://styleguide.egghead.io) for visual examples and co
 - `yarn dev:library` to develop the library
 - [localhost:2000](http://localhost:2000) to view the style guide
 - use [`yarn link`](https://yarnpkg.com/lang/en/docs/cli/link/) to test using library components in another project
+- bump the `version` in `package.json` using [Semantic Versioning](http://semver.org/)
 - submit a pull request for feature branch to master
 - once [continuous integration passes](https://app.codeship.com/projects/200238/configure_tests) and there is an approved review, merge the pull request
 - [continuous deployment runs in Codeship](https://app.codeship.com/projects/200238/deployment_branches/162272) and deploys the latest style guide app to [styleguide.egghead.io](https://styleguide.egghead.io) and then updates the library to a new version and publishes it [on npm](https://www.npmjs.com/package/egghead-ui)
