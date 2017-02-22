@@ -10,7 +10,7 @@ console.log('npmVersion', npmVersion)
 
 const publish = () => {
   console.log(`Publishing ${packageVersion} to npm`)
-  writeFileSync('.npmrc', `//registry.npmjs.org/:_authToken=${npmToken}\n`)
+  writeFileSync('~/.npmrc', `//registry.npmjs.org/:_authToken=${npmToken}\n`)
   execSync('npm publish')
 
   console.log(`Adding git tag v${packageVersion} to repo`)
