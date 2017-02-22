@@ -1,17 +1,17 @@
 const execSync = require('child_process').execSync
 const writeFileSync = require('fs').writeFileSync
 const semver = require('semver')
-const repoName = process.argv[2]
-const npmToken = process.argv[3]
+const fullModuleName = process.argv[2]
+const remoteRepo = process.argv[3]
+const npmToken = process.argv[4]
 const packageVersion = require('../package.json').version
-const npmVersion = `${execSync(`npm show ${repoName} version`)}`
+const npmVersion = `${execSync(`npm show ${fullModuleName} version`)}`
 console.log('npmVersion', npmVersion)
 
 const publish = () => {
   console.log(`Adding git tag v${packageVersion} to repo`)
-  execSync('git fetch --unshallow || true')
   execSync(`git tag v${packageVersion}`)
-  execSync(`git push git@github.com:${repoName}.git --tags`)
+  execSync(`git push ${remoteRepo} master --tags`)
 
   console.log(`Publishing ${packageVersion} to npm`)
   writeFileSync('.npmrc', `//registry.npmjs.org/:_authToken=${npmToken}\n`)
