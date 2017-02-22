@@ -10,14 +10,16 @@ import { secondsToString } from '../../utils/Time'
 
 const commonCardClasses = 'relative'
 const commonInnerClasses = 'flex flex-column items-center bg-white navy relative z-1 br2'
-const enhancedInnerClasses = `${commonInnerClasses} overflow-hidden pa4 pointer`
+const enhancedInnerClasses = `${commonInnerClasses} overflow-hidden pa4`
 const footerClasses = 'flex justify-between self-stretch items-center'
 const pillClasses = 'f6 lh-title ttu fw6 ph3 pv1 br-pill tracked'
 const orangePillClasses = `${pillClasses} orange bg-tag-orange`
 const bluePillClasses = `${pillClasses} blue bg-tag-blue`
 const greenPillClasses = `${pillClasses} dark-green bg-tag-turquoise tracked`
-const titleHeadingClasses = 'f3 tc mt4 mb2 avenir fw5'
-const instructorNameClasses = 'f6 dark-gray o-50 mb4 tc'
+const titleHeadingClasses = 'f3 tc mt4 mb3 avenir fw5 pointer'
+const instructorNameClasses = 'f6 o-50 dark-gray pointer'
+
+import instructorPortrait from './assets/temp/instructor-portrait.jpg'
 
 const cardTypes = {
   'course': {
@@ -28,7 +30,7 @@ const cardTypes = {
     'cardClasses' : 'relative',
     'shadow': true,
     'innerStyles': `${enhancedInnerClasses}`,
-    'innerClasses': 'flex flex-column items-center bg-white navy relative z-1 overflow-hidden pa4 pointer',
+    'innerClasses': 'flex flex-column items-center bg-white navy relative z-1 overflow-hidden pa4',
     'pillClasses': `${orangePillClasses}`,
     'metaComponent': (response) => <CourseMeta meta={buildCardMeta('course', response)} />,
     'headerComponent': (response, expanded) => <CourseHeader response={response} expanded={expanded} />
@@ -103,7 +105,10 @@ const CardBody = ({title, instructor, type}) => {
   return (
     <div className={`${type === 'playlist' ? 'ph4' : ''}`}>
       <h3 className={titleHeadingClasses}>{title}</h3>
-      <div className={instructorNameClasses}>{instructor}</div>
+      <div className='mb4 flex justify-center items-center'>
+        <img src={instructorPortrait} alt='' className='w2 h2 br-pill mr3 pointer'/>
+        <span className={instructorNameClasses}>{instructor}</span>
+      </div>
     </div>
   )
 }
