@@ -1,11 +1,11 @@
 const execSync = require('child_process').execSync
 const writeFileSync = require('fs').writeFileSync
 const semver = require('semver')
-const fullModuleName = process.argv[2]
+const moduleName = process.argv[2]
 const remoteRepo = process.argv[3]
 const npmToken = process.argv[4]
 const packageVersion = require('../package.json').version
-const npmVersion = `${execSync(`npm show ${fullModuleName} version`)}`
+const npmVersion = `${execSync(`npm show ${moduleName} version`)}`
 console.log('npmVersion', npmVersion)
 
 const publish = () => {
