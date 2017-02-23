@@ -4,7 +4,6 @@ const moduleName = 'egghead-ui'
 const remoteRepo = 'git@github.com:eggheadio/egghead-ui.git' 
 const packageVersion = require('../package.json').version
 const npmVersion = `${execSync(`npm show ${moduleName} version`)}`
-console.log('npmVersion', npmVersion)
 
 const publish = () => {
   console.log(`Publishing ${packageVersion} to npm`)
