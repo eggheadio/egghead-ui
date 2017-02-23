@@ -1,6 +1,6 @@
 {
   "name": "egghead-ui",
-  "version": "2.5.0",
+  "version": "2.7.0",
   "description": "Official living style guide app and component library for egghead.io",
   "main": "lib/index.js",
   "engines": {
@@ -15,7 +15,7 @@
     "prepublish": "yarn build:library",
     "start": "react-scripts start",
     "build": "yarn verify",
-    "release": "node scripts/release"
+    "version": "echo $npm_package_version"
   },
   "dependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
@@ -32,7 +32,6 @@
     "react-scripts": "^0.8.4",
     "react-storybook-addon-props-combinations": "^0.0.1",
     "react-tabs": "^0.8.2",
-    "semver": "^5.3.0",
     "styled-components": "^1.4.3",
     "tachyons-egghead": "^1.2.1"
   },
