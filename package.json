@@ -52,7 +52,6 @@
     "type": "git",
     "url": "git+https://github.com/eggheadio/egghead-ui.git"
   },
-  "author": "egghead.io",
   "bugs": {
     "url": "https://github.com/eggheadio/egghead-ui/issues"
   },
