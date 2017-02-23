@@ -14,9 +14,7 @@
     "verify": "yarn build:library && yarn build:styleguide",
     "prepublish": "yarn build:library",
     "start": "react-scripts start",
-    "build": "yarn verify",
-    "version": "echo $npm_package_version",
-    "release": "scripts/release"
+    "build": "yarn verify"
   },
   "dependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
