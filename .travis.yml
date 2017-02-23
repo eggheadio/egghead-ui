@@ -5,10 +5,11 @@ cache: yarn
 script: yarn verify
 deploy:
   - provider: heroku
+    app: egghead-styleguide
     api_key: $AUTHOR_HEROKU_KEY
   - provider: npm
-    email: $AUTHOR_EMAIL 
     api_key: $AUTHOR_NPM_TOKEN
+    email: $AUTHOR_EMAIL 
     on:
       repo: eggheadio/egghead-ui
       tags: true
