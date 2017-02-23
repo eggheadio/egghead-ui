@@ -1,6 +1,6 @@
 {
   "name": "egghead-ui",
-  "version": "2.12.0",
+  "version": "2.13.0",
   "description": "Official living style guide app and component library for egghead.io",
   "main": "lib/index.js",
   "engines": {
@@ -12,6 +12,7 @@
     "build:styleguide": "build-storybook",
     "build:library": "babel src -d lib",
     "verify": "yarn build:library && yarn build:styleguide",
+    "bump": "yarn version && git push && git push --tags",
     "prepublish": "yarn build:library",
     "start": "react-scripts start",
     "build": "yarn verify"
