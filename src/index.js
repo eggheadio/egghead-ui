@@ -8,7 +8,6 @@ import HeadingSource from './components/Heading'
 import IconSource from './components/Icon'
 import InputSource from './components/Input'
 import LessonCardSource from './components/LessonCard'
-import LogoSource from './components/Logo'
 import ParagraphSource from './components/Paragraph'
 // import PlaylistSource from './components/Playlist'
 import PlaylistCardSource from './components/PlaylistCard'
@@ -26,7 +25,6 @@ export const Heading = HeadingSource
 export const Icon = IconSource
 export const Input = InputSource
 export const LessonCard = LessonCardSource
-export const Logo = LogoSource
 export const Paragraph = ParagraphSource
 // export const Playlist = PlaylistSource
 export const PlaylistCard = PlaylistCardSource
