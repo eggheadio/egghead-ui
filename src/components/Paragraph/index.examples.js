@@ -3,7 +3,7 @@ import {storiesOf} from '@kadira/storybook'
 import {stringFixture} from '../../utils/Fixtures'
 import Paragraph, {types} from '.'
 
-const decoratorClasses = 'bg-navy pa3 h-100 min-vh-100'
+const decoratorClasses = 'bg-navy pa3 h-100 min-vh-100 gray'
 
 storiesOf('Paragraph')
 
