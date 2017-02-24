@@ -6,7 +6,7 @@ import Heading, {levels} from '.'
 storiesOf('Heading')
 
   .addWithInfo('API', () => (
-    <Heading>
+    <Heading level='1'>
       {stringFixture}
     </Heading>
   ))
