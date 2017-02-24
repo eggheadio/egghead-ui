@@ -1,5 +1,4 @@
 import React from 'react'
-import {keys} from 'lodash'
 import {storiesOf} from '@kadira/storybook'
 import Checkbox from '.'
 

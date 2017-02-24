@@ -36,7 +36,6 @@ CourseHeader.propTypes = {
 }
 
 const CourseCard = ({course, expanded}) => {
-  const { title, instructor: { full_name } } = course
   return (
     <Card type='course' response={course} expanded={expanded} />
   )

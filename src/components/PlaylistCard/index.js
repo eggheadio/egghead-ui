@@ -17,7 +17,7 @@ PlaylistCard.propTypes = {
 }
 
 export const PlaylistMeta = ({meta}) => {
-  const { playlist, lessonsLeft, currentLesson } = meta
+  const { playlist, currentLesson } = meta
   const currentLessonNum = findVidNumber(playlist, currentLesson)
   const lessonCount = playlist.length
 

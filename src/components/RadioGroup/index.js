@@ -25,7 +25,7 @@ class RadioButtonGroup extends Component {
   }
 
   render() {
-    const { optionList, className } = this.props
+    const { className } = this.props
     const radioButton = (item) => {
       if (item.checked) {
         this.setState({ selectedItem: item.value })
