@@ -1,6 +1,6 @@
 {
   "name": "egghead-ui",
-  "version": "2.17.0",
+  "version": "2.18.0",
   "description": "Official living style guide app and component library for egghead.io",
   "main": "lib/index.js",
   "engines": {
