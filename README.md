@@ -34,6 +34,7 @@ View [the style guide](https://styleguide.egghead.io) for visual examples and co
 - `yarn` to install latest packages
 - `yarn dev:styleguide` to develop using the style guide
 - `yarn dev:library` to develop the library
+- `yarn verify` check linting and builds work
 - [localhost:2000](http://localhost:2000) to view the style guide
 - use [`yarn link`](https://yarnpkg.com/lang/en/docs/cli/link/) to test using library components in another project
 - if you want to publish a new library release, run `yarn bump` and type in the new version using [Semantic Versioning](http://semver.org/)
