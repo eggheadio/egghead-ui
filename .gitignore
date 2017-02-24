@@ -1,8 +1,9 @@
-# general
-node_modules
-.DS_Store
-npm-debug.log
-/.idea
-.tern-port
 build
 lib
+storybook-static
+node_modules
+npm-debug.log
+.npmrc
+.DS_Store
+.tern-port
+/.idea

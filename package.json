@@ -1,6 +1,6 @@
 {
   "name": "egghead-ui",
-  "version": "2.2.1",
+  "version": "2.16.0",
   "description": "Official living style guide app and component library for egghead.io",
   "main": "lib/index.js",
   "engines": {
@@ -12,10 +12,10 @@
     "build:styleguide": "build-storybook",
     "build:library": "babel src -d lib",
     "verify": "yarn build:library && yarn build:styleguide",
+    "bump": "yarn version && git push && git push --tags",
     "prepublish": "yarn build:library",
     "start": "react-scripts start",
-    "build": "yarn verify",
-    "release": "np --any-branch"
+    "build": "yarn verify"
   },
   "dependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
@@ -51,12 +51,8 @@
     "type": "git",
     "url": "git+https://github.com/eggheadio/egghead-ui.git"
   },
-  "author": "egghead.io",
   "bugs": {
     "url": "https://github.com/eggheadio/egghead-ui/issues"
   },
-  "homepage": "https://github.com/eggheadio/egghead-ui#readme",
-  "devDependencies": {
-    "np": "^2.12.0"
-  }
+  "homepage": "https://github.com/eggheadio/egghead-ui#readme"
 }
