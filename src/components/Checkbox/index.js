@@ -30,9 +30,7 @@ class Checkbox extends Component {
   }
 
   handleChange = (e) => {
-    const { onChange, onClick } = this.props
     const { checked } = this.state
- 
     this.setState({ checked: !checked })
   }
 

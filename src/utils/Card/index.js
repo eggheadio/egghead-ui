@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import { keys } from 'lodash'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { CourseMeta, CourseHeader } from './CourseCard'
 import { LessonMeta, LessonHeader } from './LessonCard'
 import { PlaylistMeta, PlaylistHeader } from './PlaylistCard'
@@ -20,6 +20,26 @@ const titleHeadingClasses = 'f3 tc mt4 mb3 avenir fw5 pointer'
 const instructorNameClasses = 'f6 o-50 dark-gray pointer'
 
 import instructorPortrait from './assets/temp/instructor-portrait.jpg'
+
+const buildCardMeta = (type, response) => {
+  const cardMetaMap = {
+    'course': {
+      lessonCount: response.lesson_count
+    },
+    'lesson': {
+      langImg: response.icon_url,
+      videoLength: secondsToString(response.duration)
+    },
+    'playlist': {
+      timeRemaining: 'temp',
+      lessonsLeft: response.lesson_count - response.completed_lesson_count,
+      currentLesson: type === 'playlist' ? response.progress.current_lesson : 0,
+      playlist: type === 'playlist' ? buildPlaylistMeta(response.lessons, response.progress) : []
+    }
+  }
+
+  return cardMetaMap[type] || { meta: response }
+}
 
 const cardTypes = {
   'course': {
@@ -57,26 +77,6 @@ const cardTypes = {
     'metaComponent': (response) => <PlaylistMeta meta={buildCardMeta('playlist', response)} />,
     'headerComponent': (response, expanded) => <PlaylistHeader response={response} expanded={expanded} />
   }
-}
-
-const buildCardMeta = (type, response) => {
-  const cardMetaMap = {
-    'course': {
-      lessonCount: response.lesson_count
-    },
-    'lesson': {
-      langImg: response.icon_url,
-      videoLength: secondsToString(response.duration)
-    },
-    'playlist': {
-      timeRemaining: 'temp',
-      lessonsLeft: response.lesson_count - response.completed_lesson_count,
-      currentLesson: type === 'playlist' ? response.progress.current_lesson : 0,
-      playlist: type === 'playlist' ? buildPlaylistMeta(response.lessons, response.progress) : []
-    }
-  }
-
-  return cardMetaMap[type] || { meta: response }
 }
 
 const MaterialType = ({type}) => {
@@ -132,7 +132,7 @@ CardFooter.propTypes = {
   type: PropTypes.string.isRequired
 }
 
-const StyledCardContainer = styled.div`
+const CardContainer = styled.div`
   ${props => cardTypes[props.type]['cardStyles']}
   ${props => props.expanded === 'horizontal' ? 'max-width: 760px' : ''}
   ${props => cardTypes[props.type]['shadow']
@@ -185,7 +185,7 @@ const StyledExpansionContainer = styled.div`
   height: auto;
   max-height: 475px;
 `
-const StyledCard = ({type, expanded, response}) => {
+const Card = ({type, expanded, response}) => {
   const { title, instructor: { full_name }, lessons, progress } = response
   const cardPlaylist = type === 'playlist' || expanded ? buildPlaylistMeta(lessons, progress) : []
   const extendedClasses = 'relative w-100 z-1 overflow-scroll pv3 bg-tag-gray br2'
@@ -206,7 +206,7 @@ const StyledCard = ({type, expanded, response}) => {
   }
 
   return (
-    <StyledCardContainer type={type} expanded={expanded}
+    <CardContainer type={type} expanded={expanded}
                          className={`${cardTypes[type]['cardClasses']} ${expanded === 'horizontal' ? 'flex' : ''}`}
                          style={expanded === 'horizontal' ? {maxHeight: '475px'} : {}}
     >
@@ -227,13 +227,13 @@ const StyledCard = ({type, expanded, response}) => {
         </StyledExpansionContainer>
         : null
       }
-    </StyledCardContainer>
+    </CardContainer>
   )
 }
-StyledCard.propTypes = {
+Card.propTypes = {
   type: PropTypes.oneOf(['course', 'lesson', 'playlist']),
   response: PropTypes.object,
   expanded: PropTypes.oneOf([false, 'horizontal', 'vertical'])
 }
 
-export default StyledCard
+export default Card

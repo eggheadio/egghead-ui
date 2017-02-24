@@ -1,7 +1,9 @@
 import React from 'react'
+import {first} from 'lodash'
 import Tooltip from '.'
 
 const passStrengthValues = [10, 20, 25, 30, 33, 34, 40, 50, 60, 70, 75, 80, 90, 100]
+const defaultStrength = first(passStrengthValues)
 
 const getPasswordDescription = (pwd) => {
   if (0 < pwd && pwd < 50) {
@@ -30,9 +32,6 @@ const PassStrength = ({strength}) => {
     </div>
   )
 }
-PassStrength.propTypes = {
-  strength: React.PropTypes.oneOf(passStrengthValues).required
-}
 
 const PasswordTooltip = ({strength}) => {
     const passMsg = (
@@ -49,8 +48,11 @@ const PasswordTooltip = ({strength}) => {
     </Tooltip>
   )
 }
+PasswordTooltip.defaultProps = {
+  strength: defaultStrength,
+}
 PasswordTooltip.propTypes = {
-  strength: React.PropTypes.number.isRequired
+  strength: React.PropTypes.oneOf(passStrengthValues).isRequired
 }
 
 export default PasswordTooltip

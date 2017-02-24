@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react'
 
 const Error = ({children}) => (
-  <div className='red'>
+  <div className='red b'>
     {children}
   </div>
 )

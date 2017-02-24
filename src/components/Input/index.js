@@ -1,6 +1,5 @@
-import React, {PropTypes} from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import {keys} from 'lodash'
 import Icon from '../Icon'
 
 const commonClasses = 'db w-100 pl3 pr5 pv3 lh-copy br2 bg-dark-navy ba eh-text-field sans-serif'

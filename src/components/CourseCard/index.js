@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import PlayButton from '../Button/PlayButton'
-import Card from './'
+import Card from '../../Card'
 import expansions from '../../utils/expansions'
 
 
@@ -36,7 +36,6 @@ CourseHeader.propTypes = {
 }
 
 const CourseCard = ({course, expanded}) => {
-  const { title, instructor: { full_name } } = course
   return (
     <Card type='course' response={course} expanded={expanded} />
   )

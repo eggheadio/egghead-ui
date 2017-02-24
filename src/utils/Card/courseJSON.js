@@ -1,7 +1,3 @@
-import imgCourseCard from './assets/temp/img-course-card.png'
-import imgJs from './assets/temp/js.svg'
-import imgRx from './assets/temp/rx.svg'
-
 const response = {
   "library_list":[
 
