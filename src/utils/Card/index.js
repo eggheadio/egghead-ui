@@ -7,7 +7,7 @@ import { PlaylistMeta, PlaylistHeader } from '../../components/PlaylistCard'
 import Playlist from '../Playlist/'
 import { buildPlaylistMeta } from '../Playlist'
 import { secondsToString } from '../Time'
-import lessonJSON from '../lessonJSON' 
+import lessonJSON from './lessonJSON' 
 
 const commonCardClasses = 'relative'
 const commonInnerClasses = 'flex flex-column items-center bg-white navy relative z-1 br2'
