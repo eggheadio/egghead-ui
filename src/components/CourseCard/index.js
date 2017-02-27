@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 import PlayButton from '../Button/PlayButton'
-import Card from '../../Card'
+import Card from '../../utils/Card'
 import expansions from '../../utils/expansions'
 
 
