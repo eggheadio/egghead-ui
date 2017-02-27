@@ -1,6 +1,6 @@
 {
   "name": "egghead-ui",
-  "version": "2.19.0",
+  "version": "2.22.0",
   "description": "Official living style guide app and component library for egghead.io",
   "main": "lib/index.js",
   "engines": {
@@ -18,6 +18,9 @@
     "start": "react-scripts start",
     "build": "yarn verify"
   },
+  "pre-commit": [
+    "verify"
+  ],
   "dependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
     "@kadira/storybook": "^2.5.2",
@@ -29,6 +32,7 @@
     "eslint": "^3.16.1",
     "font-awesome": "^4.6.3",
     "lodash": "^4.16.2",
+    "pre-commit": "^1.2.2",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-scripts": "^0.8.4",

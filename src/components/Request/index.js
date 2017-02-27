@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import axios from 'axios'
 import {isEqual, first} from 'lodash'
-import {Error} from '../Error'
+import Error from '../Error'
 import Loading from './components/Loading'
 
 const http = axios.create()
@@ -63,40 +63,42 @@ export default class Request extends Component {
         params: this.props.params,
         headers: this.props.headers,
         data: body,
-      }).then(response => {
-        if (this.willUnmount) {
-          return
-        }
-        this.setState({
-          running: false,
-          response,
-          data: response.data,
-          error: null,
-        }, () => {
-          if (this.props.onResponse) {
-            this.props.onResponse(null, this.state.response)
-          }
-          if (this.props.onData) {
-            this.props.onData(this.state.data)
-          }
-        })
-      }).catch(error => {
-        if (this.willUnmount) {
-          return
-        }
-        this.setState({
-          running: false,
-          response: error,
-          error,
-        }, () => {
-          if (this.props.onResponse) {
-            this.props.onResponse(this.state.response)
-          }
-          if (this.props.onError) {
-            this.props.onError(this.state.error)
-          }
-        })
       })
+        .then(response => {
+          if (this.willUnmount) {
+            return
+          }
+          this.setState({
+            running: false,
+            response,
+            data: response.data,
+            error: null,
+          }, () => {
+            if (this.props.onResponse) {
+              this.props.onResponse(null, this.state.response)
+            }
+            if (this.props.onData) {
+              this.props.onData(this.state.data)
+            }
+          })
+        })
+        .catch(error => {
+          if (this.willUnmount) {
+            return
+          }
+          this.setState({
+            running: false,
+            response: error,
+            error,
+          }, () => {
+            if (this.props.onResponse) {
+              this.props.onResponse(this.state.response)
+            }
+            if (this.props.onError) {
+              this.props.onError(this.state.error)
+            }
+          })
+        })
     })
   }
 
@@ -112,7 +114,7 @@ export default class Request extends Component {
     if (error) {
       return (
         <Error>
-          Error: {error.message}
+          {`Error: ${error.message}`}
         </Error>
       )
     }

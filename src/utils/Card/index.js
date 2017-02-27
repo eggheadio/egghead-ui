@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react'
 import { keys } from 'lodash'
 import styled from 'styled-components'
-import { CourseMeta, CourseHeader } from './CourseCard'
-import { LessonMeta, LessonHeader } from './LessonCard'
-import { PlaylistMeta, PlaylistHeader } from './PlaylistCard'
+import { CourseMeta, CourseHeader } from '../../components/CourseCard'
+import { LessonMeta, LessonHeader } from '../../components/LessonCard'
+import { PlaylistMeta, PlaylistHeader } from '../../components/PlaylistCard'
 import Playlist from '../Playlist/'
-import { buildPlaylistMeta } from '../../utils/Playlist'
-import { secondsToString } from '../../utils/Time'
+import { buildPlaylistMeta } from '../Playlist'
+import { secondsToString } from '../Time'
+import lessonJSON from './lessonJSON' 
 
 const commonCardClasses = 'relative'
 const commonInnerClasses = 'flex flex-column items-center bg-white navy relative z-1 br2'
@@ -18,8 +19,6 @@ const bluePillClasses = `${pillClasses} blue bg-tag-blue`
 const greenPillClasses = `${pillClasses} dark-green bg-tag-turquoise tracked`
 const titleHeadingClasses = 'f3 tc mt4 mb3 avenir fw5 pointer'
 const instructorNameClasses = 'f6 o-50 dark-gray pointer'
-
-import instructorPortrait from './assets/temp/instructor-portrait.jpg'
 
 const buildCardMeta = (type, response) => {
   const cardMetaMap = {
@@ -106,7 +105,7 @@ const CardBody = ({title, instructor, type}) => {
     <div className={`${type === 'playlist' ? 'ph4' : ''}`}>
       <h3 className={titleHeadingClasses}>{title}</h3>
       <div className='mb4 flex justify-center items-center'>
-        <img src={instructorPortrait} alt='' className='w2 h2 br-pill mr3 pointer'/>
+        <img src={lessonJSON.instructor.avatar_url} alt='' className='w2 h2 br-pill mr3 pointer'/>
         <span className={instructorNameClasses}>{instructor}</span>
       </div>
     </div>
