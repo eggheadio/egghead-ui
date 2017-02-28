@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 
-const labelClasses = 'w-50 normal lh-copy tc light-gray relative z-1 pv2 pointer'
+const labelClasses = 'w-50 normal lh-copy tc light-gray relative z-1 pv2 pointer border-box'
 
 const Highlight = ({selectedItem}) => {
   return (
@@ -39,12 +39,12 @@ class Switcher extends Component {
 
     return (
       <div className='w5 relative flex items-center br-pill ba b--light-navy bg-dark-navy'>
-        <label className={`${labelClasses} border-box`} htmlFor='left'>
+        <label className={labelClasses} htmlFor='left'>
           {leftOption}
          <input type='radio' name={leftOption} id='left' className='absolute o-0' checked={selectedItem === 'left'} onChange={this.handleChange} />
         </label>
         
-        <label className={`${labelClasses} border-box`}>
+        <label className={labelClasses}>
           {rightOption}
           <input type='radio' name={rightOption} id='right' className='absolute o-0' checked={selectedItem === 'right'} onChange={this.handleChange} />
         </label>
