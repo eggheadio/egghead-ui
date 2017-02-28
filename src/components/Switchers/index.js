@@ -25,11 +25,8 @@ class Switcher extends Component {
     onClick: PropTypes.func
   }
 
-  constructor(props) {
-    super(props)
 
-    this.state = { selectedItem: this.props.selectedItem === 'left' ? 'left' : 'right' }
-  }
+  state = { selectedItem: this.props.selectedItem === 'left' ? 'left' : 'right' }
 
   handleChange = (e) => {
     const { selectedItem } = this.state
