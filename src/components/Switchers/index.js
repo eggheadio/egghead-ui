@@ -39,13 +39,13 @@ export class Switcher extends Component {
       <div className='w5 relative flex items-center br-pill ba b--light-navy bg-dark-navy'>
         <label className={`${labelClasses} border-box`} htmlFor='left'>
           {leftOption}
+         <input type='radio' name={leftOption} id='left' className='absolute o-0' checked={leftChecked} onChange={this.handleChange} />
         </label>
-        <input type='radio' name={leftOption} id='left' className='absolute o-0' onChange={this.handleChange} />
         
         <label className={`${labelClasses} border-box`}>
           {rightOption}
+          <input type='radio' name={rightOption} id='right' className='absolute o-0' checked={!leftChecked} onChange={this.handleChange} />
         </label>
-        <input type='radio' name={rightOption} id='right' className='absolute o-0' onChange={this.handleChange} />
 
         <span className='w-50 db br-pill pa2 bg-blue absolute left-0 border-box'
               style={{
