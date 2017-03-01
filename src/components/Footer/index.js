@@ -34,13 +34,13 @@ const StaticFooter = () => (
             <h5 className='avenir f6 f5-ns ttu tracked gray fw6 mt0 mb2 mb3-ns'>Egghead</h5>
             <ul className='list flex flex-column ma0 pa0 f6 f5-ns'>
               <li className='pv1'>
-                <a href='' className='db lh-copy light-gray hover-white no-underline grow'>Browse</a>
+                <a href='' className='db lh-copy white-50 hover-white no-underline grow'>Browse</a>
               </li>
               <li className='pv1'>
-                <a href='' className='db lh-copy light-gray hover-white no-underline grow'>Course</a>
+                <a href='' className='db lh-copy white-50 hover-white no-underline grow'>Course</a>
               </li>
               <li className='pv1'>
-                <a href='' className='db lh-copy light-gray hover-white no-underline grow'>Lessons</a>
+                <a href='' className='db lh-copy white-50 hover-white no-underline grow'>Lessons</a>
               </li>
             </ul>
           </div>
@@ -48,16 +48,16 @@ const StaticFooter = () => (
             <h5 className='avenir f6 f5-ns ttu tracked gray fw6 mt0 mb2 mb3-ns'>About</h5>
             <ul className='list flex flex-column ma0 pa0 f6 f5-ns'>
               <li className='pv1'>
-                <a href='' className='db lh-copy light-gray hover-white no-underline grow'>Instructors</a>
+                <a href='' className='db lh-copy white-50 hover-white no-underline grow'>Instructors</a>
               </li>
               <li className='pv1'>
-                <a href='' className='db lh-copy light-gray hover-white no-underline grow'>Reviews</a>
+                <a href='' className='db lh-copy white-50 hover-white no-underline grow'>Reviews</a>
               </li>
               <li className='pv1'>
-                <a href='' className='db lh-copy light-gray hover-white no-underline grow'>Pricing</a>
+                <a href='' className='db lh-copy white-50 hover-white no-underline grow'>Pricing</a>
               </li>
               <li className='pv1'>
-                <a href='' className='db lh-copy light-gray hover-white no-underline grow'>Contact</a>
+                <a href='' className='db lh-copy white-50 hover-white no-underline grow'>Contact</a>
               </li>
             </ul>
           </div>
@@ -65,13 +65,13 @@ const StaticFooter = () => (
             <h5 className='avenir f6 f5-ns ttu tracked gray fw6 mt0 mb2 mb3-ns'>Profile</h5>
             <ul className='list flex flex-column ma0 pa0 f6 f5-ns'>
               <li className='pv1'>
-                <a href='' className='db lh-copy light-gray hover-white no-underline grow'>Login</a>
+                <a href='' className='db lh-copy white-50 hover-white no-underline grow'>Login</a>
               </li>
               <li className='pv1'>
-                <a href='' className='db lh-copy light-gray hover-white no-underline grow'>Sign Up Free</a>
+                <a href='' className='db lh-copy white-50 hover-white no-underline grow'>Sign Up Free</a>
               </li>
               <li className='pv1'>
-                <a href='' className='db lh-copy light-gray hover-white no-underline grow'>Go Pro</a>
+                <a href='' className='db lh-copy white-50 hover-white no-underline grow'>Go Pro</a>
               </li>
             </ul>
           </div>
@@ -89,13 +89,13 @@ const StaticFooter = () => (
         <ul className='list pa0 ma0 flex items-center gray'>
           <li>We're social too</li>
           <li className='ml3'>
-            <a href='' className='flex items-center justify-center br2 f5 no-underline db-ns pa2 w2 h2 white grow-large fa fa-facebook' style={{background: '#304c95'}}></a>
+            <a href='' className='tc br2 f5 no-underline db-ns pa2 w2 h2 white grow-large fa fa-facebook' style={{background: '#304c95'}}></a>
           </li>
           <li className='ml3'>
-            <a href='' className='flex items-center justify-center br1 f5 no-underline db-ns pa2 w2 h2 white grow-large fa fa-twitter' style={{background: '#0f87f4'}}></a>
+            <a href='' className='tc br2 f5 no-underline db-ns pa2 w2 h2 white grow-large fa fa-twitter' style={{background: '#0f87f4'}}></a>
           </li>
           <li className='ml3'>
-            <a href='' className='flex items-center justify-center br2 f5 no-underline db-ns pa2 w2 h2 white grow-large fa fa-google-plus' style={{background: '#da4334'}}></a>
+            <a href='' className='tc br2 f5 no-underline db-ns pa2 w2 h2 white grow-large fa fa-google-plus' style={{background: '#da4334'}}></a>
           </li>
         </ul>
       </div>
