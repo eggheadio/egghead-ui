@@ -14,3 +14,5 @@ deploy:
       repo: eggheadio/egghead-ui
       tags: true
       branch: master
+notifications:
+  slack: $SLACK_INTEGRATION_TOKEN
