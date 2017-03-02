@@ -2,6 +2,8 @@ import React from 'react'
 
 export const stringFixture = 'A string'
 
+export const markdownFixture = 'This is **strong**. This is _italic_. This is [a link](https://egghead.io). This is `some code`.'
+
 export const nameFixture = 'Jane'
 
 export const urlFixture = 'https://google.com'
