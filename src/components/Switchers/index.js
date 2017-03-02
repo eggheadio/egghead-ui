@@ -34,7 +34,7 @@ class Switcher extends Component {
   }
 
   render() {
-    const { rightOption, leftOption, onClick } = this.props
+    const { rightOption, leftOption } = this.props
     const { selectedItem } = this.state
 
     return (
