@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
+import Icon from '../Icon'
 
 const commonClasses = 'link dib f5 fw6 tracked tc br2 ttu ba pointer'
 
@@ -27,7 +28,7 @@ const outlineBtnClasses = {
   danger: 'b--red red bg-transparent hover-dark-navy hover-bg-red',
   primary: 'b--blue blue bg-transparent white hover-bg-dark-blue',
   default: 'b--white white bg-transparent hover-dark-navy hover-bg-white',
-  pill: 'b--orange orange bg-transparent br-pill bw1 navy'
+  pill: 'b--orange orange bg-transparent hover-dark-navy hover-bg-orange br-pill bw1'
 }
 
 const styleMap = (size) => {
@@ -40,13 +41,13 @@ const styleMap = (size) => {
   return size === undefined ? classes['large'] : classes[size]
 }
 
-const Button = styled(({href, type = 'default', size = 'large', outline = false, children, className, onClick}) => {
+const Button = styled(({href, type = 'default', size = 'large', outline = false, children, className, play = false, onClick}) => {
   const btnClasses = outline ? outlineBtnClasses[type] : solidBtnClasses[type]
   const sizeClasses = sizedBtnClasses[size]
 
   return (
     <button href={href} className={`${commonClasses} ${btnClasses} ${sizeClasses} ${className}`} onClick={onClick}>
-      {children}
+      {play ? <Icon type='play' className='mr2' /> : ''} {children}
     </button>
   )
 })`${props => styleMap(props.size)}`

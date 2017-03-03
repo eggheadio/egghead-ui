@@ -82,6 +82,13 @@ storiesOf('Button')
           </div>
         )
       })}
+
+      <div className='mb2 mh2'>
+        <Button type='pill' outline play>
+          Play Course
+        </Button>
+      </div>
+
     </div>
   ))
 
