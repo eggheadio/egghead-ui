@@ -9,7 +9,8 @@ const standardButtonExamples = [
   {type: 'success', children: 'Success'},
   {type: 'warning', children: 'Warning'},
   {type: 'danger', children: 'Danger'},
-  {type: 'pill', children: 'Pill'}
+  {type: 'orange', children: 'Orange'},
+  {type: 'turquoise', children: 'turquoise'}
 ]
 
 const decoratorClasses = 'flex flex-column content-center justify-around flex-wrap items-center vh-100 bg-navy'
@@ -84,7 +85,7 @@ storiesOf('Button')
       })}
 
       <div className='mb2 mh2'>
-        <Button type='pill' outline play>
+        <Button type='orange' pill outline play>
           Play Course
         </Button>
       </div>

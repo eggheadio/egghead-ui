@@ -5,7 +5,7 @@ import Icon from '../Icon'
 const commonClasses = 'link dib f5 fw6 tracked tc br2 ttu ba pointer'
 
 const sizes = ['large', 'small', 'extra-large']
-const types = ['success', 'warning', 'danger', 'primary', 'default']
+const types = ['success', 'warning', 'danger', 'primary', 'default', 'orange', 'turquoise']
 
 const sizedBtnClasses = {
   'large': 'pa3',
@@ -19,7 +19,8 @@ const solidBtnClasses = {
   danger: 'b--red bg-red white hover-b--dark-red hover-bg-dark-red',
   primary: 'b--transparent bg-blue white hover-bg-dark-blue',
   default: 'b--white bg-white dark-navy hover-bg-light-gray',
-  pill: 'b--orange bg-orange br-pill bw1 navy'
+  orange: 'b--orange bg-orange bw1 navy',
+  turquoise: 'b--turquoise bg-turquoise bw1 navy'
 }
 
 const outlineBtnClasses = {
@@ -28,7 +29,8 @@ const outlineBtnClasses = {
   danger: 'b--red red bg-transparent hover-dark-navy hover-bg-red',
   primary: 'b--blue blue bg-transparent white hover-bg-dark-blue',
   default: 'b--white white bg-transparent hover-dark-navy hover-bg-white',
-  pill: 'b--orange orange bg-transparent hover-dark-navy hover-bg-orange br-pill bw1'
+  orange: 'b--orange orange bg-transparent hover-dark-navy hover-bg-orange bw1',
+  turquoise: 'b--turquoise turquoise bg-transparent hover-dark-navy hover-bg-turquoise bw1'
 }
 
 const styleMap = (size) => {
@@ -41,12 +43,12 @@ const styleMap = (size) => {
   return size === undefined ? classes['large'] : classes[size]
 }
 
-const Button = styled(({href, type = 'default', size = 'large', outline = false, children, className, play = false, onClick}) => {
+const Button = styled(({href, type = 'default', size = 'large', outline = false, children, className, pill = false, play = false, onClick}) => {
   const btnClasses = outline ? outlineBtnClasses[type] : solidBtnClasses[type]
   const sizeClasses = sizedBtnClasses[size]
 
   return (
-    <button href={href} className={`${commonClasses} ${btnClasses} ${sizeClasses} ${className}`} onClick={onClick}>
+    <button href={href} className={`${commonClasses} ${btnClasses} ${sizeClasses} ${className} ${pill ? 'br-pill' : ''}`} onClick={onClick}>
       {play ? <Icon type='play' className='mr2' /> : ''} {children}
     </button>
   )
