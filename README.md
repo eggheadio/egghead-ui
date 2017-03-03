@@ -1,16 +1,30 @@
 # egghead-ui
 
-This repo has two purposes:
-- A living style guide app with documentation, published on [styleguide.egghead.io](https://styleguide.egghead.io)
-- A component library, [pubished on npm](https://www.npmjs.com/package/egghead-ui)
+Components used across egghead projects
+
+This repo does two things:
+- Generates the living style guide app with documentation, published on [styleguide.egghead.io](https://styleguide.egghead.io)
+- Builds the component library, [pubished on npm](https://www.npmjs.com/package/egghead-ui)
 
 ---
 
 # Usage
 
+## Install the dependencies in your project
+
+`egghead-ui` relies on `tachyons-egghead`:
+
 ```
-$ yarn add 'egghead-ui'`
+$ yarn add tachyons-egghead egghead-ui`
 ```
+
+## Include the `tachyons-egghead` CSS classes
+
+```
+import 'tachyons-egghead'
+```
+
+## Use `egghead-ui` components
 
 ```
 import {ComponentName} from 'egghead-ui'
@@ -61,3 +75,4 @@ View [the style guide](https://styleguide.egghead.io) for visual examples and co
 ## Known Issues
 
 - `devDependencies` don't install on heroku. All deps need to be in the `dependencies` object.
+- Using a CSS module with `yarn link` doesn't work with React Storybook (such as `tachyons-egghead`); it has to be installed from npm.

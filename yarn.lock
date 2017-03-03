@@ -2704,10 +2704,6 @@ follow-redirects@1.0.0:
   dependencies:
     debug "^2.2.0"
 
-font-awesome@^4.6.3:
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/font-awesome/-/font-awesome-4.7.0.tgz#8fa8cf0411a1a31afd07b06d2902bb9fc815a133"
-
 for-in@^0.1.5:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-0.1.6.tgz#c9f96e89bfad18a545af5ec3ed352a1d9e5b4dc8"
@@ -5057,6 +5053,16 @@ react-fuzzy@^0.3.3:
     classnames "^2.2.3"
     fuse.js "^2.2.0"
 
+react-icon-base@2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/react-icon-base/-/react-icon-base-2.0.4.tgz#b6b7662e8b009b270a4f0c213c222f5d6eca3b22"
+
+react-icons@^2.2.3:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-2.2.3.tgz#3b4847923065ecb09f8ba7f7e422112de0195196"
+  dependencies:
+    react-icon-base "2.0.4"
+
 react-inspector@^1.1.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/react-inspector/-/react-inspector-1.1.2.tgz#192bc54f2be44f9fa0f29f183386f7f6e380f5ec"
@@ -5914,9 +5920,9 @@ tachyons-background-size@^5.0.4:
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/tachyons-background-size/-/tachyons-background-size-5.0.5.tgz#445fbe008125308ebe750262649e3f3f7c9de56f"
 
-tachyons-base@^1.2.6:
+"tachyons-base@github:eggheadio/tachyons-base":
   version "1.2.6"
-  resolved "https://registry.yarnpkg.com/tachyons-base/-/tachyons-base-1.2.6.tgz#1ed5ce2497ac414df0eb2a77a6324cad50ba90af"
+  resolved "https://codeload.github.com/eggheadio/tachyons-base/tar.gz/6a8858ef79f3edba299e6ecc85f812afe23a11d4"
 
 "tachyons-border-colors@github:eggheadio/tachyons-border-colors":
   version "4.2.3"
@@ -5962,31 +5968,19 @@ tachyons-coordinates@^4.0.3:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/tachyons-coordinates/-/tachyons-coordinates-4.0.4.tgz#d20f9d5941b6782ff28e1778be71e895457a6cdd"
 
-tachyons-custom@^4.5.4:
-  version "4.5.4"
-  resolved "https://registry.yarnpkg.com/tachyons-custom/-/tachyons-custom-4.5.4.tgz#0299564dc3217e2171d2723e39b69a22f739beae"
-
-tachyons-debug-grid@^1.2.2:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/tachyons-debug-grid/-/tachyons-debug-grid-1.2.3.tgz#42246147b613b16ce80fb90be7409206608a15cb"
-
-tachyons-debug@^1.1.9:
-  version "1.1.10"
-  resolved "https://registry.yarnpkg.com/tachyons-debug/-/tachyons-debug-1.1.10.tgz#3eaaa05e2d0714d7bcfa8972991f67ddc8cc980b"
-
 tachyons-display@^5.0.3:
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/tachyons-display/-/tachyons-display-5.0.4.tgz#9ec6918b0695753b7c296c0a1275c8b214b25b9a"
 
-tachyons-egghead@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/tachyons-egghead/-/tachyons-egghead-1.2.1.tgz#191488e6d7e95340ec2e8139a8062d3f20736f76"
+tachyons-egghead@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/tachyons-egghead/-/tachyons-egghead-2.0.0.tgz#45c68532040fa6fa2c6073febbe59c23457b6845"
   dependencies:
     normalize.css "^5.0.0"
     tachyons-aspect-ratios "^1.0.1"
     tachyons-background-position "^1.0.3"
     tachyons-background-size "^5.0.4"
-    tachyons-base "^1.2.6"
+    tachyons-base "github:eggheadio/tachyons-base"
     tachyons-border-colors "github:eggheadio/tachyons-border-colors"
     tachyons-border-radius "^5.1.2"
     tachyons-border-style "^4.0.3"
@@ -5998,9 +5992,6 @@ tachyons-egghead@^1.2.1:
     tachyons-code "^1.0.0"
     tachyons-colors "github:eggheadio/tachyons-colors"
     tachyons-coordinates "^4.0.3"
-    tachyons-custom "^4.5.4"
-    tachyons-debug "^1.1.9"
-    tachyons-debug-grid "^1.2.2"
     tachyons-display "^5.0.3"
     tachyons-flexbox "github:eggheadio/tachyons-flexbox"
     tachyons-floats "^3.0.3"
@@ -6021,12 +6012,10 @@ tachyons-egghead@^1.2.1:
     tachyons-outlines "^1.0.2"
     tachyons-overflow "^4.0.3"
     tachyons-position "^6.0.3"
-    tachyons-queries "^0.3.3"
     tachyons-rotations "^1.0.2"
     tachyons-skins "github:eggheadio/tachyons-skins"
     tachyons-skins-pseudo "github:eggheadio/tachyons-skins-pseudo"
     tachyons-spacing "^6.0.3"
-    tachyons-styles "^0.3.4"
     tachyons-tables "^1.0.6"
     tachyons-text-align "^3.0.3"
     tachyons-text-decoration "^4.0.3"
@@ -6117,10 +6106,6 @@ tachyons-position@^6.0.3:
   version "6.0.4"
   resolved "https://registry.yarnpkg.com/tachyons-position/-/tachyons-position-6.0.4.tgz#3969217ace21c114ab923c8882240cf7f947cabe"
 
-tachyons-queries@^0.3.3:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/tachyons-queries/-/tachyons-queries-0.3.3.tgz#de549f2ffb7f479ae2bfff21c78a6b30275ea3b6"
-
 tachyons-rotations@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/tachyons-rotations/-/tachyons-rotations-1.0.2.tgz#19bb7cc29aceaea56dc02b650241dafa32f0de62"
@@ -6136,10 +6121,6 @@ tachyons-rotations@^1.0.2:
 tachyons-spacing@^6.0.3:
   version "6.0.4"
   resolved "https://registry.yarnpkg.com/tachyons-spacing/-/tachyons-spacing-6.0.4.tgz#54cbd6d902b2a36ab864110754ec9924e09935aa"
-
-tachyons-styles@^0.3.4:
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/tachyons-styles/-/tachyons-styles-0.3.4.tgz#bd1c3fdf62b27df07e4be17a7d3adda2c89ef71d"
 
 tachyons-tables@^1.0.6:
   version "1.0.7"

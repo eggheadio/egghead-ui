@@ -30,17 +30,17 @@
     "babel-preset-latest": "^6.22.0",
     "babel-preset-react": "^6.22.0",
     "eslint": "^3.16.1",
-    "font-awesome": "^4.6.3",
     "lodash": "^4.16.2",
     "pre-commit": "^1.2.2",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
+    "react-icons": "^2.2.3",
     "react-markdown": "^2.4.5",
     "react-scripts": "^0.8.4",
     "react-storybook-addon-props-combinations": "^0.0.1",
     "react-tabs": "^0.8.2",
     "styled-components": "^1.4.3",
-    "tachyons-egghead": "^1.2.1"
+    "tachyons-egghead": "^2.0.0"
   },
   "babel": {
     "presets": [

@@ -1,9 +1,9 @@
-import 'font-awesome/css/font-awesome.min.css'
 import 'tachyons-egghead'
 import {configure, setAddon} from '@kadira/storybook'
 import infoAddon from '@kadira/react-storybook-addon-info';
+import withPropsCombinations, {setDefaults} from 'react-storybook-addon-props-combinations'
+
 setAddon(infoAddon)
-import withPropsCombinations, { setDefaults } from 'react-storybook-addon-props-combinations'
 setAddon(withPropsCombinations)
 
 const req = require.context('../src/components/', true, /.examples.js$/)
