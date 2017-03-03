@@ -8,13 +8,12 @@ const standardButtonExamples = [
   {type: 'primary', children: 'Primary'},
   {type: 'success', children: 'Success'},
   {type: 'warning', children: 'Warning'},
-  {type: 'danger', children: 'Danger'}
+  {type: 'danger', children: 'Danger'},
+  {type: 'pill', children: 'Pill'}
 ]
-
 
 const decoratorClasses = 'flex flex-column content-center justify-around flex-wrap items-center vh-100 bg-navy'
 const btnDisp = 'flex flex-column justify-around items-center vh-100'
-
 
 // Standard Large Button (Default)
 storiesOf('Button')
@@ -68,7 +67,6 @@ storiesOf('Button')
       </div>
     )
   )
-
 
 // Outline Button
 storiesOf('Button')

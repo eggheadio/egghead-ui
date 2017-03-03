@@ -17,7 +17,8 @@ const solidBtnClasses = {
   warning: 'b--transparent bg-yellow dark-navy hover-bg-orange hover-white',
   danger: 'b--red bg-red white hover-b--dark-red hover-bg-dark-red',
   primary: 'b--transparent bg-blue white hover-bg-dark-blue',
-  default: 'b--white bg-white dark-navy hover-bg-light-gray'
+  default: 'b--white bg-white dark-navy hover-bg-light-gray',
+  pill: 'b--orange bg-orange br-pill bw1 navy'
 }
 
 const outlineBtnClasses = {
@@ -25,7 +26,8 @@ const outlineBtnClasses = {
   warning: 'b--yellow yellow bg-transparent hover-dark-navy hover-bg-yellow',
   danger: 'b--red red bg-transparent hover-dark-navy hover-bg-red',
   primary: 'b--blue blue bg-transparent white hover-bg-dark-blue',
-  default: 'b--white white bg-transparent hover-dark-navy hover-bg-white'
+  default: 'b--white white bg-transparent hover-dark-navy hover-bg-white',
+  pill: 'b--orange orange bg-transparent br-pill bw1 navy'
 }
 
 const styleMap = (size) => {
@@ -38,15 +40,15 @@ const styleMap = (size) => {
   return size === undefined ? classes['large'] : classes[size]
 }
 
-const Button = styled(({href, type='default', size='large', outline=false, children, className, onClick}) => {
-    const btnClasses = outline ? outlineBtnClasses[type] : solidBtnClasses[type]
-    const sizeClasses = sizedBtnClasses[size]
+const Button = styled(({href, type = 'default', size = 'large', outline = false, children, className, onClick}) => {
+  const btnClasses = outline ? outlineBtnClasses[type] : solidBtnClasses[type]
+  const sizeClasses = sizedBtnClasses[size]
 
-    return (
-      <button href={href} className={`${commonClasses} ${btnClasses} ${sizeClasses} ${className}`} onClick={onClick}>
-        {children}
-      </button>
-    )
+  return (
+    <button href={href} className={`${commonClasses} ${btnClasses} ${sizeClasses} ${className}`} onClick={onClick}>
+      {children}
+    </button>
+  )
 })`${props => styleMap(props.size)}`
 
 Button.propTypes = {
