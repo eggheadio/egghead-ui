@@ -83,6 +83,23 @@ storiesOf('Button')
           </div>
         )
       })}
+    </div>
+  ))
+
+// Outline Pill Button
+storiesOf('Button')
+  .addDecorator((story) => (<div className={decoratorClasses}>{story()}</div>))
+  .addWithInfo('Pill Outline (All Sizes)', `The Outline Button is available in all sizes (pictured in Large).`, () => (
+    <div className={btnDisp}>
+      {standardButtonExamples.map((btn, i) => {
+        return (
+          <div className='mb2 mh2' key={i}>
+            <Button type={btn.type.toLowerCase()} pill outline onClick={clickHandlerFixture} key={i}>
+              {btn.type}
+            </Button>
+          </div>
+        )
+      })}
 
       <div className='mb2 mh2'>
         <Button type='orange' pill outline play>
