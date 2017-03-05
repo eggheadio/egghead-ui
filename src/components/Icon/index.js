@@ -7,7 +7,7 @@ export const sizes = {
   3: 'fa-2x',
   4: 'fa-3x',
   5: 'fa-4x',
-  6: 'fa-5x',
+  6: 'fa-5x'
 }
 
 export const types = {
@@ -24,6 +24,7 @@ export const types = {
   'lesson': 'file-o',
   'menu': 'bars',
   'more-info': 'info-circle',
+  'play': 'play',
   'question': 'question-circle',
   'refresh': 'refresh',
   'remove': 'minus-circle',
@@ -42,7 +43,9 @@ export const colors = {
   'primary': 'blue',
   'warning': 'yellow',
   'danger': 'red',
-  'light': 'light-gray'
+  'light': 'light-gray',
+  'orange': 'orange',
+  'turquoise': 'turquoise'
 }
 
 const Icon = ({
@@ -50,7 +53,7 @@ const Icon = ({
   size,
   color,
   spin,
-  className,
+  className
 }) => (
   <span className={`
     fa
@@ -67,12 +70,12 @@ Icon.propTypes = {
   size: PropTypes.oneOf(keys(sizes)),
   color: PropTypes.oneOf(keys(colors)),
   spin: PropTypes.bool,
-  className:  PropTypes.string,
+  className: PropTypes.string
 }
 
 Icon.defaultProps = {
   size: '1',
-  spin: false,
+  spin: false
 }
 
 export default Icon
