@@ -10,7 +10,7 @@ const colors = ['green', 'yellow', 'red', 'blue', 'white', 'orange', 'turquoise'
 const sizedBtnClasses = {
   'large': 'f5 pa3',
   'small': 'f5 lh-solid pa3',
-  'extra-small': 'f6 pa1',
+  'extra-small': 'f6 pa2',
   'extra-large': 'f5 lh-solid ph4 pv4'
 }
 
