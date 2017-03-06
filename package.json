@@ -12,15 +12,14 @@
     "dev:library": "babel src -w -d lib",
     "build:styleguide": "build-storybook",
     "build:library": "babel src -d lib",
-    "preverify": "yarn lint && yarn build:library",
-    "verify": "preverify && yarn build:styleguide",
+    "verify": "yarn lint && yarn build:library && yarn build:styleguide",
     "bump": "yarn version && git push && git push --tags",
     "prepublish": "yarn build:library",
     "start": "react-scripts start",
     "build": "yarn verify"
   },
   "pre-commit": [
-    "preverify"
+    "verify"
   ],
   "dependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
