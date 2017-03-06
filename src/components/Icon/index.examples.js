@@ -38,9 +38,9 @@ storiesOf('Icons')
   .addWithInfo('Box (Checked)', () => (
     <Icon type='box-check' />
   ))
-  
+
   .addWithInfo('Check', () => (
-    <Icon type='check' />    
+    <Icon type='check' />
   ))
 
   .addWithInfo('Close', () => (
@@ -69,7 +69,13 @@ storiesOf('Icons')
 
   .addWithInfo('Refresh', () => (
     <Icon
-      type='refresh' 
+      type='refresh'
       spin
+    />
+  ))
+
+  .addWithInfo('Play', () => (
+    <Icon
+      type='play'
     />
   ))

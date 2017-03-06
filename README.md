@@ -59,6 +59,12 @@ View [the style guide](https://styleguide.egghead.io) for visual examples and co
   - if there was a version bump, it also publishes the new library version to [npm](https://www.npmjs.com/package/egghead-ui)
     - notify consumers to run `yarn add egghead-ui@latest` in their projects to get latest, with a list of changes
 
+### Video example
+
+You can [watch a video example of the workflow](https://youtu.be/y8604EFI8P4); specifically with promoting a component from another project into `egghead-ui`.
+
+[![Video example](http://img.youtube.com/vi/y8604EFI8P4/0.jpg)](https://youtu.be/y8604EFI8P4)
+
 ## Folders and files
 
 - `src/index.js` imports all `src/components` and exports the component library for npm.
