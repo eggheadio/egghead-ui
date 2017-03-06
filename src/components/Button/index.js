@@ -57,13 +57,15 @@ const Button = styled(({href, color = 'white', size = 'large', outline = false, 
 })`${props => styleMap(props.size)}`
 
 Button.propTypes = {
+  children: PropTypes.string.isRequired,
   href: PropTypes.string,
   onClick: PropTypes.func,
   color: PropTypes.oneOf(colors),
   size: PropTypes.oneOf(sizes),
   outline: PropTypes.bool,
   pill: PropTypes.bool,
-  children: PropTypes.string.isRequired
 }
+
+Button.displayName = 'Button'
 
 export default Button

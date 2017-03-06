@@ -12,7 +12,7 @@ const representOuterClasses = 'flex justify-center items-center bg-dark-navy pv5
 const representInnerClasses = 'w-100 mw8 ph2 center'
 
 storiesOf('Static: Categories Browser')
-  .addWithInfo('Default', () => (
+  .add('Static', () => (
     <div className={representOuterClasses}>
       <div className={representInnerClasses}>
 
