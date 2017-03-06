@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {map, assign} from 'lodash'
 import styled from 'styled-components'
 import { commonLabelClasses, commonIconClasses, inputClasses, disabledClasses } from '../Checkbox'
 
@@ -6,31 +7,29 @@ const radioClasses = 'mb2 mh2 eh-radio'
 const radioIconClasses = `${commonIconClasses} br-pill eh-radio-icon`
 
 class RadioButtonGroup extends Component {
+
   static propTypes = {
     optionList: React.PropTypes.arrayOf(React.PropTypes.shape({
       value: React.PropTypes.string.isRequired,
       label: React.PropTypes.string.isRequired,
-      checked: React.PropTypes.bool,
       disabled: React.PropTypes.bool
     })).isRequired
   }
 
-  constructor(props) {
-    super(props)
-    this.state = { selectedItem: '' }
+  state = {
+    items: map(this.props.optionList, option => assign(option, {checked: false})),
+    selectedItem: '',
   }
 
   handleChange = (e) => {
-    this.setState({ selectedItem: e.target.id })
+    this.setState({selectedItem: e.target.id})
   }
 
   render() {
     const { className } = this.props
+    const {items} = this.state
+
     const radioButton = (item) => {
-      if (item.checked) {
-        this.setState({ selectedItem: item.value })
-        item = Object.assign(item, { checked: false })
-      }
 
       return (
         <label key={item.value}
@@ -48,7 +47,7 @@ class RadioButtonGroup extends Component {
 
     return (
       <div>
-        {this.props.optionList.map((item) => radioButton(item))}
+        {map(items, item => radioButton(item))}
       </div>
     )
   }

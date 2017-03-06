@@ -21,12 +21,8 @@ class Checkbox extends Component {
     onClick: PropTypes.func
   }
 
-  constructor(props) {
-    super(props)
-  
-    const checked = 'checked' in props ? props.checked : false
-
-    this.state = { checked }
+  state = {
+    checked: 'checked' in this.props ? this.props.checked : false
   }
 
   handleChange = (e) => {
