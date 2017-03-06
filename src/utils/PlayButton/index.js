@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import styled from 'styled-components'
-import expansions from '../../utils/expansions'
-
+import expansions from '../expansions'
 
 const commonPlayBtnClasses = 'fa fa-play w3 h3 f3 absolute z-1 gray items-center justify-center br-pill pointer grow-large'
 const hoverPlayBtnClasses = `${commonPlayBtnClasses} bg-white-70 hover-bg-white`

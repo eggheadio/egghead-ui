@@ -11,18 +11,12 @@ const standardButtonExamples = [
   {type: 'danger', children: 'Danger'}
 ]
 
-
-const decoratorClasses = 'flex flex-column content-center justify-around flex-wrap items-center vh-100 bg-navy'
-const btnDisp = 'flex flex-column justify-around items-center vh-100'
-
-
 // Standard Large Button (Default)
 storiesOf('Button')
-  .addDecorator((story) => (<div className={decoratorClasses}>{story()}</div>))
   .addWithInfo('Large (Default)',
     `The Large Default Button. Note: omitting 'type' will render the Default button.`,
     () => (
-      <div className={btnDisp}>
+      <div>
         {standardButtonExamples.map((btn, i) => {
           return (
             <Button type={btn.type} onClick={clickHandlerFixture} key={i}>
@@ -36,11 +30,10 @@ storiesOf('Button')
 
 // Small Button
 storiesOf('Button')
-  .addDecorator((story) => (<div className={decoratorClasses}>{story()}</div>))
   .addWithInfo('Small',
     `The Small Button. Note: omitting 'type' will render the Default button.`,
     () => (
-      <div className={btnDisp}>
+      <div>
         {standardButtonExamples.map((btn, i) => {
           return (
             <Button type={btn.type.toLowerCase()} size='small' onClick={clickHandlerFixture} key={i}>
@@ -54,10 +47,9 @@ storiesOf('Button')
 
 // Extra Large Button
 storiesOf('Button')
-  .addDecorator((story) => (<div className={decoratorClasses}>{story()}</div>))
   .addWithInfo('Extra Large', `The Extra Large Button is sized for callouts.`,
     () => (
-      <div className={btnDisp}>
+      <div>
         {standardButtonExamples.map((btn, i) => {
           return (
             <Button type={btn.type.toLowerCase()} size='extra-large' onClick={clickHandlerFixture} key={i}>
@@ -72,9 +64,8 @@ storiesOf('Button')
 
 // Outline Button
 storiesOf('Button')
-  .addDecorator((story) => (<div className={decoratorClasses}>{story()}</div>))
   .addWithInfo('Outline (All Sizes)', `The Outline Button is available in all sizes (pictured in Large).`, () => (
-    <div className={btnDisp}>
+    <div>
       {standardButtonExamples.map((btn, i) => {
         return (
           <div className='mb2 mh2' key={i}>

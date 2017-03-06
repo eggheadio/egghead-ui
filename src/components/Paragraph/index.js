@@ -8,7 +8,7 @@ const classNameByType = {
   small: 'f6',
 }
 
-export const types = keys(classNameByType)
+const types = keys(classNameByType)
 
 const Paragraph = ({
   children,

@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
-import PlayButton from '../Button/PlayButton'
 import Playlist from '../Playlist/'
 import styled from 'styled-components'
-import { buildPlaylistMeta, findVidNumber, getTimeLeft } from '../../utils/Playlist'
-import { secondsToString } from '../../utils/Time'
+import { buildPlaylistMeta, findVidNumber, getTimeLeft } from '../../utils/playlist'
+import { secondsToString } from '../../utils/time'
+import PlayButton from '../../utils/PlayButton'
 import Card from '../../utils/Card'
 
 

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
-import PlayButton from '../Button/PlayButton'
+import PlayButton from '../../utils/PlayButton'
 import Card from '../../utils/Card'
 import expansions from '../../utils/expansions'
 

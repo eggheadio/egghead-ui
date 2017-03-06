@@ -1,7 +1,6 @@
 import React from 'react'
-import {keys} from 'lodash'
 import {storiesOf} from '@kadira/storybook'
-import Icon, {sizes, types, colors} from './index'
+import Icon from './index'
 
 storiesOf('Icons')
   .addWithInfo('Success', () => (
@@ -74,9 +73,3 @@ storiesOf('Icons')
       spin
     />
   ))
-
-  .addWithPropsCombinations('Size & Color Combinations', Icon, {
-    size: keys(sizes),
-    type: keys(types),
-    color: keys(colors)
-  })

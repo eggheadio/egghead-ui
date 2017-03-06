@@ -1,17 +1,14 @@
 import React from 'react'
+import {map} from 'lodash'
 import {storiesOf} from '@kadira/storybook'
 import {stringFixture} from '../../utils/Fixtures'
 import Heading, {levels} from '.'
 
-storiesOf('Heading')
-
-  .addWithInfo('API', () => (
-    <Heading level='1'>
-      {stringFixture}
-    </Heading>
-  ))
-
-  .addWithPropsCombinations('Combinations', Heading, {
-    level: levels,
-    children: [stringFixture]
-  })
+map(levels, level => {
+  storiesOf('Heading')
+    .addWithInfo(`Level ${level}`, () => (
+      <Heading level={level}>
+        {stringFixture}
+      </Heading>
+    ))
+})

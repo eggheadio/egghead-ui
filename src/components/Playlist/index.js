@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
-import { secondsToString } from '../../utils/Time'
+import { secondsToString } from '../../utils/time'
 
 
 const VideoLength = ({length}) => {

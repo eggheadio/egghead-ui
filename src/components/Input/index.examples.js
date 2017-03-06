@@ -3,10 +3,8 @@ import {storiesOf} from '@kadira/storybook'
 import Input from './index'
 import PasswordTooltip from '../Tooltip/PasswordTooltip'
 
-const decoratorClasses = 'flex flex-column content-center justify-around flex-wrap items-center vh-100 bg-navy'
-
 storiesOf('Input')
-  .addDecorator((story) => (<div className={decoratorClasses}>{story()}</div>))
+
   .addWithInfo('Empty Field', () => (
     <Input />
   ))
