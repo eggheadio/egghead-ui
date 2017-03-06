@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 import Icon from '../Icon'
 
-const commonClasses = 'link dib fw6 tracked tc br2 ttu ba pointer'
+export const sizes = ['large', 'small', 'extra-large', 'extra-small']
+export const colors = ['green', 'yellow', 'red', 'blue', 'white', 'orange', 'turquoise']
 
-const sizes = ['large', 'small', 'extra-large', 'extra-small']
-const colors = ['green', 'yellow', 'red', 'blue', 'white', 'orange', 'turquoise']
+const commonClasses = 'link dib fw6 tracked tc br2 ttu ba pointer'
 
 const sizedBtnClasses = {
   'large': 'f5 pa3',
@@ -62,6 +62,7 @@ Button.propTypes = {
   color: PropTypes.oneOf(colors),
   size: PropTypes.oneOf(sizes),
   outline: PropTypes.bool,
+  pill: PropTypes.bool,
   children: PropTypes.string.isRequired
 }
 
