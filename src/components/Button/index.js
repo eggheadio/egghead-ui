@@ -2,15 +2,16 @@ import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 import Icon from '../Icon'
 
-const commonClasses = 'link dib f5 fw6 tracked tc br2 ttu ba pointer'
+const commonClasses = 'link dib fw6 tracked tc br2 ttu ba pointer'
 
-const sizes = ['large', 'small', 'extra-large']
+const sizes = ['large', 'small', 'extra-large', 'extra-small']
 const colors = ['green', 'yellow', 'red', 'blue', 'white', 'orange', 'turquoise']
 
 const sizedBtnClasses = {
-  'large': 'pa3',
-  'small': 'lh-solid pa3',
-  'extra-large': 'lh-solid ph4 pv4'
+  'large': 'f5 pa3',
+  'small': 'f5 lh-solid pa3',
+  'extra-small': 'f6 pa2',
+  'extra-large': 'f5 lh-solid ph4 pv4'
 }
 
 const solidBtnClasses = {
@@ -35,6 +36,7 @@ const outlineBtnClasses = {
 
 const styleMap = (size) => {
   const classes = {
+    'extra-small': ['min-width: 70px;'],
     'small': ['min-width: 140px;'],
     'large': ['line-height: 2rem;', 'min-width: 200px;'],
     'extra-large': ['min-width: 280px;']

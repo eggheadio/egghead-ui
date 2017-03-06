@@ -52,6 +52,24 @@ storiesOf('Button')
     )
   )
 
+// Small Button
+storiesOf('Button')
+  .addDecorator((story) => (<div className={decoratorClasses}>{story()}</div>))
+  .addWithInfo('Extra Small',
+    `The Eaxtra Small Button. Note: omitting 'type' will render the Default button.`,
+    () => (
+      <div className={btnDisp}>
+        {standardButtonExamples.map((btn, i) => {
+          return (
+            <Button type={btn.type.toLowerCase()} size='extra-small' onClick={clickHandlerFixture} key={i}>
+              {btn.type}
+            </Button>
+          )
+        })}
+      </div>
+    )
+  )
+
 // Extra Large Button
 storiesOf('Button')
   .addDecorator((story) => (<div className={decoratorClasses}>{story()}</div>))
