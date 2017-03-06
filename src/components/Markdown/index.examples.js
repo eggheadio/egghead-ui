@@ -5,7 +5,7 @@ import Markdown from '.'
 
 storiesOf('Markdown')
 
-  .addWithInfo('API', () => (
+  .addWithInfo('Default', () => (
     <Markdown>
       {markdownFixture}
     </Markdown>

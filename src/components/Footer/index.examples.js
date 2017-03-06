@@ -3,6 +3,6 @@ import {storiesOf} from '@kadira/storybook'
 import StaticFooter from '.'
 
 storiesOf('Static: Footer')
-  .addWithInfo('API', () => (
+  .addWithInfo('Default', () => (
     <StaticFooter />
   ))

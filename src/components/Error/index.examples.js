@@ -5,7 +5,7 @@ import Error from './index'
 
 storiesOf('Error')
 
-  .addWithInfo('API', () => (
+  .addWithInfo('Default', () => (
     <Error>
       {stringFixture}
     </Error>
