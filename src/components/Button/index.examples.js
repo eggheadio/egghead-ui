@@ -5,21 +5,16 @@ import Button, {sizes, colors} from '.'
 
 storiesOf('Button')
   .addWithInfo(
-    'Documentation',
+    'Info',
     'Used to encourage the user to take an action',
     () => (
       <Button>
         {stringFixture}
       </Button>
     ),
-    {
-      inline: true,
-      header: false,
-      source: false,
-    },
   )
   .addWithPropsCombinations(
-    'Prop Combinations',
+    'Combinations',
     Button, 
     {
       href: [urlFixture],

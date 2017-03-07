@@ -91,6 +91,4 @@ Icon.defaultProps = {
   color: 'blue',
 }
 
-Icon.displayName = 'Icon'
-
 export default Icon

@@ -72,6 +72,4 @@ StyledButton.defaultProps = {
   pill: false,
 }
 
-StyledButton.displayName = 'Button'
-
 export default StyledButton

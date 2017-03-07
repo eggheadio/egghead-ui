@@ -1,7 +1,6 @@
 import 'tachyons-egghead'
-import './config.css'
 import {configure, setAddon} from '@kadira/storybook'
-import infoAddon from '@kadira/react-storybook-addon-info';
+import infoAddon from 'react-storybook-addon-info';
 import withPropsCombinations, {setDefaults} from 'react-storybook-addon-props-combinations'
 
 setAddon(infoAddon)

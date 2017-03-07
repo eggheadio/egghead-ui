@@ -90,6 +90,4 @@ StyledCheckbox.defaultProps = {
   disabled: false,
 }
 
-StyledCheckbox.displayName = 'Checkbox'
-
 export default StyledCheckbox

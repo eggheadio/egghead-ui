@@ -15,10 +15,5 @@ storiesOf('Icon')
     () => (
       <Icon type='add' />
     ),
-    {
-      inline: true,
-      header: false,
-      source: false,
-    },
   )
   .addWithPropsCombinations('Examples', Icon, propCombinations)

@@ -13,11 +13,6 @@ storiesOf('Checkbox')
         label={stringFixture}
       />
     ),
-    {
-      inline: true,
-      header: false,
-      source: false,
-    },
   )
   .addWithPropsCombinations(
     'Prop Combinations',

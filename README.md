@@ -74,8 +74,8 @@ You can [watch a video example of the workflow](https://youtu.be/y8604EFI8P4); s
       - Styling is done using classes from [tachyons-egghead](https://github.com/eggheadio/tachyons-egghead) wherever possible. Otherwise, inline style objects are used.
       - The `*-ns` (not small) Tachyons classes are used to apply anything specific to non-mobile screen sizes, so that all components are built mobile-first.
     - `index.examples.js` adds the component to the style guide.
-      - `.addWithInfo` adds  API documentation
-      - `.addWithPropsCombinations` renders components with all possible prop combinations
+      - `.addWithInfo` adds documentation
+      - `.addWithPropsCombinations` renders components with all possible prop combinations and complains if you are missing any
 - `src/utils` contains utility modules and components which are not exported publicly but are used in multiple `src/components`
 - `build` is the folder that is generated for the style guide app
 - `lib` is the folder that is generated for the component library
