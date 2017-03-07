@@ -56,7 +56,10 @@ export default class Request extends Component {
   }
 
   request = (body = this.props.body) => {
-    this.setState({request: true}, () => {
+    this.setState({
+      running: true, 
+      request: true
+    }, () => {
       http.request({
         method: this.props.method,
         url: this.props.url,
