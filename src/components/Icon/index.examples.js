@@ -1,81 +1,24 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import Icon from './index'
+import Icon, {types, sizes, colors} from '.'
 
-storiesOf('Icons')
-  .addWithInfo('Success', () => (
-    <Icon type='success' />
-  ))
+const propCombinations = {
+  type: types,
+  size: sizes,
+  color: colors,
+}
 
-  .addWithInfo('Cancel', () => (
-    <Icon type='cancel' />
-  ))
-
-  .addWithInfo('Add', () => (
-    <Icon type='add' />
-  ))
-
-  .addWithInfo('Warning', () => (
-    <Icon type='warning' />
-  ))
-
-  .addWithInfo('Remove', () => (
-    <Icon type='remove' />
-  ))
-
-  .addWithInfo('Question', () => (
-    <Icon type='question' />
-  ))
-
-  .addWithInfo('Menu', () => (
-    <Icon type='menu' />
-  ))
-
-  .addWithInfo('Box', () => (
-    <Icon type='box' />
-  ))
-
-  .addWithInfo('Box (Checked)', () => (
-    <Icon type='box-check' />
-  ))
-
-  .addWithInfo('Check', () => (
-    <Icon type='check' />
-  ))
-
-  .addWithInfo('Close', () => (
-    <Icon type='close' />
-  ))
-
-  .addWithInfo('Info', () => (
-    <Icon type='info' />
-  ))
-
-  .addWithInfo('Clock', () => (
-    <Icon type='clock' />
-  ))
-
-  .addWithInfo('Dollar', () => (
-    <Icon type='dollar' />
-  ))
-
-  .addWithInfo('Course', () => (
-    <Icon type='course' />
-  ))
-
-  .addWithInfo('Lesson', () => (
-    <Icon type='lesson' />
-  ))
-
-  .addWithInfo('Refresh', () => (
-    <Icon
-      type='refresh'
-      spin
-    />
-  ))
-
-  .addWithInfo('Play', () => (
-    <Icon
-      type='play'
-    />
-  ))
+storiesOf('Icon')
+  .addWithInfo(
+    'Documentation',
+    'Used to condense information into a small graphic',
+    () => (
+      <Icon type='add' />
+    ),
+    {
+      inline: true,
+      header: false,
+      source: false,
+    },
+  )
+  .addWithPropsCombinations('Examples', Icon, propCombinations)

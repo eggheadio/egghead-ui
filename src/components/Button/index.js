@@ -45,13 +45,13 @@ const styleMap = (size) => {
   return size === undefined ? classes['large'] : classes[size]
 }
 
-const Button = styled(({href, color = 'white', size = 'large', outline = false, children, className, pill = false, play = false, onClick}) => {
+const Button = styled(({children, href, color, size, outline, pill, onClick}) => {
   const btnClasses = outline ? outlineBtnClasses[color] : solidBtnClasses[color]
   const sizeClasses = sizedBtnClasses[size]
 
   return (
-    <button href={href} className={`${commonClasses} ${btnClasses} ${sizeClasses} ${className} ${pill ? 'br-pill' : ''}`} onClick={onClick}>
-      {play ? <Icon type='play' className='mr2' /> : ''} {children}
+    <button href={href} className={`${commonClasses} ${btnClasses} ${sizeClasses} ${pill ? 'br-pill' : ''}`} onClick={onClick}>
+      {children}
     </button>
   )
 })`${props => styleMap(props.size)}`
@@ -64,6 +64,13 @@ Button.propTypes = {
   size: PropTypes.oneOf(sizes),
   outline: PropTypes.bool,
   pill: PropTypes.bool,
+}
+
+Button.defaultProps = {
+  color: 'white',
+  size: 'large',
+  outline: false,
+  pill: false,
 }
 
 Button.displayName = 'Button'
