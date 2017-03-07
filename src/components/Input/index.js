@@ -13,8 +13,16 @@ const inputTypes = ['text', 'password']
 const inputIconClasses = 'absolute eh-input-status-icon'
 
 const iconMap = {
-  error: <Icon type='cancel' color='red' className={inputIconClasses} />,
-  success: <Icon type='success' color='green' className={inputIconClasses} />
+  error: (
+    <span className={inputIconClasses}>
+      <Icon type='cancel' color='red' />
+    </span>
+  ),
+  success: (
+    <span className={inputIconClasses}>
+      <Icon type='success' color='green' />
+    </span>
+  ),
 }
 
 

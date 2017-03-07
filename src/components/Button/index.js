@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
-import Icon from '../Icon'
 
 export const sizes = ['large', 'small', 'extra-large', 'extra-small']
 export const colors = ['green', 'yellow', 'red', 'blue', 'white', 'orange', 'turquoise']
