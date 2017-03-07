@@ -4,9 +4,19 @@ import {markdownFixture} from '../../utils/fixtures'
 import Markdown from '.'
 
 storiesOf('Markdown')
-
-  .addWithInfo('Default', () => (
-    <Markdown>
-      {markdownFixture}
-    </Markdown>
-  ))
+  .addWithInfo(
+    'Info',
+    'Used to display markdown',
+    () => (
+      <Markdown>
+        {markdownFixture}
+      </Markdown>
+    ),
+  )
+  .addWithPropsCombinations(
+    'Combinations',
+    Markdown, 
+    {
+      children: [markdownFixture],
+    },
+  )

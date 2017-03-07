@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import styled from 'styled-components'
 
 const Tooltip = ({children, className}) => {
@@ -9,11 +9,8 @@ const Tooltip = ({children, className}) => {
     </div>
   )
 }
-Tooltip.propTypes = {
-  children: React.PropTypes.node.isRequired
-}
 
-export default styled(Tooltip)`
+const StyledTooltip = styled(Tooltip)`
   &:before {
     width: 0;
     height: 0;
@@ -26,3 +23,9 @@ export default styled(Tooltip)`
     top: -9px;
   }
 `
+
+StyledTooltip.propTypes = {
+  children: PropTypes.string.isRequired,
+}
+
+export default StyledTooltip

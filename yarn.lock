@@ -5141,9 +5141,9 @@ react-simple-di@^1.2.0:
     babel-runtime "6.x.x"
     hoist-non-react-statics "1.x.x"
 
-"react-storybook-addon-info@github:eggheadio/react-storybook-addon-info#4.0.2":
-  version "4.0.2"
-  resolved "https://codeload.github.com/eggheadio/react-storybook-addon-info/tar.gz/ff3053f8c50ae7f789dc6707c633dc1f2c765577"
+"react-storybook-addon-info@github:eggheadio/react-storybook-addon-info#4.0.3":
+  version "4.0.3"
+  resolved "https://codeload.github.com/eggheadio/react-storybook-addon-info/tar.gz/ab437e80ea351ddb8990de095a37eebb5721a00f"
   dependencies:
     babel-runtime "^6.5.0"
     markdown-to-react-components "^0.2.1"

@@ -34,7 +34,7 @@
     "extends": "react-app"
   },
   "dependencies": {
-    "react-storybook-addon-info": "github:eggheadio/react-storybook-addon-info#4.0.2",
+    "react-storybook-addon-info": "github:eggheadio/react-storybook-addon-info#4.0.3",
     "@kadira/storybook": "^2.5.2",
     "axios": "^0.15.3",
     "babel-cli": "^6.22.2",

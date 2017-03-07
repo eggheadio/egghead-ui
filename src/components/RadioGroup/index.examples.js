@@ -1,14 +1,36 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import RadioGroup from './index'
+import {stringFixture} from '../../utils/fixtures'
+import RadioGroup from '.'
 
-storiesOf('Radio Group')
+const optionsExample = [
+  {
+    label: stringFixture,
+    value: 'a',
+  },
+  {
+    label: stringFixture,
+    value: 'b',
+  },
+  {
+    label: stringFixture,
+    value: 'c',
+    disabled: true,
+  },
+]
 
-  .addWithInfo('Default', () => (
-    <RadioGroup optionList={[
-      {value: 'thing1', label: 'Radio One'},
-      {value: 'thing2', label: 'Radio Two', checked: true},
-      {value: 'thing3', label: 'Radio Three', disabled: true},
-      {value: 'thing4', label: 'Radio Four', checked: true, disabled: true}
-    ]} />
-  ))
+storiesOf('RadioGroup')
+  .addWithInfo(
+    'Info',
+    'Used to let the user pick one option from a group of options',
+    () => (
+      <RadioGroup options={optionsExample} />
+    ),
+  )
+  .addWithPropsCombinations(
+    'Combinations',
+    RadioGroup, 
+    {
+      options: [optionsExample],
+    },
+  )

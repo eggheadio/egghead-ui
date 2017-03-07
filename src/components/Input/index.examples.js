@@ -1,50 +1,27 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import Input from './index'
-import PasswordTooltip from '../Tooltip/PasswordTooltip'
+import {stringFixture} from '../../utils/fixtures'
+import Input, {types, icons} from '.'
 
 storiesOf('Input')
-
-  .addWithInfo('Empty Field', () => (
-    <Input />
-  ))
-
-  .addWithInfo('Field with Placeholder', () => (
-    <Input placeholder='Placeholder' />
-  ))
-
-  .addWithInfo('Disabled Field', () => (
-    <Input placeholder='Disabled' disabled />
-  ))
-
-  .addWithInfo('Field with Error', () => (
-    <Input
-      value='Error'
-      required
-      error
-      errorMsg='Password must contain at least 8 characters.'
-      icon='error'
-    />
-  ))
-
-  .addWithInfo('Password Success Field', () => (
-    <Input
-      value='Password'
-      required
-      type='password'
-      icon='success'
-    />
-  ))
-
-  .addWithInfo('Password Field with Tooltip', () => (
-    <div className='w-50 center'>
-      <Input
-        value='Password'
-        required
-        type='password'
-        icon='success'
-      />
-      <PasswordTooltip />
-    </div>
-  ))
-
+  .addWithInfo(
+    'Info',
+    'Used to let the user enter information',
+    () => (
+      <Input />
+    ),
+  )
+  .addWithPropsCombinations(
+    'Combinations',
+    Input, 
+    {
+      placeholder: [null, stringFixture],
+      defaultValue: [null, stringFixture],
+      errorMsg: [null, stringFixture],
+      type: types,
+      required: [true, false],
+      disabled: [true, false],
+      error: [true, false],
+      icon: icons,
+    },
+  )

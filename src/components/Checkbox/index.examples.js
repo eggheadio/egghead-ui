@@ -5,7 +5,7 @@ import Checkbox from '.'
 
 storiesOf('Checkbox')
   .addWithInfo(
-    'Documentation',
+    'Info',
     'Used to give the user a yes/no option',
     () => (
       <Checkbox
@@ -15,14 +15,13 @@ storiesOf('Checkbox')
     ),
   )
   .addWithPropsCombinations(
-    'Prop Combinations',
+    'Combinations',
     Checkbox, 
     {
       name: [stringFixture],
       label: [stringFixture],
+      onChange: [null, eventHandlerFixture],
       checked: [true, false],
       disabled: [true, false],
-      onChange: [eventHandlerFixture],
-      onClick: [eventHandlerFixture],
     },
   )

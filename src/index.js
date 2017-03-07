@@ -8,7 +8,7 @@ import MarkdownSource from './components/Markdown'
 import ParagraphSource from './components/Paragraph'
 import RadioGroupSource from './components/RadioGroup'
 import RequestSource from './components/Request'
-import SwitchersSource from './components/Switchers'
+import ToggleSource from './components/Toggle'
 import TooltipSource from './components/Tooltip'
 
 export const Button = ButtonSource
@@ -21,5 +21,5 @@ export const Markdown = MarkdownSource
 export const Paragraph = ParagraphSource
 export const RadioGroup = RadioGroupSource
 export const Request = RequestSource
-export const Switchers = SwitchersSource
+export const Toggle = ToggleSource
 export const Tooltip = TooltipSource

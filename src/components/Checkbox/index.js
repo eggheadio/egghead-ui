@@ -13,12 +13,16 @@ class Checkbox extends Component {
   }
 
   handleChange = (e) => {
-    const { checked } = this.state
+    const {onChange} = this.props
+    const {checked} = this.state
     this.setState({ checked: !checked })
+    if(onChange) {
+      onChange()
+    }
   }
 
   render() {
-    const { name, label, disabled, onClick, className } = this.props
+    const { name, label, disabled, className } = this.props
     const { checked } = this.state
     
     return (
@@ -26,7 +30,7 @@ class Checkbox extends Component {
         className={`${commonLabelClasses} ${checkboxClasses} ${className} ${disabled ? disabledClasses : ''}`}
       >
           <input type='checkbox' className={`${inputClasses}`} disabled={disabled} checked={checked}
-            onClick={onClick} onChange={this.handleChange}
+            onChange={this.handleChange}
           />
           <span className={boxIconClasses}>
             {checked
@@ -79,10 +83,9 @@ const StyledCheckbox = styled(Checkbox)`
 StyledCheckbox.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
-  onChange: PropTypes.func,
-  onClick: PropTypes.func
 }
 
 StyledCheckbox.defaultProps = {

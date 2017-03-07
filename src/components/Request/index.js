@@ -15,23 +15,6 @@ const methods = [
 
 export default class Request extends Component {
 
-  static propTypes = {
-    url: PropTypes.string.isRequired,
-    method: PropTypes.oneOf(methods),
-    params: PropTypes.object,
-    headers: PropTypes.object,
-    body: PropTypes.object,
-    lazy: PropTypes.bool,
-    onResponse: PropTypes.func,
-    onData: PropTypes.func,
-    onError: PropTypes.func,
-    children: PropTypes.func,
-  }
-
-  static defaultProps = {
-    method: first(methods),
-  }
-
   state = {
     running: !this.props.lazy,
     response: null,
@@ -129,4 +112,21 @@ export default class Request extends Component {
       response,
     }) || null
   }
+}
+
+Request.propTypes = {
+  children: PropTypes.func.isRequired,
+  url: PropTypes.string.isRequired,
+  params: PropTypes.object,
+  headers: PropTypes.object,
+  body: PropTypes.object,
+  lazy: PropTypes.bool,
+  onResponse: PropTypes.func,
+  onData: PropTypes.func,
+  onError: PropTypes.func,
+  method: PropTypes.oneOf(methods),
+}
+
+Request.defaultProps = {
+  method: first(methods),
 }

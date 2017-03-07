@@ -17,12 +17,12 @@ storiesOf('Button')
     'Combinations',
     Button, 
     {
+      children: [stringFixture],
       href: [urlFixture],
       onClick: [eventHandlerFixture],
       color: colors,
       size: sizes,
       outline: [true, false],
       pill: [true, false],
-      children: [stringFixture],
     },
   )
