@@ -48,7 +48,7 @@
     "react-icons": "^2.2.3",
     "react-markdown": "^2.4.5",
     "react-scripts": "^0.8.4",
-    "react-storybook-addon-info": "github:eggheadio/react-storybook-addon-info#4.0.3",
+    "react-storybook-addon-info": "github:eggheadio/react-storybook-addon-info#4.0.4",
     "react-storybook-addon-props-combinations": "^0.3.0",
     "react-tabs": "^0.8.2",
     "styled-components": "^1.4.3",
