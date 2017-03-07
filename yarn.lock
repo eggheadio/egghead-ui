@@ -6,14 +6,6 @@
   version "1.4.7"
   resolved "https://registry.yarnpkg.com/@kadira/react-split-pane/-/react-split-pane-1.4.7.tgz#6d753d4a9fe62fe82056e323a6bcef7f026972b5"
 
-"@kadira/react-storybook-addon-info@^3.3.0":
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/@kadira/react-storybook-addon-info/-/react-storybook-addon-info-3.3.0.tgz#dad3987c1603eed9b3e7718c5b26966098693b35"
-  dependencies:
-    babel-runtime "^6.5.0"
-    markdown-to-react-components "^0.2.1"
-    react-addons-create-fragment "^15.3.2"
-
 "@kadira/storybook-addon-actions@^1.0.2":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@kadira/storybook-addon-actions/-/storybook-addon-actions-1.1.1.tgz#5053485583fadea413710d6405454dc168a7efc7"
@@ -1555,10 +1547,6 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-collapse-white-space@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/collapse-white-space/-/collapse-white-space-1.0.2.tgz#9c463fb9c6d190d2dcae21a356a01bcae9eeef6d"
-
 color-convert@^1.3.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-1.9.0.tgz#1accf97dd739b983bf994d56fec8f95853641b7a"
@@ -2132,10 +2120,6 @@ ecc-jsbn@~0.1.1:
   dependencies:
     jsbn "~0.1.0"
 
-editions@^1.1.1:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/editions/-/editions-1.3.3.tgz#0907101bdda20fac3cbe334c27cbd0688dc99a5b"
-
 ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
@@ -2290,10 +2274,6 @@ escope@^3.6.0:
     es6-weak-map "^2.0.1"
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
-
-eslint-config-keystone@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-keystone/-/eslint-config-keystone-3.0.0.tgz#28d6323491a95cc738613c0ac2a7b73936eb5332"
 
 eslint-config-react-app@^0.5.0:
   version "0.5.0"
@@ -2707,10 +2687,6 @@ follow-redirects@1.0.0:
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.0.0.tgz#8e34298cbd2e176f254effec75a1c78cc849fd37"
   dependencies:
     debug "^2.2.0"
-
-font-awesome@^4.6.3:
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/font-awesome/-/font-awesome-4.7.0.tgz#8fa8cf0411a1a31afd07b06d2902bb9fc815a133"
 
 for-in@^0.1.5:
   version "0.1.6"
@@ -3332,10 +3308,6 @@ is-regex@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/is-regex/-/is-regex-1.0.3.tgz#0d55182bddf9f2fde278220aec3a75642c908637"
 
-is-regexp@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/is-regexp/-/is-regexp-1.0.0.tgz#fd2d883545c46bac5a633e7b9a09e87fa2cb5069"
-
 is-resolvable@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-resolvable/-/is-resolvable-1.0.0.tgz#8df57c61ea2e3c501408d100fb013cf8d6e0cc62"
@@ -3950,7 +3922,7 @@ lodash.uniq@^4.3.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@4.x.x, "lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.16.2, lodash@^4.16.4, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0:
+lodash@4.x.x, "lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.16.2, lodash@^4.16.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -4335,6 +4307,10 @@ object-assign@4.1.0:
 object-assign@^4.0.1, object-assign@^4.1.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
+
+object-hash@^1.1.5:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/object-hash/-/object-hash-1.1.7.tgz#a8d83fdf5d4583a4e2e7ffc18e8915e08482ef52"
 
 object-keys@^1.0.8:
   version "1.0.11"
@@ -4892,6 +4868,12 @@ pretty-error@^2.0.2:
     renderkid "~2.0.0"
     utila "~0.4"
 
+pretty-format@^18.1.0:
+  version "18.1.0"
+  resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-18.1.0.tgz#fb65a86f7a7f9194963eee91865c1bcf1039e284"
+  dependencies:
+    ansi-styles "^2.2.1"
+
 pretty-format@~4.2.1:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-4.2.3.tgz#8894c2ac81419cf801629d8f66320a25380d8b05"
@@ -5042,17 +5024,6 @@ react-dom@^15.4.1:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
 
-react-element-to-jsx-string@^5.0.2:
-  version "5.0.7"
-  resolved "https://registry.yarnpkg.com/react-element-to-jsx-string/-/react-element-to-jsx-string-5.0.7.tgz#c663a4800a9c712115c0d8519cb0215a46a1f0f2"
-  dependencies:
-    collapse-white-space "^1.0.0"
-    is-plain-object "^2.0.1"
-    lodash "^4.17.4"
-    sortobject "^1.0.0"
-    stringify-object "2.4.0"
-    traverse "^0.6.6"
-
 react-fuzzy@^0.3.3:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/react-fuzzy/-/react-fuzzy-0.3.3.tgz#9f6775393cd03bbd3c977651771abe16c8b29a81"
@@ -5060,6 +5031,16 @@ react-fuzzy@^0.3.3:
     babel-runtime "^6.5.0"
     classnames "^2.2.3"
     fuse.js "^2.2.0"
+
+react-icon-base@2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/react-icon-base/-/react-icon-base-2.0.4.tgz#b6b7662e8b009b270a4f0c213c222f5d6eca3b22"
+
+react-icons@^2.2.3:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-2.2.3.tgz#3b4847923065ecb09f8ba7f7e422112de0195196"
+  dependencies:
+    react-icon-base "2.0.4"
 
 react-inspector@^1.1.0:
   version "1.1.2"
@@ -5160,11 +5141,20 @@ react-simple-di@^1.2.0:
     babel-runtime "6.x.x"
     hoist-non-react-statics "1.x.x"
 
-react-storybook-addon-props-combinations@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/react-storybook-addon-props-combinations/-/react-storybook-addon-props-combinations-0.0.1.tgz#e39849efbb98fa957198b27e8c658cb5e2825ba8"
+"react-storybook-addon-info@github:eggheadio/react-storybook-addon-info#4.0.4":
+  version "4.0.4"
+  resolved "https://codeload.github.com/eggheadio/react-storybook-addon-info/tar.gz/258d49abdf88319c446d5f0000a2eaab3e282b63"
   dependencies:
-    react-element-to-jsx-string "^5.0.2"
+    babel-runtime "^6.5.0"
+    markdown-to-react-components "^0.2.1"
+    react-addons-create-fragment "^15.3.2"
+
+react-storybook-addon-props-combinations@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-storybook-addon-props-combinations/-/react-storybook-addon-props-combinations-0.3.0.tgz#55f41cfb3f45f820f897d1325e4b57dfb6efab58"
+  dependencies:
+    object-hash "^1.1.5"
+    pretty-format "^18.1.0"
 
 react-stubber@^1.0.0:
   version "1.0.0"
@@ -5663,12 +5653,6 @@ sort-keys@^1.0.0:
   dependencies:
     is-plain-obj "^1.0.0"
 
-sortobject@^1.0.0:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/sortobject/-/sortobject-1.1.1.tgz#4f695d4d44ed0a4c06482c34c2582a2dcdc2ab34"
-  dependencies:
-    editions "^1.1.1"
-
 source-list-map@^0.1.4, source-list-map@~0.1.7:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-0.1.8.tgz#c550b2ab5427f6b3f21f5afead88c4f5587b2106"
@@ -5807,13 +5791,6 @@ string_decoder@^0.10.25, string_decoder@~0.10.x:
   version "0.10.31"
   resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-0.10.31.tgz#62e203bc41766c6c28c9fc84301dab1c5310fa94"
 
-stringify-object@2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/stringify-object/-/stringify-object-2.4.0.tgz#c62d11023eb21fe2d9b087be039a26df3b22a09d"
-  dependencies:
-    is-plain-obj "^1.0.0"
-    is-regexp "^1.0.0"
-
 stringstream@~0.0.4:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/stringstream/-/stringstream-0.0.5.tgz#4e484cd4de5a0bbbee18e46307710a8a81621878"
@@ -5918,9 +5895,9 @@ tachyons-background-size@^5.0.4:
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/tachyons-background-size/-/tachyons-background-size-5.0.5.tgz#445fbe008125308ebe750262649e3f3f7c9de56f"
 
-tachyons-base@^1.2.6:
+"tachyons-base@github:eggheadio/tachyons-base":
   version "1.2.6"
-  resolved "https://registry.yarnpkg.com/tachyons-base/-/tachyons-base-1.2.6.tgz#1ed5ce2497ac414df0eb2a77a6324cad50ba90af"
+  resolved "https://codeload.github.com/eggheadio/tachyons-base/tar.gz/6a8858ef79f3edba299e6ecc85f812afe23a11d4"
 
 "tachyons-border-colors@github:eggheadio/tachyons-border-colors":
   version "4.2.3"
@@ -5966,31 +5943,19 @@ tachyons-coordinates@^4.0.3:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/tachyons-coordinates/-/tachyons-coordinates-4.0.4.tgz#d20f9d5941b6782ff28e1778be71e895457a6cdd"
 
-tachyons-custom@^4.5.4:
-  version "4.5.4"
-  resolved "https://registry.yarnpkg.com/tachyons-custom/-/tachyons-custom-4.5.4.tgz#0299564dc3217e2171d2723e39b69a22f739beae"
-
-tachyons-debug-grid@^1.2.2:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/tachyons-debug-grid/-/tachyons-debug-grid-1.2.3.tgz#42246147b613b16ce80fb90be7409206608a15cb"
-
-tachyons-debug@^1.1.9:
-  version "1.1.10"
-  resolved "https://registry.yarnpkg.com/tachyons-debug/-/tachyons-debug-1.1.10.tgz#3eaaa05e2d0714d7bcfa8972991f67ddc8cc980b"
-
 tachyons-display@^5.0.3:
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/tachyons-display/-/tachyons-display-5.0.4.tgz#9ec6918b0695753b7c296c0a1275c8b214b25b9a"
 
-tachyons-egghead@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/tachyons-egghead/-/tachyons-egghead-1.2.1.tgz#191488e6d7e95340ec2e8139a8062d3f20736f76"
+tachyons-egghead@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/tachyons-egghead/-/tachyons-egghead-2.0.0.tgz#45c68532040fa6fa2c6073febbe59c23457b6845"
   dependencies:
     normalize.css "^5.0.0"
     tachyons-aspect-ratios "^1.0.1"
     tachyons-background-position "^1.0.3"
     tachyons-background-size "^5.0.4"
-    tachyons-base "^1.2.6"
+    tachyons-base "github:eggheadio/tachyons-base"
     tachyons-border-colors "github:eggheadio/tachyons-border-colors"
     tachyons-border-radius "^5.1.2"
     tachyons-border-style "^4.0.3"
@@ -6002,9 +5967,6 @@ tachyons-egghead@^1.2.1:
     tachyons-code "^1.0.0"
     tachyons-colors "github:eggheadio/tachyons-colors"
     tachyons-coordinates "^4.0.3"
-    tachyons-custom "^4.5.4"
-    tachyons-debug "^1.1.9"
-    tachyons-debug-grid "^1.2.2"
     tachyons-display "^5.0.3"
     tachyons-flexbox "github:eggheadio/tachyons-flexbox"
     tachyons-floats "^3.0.3"
@@ -6025,12 +5987,10 @@ tachyons-egghead@^1.2.1:
     tachyons-outlines "^1.0.2"
     tachyons-overflow "^4.0.3"
     tachyons-position "^6.0.3"
-    tachyons-queries "^0.3.3"
     tachyons-rotations "^1.0.2"
     tachyons-skins "github:eggheadio/tachyons-skins"
     tachyons-skins-pseudo "github:eggheadio/tachyons-skins-pseudo"
     tachyons-spacing "^6.0.3"
-    tachyons-styles "^0.3.4"
     tachyons-tables "^1.0.6"
     tachyons-text-align "^3.0.3"
     tachyons-text-decoration "^4.0.3"
@@ -6121,10 +6081,6 @@ tachyons-position@^6.0.3:
   version "6.0.4"
   resolved "https://registry.yarnpkg.com/tachyons-position/-/tachyons-position-6.0.4.tgz#3969217ace21c114ab923c8882240cf7f947cabe"
 
-tachyons-queries@^0.3.3:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/tachyons-queries/-/tachyons-queries-0.3.3.tgz#de549f2ffb7f479ae2bfff21c78a6b30275ea3b6"
-
 tachyons-rotations@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/tachyons-rotations/-/tachyons-rotations-1.0.2.tgz#19bb7cc29aceaea56dc02b650241dafa32f0de62"
@@ -6140,10 +6096,6 @@ tachyons-rotations@^1.0.2:
 tachyons-spacing@^6.0.3:
   version "6.0.4"
   resolved "https://registry.yarnpkg.com/tachyons-spacing/-/tachyons-spacing-6.0.4.tgz#54cbd6d902b2a36ab864110754ec9924e09935aa"
-
-tachyons-styles@^0.3.4:
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/tachyons-styles/-/tachyons-styles-0.3.4.tgz#bd1c3fdf62b27df07e4be17a7d3adda2c89ef71d"
 
 tachyons-tables@^1.0.6:
   version "1.0.7"
@@ -6275,10 +6227,6 @@ tough-cookie@^2.3.1, tough-cookie@~2.3.0:
 tr46@~0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
-
-traverse@^0.6.6:
-  version "0.6.6"
-  resolved "https://registry.yarnpkg.com/traverse/-/traverse-0.6.6.tgz#cbdf560fd7b9af632502fed40f918c157ea97137"
 
 tryit@^1.0.1:
   version "1.0.3"

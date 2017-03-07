@@ -1,16 +1,30 @@
 # egghead-ui
 
-This repo has two purposes:
-- A living style guide app with documentation, published on [styleguide.egghead.io](https://styleguide.egghead.io)
-- A component library, [pubished on npm](https://www.npmjs.com/package/egghead-ui)
+Components used across egghead projects
+
+This repo does two things:
+- Generates the living style guide app with documentation, published on [styleguide.egghead.io](https://styleguide.egghead.io)
+- Builds the component library, [pubished on npm](https://www.npmjs.com/package/egghead-ui)
 
 ---
 
 # Usage
 
+## Install the dependencies in your project
+
+`egghead-ui` relies on `tachyons-egghead`:
+
 ```
-$ yarn add 'egghead-ui'`
+$ yarn add tachyons-egghead egghead-ui`
 ```
+
+## Include the `tachyons-egghead` CSS classes
+
+```
+import 'tachyons-egghead'
+```
+
+## Use `egghead-ui` components
 
 ```
 import {ComponentName} from 'egghead-ui'
@@ -53,17 +67,21 @@ You can [watch a video example of the workflow](https://youtu.be/y8604EFI8P4); s
 
 ## Folders and files
 
-- `src/components/ComponentName`:
-  - `index.js` defines and exports a component.
-    - Styling is done using classes from [tachyons-egghead](https://github.com/eggheadio/tachyons-egghead) wherever possible. Otherwise, inline style objects are used.
-    - The `*-ns` (not small) Tachyons classes are used to apply anything specific to non-mobile screen sizes, so that all components are built mobile-first.
-  - `index.examples.js` adds component to the style guide.
-    - `.addWithInfo` adds automatic API documentation.
-    - `.addWithPropCombinations` adds automatic prop combinations.
 - `src/index.js` imports all `src/components` and exports the component library for npm.
+- `src/components` contains the API of usable components
+  - `src/components/ComponentName`
+    - `index.js` defines and exports the component.
+      - Styling is done using classes from [tachyons-egghead](https://github.com/eggheadio/tachyons-egghead) wherever possible. Otherwise, inline style objects are used.
+      - The `*-ns` (not small) Tachyons classes are used to apply anything specific to non-mobile screen sizes, so that all components are built mobile-first.
+    - `index.examples.js` adds the component to the style guide.
+      - `.addWithInfo` adds documentation
+      - `.addWithPropsCombinations` renders components with all possible prop combinations and complains if you are missing any
+      - `.add` for custom examples
+- `src/utils` contains utility modules and components which are not exported publicly but are used in multiple `src/components`
 - `build` is the folder that is generated for the style guide app
 - `lib` is the folder that is generated for the component library
 
 ## Known Issues
 
 - `devDependencies` don't install on heroku. All deps need to be in the `dependencies` object.
+- Using a CSS module with `yarn link` doesn't work with React Storybook (such as `tachyons-egghead`); it has to be installed from npm.

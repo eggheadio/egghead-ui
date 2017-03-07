@@ -1,11 +1,10 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
-import Icon from '../Icon'
+
+export const sizes = ['large', 'small', 'extra-large', 'extra-small']
+export const colors = ['green', 'yellow', 'red', 'blue', 'white', 'orange', 'turquoise']
 
 const commonClasses = 'link dib fw6 tracked tc br2 ttu ba pointer'
-
-const sizes = ['large', 'small', 'extra-large', 'extra-small']
-const colors = ['green', 'yellow', 'red', 'blue', 'white', 'orange', 'turquoise']
 
 const sizedBtnClasses = {
   'large': 'f5 pa3',
@@ -45,24 +44,32 @@ const styleMap = (size) => {
   return size === undefined ? classes['large'] : classes[size]
 }
 
-const Button = styled(({href, color = 'white', size = 'large', outline = false, children, className, pill = false, play = false, onClick}) => {
+const StyledButton = styled(({children, href, color, size, outline, pill, onClick}) => {
   const btnClasses = outline ? outlineBtnClasses[color] : solidBtnClasses[color]
   const sizeClasses = sizedBtnClasses[size]
 
   return (
-    <button href={href} className={`${commonClasses} ${btnClasses} ${sizeClasses} ${className} ${pill ? 'br-pill' : ''}`} onClick={onClick}>
-      {play ? <Icon type='play' className='mr2' /> : ''} {children}
+    <button href={href} className={`${commonClasses} ${btnClasses} ${sizeClasses} ${pill ? 'br-pill' : ''}`} onClick={onClick}>
+      {children}
     </button>
   )
 })`${props => styleMap(props.size)}`
 
-Button.propTypes = {
+StyledButton.propTypes = {
+  children: PropTypes.string.isRequired,
   href: PropTypes.string,
   onClick: PropTypes.func,
   color: PropTypes.oneOf(colors),
   size: PropTypes.oneOf(sizes),
   outline: PropTypes.bool,
-  children: PropTypes.string.isRequired
+  pill: PropTypes.bool,
 }
 
-export default Button
+StyledButton.defaultProps = {
+  color: 'white',
+  size: 'large',
+  outline: false,
+  pill: false,
+}
+
+export default StyledButton

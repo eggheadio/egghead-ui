@@ -1,6 +1,9 @@
 import React from 'react'
+import {keys} from 'lodash'
 import styled from 'styled-components'
 import Icon from '../Icon'
+
+export const types = ['text', 'password']
 
 const commonClasses = 'db w-100 pl3 pr5 pv3 lh-copy br2 bg-dark-navy ba eh-text-field sans-serif'
 const standardClasses = 'white b--gray focus-b-gray'
@@ -8,18 +11,26 @@ const errorClasses = 'red b--red focus-b--red'
 const errorMsgClasses = 'db red f5 sans-serif mt3'
 const successClasses = 'white b--green focus-b--green'
 const disabledClasses = 'disabled'
-const inputTypes = ['text', 'password']
 
 const inputIconClasses = 'absolute eh-input-status-icon'
 
 const iconMap = {
-  error: <Icon type='cancel' color='danger' className={inputIconClasses} />,
-  success: <Icon type='success' color='success' className={inputIconClasses} />
+  error: (
+    <span className={inputIconClasses}>
+      <Icon type='cancel' color='red' />
+    </span>
+  ),
+  success: (
+    <span className={inputIconClasses}>
+      <Icon type='success' color='green' />
+    </span>
+  ),
 }
 
+export const icons = keys(iconMap)
 
-const Input = ({type='text', placeholder, required=false, error=false,
-                errorMsg, disabled=false, value, icon, className}) => {
+const Input = ({type, placeholder, required, error,
+                errorMsg, disabled, value, icon, className}) => {
   let inputStyles = standardClasses
 
   const fieldIcon = iconMap[icon]
@@ -46,18 +57,7 @@ const Input = ({type='text', placeholder, required=false, error=false,
   )
 }
 
-Input.propTypes = {
-  type: React.PropTypes.oneOf(inputTypes),
-  placeholder: React.PropTypes.string,
-  required: React.PropTypes.bool,
-  error: React.PropTypes.bool,
-  errorMsg: React.PropTypes.string,
-  icon: React.PropTypes.string,
-  disabled: React.PropTypes.bool,
-  defaultValue: React.PropTypes.string
-}
-
-export default styled(Input)`
+const StyledInput = styled(Input)`
    .eh-text-field {
     font-size: 1.125em;
   }
@@ -119,3 +119,22 @@ export default styled(Input)`
     right: 1.25rem;
   }
 `
+
+StyledInput.propTypes = {
+  placeholder: React.PropTypes.string,
+  defaultValue: React.PropTypes.string,
+  errorMsg: React.PropTypes.string,
+  type: React.PropTypes.oneOf(types),
+  required: React.PropTypes.bool,
+  disabled: React.PropTypes.bool,
+  error: React.PropTypes.bool,
+  icon: React.PropTypes.oneOf(icons),
+}
+
+StyledInput.defaultProps = {
+  type: 'text',
+  required: false,
+  disabled: false,
+}
+
+export default StyledInput

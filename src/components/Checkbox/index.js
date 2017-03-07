@@ -1,41 +1,28 @@
 import React, { Component, PropTypes } from 'react'
 import styled from 'styled-components'
+import {commonLabelClasses, commonIconClasses, inputClasses, disabledClasses} from '../../utils/formClassNames'
 import Icon from '../Icon'
-
-export const commonLabelClasses = 'inline-flex v-top items-center lh-title f4 white sans-serif overflow-hidden pointer'
-export const commonIconClasses = 'mr3 ba b--white hover-b--green'
-export const inputClasses = 'o-0 absolute left--1'
-export const disabledClasses = 'disabled'
-
 
 const checkboxClasses = 'eh-checkbox'
 const boxIconClasses = `${commonIconClasses} br2 eh-checkbox-icon`
 
 class Checkbox extends Component {
-  static propTypes = {
-    name: PropTypes.string,
-    label: PropTypes.string,
-    checked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    onChange: PropTypes.func,
-    onClick: PropTypes.func
-  }
 
-  constructor(props) {
-    super(props)
-  
-    const checked = 'checked' in props ? props.checked : false
-
-    this.state = { checked }
+  state = {
+    checked: 'checked' in this.props ? this.props.checked : false
   }
 
   handleChange = (e) => {
-    const { checked } = this.state
+    const {onChange} = this.props
+    const {checked} = this.state
     this.setState({ checked: !checked })
+    if(onChange) {
+      onChange()
+    }
   }
 
   render() {
-    const { name, label, disabled, onClick, className } = this.props
+    const { name, label, disabled, className } = this.props
     const { checked } = this.state
     
     return (
@@ -43,16 +30,24 @@ class Checkbox extends Component {
         className={`${commonLabelClasses} ${checkboxClasses} ${className} ${disabled ? disabledClasses : ''}`}
       >
           <input type='checkbox' className={`${inputClasses}`} disabled={disabled} checked={checked}
-            onClick={onClick} onChange={this.handleChange}
+            onChange={this.handleChange}
           />
-          <Icon type={checked ? 'check' : null} className={boxIconClasses} />
+          <span className={boxIconClasses}>
+            {checked
+              ? <Icon
+                  type='check' 
+                  color='navy'
+                />
+              : null
+            }
+          </span>
           {label}
       </label>
     )
   }
 }
 
-export default styled(Checkbox)`
+const StyledCheckbox = styled(Checkbox)`
   input[type='checkbox'] {}
   input[type='checkbox']:checked {}
   input[type='checkbox']:checked + .eh-checkbox-icon {
@@ -84,3 +79,18 @@ export default styled(Checkbox)`
     align-items: center;
   }
 `
+
+StyledCheckbox.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+  checked: PropTypes.bool,
+  disabled: PropTypes.bool,
+}
+
+StyledCheckbox.defaultProps = {
+  checked: false,
+  disabled: false,
+}
+
+export default StyledCheckbox

@@ -1,81 +1,94 @@
 import React, {PropTypes} from 'react'
 import {keys} from 'lodash'
+import {
+  FaArrowRight,
+  FaBars,
+  FaCheck,
+  FaCheckCircle,
+  FaCheckSquareO,
+  FaChevronRight,
+  FaClockO,
+  FaClose,
+  FaExclamationCircle,
+  FaFileO,
+  FaFolderOpenO,
+  FaInfoCircle,
+  FaMinusCircle,
+  FaMoney,
+  FaPlay,
+  FaPlusCircle,
+  FaQuestionCircle,
+  FaRefresh,
+  FaSquareO,
+  FaTimesCircle,
+} from 'react-icons/lib/fa'
 
-export const sizes = {
-  1: '',
-  2: 'fa-lg',
-  3: 'fa-2x',
-  4: 'fa-3x',
-  5: 'fa-4x',
-  6: 'fa-5x'
+const typeToSvgIcon = {
+  'add': FaPlusCircle,
+  'arrow-right': FaArrowRight,
+  'box': FaSquareO,
+  'box-check': FaCheckSquareO,
+  'cancel': FaTimesCircle,
+  'check': FaCheck,
+  'chevron-right': FaChevronRight,
+  'clock': FaClockO,
+  'close': FaClose,
+  'course': FaFolderOpenO,
+  'dollar': FaMoney,
+  'info': FaInfoCircle,
+  'lesson': FaFileO,
+  'menu': FaBars,
+  'play': FaPlay,
+  'question': FaQuestionCircle,
+  'refresh': FaRefresh,
+  'remove': FaMinusCircle,
+  'success': FaCheckCircle,
+  'warning': FaExclamationCircle,
 }
 
-export const types = {
-  'add': 'plus-circle',
-  'arrow-right': 'arrow-right',
-  'box': 'square-o',
-  'box-check': 'check-square-o',
-  'cancel': 'times-circle',
-  'check': 'check',
-  'chevron-right': 'chevron-right',
-  'clock': 'clock-o',
-  'close': 'close',
-  'course': 'folder-open-o',
-  'lesson': 'file-o',
-  'menu': 'bars',
-  'more-info': 'info-circle',
-  'play': 'play',
-  'question': 'question-circle',
-  'refresh': 'refresh',
-  'remove': 'minus-circle',
-  'revenue': 'money',
-  'step-complete': 'check-square-o',
-  'step-incomplete': 'square-o',
-  'subscriber-minutes': 'clock-o',
-  'success': 'check-circle',
-  'warning': 'exclamation-circle',
-  'info': 'info-circle',
-  'dollar': 'money'
+export const types = keys(typeToSvgIcon)
+
+const sizeToClass = {
+  1: 'f1',
+  2: 'f2',
+  3: 'f3',
+  4: 'f4',
+  5: 'f5',
+  6: 'f6'
 }
 
-export const colors = {
-  'success': 'green',
-  'primary': 'blue',
-  'warning': 'yellow',
-  'danger': 'red',
-  'light': 'light-gray',
-  'orange': 'orange',
-  'turquoise': 'turquoise'
-}
+export const sizes = keys(sizeToClass)
+
+export const colors = [
+  'navy',
+  'white',
+  'green',
+  'blue',
+  'yellow',
+  'red',
+  'light-gray',
+  'orange',
+  'turquoise',
+]
 
 const Icon = ({
   type,
   size,
   color,
-  spin,
-  className
-}) => (
-  <span className={`
-    fa
-    fa-${types[type]} 
-    ${sizes[size]}
-    ${colors[color]}
-    ${className}
-    ${spin ? 'fa-spin' : ''}
-  `} />
-)
+}) => {
+  const DynamicIcon = typeToSvgIcon[type]
+  return <DynamicIcon className={`${sizeToClass[size]} ${color}`} />
+}
 
 Icon.propTypes = {
-  type: PropTypes.oneOf(keys(types)),
-  size: PropTypes.oneOf(keys(sizes)),
-  color: PropTypes.oneOf(keys(colors)),
-  spin: PropTypes.bool,
-  className: PropTypes.string
+  type: PropTypes.oneOf(types).isRequired,
+  size: PropTypes.oneOf(sizes),
+  color: PropTypes.oneOf(colors),
 }
 
 Icon.defaultProps = {
-  size: '1',
-  spin: false
+  size: '3',
+  color: 'blue',
 }
 
 export default Icon

@@ -1,48 +1,26 @@
 {
   "name": "egghead-ui",
-  "version": "2.25.0",
+  "version": "3.0.1",
   "description": "Official living style guide app and component library for egghead.io",
+  "homepage": "https://github.com/eggheadio/egghead-ui#readme",
   "main": "lib/index.js",
   "engines": {
     "node": ">=7.0.0"
   },
   "scripts": {
-    "lint": "eslint src",
     "dev:styleguide": "start-storybook -p 2000",
-    "dev:library": "babel src -w -d lib",
-    "build:styleguide": "build-storybook",
-    "build:library": "babel src -d lib",
+    "dev:library": "yarn build:library -- -w",
     "verify": "yarn lint && yarn build:library && yarn build:styleguide",
     "bump": "yarn version && git push && git push --tags",
+    "lint": "eslint src",
+    "build:styleguide": "build-storybook",
+    "build:library": "babel src -d lib",
     "prepublish": "yarn build:library",
-    "start": "react-scripts start",
-    "build": "yarn verify"
+    "start": "react-scripts start"
   },
   "pre-commit": [
     "verify"
   ],
-  "dependencies": {
-    "@kadira/react-storybook-addon-info": "^3.3.0",
-    "@kadira/storybook": "^2.5.2",
-    "axios": "^0.15.3",
-    "babel-cli": "^6.22.2",
-    "babel-plugin-transform-class-properties": "^6.22.0",
-    "babel-preset-latest": "^6.22.0",
-    "babel-preset-react": "^6.22.0",
-    "eslint": "^3.16.1",
-    "eslint-config-keystone": "^3.0.0",
-    "font-awesome": "^4.6.3",
-    "lodash": "^4.16.2",
-    "pre-commit": "^1.2.2",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
-    "react-markdown": "^2.4.5",
-    "react-scripts": "^0.8.4",
-    "react-storybook-addon-props-combinations": "^0.0.1",
-    "react-tabs": "^0.8.2",
-    "styled-components": "^1.4.3",
-    "tachyons-egghead": "^1.2.1"
-  },
   "babel": {
     "presets": [
       "babel-preset-react",
@@ -55,12 +33,25 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/eggheadio/egghead-ui.git"
-  },
-  "bugs": {
-    "url": "https://github.com/eggheadio/egghead-ui/issues"
-  },
-  "homepage": "https://github.com/eggheadio/egghead-ui#readme"
+  "dependencies": {
+    "@kadira/storybook": "^2.5.2",
+    "axios": "^0.15.3",
+    "babel-cli": "^6.22.2",
+    "babel-plugin-transform-class-properties": "^6.22.0",
+    "babel-preset-latest": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "eslint": "^3.16.1",
+    "lodash": "^4.16.2",
+    "pre-commit": "^1.2.2",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-icons": "^2.2.3",
+    "react-markdown": "^2.4.5",
+    "react-scripts": "^0.8.4",
+    "react-storybook-addon-info": "github:eggheadio/react-storybook-addon-info#4.0.4",
+    "react-storybook-addon-props-combinations": "^0.3.0",
+    "react-tabs": "^0.8.2",
+    "styled-components": "^1.4.3",
+    "tachyons-egghead": "^2.0.0"
+  }
 }

@@ -1,19 +1,36 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import RadioGroup from './index'
+import {stringFixture} from '../../utils/fixtures'
+import RadioGroup from '.'
 
-const decoratorClasses = 'flex flex-column content-center justify-around flex-wrap items-center vh-100 bg-navy'
+const optionsExample = [
+  {
+    label: stringFixture,
+    value: 'a',
+  },
+  {
+    label: stringFixture,
+    value: 'b',
+  },
+  {
+    label: stringFixture,
+    value: 'c',
+    disabled: true,
+  },
+]
 
-storiesOf('Radio Group')
-  .addDecorator((story) => (<div className={decoratorClasses}>{story()}</div>))
-  .addWithInfo('Radio Group', () => (
-    <RadioGroup optionList={[
-        {value: 'thing1', label: 'Radio One'},
-        {value: 'thing2', label: 'Radio Two', checked: true},
-        {value: 'thing3', label: 'Radio Three', disabled: true},
-        {value: 'thing4', label: 'Radio Four', checked: true, disabled: true}
-      ]} 
-    />
-  ))
-
-
+storiesOf('RadioGroup')
+  .addWithInfo(
+    'Info',
+    'Used to let the user pick one option from a group of options',
+    () => (
+      <RadioGroup options={optionsExample} />
+    ),
+  )
+  .addWithPropsCombinations(
+    'Combinations',
+    RadioGroup, 
+    {
+      options: [optionsExample],
+    },
+  )

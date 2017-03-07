@@ -1,60 +1,46 @@
 import React, { Component } from 'react'
+import {map, assign} from 'lodash'
 import styled from 'styled-components'
-import { commonLabelClasses, commonIconClasses, inputClasses, disabledClasses } from '../Checkbox'
+import {commonLabelClasses, commonIconClasses, inputClasses, disabledClasses} from '../../utils/formClassNames'
 
 const radioClasses = 'mb2 mh2 eh-radio'
 const radioIconClasses = `${commonIconClasses} br-pill eh-radio-icon`
 
-class RadioButtonGroup extends Component {
-  static propTypes = {
-    optionList: React.PropTypes.arrayOf(React.PropTypes.shape({
-      value: React.PropTypes.string.isRequired,
-      label: React.PropTypes.string.isRequired,
-      checked: React.PropTypes.bool,
-      disabled: React.PropTypes.bool
-    })).isRequired
-  }
+class RadioGroup extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = { selectedItem: '' }
+  state = {
+    items: map(this.props.options, option => assign(option, {checked: false})),
+    selectedItem: '',
   }
 
   handleChange = (e) => {
-    this.setState({ selectedItem: e.target.id })
+    this.setState({selectedItem: e.target.id})
   }
 
   render() {
-    const { className } = this.props
-    const radioButton = (item) => {
-      if (item.checked) {
-        this.setState({ selectedItem: item.value })
-        item = Object.assign(item, { checked: false })
-      }
-
-      return (
-        <label key={item.value}
-          className={`${commonLabelClasses} ${radioClasses} ${className} ${item.disabled ? disabledClasses : ''}`}
-        >
-          <input type='radio' className={inputClasses} disabled={item.disabled}
-            checked={this.state.selectedItem === item.value}
-            onChange={(e) => this.handleChange(e)} id={item.value}
-          />
-          <i className={radioIconClasses} />
-          {item.label}
-        </label>
-      )
-    }
+    const {className} = this.props
+    const {items} = this.state
 
     return (
       <div>
-        {this.props.optionList.map((item) => radioButton(item))}
+        {map(items, item => (
+          <label key={item.value}
+            className={`${commonLabelClasses} ${radioClasses} ${className} ${item.disabled ? disabledClasses : ''}`}
+          >
+            <input type='radio' className={inputClasses} disabled={item.disabled}
+              checked={this.state.selectedItem === item.value}
+              onChange={(e) => this.handleChange(e)} id={item.value}
+            />
+            <i className={radioIconClasses} />
+            {item.label}
+          </label>
+        ))}
       </div>
     )
   }
 }
 
-export default styled(RadioButtonGroup)`
+const StyledRadioGroup = styled(RadioGroup)`
   input[type='radio'] {}
   input[type='radio']:checked {}
   input[type='radio']:checked + .eh-radio-icon {
@@ -93,3 +79,13 @@ export default styled(RadioButtonGroup)`
     background-color: #1b1f24;
   } 
 `
+
+StyledRadioGroup.propTypes = {
+  options: React.PropTypes.arrayOf(React.PropTypes.shape({
+    label: React.PropTypes.string.isRequired,
+    value: React.PropTypes.string.isRequired,
+    disabled: React.PropTypes.bool
+  })).isRequired
+}
+
+export default StyledRadioGroup

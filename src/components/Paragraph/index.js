@@ -4,7 +4,7 @@ import {keys, first} from 'lodash'
 const sharedClassName = 'sans-serif white'
 
 const classNameByType = {
-  default: 'f5',
+  medium: 'f5',
   small: 'f6',
 }
 
@@ -12,7 +12,7 @@ export const types = keys(classNameByType)
 
 const Paragraph = ({
   children,
-  type = first(types),
+  type,
 }) => (
   <p className={`${sharedClassName} ${classNameByType[type]}`}>
     {children}
@@ -22,6 +22,10 @@ const Paragraph = ({
 Paragraph.propTypes = {
   children: PropTypes.string.isRequired,
   type: PropTypes.oneOf(types),
+}
+
+Paragraph.defaultProps = {
+  type: first(types),
 }
 
 export default Paragraph

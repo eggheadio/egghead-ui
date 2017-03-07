@@ -1,24 +1,27 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
+import {stringFixture, eventHandlerFixture} from '../../utils/fixtures'
 import Checkbox from '.'
 
-const decoratorClasses = 'flex flex-column content-center justify-around flex-wrap items-center vh-100 bg-navy'
-
 storiesOf('Checkbox')
-  .addDecorator((story) => (<div className={decoratorClasses}>{story()}</div>))
-  .addWithInfo('Unchecked', () => (
-    <Checkbox label='Checkbox' />
-  ))
-
-  .addWithInfo('Checked', () => (
-    <Checkbox label='Checkbox' checked />
-  ))
-
-  .addWithInfo('Unchecked (Disabled)', () => (
-    <Checkbox label='Checkbox' disabled />
-  ))
-
-  .addWithInfo('Checked (Disabled)', () => (
-    <Checkbox label='Checkbox' checked disabled />
-  ))
-
+  .addWithInfo(
+    'Info',
+    'Used to give the user a yes/no option',
+    () => (
+      <Checkbox
+        name={stringFixture}
+        label={stringFixture}
+      />
+    ),
+  )
+  .addWithPropsCombinations(
+    'Combinations',
+    Checkbox, 
+    {
+      name: [stringFixture],
+      label: [stringFixture],
+      onChange: [null, eventHandlerFixture],
+      checked: [true, false],
+      disabled: [true, false],
+    },
+  )

@@ -1,4 +1,7 @@
-import React, { Component, PropTypes } from 'react'
+import React, {Component, PropTypes} from 'react'
+import {first} from 'lodash'
+
+export const selectedItems = ['left', 'right']
 
 const labelClasses = 'w-50 normal lh-copy tc light-gray relative z-1 pv2 pointer border-box'
 
@@ -13,20 +16,12 @@ const Highlight = ({selectedItem}) => {
     </span>
   )
 }
-Highlight.propTypes = {
-  selectedItem: PropTypes.oneOf(['left', 'right']),
-}
 
-class Switcher extends Component {
-  static propTypes = {
-    leftOption: PropTypes.string,
-    rightOption: PropTypes.string,
-    selectedItem: PropTypes.oneOf(['left', 'right']),
-    onClick: PropTypes.func
+class Toggle extends Component {
+
+  state = {
+    selectedItem: this.props.selectedItem
   }
-
-
-  state = { selectedItem: this.props.selectedItem === 'left' ? 'left' : 'right' }
 
   handleChange = (e) => {
     const { selectedItem } = this.state
@@ -34,19 +29,19 @@ class Switcher extends Component {
   }
 
   render() {
-    const { rightOption, leftOption } = this.props
-    const { selectedItem } = this.state
+    const {rightOption, leftOption, onClick} = this.props
+    const {selectedItem} = this.state
 
     return (
       <div className='w5 relative flex items-center br-pill ba b--light-navy bg-dark-navy'>
         <label className={labelClasses} htmlFor='left'>
           {leftOption}
-         <input type='radio' name={leftOption} id='left' className='absolute o-0' checked={selectedItem === 'left'} onChange={this.handleChange} />
+         <input onClick={onClick} type='radio' name={leftOption} id='left' className='absolute o-0' checked={selectedItem === 'left'} onChange={this.handleChange} />
         </label>
         
         <label className={labelClasses}>
           {rightOption}
-          <input type='radio' name={rightOption} id='right' className='absolute o-0' checked={selectedItem === 'right'} onChange={this.handleChange} />
+          <input onClick={onClick} type='radio' name={rightOption} id='right' className='absolute o-0' checked={selectedItem === 'right'} onChange={this.handleChange} />
         </label>
         
         <Highlight selectedItem={selectedItem} />
@@ -56,4 +51,15 @@ class Switcher extends Component {
   }
 }
 
-export default Switcher
+Toggle.propTypes = {
+  leftOption: PropTypes.string.isRequired,
+  rightOption: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  selectedItem: PropTypes.oneOf(selectedItems),
+}
+
+Toggle.defaultProps = {
+  selectedItem: first(selectedItems),
+}
+
+export default Toggle
