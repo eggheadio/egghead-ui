@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import {stringFixture, eventHandlerFixture} from '../../utils/Fixtures'
+import {stringFixture, eventHandlerFixture} from '../../utils/fixtures'
 import Checkbox from '.'
 
 storiesOf('Checkbox')

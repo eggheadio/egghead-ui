@@ -2,6 +2,7 @@
   "name": "egghead-ui",
   "version": "2.25.0",
   "description": "Official living style guide app and component library for egghead.io",
+  "homepage": "https://github.com/eggheadio/egghead-ui#readme",
   "main": "lib/index.js",
   "engines": {
     "node": ">=7.0.0"
@@ -20,6 +21,18 @@
   "pre-commit": [
     "verify"
   ],
+  "babel": {
+    "presets": [
+      "babel-preset-react",
+      "latest"
+    ],
+    "plugins": [
+      "transform-class-properties"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
   "dependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
     "@kadira/storybook": "^2.5.2",
@@ -40,25 +53,5 @@
     "react-tabs": "^0.8.2",
     "styled-components": "^1.4.3",
     "tachyons-egghead": "^2.0.0"
-  },
-  "babel": {
-    "presets": [
-      "babel-preset-react",
-      "latest"
-    ],
-    "plugins": [
-      "transform-class-properties"
-    ]
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/eggheadio/egghead-ui.git"
-  },
-  "bugs": {
-    "url": "https://github.com/eggheadio/egghead-ui/issues"
-  },
-  "homepage": "https://github.com/eggheadio/egghead-ui#readme"
+  }
 }
