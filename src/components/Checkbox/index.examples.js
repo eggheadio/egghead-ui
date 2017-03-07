@@ -1,22 +1,33 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
+import {stringFixture, eventHandlerFixture} from '../../utils/Fixtures'
 import Checkbox from '.'
 
 storiesOf('Checkbox')
-
-  .addWithInfo('Unchecked', () => (
-    <Checkbox label='Checkbox' />
-  ))
-
-  .addWithInfo('Checked', () => (
-    <Checkbox label='Checkbox' checked />
-  ))
-
-  .addWithInfo('Unchecked (Disabled)', () => (
-    <Checkbox label='Checkbox' disabled />
-  ))
-
-  .addWithInfo('Checked (Disabled)', () => (
-    <Checkbox label='Checkbox' checked disabled />
-  ))
-
+  .addWithInfo(
+    'Documentation',
+    'Used to give the user a yes/no option',
+    () => (
+      <Checkbox
+        name={stringFixture}
+        label={stringFixture}
+      />
+    ),
+    {
+      inline: true,
+      header: false,
+      source: false,
+    },
+  )
+  .addWithPropsCombinations(
+    'Prop Combinations',
+    Checkbox, 
+    {
+      name: [stringFixture],
+      label: [stringFixture],
+      checked: [true, false],
+      disabled: [true, false],
+      onChange: [eventHandlerFixture],
+      onClick: [eventHandlerFixture],
+    },
+  )

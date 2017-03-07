@@ -1,17 +1,7 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import {clickHandlerFixture, stringFixture, urlFixture} from '../../utils/Fixtures'
+import {eventHandlerFixture, stringFixture, urlFixture} from '../../utils/Fixtures'
 import Button, {sizes, colors} from '.'
-
-const propCombinations = {
-  href: [urlFixture],
-  onClick: [clickHandlerFixture],
-  color: colors,
-  size: sizes,
-  outline: [true, false],
-  pill: [true, false],
-  children: [stringFixture],
-}
 
 storiesOf('Button')
   .addWithInfo(
@@ -28,4 +18,16 @@ storiesOf('Button')
       source: false,
     },
   )
-  .addWithPropsCombinations('Examples', Button, propCombinations)
+  .addWithPropsCombinations(
+    'Prop Combinations',
+    Button, 
+    {
+      href: [urlFixture],
+      onClick: [eventHandlerFixture],
+      color: colors,
+      size: sizes,
+      outline: [true, false],
+      pill: [true, false],
+      children: [stringFixture],
+    },
+  )

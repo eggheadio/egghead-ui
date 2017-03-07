@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {map, assign} from 'lodash'
 import styled from 'styled-components'
-import { commonLabelClasses, commonIconClasses, inputClasses, disabledClasses } from '../Checkbox'
+import {commonLabelClasses, commonIconClasses, inputClasses, disabledClasses} from '../../utils/formClassNames'
 
 const radioClasses = 'mb2 mh2 eh-radio'
 const radioIconClasses = `${commonIconClasses} br-pill eh-radio-icon`

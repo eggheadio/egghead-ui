@@ -1,25 +1,12 @@
 import React, { Component, PropTypes } from 'react'
 import styled from 'styled-components'
+import {commonLabelClasses, commonIconClasses, inputClasses, disabledClasses} from '../../utils/formClassNames'
 import Icon from '../Icon'
-
-export const commonLabelClasses = 'inline-flex v-top items-center lh-title f4 white sans-serif overflow-hidden pointer'
-export const commonIconClasses = 'mr3 ba b--white hover-b--green'
-export const inputClasses = 'o-0 absolute left--1'
-export const disabledClasses = 'disabled'
-
 
 const checkboxClasses = 'eh-checkbox'
 const boxIconClasses = `${commonIconClasses} br2 eh-checkbox-icon`
 
 class Checkbox extends Component {
-  static propTypes = {
-    name: PropTypes.string,
-    label: PropTypes.string,
-    checked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    onChange: PropTypes.func,
-    onClick: PropTypes.func
-  }
 
   state = {
     checked: 'checked' in this.props ? this.props.checked : false
@@ -56,7 +43,7 @@ class Checkbox extends Component {
   }
 }
 
-export default styled(Checkbox)`
+const StyledCheckbox = styled(Checkbox)`
   input[type='checkbox'] {}
   input[type='checkbox']:checked {}
   input[type='checkbox']:checked + .eh-checkbox-icon {
@@ -88,3 +75,21 @@ export default styled(Checkbox)`
     align-items: center;
   }
 `
+
+StyledCheckbox.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  checked: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func,
+  onClick: PropTypes.func
+}
+
+StyledCheckbox.defaultProps = {
+  checked: false,
+  disabled: false,
+}
+
+StyledCheckbox.displayName = 'Checkbox'
+
+export default StyledCheckbox

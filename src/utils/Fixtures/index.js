@@ -18,6 +18,6 @@ export const ComponentFixture = () => (
   </div>
 )
 
-export const clickHandlerFixture = () => {
-  alert('click handler called')
+export const eventHandlerFixture = () => {
+  alert('event handler called')
 }

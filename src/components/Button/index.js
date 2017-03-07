@@ -44,7 +44,7 @@ const styleMap = (size) => {
   return size === undefined ? classes['large'] : classes[size]
 }
 
-const Button = styled(({children, href, color, size, outline, pill, onClick}) => {
+const StyledButton = styled(({children, href, color, size, outline, pill, onClick}) => {
   const btnClasses = outline ? outlineBtnClasses[color] : solidBtnClasses[color]
   const sizeClasses = sizedBtnClasses[size]
 
@@ -55,7 +55,7 @@ const Button = styled(({children, href, color, size, outline, pill, onClick}) =>
   )
 })`${props => styleMap(props.size)}`
 
-Button.propTypes = {
+StyledButton.propTypes = {
   children: PropTypes.string.isRequired,
   href: PropTypes.string,
   onClick: PropTypes.func,
@@ -65,13 +65,13 @@ Button.propTypes = {
   pill: PropTypes.bool,
 }
 
-Button.defaultProps = {
+StyledButton.defaultProps = {
   color: 'white',
   size: 'large',
   outline: false,
   pill: false,
 }
 
-Button.displayName = 'Button'
+StyledButton.displayName = 'Button'
 
-export default Button
+export default StyledButton
