@@ -41,7 +41,15 @@ class Checkbox extends Component {
           <input type='checkbox' className={`${inputClasses}`} disabled={disabled} checked={checked}
             onClick={onClick} onChange={this.handleChange}
           />
-          <Icon type={checked ? 'check' : null} className={boxIconClasses} />
+          <span className={boxIconClasses}>
+            {checked
+              ? <Icon
+                  type='check' 
+                  color='navy'
+                />
+              : null
+            }
+          </span>
           {label}
       </label>
     )
