@@ -10,9 +10,10 @@
   "scripts": {
     "dev:styleguide": "start-storybook -p 2000",
     "dev:library": "yarn build:library -- -w",
-    "verify": "yarn lint && yarn build:library && yarn build:styleguide",
+    "verify": "yarn lint && yarn build",
     "bump": "yarn version && git push && git push --tags",
     "lint": "eslint src",
+    "build": "yarn build:styleguide && yarn build:library",
     "build:styleguide": "build-storybook",
     "build:library": "babel src -d lib",
     "prepublish": "yarn build:library",
