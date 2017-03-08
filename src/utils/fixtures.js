@@ -8,7 +8,7 @@ export const urlFixture = 'https://google.com'
 
 export const avatarImageUrlFixture = 'http://placehold.it/150x150?text=A+image'
 
-export const apiFixture = 'http://www.fakeresponse.com/api/?sleep=2'
+export const apiFixture = 'https://jsonplaceholder.typicode.com/photos'
 
 export const eventHandlerFixture = () => {
   alert('Event handler was called')
