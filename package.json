@@ -14,7 +14,7 @@
     "bump": "yarn version && git push && git push --tags",
     "lint": "eslint src",
     "build": "yarn build:styleguide && yarn build:library",
-    "build:styleguide": "build-storybook",
+    "build:styleguide": "NODE_ENV=development build-storybook",
     "build:library": "babel src -d lib",
     "prepublish": "yarn build:library",
     "start": "react-scripts start"
