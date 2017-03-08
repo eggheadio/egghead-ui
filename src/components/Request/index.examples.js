@@ -3,6 +3,12 @@ import {storiesOf} from '@kadira/storybook'
 import {apiFixture} from '../../utils/fixtures'
 import Request from '.'
 
+const ExampleDataRender = ({items}) => (
+  <div>
+    There are {items.length} items in the example data. See dev tools network tab.
+  </div>
+)
+
 storiesOf('Request')
   .addWithInfo(
     'Info',
@@ -10,9 +16,7 @@ storiesOf('Request')
     () => (
       <Request url={apiFixture}>
         {({data}) => (
-          <div>
-            {JSON.stringify(data)}
-          </div>
+          <ExampleDataRender items={data} />
         )}
       </Request>
     ),
@@ -23,16 +27,12 @@ storiesOf('Request')
       <div>
         <Request url={apiFixture}>
           {({data}) => (
-            <div>
-              {JSON.stringify(data)}
-            </div>
+            <ExampleDataRender items={data} />
           )}
         </Request>
         <Request url='/error'>
           {({data}) => (
-            <div>
-              {JSON.stringify(data)}
-            </div>
+            <ExampleDataRender items={data} />
           )}
         </Request>
         <Request
@@ -41,9 +41,7 @@ storiesOf('Request')
           url={apiFixture}
         >
           {({request, data}) => data
-            ? <div>
-                {JSON.stringify(data)}
-              </div>
+            ? <ExampleDataRender items={data} />
             : <a onClick={() => request()}>
                 Tap to request data
               </a>
