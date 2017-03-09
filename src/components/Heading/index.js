@@ -21,7 +21,7 @@ const Heading = ({children, level}) => {
       </h3>
     ),
     4: (
-      <h4 className='mt0 bold f4 mb2'>
+      <h4 className='mt0 normal f4 mb2'>
         {children}
       </h4>
     ),
