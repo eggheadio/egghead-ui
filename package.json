@@ -1,6 +1,6 @@
 {
   "name": "egghead-ui",
-  "version": "3.0.2",
+  "version": "3.1.2",
   "description": "Official living style guide app and component library for egghead.io",
   "homepage": "https://github.com/eggheadio/egghead-ui#readme",
   "main": "lib/index.js",
@@ -19,9 +19,6 @@
     "prepublish": "yarn build:library",
     "start": "react-scripts start"
   },
-  "pre-commit": [
-    "verify"
-  ],
   "babel": {
     "presets": [
       "babel-preset-react",
@@ -43,7 +40,6 @@
     "babel-preset-react": "^6.22.0",
     "eslint": "^3.16.1",
     "lodash": "^4.16.2",
-    "pre-commit": "^1.2.2",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-icons": "^2.2.3",

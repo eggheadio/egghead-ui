@@ -16,12 +16,12 @@ const Rotate = styled.div`
 `;
 
 const Loading = () => (
-  <div className='mv3 white flex items-center'>
+  <div className='mv3 gray flex items-center'>
     <div className='mr2'>
       <Rotate>
         <Icon 
           type='refresh'
-          color='white'
+          color='gray'
         />
       </Rotate>
     </div>

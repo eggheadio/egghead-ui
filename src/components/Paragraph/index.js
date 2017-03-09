@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react'
 import {keys, first} from 'lodash'
 
-const sharedClassName = 'sans-serif white'
+const sharedClassName = 'sans-serif'
 
 const classNameByType = {
   medium: 'f5',
