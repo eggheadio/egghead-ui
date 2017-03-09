@@ -62,6 +62,7 @@ export const sizes = keys(sizeToClass)
 export const colors = [
   'navy',
   'white',
+  'gray',
   'green',
   'blue',
   'yellow',
