@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import axios from 'axios'
-import {isEqual, first} from 'lodash'
+import {first} from 'lodash'
 import Error from '../Error'
 import Loading from './components/Loading'
 
@@ -24,12 +24,6 @@ export default class Request extends Component {
 
   componentDidMount() {
     if (!this.props.lazy) {
-      this.request()
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (!this.props.lazy && !isEqual(this.props, nextProps)) {
       this.request()
     }
   }
