@@ -17,7 +17,6 @@ export default class Request extends Component {
 
   state = {
     running: !this.props.lazy,
-    hasRunOnce: false,
     response: null,
     data: null,
     error: null,
@@ -60,7 +59,6 @@ export default class Request extends Component {
           }
           this.setState({
             running: false,
-            hasRunOnce: true,
             response,
             data: response.data,
             error: null,
@@ -79,7 +77,6 @@ export default class Request extends Component {
           }
           this.setState({
             running: false,
-            hasRunOnce: true,
             response: error,
             error,
           }, () => {
@@ -96,11 +93,11 @@ export default class Request extends Component {
 
   render() {
     const {children, lazy} = this.props
-    const {running, hasRunOnce, error, data, response} = this.state
+    const {running, error, data, response} = this.state
     if (!children) {
       return null
     }
-    if (running && (lazy || !hasRunOnce)) {
+    if (running && (lazy || !data)) {
       return <Loading />
     }
     if (error) {
