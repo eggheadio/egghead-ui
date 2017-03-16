@@ -29,7 +29,12 @@ export default class Request extends Component {
       this.request()
       if (subscribe) {
         this.setState({
-          subscription: window.setInterval(this.request, subscribeInterval)
+          subscription: window.setInterval(() => {
+            const {running} = this.state
+            if(!running) {
+              this.request()
+            }
+          }, subscribeInterval)
         })
       }
     }
