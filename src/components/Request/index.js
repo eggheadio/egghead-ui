@@ -17,19 +17,34 @@ export default class Request extends Component {
 
   state = {
     running: !this.props.lazy,
+    hasRunOnce: false,
     response: null,
     data: null,
     error: null,
+    subscription: null,
   }
 
+  subscribeAction = () => {
+    console.log('subscribe hit')
+  }
+
+
   componentDidMount() {
-    if (!this.props.lazy) {
+    const {lazy, subscribe, subscribeInterval} = this.props
+    if (!lazy) {
       this.request()
+      if (subscribe) {
+        this.setState({
+          subscription: window.setInterval(this.request, subscribeInterval)
+        })
+      }
     }
   }
 
   componentWillUnmount() {
     this.willUnmount = true
+    const {subscription} = this.state
+    window.clearInterval(subscription)
   }
 
   request = (body = this.props.body) => {
@@ -50,6 +65,7 @@ export default class Request extends Component {
           }
           this.setState({
             running: false,
+            hasRunOnce: true,
             response,
             data: response.data,
             error: null,
@@ -68,6 +84,7 @@ export default class Request extends Component {
           }
           this.setState({
             running: false,
+            hasRunOnce: true,
             response: error,
             error,
           }, () => {
@@ -83,12 +100,12 @@ export default class Request extends Component {
   }
 
   render() {
-    const {children} = this.props
-    const {running, error, data, response} = this.state
+    const {children, lazy} = this.props
+    const {running, hasRunOnce, error, data, response} = this.state
     if (!children) {
       return null
     }
-    if (running) {
+    if (running && (lazy || !hasRunOnce)) {
       return <Loading />
     }
     if (error) {
@@ -119,8 +136,13 @@ Request.propTypes = {
   onData: PropTypes.func,
   onError: PropTypes.func,
   method: PropTypes.oneOf(methods),
+  subscribe: PropTypes.bool,
+  subscribeInterval: PropTypes.number,
 }
+
 
 Request.defaultProps = {
   method: first(methods),
+  subscribe: false,
+  subscribeInterval: 10000,
 }
