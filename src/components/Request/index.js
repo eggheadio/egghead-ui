@@ -24,11 +24,6 @@ export default class Request extends Component {
     subscription: null,
   }
 
-  subscribeAction = () => {
-    console.log('subscribe hit')
-  }
-
-
   componentDidMount() {
     const {lazy, subscribe, subscribeInterval} = this.props
     if (!lazy) {
