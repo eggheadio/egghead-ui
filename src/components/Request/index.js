@@ -135,9 +135,8 @@ Request.propTypes = {
   subscribeInterval: PropTypes.number,
 }
 
-
 Request.defaultProps = {
   method: first(methods),
   subscribe: false,
-  subscribeInterval: 10000,
+  subscribeInterval: 5000,
 }
