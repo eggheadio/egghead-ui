@@ -34,13 +34,13 @@ class Toggle extends Component {
 
     return (
       <div className='w5 relative flex items-center br-pill ba b--light-navy bg-dark-navy'>
-        <label className={labelClasses} htmlFor={`left-${leftOption}`}>
+        <label className={labelClasses} htmlFor={`left-${leftOption.replace(' ', '-')}`}>
           {leftOption}
-         <input onClick={onClick} type='radio' name={leftOption} id={`left-${leftOption}`} className='absolute o-0' checked={selectedItem === 'left'} onChange={this.handleChange} />
+         <input onClick={onClick} type='radio' name={leftOption} id={`left-${leftOption.replace(' ', '-')}`} className='absolute o-0' checked={selectedItem === 'left'} onChange={this.handleChange} />
         </label>
         <label className={labelClasses}>
           {rightOption}
-          <input onClick={onClick} type='radio' name={rightOption} id={`right-${rightOption}`} className='absolute o-0' checked={selectedItem === 'right'} onChange={this.handleChange} />
+          <input onClick={onClick} type='radio' name={rightOption} id={`right-${rightOption.replace(' ', '-')}`} className='absolute o-0' checked={selectedItem === 'right'} onChange={this.handleChange} />
         </label>
         <Highlight selectedItem={selectedItem} />
 
