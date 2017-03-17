@@ -20,16 +20,30 @@ export default class Request extends Component {
     response: null,
     data: null,
     error: null,
+    subscription: null,
   }
 
   componentDidMount() {
-    if (!this.props.lazy) {
+    const {lazy, subscribe, subscribeInterval} = this.props
+    if (!lazy) {
       this.request()
+      if (subscribe) {
+        this.setState({
+          subscription: window.setInterval(() => {
+            const {running} = this.state
+            if(!running) {
+              this.request()
+            }
+          }, subscribeInterval)
+        })
+      }
     }
   }
 
   componentWillUnmount() {
     this.willUnmount = true
+    const {subscription} = this.state
+    window.clearInterval(subscription)
   }
 
   request = (body = this.props.body) => {
@@ -83,12 +97,12 @@ export default class Request extends Component {
   }
 
   render() {
-    const {children} = this.props
+    const {children, lazy} = this.props
     const {running, error, data, response} = this.state
     if (!children) {
       return null
     }
-    if (running) {
+    if (running && (lazy || !data)) {
       return <Loading />
     }
     if (error) {
@@ -119,8 +133,12 @@ Request.propTypes = {
   onData: PropTypes.func,
   onError: PropTypes.func,
   method: PropTypes.oneOf(methods),
+  subscribe: PropTypes.bool,
+  subscribeInterval: PropTypes.number,
 }
 
 Request.defaultProps = {
   method: first(methods),
+  subscribe: false,
+  subscribeInterval: 10000,
 }
