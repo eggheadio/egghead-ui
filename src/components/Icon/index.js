@@ -20,6 +20,7 @@ import {
   FaPlusCircle,
   FaQuestionCircle,
   FaRefresh,
+  FaSearch,
   FaSquareO,
   FaTimesCircle,
 } from 'react-icons/lib/fa'
@@ -44,6 +45,7 @@ const typeToSvgIcon = {
   'question': FaQuestionCircle,
   'refresh': FaRefresh,
   'remove': FaMinusCircle,
+  'search': FaSearch,
   'success': FaCheckCircle,
   'warning': FaExclamationCircle,
 }
