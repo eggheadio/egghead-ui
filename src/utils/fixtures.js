@@ -1,4 +1,10 @@
+import React from 'react'
+
 export const stringFixture = 'A string'
+
+export const NodeFixture = (
+  <div>A node (string, element, whatever)</div>
+)
 
 export const markdownFixture = 'This is **strong**. This is _italic_. This is [a link](https://egghead.io). This is `some code`.'
 
