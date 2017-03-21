@@ -1,4 +1,5 @@
 import ButtonSource from './components/Button'
+import CardSource from './components/Card'
 import CheckboxSource from './components/Checkbox'
 import ErrorSource from './components/Error'
 import HeadingSource from './components/Heading'
@@ -12,6 +13,7 @@ import ToggleSource from './components/Toggle'
 import TooltipSource from './components/Tooltip'
 
 export const Button = ButtonSource
+export const Card = CardSource
 export const Checkbox = CheckboxSource
 export const Error = ErrorSource
 export const Heading = HeadingSource
