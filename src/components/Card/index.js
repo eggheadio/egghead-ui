@@ -9,7 +9,7 @@ const classNameByLevel = {
 export const levels = keys(classNameByLevel)
 
 const Card = ({children, level}) => (
-  <section className={classNameByLevel[level]}>
+  <section className={`bg-white dark-gray ${classNameByLevel[level]}`}>
     {children}
   </section>
 )
