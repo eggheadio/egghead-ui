@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, {keyframes} from 'styled-components'
-import Icon from '../../../Icon'
+import Icon from '../Icon'
 
 const rotate360 = keyframes`
   from {
@@ -19,7 +19,7 @@ const Loading = () => (
   <div className='gray flex items-center'>
     <div className='mr2'>
       <Rotate>
-        <Icon 
+        <Icon
           type='refresh'
           color='gray'
         />
