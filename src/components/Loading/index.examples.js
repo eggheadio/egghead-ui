@@ -1,6 +1,5 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import {apiFixture} from '../../utils/fixtures'
 import Loading from '.'
 
 storiesOf('Loading')
