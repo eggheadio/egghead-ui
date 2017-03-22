@@ -1,12 +1,7 @@
 {
   "name": "egghead-ui",
-  "version": "3.4.0",
-  "description": "Official living style guide app and component library for egghead.io",
-  "homepage": "https://github.com/eggheadio/egghead-ui#readme",
-  "main": "lib/index.js",
-  "engines": {
-    "node": ">=7.0.0"
-  },
+  "version": "4.0.0",
+  "description": "Components used across egghead projects",
   "scripts": {
     "dev:styleguide": "start-storybook -p 2000",
     "dev:library": "yarn build:library -- -w",
@@ -19,6 +14,12 @@
     "prepublish": "yarn build:library",
     "start": "react-scripts start"
   },
+  "main": "lib/index.js",
+  "files": [
+    "package.json",
+    "README.md",
+    "lib"
+  ],
   "babel": {
     "presets": [
       "babel-preset-react",
@@ -50,5 +51,9 @@
     "react-tabs": "^0.8.2",
     "styled-components": "^1.4.3",
     "tachyons-egghead": "^2.0.0"
+  },
+  "homepage": "https://styleguide.egghead.io",
+  "engines": {
+    "node": ">=7.0.0"
   }
 }
