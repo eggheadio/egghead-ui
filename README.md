@@ -51,13 +51,18 @@ View [the style guide](https://styleguide.egghead.io) for visual examples and co
 - `yarn verify` check linting and builds work
 - [localhost:2000](http://localhost:2000) to view the style guide
 - use [`yarn link`](https://yarnpkg.com/lang/en/docs/cli/link/) to test using library components in another project
-- if you want to publish a new library release, run `yarn bump` and type in the new version using [Semantic Versioning](http://semver.org/)
+- stage, commit, and push as normal
+- if you want to publish a new library release, run `yarn bump` and type in the new version using [Semantic Versioning](http://semver.org/); this will bump the package.json version and push a new git tag
 - submit a pull request for the feature branch to `master`
 - once PR status passes (approved review and successful [continuous integration in Travis CI](https://travis-ci.org/eggheadio/egghead-ui), merge the pull request
 - when `master` is updated
   - [continuous deployment runs in Travis CI](https://travis-ci.org/eggheadio/egghead-ui) and deploys the latest style guide app to [styleguide.egghead.io](https://styleguide.egghead.io) 
-  - if there was a version bump, it also publishes the new library version to [npm](https://www.npmjs.com/package/egghead-ui)
+  - if there was a version bump (package.json version and new git tag), it also publishes the new library version to [npm](https://www.npmjs.com/package/egghead-ui)
     - notify consumers to run `yarn add egghead-ui@latest` in their projects to get latest, with a list of changes
+
+### PR example
+
+You can [view a PR example of the workflow](https://github.com/eggheadio/egghead-ui/pull/80#pullrequestreview-28500402)
 
 ### Video example
 
