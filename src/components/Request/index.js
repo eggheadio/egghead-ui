@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import axios from 'axios'
 import {first} from 'lodash'
 import Error from '../Error'
-import Loading from './components/Loading'
+import Loading from '../Loading'
 
 const http = axios.create()
 
@@ -48,7 +48,7 @@ export default class Request extends Component {
 
   request = (body = this.props.body) => {
     this.setState({
-      running: true, 
+      running: true,
       request: true
     }, () => {
       http.request({
