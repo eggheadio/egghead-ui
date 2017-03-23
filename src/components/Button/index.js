@@ -41,15 +41,29 @@ const styleMap = (size) => {
     'extra-large': ['min-width: 280px;']
   }
 
-  return size === undefined ? classes['large'] : classes[size]
+  return size === undefined 
+    ? classes['large']
+    : classes[size]
 }
 
-const StyledButton = styled(({children, href, color, size, outline, pill, onClick}) => {
+const StyledButton = styled(({
+  children,
+  href,
+  color,
+  size,
+  outline,
+  pill,
+  onClick,
+}) => {
   const btnClasses = outline ? outlineBtnClasses[color] : solidBtnClasses[color]
   const sizeClasses = sizedBtnClasses[size]
 
   return (
-    <button href={href} className={`${commonClasses} ${btnClasses} ${sizeClasses} ${pill ? 'br-pill' : ''}`} onClick={onClick}>
+    <button
+      href={href}
+      className={`${commonClasses} ${btnClasses} ${sizeClasses} ${pill ? 'br-pill' : ''}`}
+      onClick={onClick}
+    >
       {children}
     </button>
   )

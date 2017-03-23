@@ -8,7 +8,7 @@ storiesOf('Heading')
     'Info',
     'Used to separate sections of content',
     () => (
-      <Heading level={1}>
+      <Heading level='1'>
         {stringFixture}
       </Heading>
     ),
