@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import {keys} from 'lodash'
+import {keys, first} from 'lodash'
 import {
   FaArrowRight,
   FaBars,
@@ -64,16 +64,13 @@ const sizeToClass = {
 export const sizes = keys(sizeToClass)
 
 export const colors = [
-  'navy',
-  'white',
-  'gray',
-  'green',
-  'blue',
-  'yellow',
-  'red',
-  'light-gray',
+  'dark-gray',
   'orange',
-  'turquoise',
+  'blue',
+  'green',
+  'red',
+  'white',
+  'base',
 ]
 
 const Icon = ({
@@ -93,7 +90,7 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   size: '3',
-  color: 'blue',
+  color: first(colors),
 }
 
 export default Icon

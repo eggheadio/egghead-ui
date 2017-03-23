@@ -1,6 +1,6 @@
 {
   "name": "egghead-ui",
-  "version": "4.1.1",
+  "version": "4.3.0",
   "description": "Components used across egghead projects",
   "scripts": {
     "dev:styleguide": "start-storybook -p 2000",
@@ -50,7 +50,7 @@
     "react-storybook-addon-props-combinations": "^0.3.0",
     "react-tabs": "^0.8.2",
     "styled-components": "^1.4.3",
-    "tachyons-egghead": "^2.0.0"
+    "tachyons-egghead": "^2.3.1"
   },
   "homepage": "https://styleguide.egghead.io",
   "engines": {
