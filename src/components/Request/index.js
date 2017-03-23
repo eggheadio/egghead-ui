@@ -47,15 +47,28 @@ export default class Request extends Component {
   }
 
   request = (body = this.props.body) => {
+
+    const {response, data} = this.state
+
+    const {
+      method,
+      url, 
+      params, 
+      headers, 
+      onResponse, 
+      onData,
+      onError,
+    } = this.props
+
     this.setState({
       running: true,
       request: true
     }, () => {
       http.request({
-        method: this.props.method,
-        url: this.props.url,
-        params: this.props.params,
-        headers: this.props.headers,
+        method: method,
+        url: url,
+        params: params,
+        headers: headers,
         data: body,
       })
         .then(response => {
@@ -68,11 +81,11 @@ export default class Request extends Component {
             data: response.data,
             error: null,
           }, () => {
-            if (this.props.onResponse) {
-              this.props.onResponse(null, this.state.response)
+            if (onResponse) {
+              onResponse(null, response)
             }
-            if (this.props.onData) {
-              this.props.onData(this.state.data)
+            if (onData) {
+              onData(data)
             }
           })
         })
@@ -85,11 +98,11 @@ export default class Request extends Component {
             response: error,
             error,
           }, () => {
-            if (this.props.onResponse) {
-              this.props.onResponse(this.state.response)
+            if (onResponse) {
+              onResponse(response)
             }
-            if (this.props.onError) {
-              this.props.onError(this.state.error)
+            if (onError) {
+              onError(error)
             }
           })
         })
@@ -112,7 +125,7 @@ export default class Request extends Component {
         </Error>
       )
     }
-    return this.props.children({
+    return children({
       request: this.request,
       running,
       error,
