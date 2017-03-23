@@ -50,7 +50,7 @@
     "react-storybook-addon-props-combinations": "^0.3.0",
     "react-tabs": "^0.8.2",
     "styled-components": "^1.4.3",
-    "tachyons-egghead": "^2.2.4"
+    "tachyons-egghead": "^2.3.1"
   },
   "homepage": "https://styleguide.egghead.io",
   "engines": {
