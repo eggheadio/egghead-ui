@@ -5904,13 +5904,13 @@ tachyons-background-size@^5.0.4:
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/tachyons-background-size/-/tachyons-background-size-5.0.5.tgz#445fbe008125308ebe750262649e3f3f7c9de56f"
 
-"tachyons-base@github:eggheadio/tachyons-base":
-  version "1.2.6"
-  resolved "https://codeload.github.com/eggheadio/tachyons-base/tar.gz/6a8858ef79f3edba299e6ecc85f812afe23a11d4"
+"tachyons-base@github:eggheadio/tachyons-base#62aa031":
+  version "1.3.0"
+  resolved "https://codeload.github.com/eggheadio/tachyons-base/tar.gz/62aa031"
 
-"tachyons-border-colors@github:eggheadio/tachyons-border-colors":
+"tachyons-border-colors@github:eggheadio/tachyons-border-colors#d3e31f2":
   version "4.2.3"
-  resolved "https://codeload.github.com/eggheadio/tachyons-border-colors/tar.gz/ac593925017b51f497d6c79734bf338dbada016c"
+  resolved "https://codeload.github.com/eggheadio/tachyons-border-colors/tar.gz/d3e31f2"
 
 tachyons-border-radius@^5.1.2:
   version "5.1.3"
@@ -5928,9 +5928,9 @@ tachyons-borders@^3.0.3:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/tachyons-borders/-/tachyons-borders-3.0.4.tgz#4d52c19ad3bcb7817a5c1078a2eb9dfb0b3dc40f"
 
-tachyons-box-shadow@^2.0.3:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/tachyons-box-shadow/-/tachyons-box-shadow-2.0.4.tgz#a3bf4650efd67cffcfedce2489d8ba522644000c"
+"tachyons-box-shadow@github:eggheadio/tachyons-box-shadow#cb5fb6e":
+  version "2.1.0"
+  resolved "https://codeload.github.com/eggheadio/tachyons-box-shadow/tar.gz/cb5fb6e"
 
 tachyons-box-sizing@^3.2.0:
   version "3.2.1"
@@ -5944,9 +5944,9 @@ tachyons-code@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/tachyons-code/-/tachyons-code-1.0.0.tgz#5c3defc4b9250c64227dcf95b961fc5c1d8fcb28"
 
-"tachyons-colors@github:eggheadio/tachyons-colors":
+"tachyons-colors@github:eggheadio/tachyons-colors#28fd66a":
   version "5.3.2"
-  resolved "https://codeload.github.com/eggheadio/tachyons-colors/tar.gz/14b9db57b1d21be9c22707e859b9150c10c40c05"
+  resolved "https://codeload.github.com/eggheadio/tachyons-colors/tar.gz/28fd66a"
 
 tachyons-coordinates@^4.0.3:
   version "4.0.4"
@@ -5956,28 +5956,28 @@ tachyons-display@^5.0.3:
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/tachyons-display/-/tachyons-display-5.0.4.tgz#9ec6918b0695753b7c296c0a1275c8b214b25b9a"
 
-tachyons-egghead@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/tachyons-egghead/-/tachyons-egghead-2.0.0.tgz#45c68532040fa6fa2c6073febbe59c23457b6845"
+tachyons-egghead@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/tachyons-egghead/-/tachyons-egghead-2.2.4.tgz#8202c03d1a4a5a84821dfb9b5474d2c1e7eed12f"
   dependencies:
     normalize.css "^5.0.0"
     tachyons-aspect-ratios "^1.0.1"
     tachyons-background-position "^1.0.3"
     tachyons-background-size "^5.0.4"
-    tachyons-base "github:eggheadio/tachyons-base"
-    tachyons-border-colors "github:eggheadio/tachyons-border-colors"
+    tachyons-base eggheadio/tachyons-base#62aa031
+    tachyons-border-colors eggheadio/tachyons-border-colors#d3e31f2
     tachyons-border-radius "^5.1.2"
     tachyons-border-style "^4.0.3"
     tachyons-border-widths "^3.0.3"
     tachyons-borders "^3.0.3"
-    tachyons-box-shadow "^2.0.3"
+    tachyons-box-shadow eggheadio/tachyons-box-shadow#cb5fb6e
     tachyons-box-sizing "^3.2.0"
     tachyons-clears "^3.0.3"
     tachyons-code "^1.0.0"
-    tachyons-colors "github:eggheadio/tachyons-colors"
+    tachyons-colors eggheadio/tachyons-colors#28fd66a
     tachyons-coordinates "^4.0.3"
     tachyons-display "^5.0.3"
-    tachyons-flexbox "github:eggheadio/tachyons-flexbox"
+    tachyons-flexbox eggheadio/tachyons-flexbox#6e8ddff
     tachyons-floats "^3.0.3"
     tachyons-font-family "^4.3.2"
     tachyons-font-style "^4.0.3"
@@ -5997,8 +5997,8 @@ tachyons-egghead@^2.0.0:
     tachyons-overflow "^4.0.3"
     tachyons-position "^6.0.3"
     tachyons-rotations "^1.0.2"
-    tachyons-skins "github:eggheadio/tachyons-skins"
-    tachyons-skins-pseudo "github:eggheadio/tachyons-skins-pseudo"
+    tachyons-skins eggheadio/tachyons-skins#d40295c
+    tachyons-skins-pseudo eggheadio/tachyons-skins-pseudo#06f4d9f
     tachyons-spacing "^6.0.3"
     tachyons-tables "^1.0.6"
     tachyons-text-align "^3.0.3"
@@ -6014,9 +6014,9 @@ tachyons-egghead@^2.0.0:
     tachyons-word-break "^3.0.3"
     tachyons-z-index "^1.0.7"
 
-"tachyons-flexbox@github:eggheadio/tachyons-flexbox":
+"tachyons-flexbox@github:eggheadio/tachyons-flexbox#6e8ddff":
   version "2.0.3"
-  resolved "https://codeload.github.com/eggheadio/tachyons-flexbox/tar.gz/6e8ddffddd2e23870e8821880b87757e9609aeb4"
+  resolved "https://codeload.github.com/eggheadio/tachyons-flexbox/tar.gz/6e8ddff"
 
 tachyons-floats@^3.0.3:
   version "3.0.4"
@@ -6094,13 +6094,13 @@ tachyons-rotations@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/tachyons-rotations/-/tachyons-rotations-1.0.2.tgz#19bb7cc29aceaea56dc02b650241dafa32f0de62"
 
-"tachyons-skins-pseudo@github:eggheadio/tachyons-skins-pseudo":
+"tachyons-skins-pseudo@github:eggheadio/tachyons-skins-pseudo#06f4d9f":
   version "1.0.3"
-  resolved "https://codeload.github.com/eggheadio/tachyons-skins-pseudo/tar.gz/4696c873ca59eeeabf554dce4a71b9e406a01296"
+  resolved "https://codeload.github.com/eggheadio/tachyons-skins-pseudo/tar.gz/06f4d9f"
 
-"tachyons-skins@github:eggheadio/tachyons-skins":
+"tachyons-skins@github:eggheadio/tachyons-skins#d40295c":
   version "4.0.2"
-  resolved "https://codeload.github.com/eggheadio/tachyons-skins/tar.gz/59502baf4292ecefed027ec7f92afab51cd8655a"
+  resolved "https://codeload.github.com/eggheadio/tachyons-skins/tar.gz/d40295c"
 
 tachyons-spacing@^6.0.3:
   version "6.0.4"

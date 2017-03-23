@@ -3,7 +3,7 @@ import {first} from 'lodash'
 
 export const selectedItems = ['left', 'right']
 
-const labelClasses = 'w-50 normal lh-copy tc light-gray relative z-1 pv2 pointer border-box'
+const sharedLabelClasses = 'w-50 normal lh-copy tc relative z-1 pv2 pointer border-box'
 
 const Highlight = ({selectedItem}) => {
   return (
@@ -33,12 +33,15 @@ class Toggle extends Component {
     const {selectedItem} = this.state
 
     return (
-      <div className='w5 relative flex items-center br-pill ba b--light-navy bg-dark-navy'>
-        <label className={labelClasses} htmlFor={`left-${leftOption.replace(/\s/g, "-")}`}>
+      <div className='w5 relative flex items-center br-pill ba b--dark-gray bg-transparent'>
+        <label 
+          className={`${sharedLabelClasses} ${selectedItem === 'left' ? 'white' : 'dark-gray'}`}
+          htmlFor={`left-${leftOption.replace(/\s/g, "-")}`}
+        >
           {leftOption}
          <input onClick={onClick} type='radio' name={leftOption} id={`left-${leftOption.replace(/\s/g, "-")}`} className='absolute o-0' checked={selectedItem === 'left'} onChange={this.handleChange} />
         </label>
-        <label className={labelClasses}>
+        <label className={`${sharedLabelClasses} ${selectedItem === 'right' ? 'white' : 'dark-gray'}`}>
           {rightOption}
           <input onClick={onClick} type='radio' name={rightOption} id={`right-${rightOption.replace(/\s/g, "-")}`} className='absolute o-0' checked={selectedItem === 'right'} onChange={this.handleChange} />
         </label>
