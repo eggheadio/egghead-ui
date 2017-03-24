@@ -15,6 +15,8 @@ const Rotate = styled.div`
   animation: ${rotate360} 1.5s linear infinite;
 `;
 
+Rotate.displayName = 'Rotate'
+
 const Loading = () => (
   <div className='orange flex items-center'>
     <div className='mr2'>

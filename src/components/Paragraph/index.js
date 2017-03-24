@@ -20,7 +20,7 @@ const Paragraph = ({
 )
 
 Paragraph.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   type: PropTypes.oneOf(types),
 }
 
