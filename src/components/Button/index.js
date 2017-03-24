@@ -69,8 +69,10 @@ const StyledButton = styled(({
   )
 })`${props => styleMap(props.size)}`
 
+StyledButton.displayName = 'Button'
+
 StyledButton.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   href: PropTypes.string,
   onClick: PropTypes.func,
   color: PropTypes.oneOf(colors),
