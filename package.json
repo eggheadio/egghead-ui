@@ -1,6 +1,6 @@
 {
   "name": "egghead-ui",
-  "version": "4.3.2",
+  "version": "4.4.0",
   "description": "Components used across egghead projects",
   "scripts": {
     "dev:styleguide": "start-storybook -p 2000",
