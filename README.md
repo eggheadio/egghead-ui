@@ -9,7 +9,7 @@ For documenting and sharing reusable components across egghead projects. Compone
 ## Usage
 
 ```
-$ yarn add egghead-ui`
+$ yarn add egghead-ui
 ```
 
 ```
