@@ -4,7 +4,7 @@ import {map} from 'lodash'
 
 Tabs.setUseDefaultStyles(false)
 
-class extends Component {
+class TabsComponent extends Component {
 
   state = {
     selected: 0,
@@ -58,11 +58,11 @@ class extends Component {
   }
 }
 
-Tabs.propTypes = {
+TabsComponent.propTypes = {
   groups: React.PropTypes.arrayOf(React.PropTypes.shape({
     title: React.PropTypes.string.isRequired,
     component: React.PropTypes.node.isRequired,
   })).isRequired,
 }
 
-export default Tabs
+export default TabsComponent
