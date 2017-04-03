@@ -57,3 +57,10 @@ export default class extends Component {
     )
   }
 }
+
+Tabs.propTypes = {
+  groups: React.PropTypes.arrayOf(React.PropTypes.shape({
+    title: React.PropTypes.string.isRequired,
+    component: React.PropTypes.node.isRequired,
+  })).isRequired,
+}
