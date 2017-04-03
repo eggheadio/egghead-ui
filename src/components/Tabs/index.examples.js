@@ -12,19 +12,11 @@ storiesOf('Tabs')
       <Tabs groups={[
         {
           title: 'Tab 1',
-          component: (
-            <Card>
-              {NodeFixture}
-            </Card>
-          )
+          component: NodeFixture
         },
         {
           title: 'Tab 2',
-          component: (
-            <Card>
-              {NodeFixture}
-            </Card>
-          )
+          component: NodeFixture
         }
       ]}
       />
