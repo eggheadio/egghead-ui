@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import {NodeFixture} from '../../utils/fixtures'
+import {NodeFixture, StringFixture} from '../../utils/fixtures'
 import Tabs from '.'
 
 storiesOf('Tabs')
@@ -10,11 +10,11 @@ storiesOf('Tabs')
     () => (
       <Tabs groups={[
         {
-          title: NodeFixture,
+          title: StringFixture,
           component: NodeFixture
         },
         {
-          title: NodeFixture,
+          title: StringFixture,
           component: NodeFixture
         }
       ]}
