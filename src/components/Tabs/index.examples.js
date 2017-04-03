@@ -1,5 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
+import {NodeFixture} from '../../utils/fixtures'
 import Tabs from '.'
 import Card from '../Card'
 
@@ -13,7 +14,7 @@ storiesOf('Tabs')
           title: 'Tab 1',
           component: (
             <Card>
-              <h1>Tab Content 1</h1>
+              {NodeFixture}
             </Card>
           )
         },
@@ -21,7 +22,7 @@ storiesOf('Tabs')
           title: 'Tab 2',
           component: (
             <Card>
-              <h1>Tab Content 2</h1>
+              {NodeFixture}
             </Card>
           )
         }
