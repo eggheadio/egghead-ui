@@ -60,7 +60,7 @@ class TabsComponent extends Component {
 
 TabsComponent.propTypes = {
   groups: React.PropTypes.arrayOf(React.PropTypes.shape({
-    title: React.PropTypes.string.isRequired,
+    title: React.PropTypes.node.isRequired,
     component: React.PropTypes.node.isRequired,
   })).isRequired,
 }
