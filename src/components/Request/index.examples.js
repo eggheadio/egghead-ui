@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import {apiFixture} from '../../utils/fixtures'
+import {apiFixture, NodeFixture} from '../../utils/fixtures'
 import Request from '.'
 
 const ExampleDataRender = ({items}) => (
@@ -30,6 +30,11 @@ storiesOf('Request')
             <ExampleDataRender items={data} />
           )}
         </Request>
+        <Request url={apiFixture} placeholder={NodeFixture}>
+          {({data}) => (
+            <ExampleDataRender items={data} />
+          )}
+        </Request>
         <Request url='/error'>
           {({data}) => (
             <ExampleDataRender items={data} />
@@ -44,6 +49,19 @@ storiesOf('Request')
             ? <ExampleDataRender items={data} />
             : <a onClick={() => request()}>
                 Tap to request data
+              </a>
+          }
+        </Request>
+        <Request
+          lazy
+          method='get'
+          url={apiFixture}
+          placeholder={NodeFixture}
+        >
+          {({request, data}) => data
+            ? <ExampleDataRender items={data} />
+            : <a onClick={() => request()} className='ml5'>
+                Tap to request with placeholder loader
               </a>
           }
         </Request>

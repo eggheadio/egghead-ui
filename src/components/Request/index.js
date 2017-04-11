@@ -110,13 +110,13 @@ export default class Request extends Component {
   }
 
   render() {
-    const {children, lazy} = this.props
+    const {children, lazy, placeholder} = this.props
     const {running, error, data, response} = this.state
     if (!children) {
       return null
     }
     if (running && (lazy || !data)) {
-      return <Loading />
+      return placeholder ? placeholder : <Loading />
     }
     if (error) {
       return (
@@ -145,6 +145,7 @@ Request.propTypes = {
   onResponse: PropTypes.func,
   onData: PropTypes.func,
   onError: PropTypes.func,
+  placeholder: PropTypes.node,
   method: PropTypes.oneOf(methods),
   subscribe: PropTypes.bool,
   subscribeInterval: PropTypes.number,
