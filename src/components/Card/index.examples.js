@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import {NodeFixture} from '../fixtures'
+import {NodeFixture} from '../../utils/fixtures'
 import Card, {levels} from '.'
 
 storiesOf('Card')

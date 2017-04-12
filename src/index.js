@@ -20,14 +20,6 @@ import TabsSource from './components/Tabs'
 import TitleCardSource from './components/TitleCard'
 import ToggleSource from './components/Toggle'
 
-import colorsUrlSource from './utils/colorsUrl'
-import createLessonsUrlSource from './utils/createLessonsUrl'
-import hardCodedSizesUrlSource from './utils/hardCodedSizesUrl'
-import instructorMilestonesUrlSource from './utils/instructorMilestonesUrl'
-import lessonStatesSource from './utils/createLessonsUrl'
-import numberFormattingByTypeSource from './utils/createLessonsUrl'
-import urlsSource from './utils/urls'
-
 export const Anchor = AnchorSource
 export const Avatar = AvatarSource
 export const Button = ButtonSource
@@ -49,11 +41,3 @@ export const Open = OpenSource
 export const Tabs = TabsSource
 export const TitleCard = TitleCardSource
 export const Toggle = ToggleSource
-
-export const colorsUrl = colorsUrlSource
-export const createLessonsUrl = createLessonsUrlSource
-export const hardCodedSizesUrl = hardCodedSizesUrlSource
-export const instructorMilestonesUrl = instructorMilestonesUrlSource
-export const lessonStates = lessonStatesSource
-export const numberFormattingByType = numberFormattingByTypeSource
-export const urls = urlsSource

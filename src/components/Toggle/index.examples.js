@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import {eventHandlerFixture, stringFixture} from '../fixtures'
+import {eventHandlerFixture, stringFixture} from '../../utils/fixtures'
 import Toggle, {selectedItems} from '.'
 
 storiesOf('Toggle')

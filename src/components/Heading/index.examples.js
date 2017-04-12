@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import {stringFixture} from '../fixtures'
+import {stringFixture} from '../../utils/fixtures'
 import Heading, {levels} from '.'
 
 storiesOf('Heading')

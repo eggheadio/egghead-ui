@@ -1,7 +1,7 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
 import colors from '../../utils/colors'
-import {stringFixture} from '../fixtures'
+import {stringFixture} from '../../utils/fixtures'
 import {types as iconTypes} from '../Icon'
 import IconLabel from '.'
 
