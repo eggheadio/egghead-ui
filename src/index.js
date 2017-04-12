@@ -1,3 +1,4 @@
+import AnchorSource from './components/Anchor'
 import ButtonSource from './components/Button'
 import CardSource from './components/Card'
 import ErrorSource from './components/Error'
@@ -12,6 +13,7 @@ import RequestSource from './components/Request'
 import TabsSource from './components/Tabs'
 import ToggleSource from './components/Toggle'
 
+export const Anchor = AnchorSource
 export const Button = ButtonSource
 export const Card = CardSource
 export const Error = ErrorSource
