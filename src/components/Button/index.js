@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import {keys, first} from 'lodash'
 import styled from 'styled-components'
+import colors from '../../utils/colors'
 
 const commonClasses = 'link dib fw6 tracked tc br2 ttu ba pointer'
 
@@ -12,14 +13,6 @@ const sizedBtnClasses = {
 }
 
 export const sizes = keys(sizedBtnClasses)
-
-export const colors = [
-  'orange',
-  'blue',
-  'green',
-  'white',
-  'base',
-]
 
 const styleMap = (size) => {
   const classes = {
@@ -82,7 +75,7 @@ StyledButton.propTypes = {
 }
 
 StyledButton.defaultProps = {
-  color: first(colors),
+  color: 'orange',
   size: first(sizes),
   outline: false,
   pill: false,

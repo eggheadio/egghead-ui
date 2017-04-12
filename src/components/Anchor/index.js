@@ -1,13 +1,9 @@
 import React, {PropTypes} from 'react'
 import {first} from 'lodash'
+import colors from '../../utils/colors'
 import Icon from '../Icon'
 
 export const types = ['inline', 'prominent']
-
-export const colors = [
-  'blue',
-  'white',
-]
 
 const Anchor = ({
   children,
@@ -57,7 +53,7 @@ Anchor.propTypes = {
 Anchor.defaultProps = {
   isSeparateTab: false,
   type: first(types),
-  color: first(colors),
+  color: 'blue',
 }
 
 export default Anchor

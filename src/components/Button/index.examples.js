@@ -1,7 +1,8 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
+import colors from '../../utils/colors'
 import {eventHandlerFixture, stringFixture, urlFixture} from '../fixtures'
-import Button, {sizes, colors} from '.'
+import Button, {sizes} from '.'
 
 storiesOf('Button')
   .addWithInfo(

@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import {keys, first} from 'lodash'
+import {keys} from 'lodash'
 import {
   EggheadArrowRight,
   EggheadCheck,
@@ -34,6 +34,7 @@ import {
   FaSquareO,
   FaUser,
 } from 'react-icons/lib/fa'
+import colors from '../../utils/colors'
 
 const typeToSvgIcon = {
   'add': EggheadPlus,
@@ -81,16 +82,6 @@ const sizeToClass = {
 
 export const sizes = keys(sizeToClass)
 
-export const colors = [
-  'dark-gray',
-  'orange',
-  'blue',
-  'green',
-  'red',
-  'white',
-  'base',
-]
-
 const Icon = ({
   type,
   size,
@@ -108,7 +99,7 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   size: '3',
-  color: first(colors),
+  color: 'dark-gray',
 }
 
 export default Icon
