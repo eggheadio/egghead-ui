@@ -18,6 +18,9 @@ import TabsSource from './components/Tabs'
 import ToggleSource from './components/Toggle'
 
 import createLessonsUrlSource from './utils/createLessonsUrl'
+import lessonStatesSource from './utils/createLessonsUrl'
+import numberFormattingByTypeSource from './utils/createLessonsUrl'
+import urlsSource from './utils/urls'
 
 export const Anchor = AnchorSource
 export const Avatar = AvatarSource
@@ -39,3 +42,6 @@ export const Tabs = TabsSource
 export const Toggle = ToggleSource
 
 export const createLessonsUrl = createLessonsUrlSource
+export const lessonStates = lessonStatesSource
+export const numberFormattingByType = numberFormattingByTypeSource
+export const urls = urlsSource
