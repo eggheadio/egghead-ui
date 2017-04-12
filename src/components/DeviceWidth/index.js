@@ -12,6 +12,10 @@ export default class DeviceWidth extends Component {
     window.onresize = this.handleWidthChange
   }
 
+  componentWillUnmount = () => {
+    window.onresize = null
+  }
+
   handleWidthChange = () => {
     const {onWidthChange} = this.props
     if(onWidthChange) {
