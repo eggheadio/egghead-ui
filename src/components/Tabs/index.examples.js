@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import {NodeFixture, stringFixture} from '../../utils/fixtures'
+import {NodeFixture, stringFixture} from '../fixtures'
 import Tabs from '.'
 
 storiesOf('Tabs')

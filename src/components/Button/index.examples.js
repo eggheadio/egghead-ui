@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import {eventHandlerFixture, stringFixture, urlFixture} from '../../utils/fixtures'
+import {eventHandlerFixture, stringFixture, urlFixture} from '../fixtures'
 import Button, {sizes, colors} from '.'
 
 storiesOf('Button')
