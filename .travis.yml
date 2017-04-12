@@ -18,8 +18,3 @@ notifications:
   email:
     on_success: never
     on_failure: always
-  slack:
-    on_success: never
-    on_failure: always
-    rooms:
-      secure: LnEL+23Jv8ts6tufKfvKoRT81c8xvEOd+ZvErqmgXPIb5HG525eudD8WaOsAF1XKxSq74JRRYp9y5jSC6/r3TDBDsRNV9sW4U/0/peLnSF/yzBII+W2JEUFe9RdLNrVSMxQRfvBesl3QlHRxOJ1Jhz4QYaPAodsTqDPUrUiW6QA=

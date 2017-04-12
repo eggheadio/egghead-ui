@@ -1,10 +1,6 @@
 # egghead-ui
 
-Components used across egghead projects
-
-## Purpose
-
-For documenting and sharing reusable components across egghead projects. Components are only "promoted" to this repo after they have been battle tested in an egghead project and would be useful to use across multiple projects; because of this, we strive to keep these components as minimal and composable as possible.
+Generic egghead components, screens, and utility modules
 
 ## Usage
 
@@ -13,10 +9,10 @@ $ yarn add egghead-ui
 ```
 
 ```
-import {ComponentName} from 'egghead-ui'
+import {Thing} from 'egghead-ui'
 ```
 
-View [the style guide website](https://styleguide.egghead.io) for component documentation and visual examples.
+View [the style guide website](https://styleguide.egghead.io) for full documentation and examples
 
 ## Contributing
 
