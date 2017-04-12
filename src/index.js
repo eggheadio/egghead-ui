@@ -8,6 +8,7 @@ import HeadingSource from './components/Heading'
 import IconSource from './components/Icon'
 import IconLabelSource from './components/IconLabel'
 import ImageSource from './components/Image'
+import LayoutColumnsSource from './components/LayoutColumns'
 import ListSource from './components/List'
 import LoadingSource from './components/Loading'
 import MarkdownSource from './components/Markdown'
@@ -30,6 +31,7 @@ export const Heading = HeadingSource
 export const Icon = IconSource
 export const IconLabel = IconLabelSource
 export const Image = ImageSource
+export const LayoutColumns = LayoutColumnsSource
 export const List = ListSource
 export const Loading = LoadingSource
 export const Markdown = MarkdownSource
