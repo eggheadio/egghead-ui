@@ -14,6 +14,7 @@ import MarkdownSource from './components/Markdown'
 import MaybeSource from './components/Maybe'
 import ParagraphSource from './components/Paragraph'
 import RequestSource from './components/Request'
+import OpenSource from './components/Open'
 import TabsSource from './components/Tabs'
 import ToggleSource from './components/Toggle'
 
@@ -41,6 +42,7 @@ export const Markdown = MarkdownSource
 export const Maybe = MaybeSource
 export const Paragraph = ParagraphSource
 export const Request = RequestSource
+export const Open = OpenSource
 export const Tabs = TabsSource
 export const Toggle = ToggleSource
 

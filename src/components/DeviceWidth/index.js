@@ -46,5 +46,6 @@ export default class DeviceWidth extends Component {
 }
 
 DeviceWidth.propTypes = {
+  children: PropTypes.func.isRequired,
   onWidthChange: PropTypes.func,
 }
