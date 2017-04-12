@@ -13,6 +13,7 @@ import LoadingSource from './components/Loading'
 import MarkdownSource from './components/Markdown'
 import MaybeSource from './components/Maybe'
 import ParagraphSource from './components/Paragraph'
+import PromptSource from './components/Prompt'
 import RequestSource from './components/Request'
 import OpenSource from './components/Open'
 import TabsSource from './components/Tabs'
@@ -41,6 +42,7 @@ export const Loading = LoadingSource
 export const Markdown = MarkdownSource
 export const Maybe = MaybeSource
 export const Paragraph = ParagraphSource
+export const Prompt = PromptSource
 export const Request = RequestSource
 export const Open = OpenSource
 export const Tabs = TabsSource
