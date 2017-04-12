@@ -17,6 +17,8 @@ import RequestSource from './components/Request'
 import TabsSource from './components/Tabs'
 import ToggleSource from './components/Toggle'
 
+import createLessonsUrlSource from './utils/createLessonsUrl'
+
 export const Anchor = AnchorSource
 export const Avatar = AvatarSource
 export const Button = ButtonSource
@@ -35,3 +37,5 @@ export const Paragraph = ParagraphSource
 export const Request = RequestSource
 export const Tabs = TabsSource
 export const Toggle = ToggleSource
+
+export const createLessonsUrl = createLessonsUrlSource
