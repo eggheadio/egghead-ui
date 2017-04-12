@@ -5,7 +5,7 @@ import DeviceWidth from '.'
 storiesOf('DeviceWidth')
   .addWithInfo(
     'Info',
-    'Used to link to a url',
+    'Used to get the current device width',
     () => (
       <DeviceWidth>
         {(screenSize) => <div>screenSize: {screenSize}</div>}
