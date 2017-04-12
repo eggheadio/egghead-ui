@@ -12,7 +12,9 @@ export const nameFixture = 'Jane'
 
 export const urlFixture = 'https://google.com'
 
-export const avatarImageUrlFixture = 'http://placehold.it/150x150?text=A+image'
+export const imageUrlFixture = 'http://placehold.it/400x300?text=A+image'
+
+export const avatarImageUrlFixture = 'http://placehold.it/500x500?text=A+image'
 
 export const apiFixture = 'https://jsonplaceholder.typicode.com/photos'
 
