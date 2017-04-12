@@ -13,10 +13,3 @@ storiesOf('Error')
       </Error>
     ),
   )
-  .addWithPropsCombinations(
-    'Combinations',
-    Error, 
-    {
-      children: [stringFixture],
-    },
-  )

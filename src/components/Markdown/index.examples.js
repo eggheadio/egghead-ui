@@ -13,10 +13,3 @@ storiesOf('Markdown')
       </Markdown>
     ),
   )
-  .addWithPropsCombinations(
-    'Combinations',
-    Markdown, 
-    {
-      children: [markdownFixture],
-    },
-  )

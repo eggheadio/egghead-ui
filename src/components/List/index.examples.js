@@ -17,10 +17,3 @@ storiesOf('List')
       <List items={exampleItems} />
     ),
   )
-  .addWithPropsCombinations(
-    'Combinations',
-    List, 
-    {
-      items: [exampleItems],
-    },
-  )
