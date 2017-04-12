@@ -17,6 +17,7 @@ import PromptSource from './components/Prompt'
 import RequestSource from './components/Request'
 import OpenSource from './components/Open'
 import TabsSource from './components/Tabs'
+import TitleCardSource from './components/TitleCard'
 import ToggleSource from './components/Toggle'
 
 import colorsUrlSource from './utils/colorsUrl'
@@ -46,6 +47,7 @@ export const Prompt = PromptSource
 export const Request = RequestSource
 export const Open = OpenSource
 export const Tabs = TabsSource
+export const TitleCard = TitleCardSource
 export const Toggle = ToggleSource
 
 export const colorsUrl = colorsUrlSource
