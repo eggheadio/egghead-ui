@@ -26,7 +26,8 @@
       "latest"
     ],
     "plugins": [
-      "transform-class-properties"
+      "transform-class-properties",
+      "transform-object-rest-spread"
     ]
   },
   "eslintConfig": {
@@ -45,6 +46,7 @@
     "react-dom": "^15.4.1",
     "react-icons": "github:eggheadio/react-icons#3.0.2",
     "react-markdown": "^2.4.5",
+    "react-router-dom": "^4.1.1",
     "react-scripts": "^0.8.4",
     "react-storybook-addon-info": "github:eggheadio/react-storybook-addon-info#4.0.4",
     "react-storybook-addon-props-combinations": "^0.3.0",
@@ -55,5 +57,8 @@
   "homepage": "https://styleguide.egghead.io",
   "engines": {
     "node": ">=7.0.0"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.23.0"
   }
 }
