@@ -1,9 +1,5 @@
 # Contributing
 
-This `egghead-ui` repo does two things:
-- Generates the living style guide app with documentation, published on [styleguide.egghead.io](https://styleguide.egghead.io); this is currently done using [react-storybook](https://getstorybook.io/)
-- Builds the component library, [pubished on npm](https://www.npmjs.com/package/egghead-ui)
-
 ## Dependencies
 
 - Git
@@ -12,38 +8,35 @@ This `egghead-ui` repo does two things:
 
 ## Folders and files
 
-- `src/index.js` imports all `src/components` and exports the component library for npm.
-- `src/components` contains the API of usable components
-  - `src/components/{ComponentName}`
-    - `index.js` defines and exports the component.
-      - Styling is done using classes from [tachyons-egghead](https://github.com/eggheadio/tachyons-egghead) wherever possible. Otherwise, [styled-components](https://styled-components.com/) is used.
-      - The `*-ns` (not small) Tachyons classes are used to apply anything specific to non-mobile screen sizes, so that all components are built mobile-first.
-    - `index.examples.js` adds the component to the style guide.
-      - `.addWithInfo` adds documentation
-      - `.addWithPropsCombinations` renders components with all possible prop combinations and complains if you are missing any
-- `src/utils` contains utility modules and components which are not exported publicly but are used in multiple `src/components`
-- `build` is the folder that is generated for the style guide app and published to [styleguide.egghead.io](https://styleguide.egghead.io)
-- `lib` is the folder that is generated for the component library and published to [npm](https://www.npmjs.com/package/egghead-ui)
+- `src/` contains the source code
+  - `src/components/{ComponentName}` contains the API of components
+    - `index.js` defines and exports the component
+    - `index.examples.js` defines examples to be rendered in the **app**
+      - `.addWithInfo` adds component documentation
+      - `.addWithPropsCombinations` renders the component with all possible prop combinations
+- `src/index.js` exports modules for npm
+- `lib` is the folder that is generated for the **package**
+- `build` is the folder that is generated for the **app**
 
 ## Workflow
 
-- ensure you have Git, Node, and Yarn installed
-- clone this repo and `cd` into it
-- create a feature branch off of `master`
-- `yarn` to install latest packages
-- `yarn dev:styleguide` to develop the style guide app
-- `yarn dev:library` to develop the library
+- Ensure you have Git, Node, and Yarn installed
+- Clone this repo and `cd` into it
+- Create a feature branch off of `master`
+- `yarn` to install latest dependencies
+- `yarn dev:package` to develop the **package**
+- `yarn dev:app` to develop the **app**
 - `yarn verify` check linting and builds work
-- [localhost:2000](http://localhost:2000) to view the style guide
-- use [`yarn link`](https://yarnpkg.com/lang/en/docs/cli/link/) to test using library components in another project
-- stage, commit, and push
-- if you want to publish a new library release, run `yarn bump` and type in the new version using [Semantic Versioning](http://semver.org/); this will bump the `package.json` version and push a new git tag
-- submit a pull request for the feature branch to `master`
-- once PR status passes (approved review and successful [continuous integration in Travis CI](https://travis-ci.org/eggheadio/egghead-ui), merge the pull request
-- when `master` is updated
-  - [continuous deployment runs in Travis CI](https://travis-ci.org/eggheadio/egghead-ui) and deploys the latest style guide app to [styleguide.egghead.io](https://styleguide.egghead.io) 
-  - if there was a version bump (`package.json` version and new git tag), it also publishes the new library version to [npm](https://www.npmjs.com/package/egghead-ui)
-    - notify consuming projects to run `yarn upgrade egghead-ui` in their projects to get latest, with a list of changes
+- Use [`yarn link`](https://yarnpkg.com/lang/en/docs/cli/link/) to test using the **package** in another project
+- [localhost:2000](http://localhost:2000) to view the **app**
+- Stage, commit, and push
+- If you want to publish a new **package** release, run `yarn bump` and type in the new version using [Semantic Versioning](http://semver.org/); this will bump the `package.json` version and push a new git tag
+- Submit a pull request for the feature branch to `master`
+- Once PR status passes (approved review and successful [continuous integration in Travis CI](https://travis-ci.org/eggheadio/egghead-ui), merge the pull request
+- When `master` is updated
+  - [Continuous deployment runs in Travis CI](https://travis-ci.org/eggheadio/egghead-ui) and deploys the latest **app** to [styleguide.egghead.io](https://styleguide.egghead.io) 
+  - If there was a version bump (`package.json` version and new git tag), it also publishes the new **package** version to [npm](https://www.npmjs.com/package/egghead-ui)
+    - Notify consuming projects to run `yarn upgrade egghead-ui` in their projects to get latest, with a list of changes
 
 ### PR example
 
@@ -98,7 +91,7 @@ Latest JS syntax is used where it makes sense. [Lodash](lodash.com) methods are 
 
 ### Styles
 
-The root egghead-ui components are used wherever possible. Styling is largely taken care of by these components. When app specific styles are needed beyond that, `tachyons-egghead` classes are used where possible. Styles are added to work on mobile first; the tachyons `*-ns` (not small) and `*-l` (large only) classes are appended to override/extend styles for large screen sizes. When more customization is needed, `styled-components` are used.
+The root egghead-ui components are used wherever possible. Styling is largely taken care of by these components. When app specific styles are needed beyond that, `tachyons-egghead` classes are used where possible. Styles are added to work on mobile first; the tachyons `*-ns` (not small) and `*-l` (large only) classes are appended to override/extend styles for large screen sizes. When more customization is needed, `styled-components` is used.
 
 ### Linting
 
@@ -111,5 +104,5 @@ Testing is currently provided by `react-scripts` (Jest). Files that could benefi
 ## Known Issues
 
 - `devDependencies` don't install on heroku. All deps need to be in the `dependencies` object.
-- Using a CSS library from npm with `yarn link` doesn't work with React Storybook (such as `tachyons-egghead`); it has to be installed from npm.
-- The styleguide is built with `NODE_ENV=development` to preserve PropTypes for the `react-storybook-addon-info` fork in use (so that we get full prop tables including `arrayOf`, `oneOf`, `shape` etc.)
+- Using a CSS package from npm with `yarn link` doesn't work with React Storybook (such as `tachyons-egghead`); it has to be installed from npm.
+- The **app** is built with `NODE_ENV=development` to preserve PropTypes for the `react-storybook-addon-info` fork in use (so that we get full prop tables including `arrayOf`, `oneOf`, `shape` etc.)

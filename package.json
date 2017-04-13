@@ -3,15 +3,15 @@
   "version": "4.7.2",
   "description": "Components used across egghead projects",
   "scripts": {
-    "dev:styleguide": "start-storybook -p 2000",
-    "dev:library": "yarn build:library -- -w",
+    "dev:package": "yarn build:package -- -w",
+    "dev:app": "start-storybook -p 2000",
     "verify": "yarn lint && yarn build",
     "bump": "yarn version && git push && git push --tags",
     "lint": "eslint src",
-    "build": "yarn build:styleguide && yarn build:library",
-    "build:styleguide": "NODE_ENV=development build-storybook",
-    "build:library": "babel src -d lib",
-    "prepublish": "yarn build:library",
+    "build": "yarn build:package && yarn build:app",
+    "build:package": "babel src -d lib",
+    "build:app": "NODE_ENV=development build-storybook",
+    "prepublish": "yarn build:package",
     "start": "react-scripts start"
   },
   "main": "lib/index.js",
@@ -38,6 +38,7 @@
     "axios": "^0.15.3",
     "babel-cli": "^6.22.2",
     "babel-plugin-transform-class-properties": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-latest": "^6.22.0",
     "babel-preset-react": "^6.22.0",
     "eslint": "^3.16.1",
@@ -57,8 +58,5 @@
   "homepage": "https://styleguide.egghead.io",
   "engines": {
     "node": ">=7.0.0"
-  },
-  "devDependencies": {
-    "babel-plugin-transform-object-rest-spread": "^6.23.0"
   }
 }
