@@ -1,5 +1,4 @@
 import React from 'react'
-import {Text} from 'react-localize'
 
 const barHeight = 7
 
@@ -17,7 +16,7 @@ export default ({total, complete}) => (
         {total} 
       </div>
       <div>
-        <Text message='progress.completed' />
+        completed
       </div>
     </div>
 

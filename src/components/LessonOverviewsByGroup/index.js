@@ -1,8 +1,7 @@
 import React from 'react'
 import {map, compact} from 'lodash'
-import {Text} from 'react-localize'
 import {publicLessonsUrl} from 'utils/urls'
-import {hasUnlockedSelfReview} from 'utils/milestones'
+import {selfReviewThreshold, hasUnlockedSelfReview} from 'utils/instructorMilestones' 
 import Maybe from 'components/Maybe'
 import Tabs from 'components/Tabs'
 import LessonOverviews from 'components/LessonOverviews'
@@ -12,7 +11,7 @@ export default ({instructor}) => {
 
   const items = compact([
     {
-      title: <Text message='lessonOverviewsByGroup.inProgress.title' />,
+      title: 'In Progress',
       states: [
         'accepted',
         'claimed',
@@ -21,14 +20,16 @@ export default ({instructor}) => {
       includeLessonsInCourses: true,
     },
     {
-      title: <Text message='lessonOverviewsByGroup.inReview.title' />,
+      title: 'In Review',
       description: (
         <span>
-          <Text message='lessonOverviewsByGroup.inReview.description' />
+          <div>
+            These lessons are waiting for review to proceed.
+          </div>
           <Maybe condition={Boolean(instructor && hasUnlockedSelfReview(instructor.published_lessons))}>
             <span>
               <span>{` `}</span>
-              <Text message='lessonOverviewsByGroup.inReview.selfApproval' />
+              <span>Since you have {selfReviewThreshold}+ lessons published, you can review your own lessons.</span>
             </span>
           </Maybe>
         </span>
@@ -41,8 +42,8 @@ export default ({instructor}) => {
       includeLessonsInCourses: true,
     },
     {
-      title: <Text message='lessonOverviewsByGroup.inQueue.title' />,
-      description: <Text message='lessonOverviewsByGroup.inQueue.description' />,
+      title: 'In Queue',
+      description: 'These lessons are in the publishing queue. The queue automatically publishes them from top to bottom. Lessons that are in a course are not shown here because they are held back until the entire course is published.',
       states: [
         'approved'
       ],
@@ -66,8 +67,8 @@ export default ({instructor}) => {
                 states={item.states}
                 fallback={
                   <Prompt
-                    description={<Text message='lessonOverviewsByGroup.fallback' />}
-                    actionText={<Text message='lessonOverviewsByGroup.action' />}
+                    description='No lessons to show'
+                    actionText='Create a new lesson'
                     action={'/lessons/new'}
                   />
                 }
@@ -79,12 +80,12 @@ export default ({instructor}) => {
         ),
       })),
       {
-        title: <Text message='lessonOverviewsByGroup.published.title' />,
+        title: 'Published',
         component: (
           <div className='mt3'>
             <Prompt
-              description={<Text message='lessonOverviewsByGroup.published.description' />}
-              actionText={<Text message='lessonOverviewsByGroup.published.action' />}
+              description='Published lessons and courses are available publicly for students to view on egghead.io.'
+              actionText='View published content'
               action={publicLessonsUrl}
             />
           </div>

@@ -1,5 +1,4 @@
 import React from 'react'
-import {Text} from 'react-localize'
 import Paragraph from 'components/Paragraph'
 import Heading from 'components/Heading'
 import Card from 'components/Card'
@@ -10,11 +9,11 @@ export default ({instructor}) => (
   <div>
 
     <Heading level='5'>
-      <Text message='requestedLessons.title' />
+      Requested Lessons
     </Heading>
 
     <Paragraph type='small'>
-      <Text message='requestedLessons.description' />
+      {`Here's some ideas for lessons that you can start recording today. If you claim one of these ideas, you'll have 2 weeks to record a draft and upload it. After that it goes back into the pool for others to claim.`}
     </Paragraph>
 
     <div className='mb3'>
@@ -29,7 +28,7 @@ export default ({instructor}) => (
       states={['requested']} 
       fallback={
         <Paragraph>
-          <Text message='requestedLessons.fallback' />
+          There are no requested lessons, but you can create your own.
         </Paragraph>
       }
     />

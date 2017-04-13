@@ -1,7 +1,6 @@
 import React from 'react'
 import {map} from 'lodash'
 import {Link} from 'react-router-dom'
-import {Text} from 'react-localize'
 import Maybe from 'components/Maybe'  
 import Heading from 'components/Heading'
 import Avatar from 'components/Avatar'
@@ -11,19 +10,19 @@ export default ({instructor}) => {
 
   const lessonOverviewsByGroupStats = [
     {
-      message: 'lessonOverviewsByGroup.inProgress.title' ,
+      label: 'In Progress',
       count: instructor.claimed_lessons,
     },
     {
-      message: 'lessonOverviewsByGroup.inReview.title',
+      label: 'In Review',
       count: instructor.submitted_lessons,
     },
     {
-      message: 'lessonOverviewsByGroup.inQueue.title' ,
+      label: 'In Queue',
       count: instructor.approved_lessons,
     },
     {
-      message: 'lessonOverviewsByGroup.published.title' ,
+      label: 'Published',
       count: instructor.published_lessons,
     },
   ]
@@ -51,12 +50,12 @@ export default ({instructor}) => {
       <section className='flex flex-wrap'>
         {map(lessonOverviewsByGroupStats, group => (
           <Maybe 
-            key={group.message}
+            key={group.label}
             condition={Boolean(group.count)}
           >
             <div className='mt3 mr3'>
               <LessonGroupsStat
-                label={<Text message={group.message} />}
+                label={group.label}
                 count={group.count}
               /> 
             </div>

@@ -1,6 +1,5 @@
 import React from 'react'
 import {map} from 'lodash'
-import {Text} from 'react-localize'
 import {guideUrl, chatUrl, instructorsChatUrl} from 'utils/urls'
 import {hasUnlockedPublished} from 'utils/milestones'
 import Maybe from 'components/Maybe'
@@ -12,30 +11,30 @@ import Anchor from 'components/Anchor'
 
 const items=[
   {
-    title: <Text message='help.guide.title' />,
-    description: <Text message='help.guide.description' />,
+    title: 'Instructor 101 Guide',
+    description: `We've put together a written Instructor Guide with step by step details on creating egghead lessons and courses. It is required reading for all instructors, and will help you make great lessons.`,
     url: guideUrl,
-    action: <Text message='help.guide.action' />,
+    action: 'View the guide',
   },
   {
-    title: <Text message='help.admins.title' />,
-    description: <Text message='help.admins.description' />,
+    title: 'Mentors',
+    description: 'Joel, Trevor, and Zac can help with anything related to egghead.io.',
     url: chatUrl,
-    action: <Text message='help.admins.action' />,
+    action:  'Reach out in Slack',
   },
   {
-    title: <Text message='help.chat.title' />,
-    description: <Text message='help.chat.description' />,
+    title: 'Slack',
+    description: `The egghead-instructors Slack channel is available for instructors to chat and see each other's progress.`,
     url: instructorsChatUrl,
-    action: <Text message='help.chat.action' />,
+    action: 'View the channel',
   },
 ]
 
 export default ({publishedLessons}) => (
   <Maybe condition={!hasUnlockedPublished(publishedLessons)}>
     <TitleCard
-      title={<Text message='help.title' />}
-      description={<Text message='help.description' />}
+      title='Got questions? Feeling stuck?'
+      description='Making screencasts is hard. The first few can be frustrating. But it gets easier and faster! There are many resources to help you as well.'
       subtle
     >
       <List items={map(items, (item, index) => (

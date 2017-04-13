@@ -1,6 +1,5 @@
 import React from 'react'
 import {map, keys, compact} from 'lodash'
-import {Text} from 'react-localize'
 import {lessonStateVerbToPastTense, detailsByLessonState} from 'utils/lessonStates'
 import Request from 'components/Request'
 import LessonAction from './components/LessonAction'
@@ -14,8 +13,8 @@ export default ({lesson, requestLesson, requestCurrentPage}) => {
     lesson.upload_lesson_http_url
       ? <LessonAction
           actionText={lesson.wistia_id
-            ? <Text message='lessonEdit.replaceVideo' />
-            : <Text message='lessonEdit.uploadVideo' />
+            ? 'Replace Video'
+            : 'Upload Video'
           }
           iconType='upload'
           color='blue'
@@ -25,7 +24,7 @@ export default ({lesson, requestLesson, requestCurrentPage}) => {
 
     lesson.edit_lesson_http_url
       ? <LessonAction
-          actionText={<Text message='lessonEdit.edit' />}
+          actionText='Edit'
           iconType='edit'
           color='orange'
           url={lesson.edit_lesson_http_url}

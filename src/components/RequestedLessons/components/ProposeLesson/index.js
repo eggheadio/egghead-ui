@@ -1,11 +1,10 @@
 import React from 'react'
-import {Text} from 'react-localize'
-import OpenToggle from 'components/OpenToggle'
+import Open from 'components/Open'
 import IconLabel from 'components/IconLabel'
 import ProposeLessonForm from './components/ProposeLessonForm'
 
 export default ({instructor}) => (
-  <OpenToggle>
+  <Open>
     {({isOpen, handleOpenToggleClick}) => isOpen 
       ? <ProposeLessonForm instructor={instructor} />
       : <div 
@@ -14,10 +13,10 @@ export default ({instructor}) => (
         >
           <IconLabel
             iconType='add'
-            labelText={<Text message='requestedLessons.proposeLesson.action' />}
+            labelText='Propose a new lesson'
             color='blue'
           />
         </div>
     }
-  </OpenToggle>
+  </Open>
 )

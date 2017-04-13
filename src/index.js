@@ -1,4 +1,5 @@
 import hardCodedSizesSource from './utils/hardCodedSizes'
+import authenticationSource from './utils/authentication'
 
 import AnchorSource from './components/Anchor'
 import AvatarSource from './components/Avatar'
@@ -31,6 +32,7 @@ import InstructorDetailsSource from './screens/Instructors/screens/InstructorDet
 import InstructorsDirectorySource from './screens/InstructorsDirectory'
 
 export const hardCodedSizes = hardCodedSizesSource
+export const authentication = authenticationSource
 
 export const Anchor = AnchorSource
 export const Avatar = AvatarSource

@@ -1,5 +1,4 @@
 import React from 'react'
-import {Text} from 'react-localize'
 import numberFormattingByType from 'utils/numberFormattingByType'
 
 export default ({title, revenue, subscriberMinutes}) => (
@@ -11,12 +10,7 @@ export default ({title, revenue, subscriberMinutes}) => (
       {numberFormattingByType.money(revenue)}
     </div>
     <div className='b'>
-      <Text 
-        message='instructorRevenue.subscriberMinutes'
-        values={[
-          numberFormattingByType.general(subscriberMinutes),
-        ]} 
-      />
+      {`${numberFormattingByType.general(subscriberMinutes)} minutes`}
     </div>
   </div>
 )

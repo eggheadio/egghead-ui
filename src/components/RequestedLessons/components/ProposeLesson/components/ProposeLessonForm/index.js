@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {map, size, every} from 'lodash'
-import {Text} from 'react-localize'
 import Maybe from 'components/Maybe'
 import Error from 'components/Error'
 import Button from 'components/Button'
@@ -61,12 +60,12 @@ export default class extends Component {
       <div>
 
         <Paragraph>
-          <Text message='requestedLessons.proposeLesson.description' />
+          Have an idea for an egghead lesson? Fill out this information and get started. Feel free to submit as many ideas as you like.
         </Paragraph>
 
         <div className='mb3'>
           <div className='b'>
-            <Text message='requestedLessons.proposeLesson.lessonTitle' />
+            Title *
           </div>
           <input
             type='text'
@@ -80,7 +79,7 @@ export default class extends Component {
           {({data}) => (
             <div className='mb3'>
               <div className='b'>
-                <Text message='requestedLessons.proposeLesson.lessonTechnology' />
+                Technology *
               </div>
               <select
                 value={technologyId}
@@ -103,7 +102,7 @@ export default class extends Component {
 
         <div className='mb3'>
           <div className='b'>
-            <Text message='requestedLessons.proposeLesson.lessonSummary' />
+            Summary
           </div>
           <textarea
             type='text'
@@ -117,7 +116,7 @@ export default class extends Component {
         <Maybe condition={hasMissingInput}>
           <div className='mb3'>
             <Error>
-              <Text message='requestedLessons.proposeLesson.missingInputError' />
+              Missing required form input
             </Error>
           </div>
         </Maybe>
@@ -148,7 +147,7 @@ export default class extends Component {
                 }
               }}
             >
-              <Text message='requestedLessons.proposeLesson.submit' />
+              Submit
             </Button>
           )}
         </Request>

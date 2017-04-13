@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {Text} from 'react-localize'
 import Paragraph from 'components/Paragraph'
 
 export default class extends Component {
@@ -29,7 +28,7 @@ export default class extends Component {
           </div>
         </div>
       : <Paragraph>
-          <Text message='lesson.video.fallback' />
+          There is no video to show - waiting for one to be uploaded.
         </Paragraph>
   }
 }

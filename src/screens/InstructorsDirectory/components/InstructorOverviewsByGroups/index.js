@@ -1,6 +1,5 @@
 import React from 'react'
 import {filter, reject} from 'lodash'
-import {Text} from 'react-localize'
 import sortBy from 'sort-by'
 import Tabs from 'components/Tabs'
 import Request from 'components/Request'
@@ -11,7 +10,7 @@ export default ({instructors}) => (
     {({data}) => (
       <Tabs groups={[
         {
-          title: <Text message='instructorOverviewsByGroup.unpublished.title' />,
+          title: 'Unpublished',
           component: (
             <div className='mt3'>
               <InstructorOverviews
@@ -26,7 +25,7 @@ export default ({instructors}) => (
           ),
         },
         {
-          title: <Text message='instructorOverviewsByGroup.published.title' />,
+          title: 'Published',
           component: (
             <div className='mt3'>
               <InstructorOverviews

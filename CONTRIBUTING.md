@@ -12,6 +12,7 @@
   - `src/components/{ComponentName}` contains the API of components
     - `index.js` defines and exports the component
     - `index.examples.js` defines examples to be rendered in the **app**
+      - `.addDecorator` adds wrapping context-based components
       - `.addWithInfo` adds component documentation
       - `.addWithPropsCombinations` renders the component with all possible prop combinations
 - `src/index.js` exports modules for npm

@@ -1,10 +1,9 @@
 import React from 'react'
 import {find, size, map} from 'lodash'
-import {Text} from 'react-localize'
 import Card from 'components/Card'
 import Maybe from 'components/Maybe'
 import Request from 'components/Request'
-import OpenToggle from 'components/OpenToggle'
+import Open from 'components/Open'
 import DeviceWidth from 'components/DeviceWidth'
 import currentMonthStartDate from './utils/currentMonthStartDate'
 import totalRevenue from './utils/totalRevenue'
@@ -35,7 +34,7 @@ export default ({revenueUrl}) => (
         const currentMinutesPoints = map(data, month => month.minutes_watched)
 
         return (
-          <OpenToggle>
+          <Open>
             {({isOpen, handleOpenToggleClick}) => (
               <DeviceWidth>
                 {(screenSize) => (
@@ -53,17 +52,14 @@ export default ({revenueUrl}) => (
 
                         <div className='mb4'>
                           <RevenuePeriod
-                            title={<Text message='instructorRevenue.currentMonth.title' />}
+                            title='This Month'
                             revenue={currentMonthRevenue.revenue}
                             subscriberMinutes={currentMonthRevenue.minutes_watched}
                           />
                         </div>
 
                         <RevenuePeriod
-                          title={<Text 
-                            message='instructorRevenue.previousMonths.title' 
-                            values={[currentTotalRevenue.monthCount]} 
-                          />}
+                          title={`Last ${currentTotalRevenue.monthCount} months`}
                           revenue={currentTotalRevenue.revenue}
                           subscriberMinutes={currentTotalRevenue.minutes_watched}
                         />
@@ -76,13 +72,13 @@ export default ({revenueUrl}) => (
                           className='dark-gray-secondary ttl f6 pa2 tr-l'
                         >
                           <span className={`${isOpen ? '' : activeLabelClassName} mr2`}>
-                            <Text message='instructorRevenue.revenue' />
+                            Revenue
                           </span>
                           <span className='mr2'>
                             /
                           </span>
                           <span className={isOpen ? activeLabelClassName : ''}>
-                            <Text message='instructorRevenue.minutes' />
+                            Minutes
                           </span>
                         </div>
                         {isOpen
@@ -115,7 +111,7 @@ export default ({revenueUrl}) => (
                 )}
               </DeviceWidth>
             )}
-          </OpenToggle>
+          </Open>
         )
       }}
     </Request>

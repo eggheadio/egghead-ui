@@ -1,6 +1,5 @@
 import React from 'react'
 import {map, compact} from 'lodash'
-import {Text} from 'react-localize'
 import Markdown from 'components/Markdown'
 import Heading from 'components/Heading'
 import List from 'components/List'
@@ -15,19 +14,19 @@ export default ({lesson, requestLesson}) => {
 
   const items = compact([
     {
-      title: <Text message='lesson.video.title' />,
+      title: 'Video',
       children: (
         <WistiaVideo wistiaId={lesson.wistia_id} />
       ),
     },
     {
-      title: <Text message='lesson.state' />,
+      title: 'State',
       children: (
         <LessonState lesson={lesson} />
       ),
     },
     {
-      title: <Text message='lesson.actions' />,
+      title: 'Actions',
       children: (
         <LessonActions 
           lesson={lesson} 
@@ -38,7 +37,7 @@ export default ({lesson, requestLesson}) => {
     lesson.state === 'requested' 
       ? null
       : {
-          title: <Text message='lesson.instructor' />,
+          title: 'Instructor',
           children: (
             <div className='flex items-center'>
               <Avatar
@@ -52,7 +51,7 @@ export default ({lesson, requestLesson}) => {
           ),
       },
     {
-      title: <Text message='lesson.technology' />,
+      title: 'Technology',
       children: (
         <div className='flex items-center'>
           <Image
@@ -65,7 +64,7 @@ export default ({lesson, requestLesson}) => {
       ),
     },
     {
-      title: <Text message='lesson.summary' />,
+      title: 'Summary',
       children: (
         <Markdown>
           {lesson.summary}

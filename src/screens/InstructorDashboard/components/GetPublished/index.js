@@ -1,6 +1,5 @@
 import React from 'react'
 import {map, uniq, compact, isString, size, filter} from 'lodash'
-import {Text} from 'react-localize'
 import {chatInfoUrl, roughDraftInfoUrl, gearSetupInfoUrl} from 'utils/urls'
 import {hasUnlockedPublished} from 'utils/milestones'
 import createLessonsUrl from 'utils/createLessonsUrl'
@@ -24,48 +23,48 @@ export default ({instructor}) => (
         const checklistItems = [
           {
             isComplete: true,
-            description: <Text message='getPublished.createInstructorAccount' />,
+            description: 'Create instructor account',
           },
           {
             isComplete: isString(instructor.slack_id),
-            description: <Text message='getPublished.joinSlack' />,
+            description: 'Join egghead Slack',
             moreInfoUrl: chatInfoUrl,
           },
           {
             isComplete: isStepComplete(instructorLessonStates, 'claimed'),
-            description: <Text message='getPublished.claimLesson' />,
+            description: 'Claim new lesson',
             action: '/lessons/new',
           },
           {
             isComplete: isStepComplete(instructorLessonStates, 'submitted'),
-            description: <Text message='getPublished.submitRoughDraft' />,
+            description: 'Submit rough draft',
             moreInfoUrl: roughDraftInfoUrl,
           },
           {
             isComplete: isString(instructor.gear_tracking_id),
-            description: <Text message='getPublished.getGear' />,
+            description: 'Get gear',
             moreInfoUrl: gearSetupInfoUrl,
           },
           {
             isComplete: isStepComplete(instructorLessonStates, 'updated'),
-            description: <Text message='getPublished.recordWithGear' />,
+            description: 'Re-record with gear',
             moreInfoUrl: roughDraftInfoUrl,
           },
           {
             isComplete: isStepComplete(instructorLessonStates, 'approved'),
-            description: <Text message='getPublished.iterate' />,
+            description: 'Iterate until approved',
             moreInfoUrl: roughDraftInfoUrl,
           },
           {
             isComplete: isStepComplete(instructorLessonStates, 'published'),
-            description: <Text message='getPublished.publish' />,
+            description: 'Publish lesson',
           },
         ]
 
         return (
           <TitleCard
-            title={<Text message='getPublished.title' />}
-            description={<Text message='getPublished.description' />}
+            title='To Do'
+            description='Work with your mentor to complete these items so you can get published.'
             intro={
               <Progress 
                 total={size(checklistItems)}
