@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import {stringFixture, urlFixture} from '../../utils/fixtures'
+import {stringFixture, urlFixture} from 'utils/fixtures'
 import Prompt from '.'
 
 storiesOf('Prompt')

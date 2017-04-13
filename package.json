@@ -4,15 +4,15 @@
   "description": "Components used across egghead projects",
   "scripts": {
     "dev:package": "yarn build:package -- -w",
-    "dev:app": "start-storybook -p 2000",
+    "dev:app": "NODE_PATH=./src start-storybook -p 2000",
     "verify": "yarn lint && yarn build",
     "bump": "yarn version && git push && git push --tags",
-    "lint": "eslint src",
+    "lint": "NODE_PATH=./src eslint src",
     "build": "yarn build:package && yarn build:app",
-    "build:package": "babel src -d lib",
-    "build:app": "NODE_ENV=development build-storybook",
+    "build:package": "NODE_PATH=./src babel src -d lib",
+    "build:app": "NODE_PATH=./src NODE_ENV=development build-storybook",
     "prepublish": "yarn build:package",
-    "start": "react-scripts start"
+    "start": "NODE_PATH=./src react-scripts start"
   },
   "main": "lib/index.js",
   "files": [

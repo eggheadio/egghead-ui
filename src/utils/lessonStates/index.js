@@ -1,5 +1,5 @@
 import {keys} from 'lodash'
-import localizationBundle from '../localizationBundle'
+import localizationBundle from 'utils/localizationBundle'
 
 export const detailsByLessonState = {
   proposed: {

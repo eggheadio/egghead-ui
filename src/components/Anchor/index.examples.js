@@ -1,7 +1,7 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import colors from '../../utils/colors'
-import {stringFixture, urlFixture} from '../../utils/fixtures'
+import colors from 'utils/colors'
+import {stringFixture, urlFixture} from 'utils/fixtures'
 import Anchor, {types} from '.'
 
 storiesOf('Anchor')

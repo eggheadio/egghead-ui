@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import {keys, first} from 'lodash'
 import styled from 'styled-components'
-import colors from '../../utils/colors'
+import colors from 'utils/colors'
 
 const commonClasses = 'link dib fw6 tracked tc br2 ttu ba pointer'
 

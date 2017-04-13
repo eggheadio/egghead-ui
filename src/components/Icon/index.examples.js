@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import colors from '../../utils/colors'
+import colors from 'utils/colors'
 import Icon, {types, sizes} from '.'
 
 storiesOf('Icon')

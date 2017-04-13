@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import Icon from '../Icon'
+import Icon from 'components/Icon'
 
 const Error = ({children}) => (
   <div className='red b flex items-center'>

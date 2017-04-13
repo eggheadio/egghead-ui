@@ -1,5 +1,5 @@
 import {PropTypes, Component} from 'react'
-import {smallScreenWidth, largeScreenWidth} from '../../utils/hardCodedSizes'
+import {smallScreenWidth, largeScreenWidth} from 'utils/hardCodedSizes'
 
 export default class DeviceWidth extends Component {
   

@@ -1,8 +1,8 @@
 import React, {Component, PropTypes} from 'react'
 import axios from 'axios'
 import {first} from 'lodash'
-import Error from '../Error'
-import Loading from '../Loading'
+import Error from 'components/Error'
+import Loading from 'components/Loading'
 
 const http = axios.create()
 

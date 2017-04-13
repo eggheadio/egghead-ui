@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import {nameFixture, avatarImageUrlFixture} from '../../utils/fixtures'
+import {nameFixture, avatarImageUrlFixture} from 'utils/fixtures'
 import Avatar, {sizes} from '.'
 
 storiesOf('Avatar')

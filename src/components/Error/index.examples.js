@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import {stringFixture} from '../../utils/fixtures'
+import {stringFixture} from 'utils/fixtures'
 import Error from '.'
 
 storiesOf('Error')

@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import {apiFixture, NodeFixture} from '../../utils/fixtures'
+import {apiFixture, NodeFixture} from 'utils/fixtures'
 import Request from '.'
 
 const ExampleDataRender = ({items}) => (

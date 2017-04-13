@@ -1,3 +1,5 @@
+import hardCodedSizesSource from './utils/hardCodedSizes'
+
 import AnchorSource from './components/Anchor'
 import AvatarSource from './components/Avatar'
 import ButtonSource from './components/Button'
@@ -21,6 +23,15 @@ import TabsSource from './components/Tabs'
 import TitleCardSource from './components/TitleCard'
 import ToggleSource from './components/Toggle'
 
+import InstructorDashboardSource from './screens/InstructorDashboard'
+import NewLessonSource from './screens/Lessons/screens/NewLesson'
+import LessonDetailsSource from './screens/Lessons/screens/LessonDetails'
+import LessonsDirectorySource from './screens/LessonsDirectory'
+import InstructorDetailsSource from './screens/Instructors/screens/InstructorDetails'
+import InstructorsDirectorySource from './screens/InstructorsDirectory'
+
+export const hardCodedSizes = hardCodedSizesSource
+
 export const Anchor = AnchorSource
 export const Avatar = AvatarSource
 export const Button = ButtonSource
@@ -43,3 +54,10 @@ export const Open = OpenSource
 export const Tabs = TabsSource
 export const TitleCard = TitleCardSource
 export const Toggle = ToggleSource
+
+export const InstructorDashboard = InstructorDashboardSource
+export const NewLesson = NewLessonSource
+export const LessonDetails = LessonDetailsSource
+export const LessonsDirectory = LessonsDirectorySource
+export const InstructorDetails = InstructorDetailsSource
+export const InstructorsDirectory = InstructorsDirectorySource

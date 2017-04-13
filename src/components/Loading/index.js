@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, {keyframes} from 'styled-components'
-import Icon from '../Icon'
+import Icon from 'components/Icon'
 
 const rotate360 = keyframes`
   from {

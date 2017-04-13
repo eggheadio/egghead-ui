@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import Button from '../Button'
+import Button from 'components/Button'
 import Open from '.'
 
 storiesOf('Open')

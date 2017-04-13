@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react'
-import Maybe from '../Maybe'
-import Heading from '../Heading'
-import Paragraph from '../Paragraph'
-import Card from '../Card'
+import Maybe from 'components/Maybe'
+import Heading from 'components/Heading'
+import Paragraph from 'components/Paragraph'
+import Card from 'components/Card'
 
 const TitleCard = ({
   children, 

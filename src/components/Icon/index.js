@@ -34,7 +34,7 @@ import {
   FaSquareO,
   FaUser,
 } from 'react-icons/lib/fa'
-import colors from '../../utils/colors'
+import colors from 'utils/colors'
 
 const typeToSvgIcon = {
   'add': EggheadPlus,

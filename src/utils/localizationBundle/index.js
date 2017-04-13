@@ -1,21 +1,6 @@
-import {selfReviewThreshold} from '../instructorMilestones' 
+import {selfReviewThreshold} from 'utils/instructorMilestones' 
 
 export default {
-
-  login: 'Sign in via egghead',
-
-  instructorGuide: 'Instructor Guide',
-
-  instructorsOnly: 'Only instructors can view the Instructor Center',
-
-  routeNotFound: {
-    title: '404 - page not found',
-    description: `This page doesn't exist.`,
-  },
-
-  logo: {
-    alt: 'egghead.io instructors logo',
-  },
 
   pagination: {
     previous: 'Previous',
@@ -26,16 +11,6 @@ export default {
     completed: 'completed',
   },
 
-  navigation: {
-    dashboard: 'Dashboard',
-    lessons: 'Lessons',
-    instructors: 'Instructors',
-    guide: 'Guide',
-    chat: 'Chat',
-    logout: 'Log Out',
-    action: 'New lesson',
-  },
-  
   getPublished: {
     title: 'To Do',
     description: 'Work with your mentor to complete these items so you can get published.',
