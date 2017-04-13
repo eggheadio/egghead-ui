@@ -5,12 +5,12 @@
   "scripts": {
     "dev:package": "yarn build:package -- -w",
     "dev:app": "NODE_PATH=./src start-storybook -p 2000",
-    "verify": "yarn lint && yarn build",
-    "bump": "yarn version && git push && git push --tags",
+    "test": "NODE_PATH=./src react-scripts test",
     "lint": "NODE_PATH=./src eslint src",
-    "build": "yarn build:package && yarn build:app",
     "build:package": "NODE_PATH=./src babel src -d lib",
     "build:app": "NODE_PATH=./src NODE_ENV=development build-storybook",
+    "verify": "CI=true yarn test && yarn lint && yarn build:package && yarn build:app",
+    "bump": "yarn version && git push && git push --tags",
     "prepublish": "yarn build:package",
     "start": "NODE_PATH=./src react-scripts start"
   },

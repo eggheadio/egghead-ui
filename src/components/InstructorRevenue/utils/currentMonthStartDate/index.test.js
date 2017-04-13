@@ -1,3 +1,5 @@
+/* eslint-disable no-native-reassign */
+
 import currentMonthStart from '.'
 
 test('first day of the month', () => {

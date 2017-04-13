@@ -27,7 +27,8 @@
 - `yarn` to install latest dependencies
 - `yarn dev:package` to develop the **package**
 - `yarn dev:app` to develop the **app**
-- `yarn verify` check linting and builds work
+- `yarn test` to run tests
+- `yarn lint` to run linting
 - Use [`yarn link`](https://yarnpkg.com/lang/en/docs/cli/link/) to test using the **package** in another project
 - [localhost:2000](http://localhost:2000) to view the **app**
 - Stage, commit, and push
