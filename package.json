@@ -4,13 +4,13 @@
   "description": "Components used across egghead projects",
   "scripts": {
     "dev:package": "yarn build:package -- -w",
-    "dev:app": "REACT_APP_EGGHEAD_BASE_URL=https://egghead-io-staging.com NODE_PATH=./src start-storybook -p 2000",
+    "dev:app": "NODE_PATH=./src start-storybook -p 2000",
     "verify": "yarn lint && yarn build",
     "bump": "yarn version && git push && git push --tags",
     "lint": "NODE_PATH=./src eslint src",
     "build": "yarn build:package && yarn build:app",
     "build:package": "NODE_PATH=./src babel src -d lib",
-    "build:app": "REACT_APP_EGGHEAD_BASE_URL=https://egghead-io-staging.com NODE_PATH=./src NODE_ENV=development build-storybook",
+    "build:app": "NODE_PATH=./src NODE_ENV=development build-storybook",
     "prepublish": "yarn build:package",
     "start": "NODE_PATH=./src react-scripts start"
   },

@@ -3,7 +3,6 @@ import {login, logout} from 'utils/authentication'
 import {getLoginUrl} from 'utils/urls'
 import Heading from 'components/Heading'
 import Anchor from 'components/Anchor'
-import Button from 'components/Button'
 import Request from 'components/Request'
 
 const Authentication = ({children, userPermissionProperty}) => {
@@ -17,9 +16,7 @@ const Authentication = ({children, userPermissionProperty}) => {
           You need to log in to view this
         </Heading>
         <Anchor url={getLoginUrl()}>
-          <Button>
-            Sign in via egghead
-          </Button>
+          Sign in via egghead
         </Anchor>
       </div>
     )
