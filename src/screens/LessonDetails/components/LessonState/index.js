@@ -1,5 +1,5 @@
 import React from 'react'
-import {Paragraph} from 'egghead-ui'
+import Paragraph from 'components/Paragraph'
 import {detailsByLessonState} from 'utils/lessonStates'
 
 export default ({lesson}) => {

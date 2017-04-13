@@ -1,6 +1,6 @@
 import React from 'react'
 import {Text} from 'react-localize'
-import {Heading} from 'egghead-ui'
+import Heading from 'components/Heading'
 import LessonOverviewsByGroup from 'components/LessonOverviewsByGroup'
 
 export default () => (

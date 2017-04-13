@@ -1,7 +1,10 @@
 import React, {Component} from 'react'
 import {map, size, every} from 'lodash'
-import {Maybe, Error, Button, Paragraph} from 'egghead-ui'
 import {Text} from 'react-localize'
+import Maybe from 'components/Maybe'
+import Error from 'components/Error'
+import Button from 'components/Button'
+import Paragraph from 'components/Paragraph'
 import Request from 'components/Request'
 
 const inputClassNames = 'input-reset pa2 br2 ba b--gray-secondary dark-gray w-100'

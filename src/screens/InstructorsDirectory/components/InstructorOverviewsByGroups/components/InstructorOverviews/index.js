@@ -1,7 +1,8 @@
 import React from 'react'
 import {map, size} from 'lodash'
-import {Paragraph, Card} from 'egghead-ui'
 import {Text} from 'react-localize'
+import Paragraph from 'components/Paragraph'
+import Card from 'components/Card'
 import InstructorOverview from './components/InstructorOverview'
 
 export default ({title, instructors}) => size(instructors) > 0

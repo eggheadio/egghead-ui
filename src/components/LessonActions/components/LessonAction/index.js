@@ -1,5 +1,5 @@
 import React from 'react'
-import {Icon} from 'egghead-ui'
+import Icon from 'components/Icon'
 
 export default ({
   actionText, 

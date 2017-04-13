@@ -1,8 +1,9 @@
 import React from 'react'
 import {map} from 'lodash'
 import {Link} from 'react-router-dom'
-import {Maybe, Heading} from 'egghead-ui'
 import {Text} from 'react-localize'
+import Maybe from 'components/Maybe'  
+import Heading from 'components/Heading'
 import Avatar from 'components/Avatar'
 import LessonGroupsStat from './components/LessonGroupsStat'
 

@@ -1,6 +1,8 @@
 import React from 'react'
-import {Paragraph, Heading, Card} from 'egghead-ui'
 import {Text} from 'react-localize'
+import Paragraph from 'components/Paragraph'
+import Heading from 'components/Heading'
+import Card from 'components/Card'
 import LessonOverviews from 'components/LessonOverviews'
 import ProposeLesson from './components/ProposeLesson'
 

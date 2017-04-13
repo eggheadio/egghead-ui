@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Text} from 'react-localize'
-import {Paragraph} from 'egghead-ui'
+import Paragraph from 'components/Paragraph'
 
 export default class extends Component {
 

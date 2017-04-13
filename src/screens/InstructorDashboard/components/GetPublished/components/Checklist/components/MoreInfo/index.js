@@ -1,5 +1,6 @@
 import React from 'react'
-import {Maybe, Icon} from 'egghead-ui'
+import Maybe from 'components/Maybe'
+import Icon from 'components/Icon'
 import Anchor from 'components/Anchor'
 
 export default ({url}) => (

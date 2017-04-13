@@ -1,7 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {map} from 'lodash'
-import {Icon, List} from 'egghead-ui'
+import Icon from 'components/Icon'
+import List from 'components/List'
 import MoreInfo from './components/MoreInfo'
 
 export default ({items}) => (

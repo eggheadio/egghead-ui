@@ -1,9 +1,10 @@
 import React from 'react'
 import pluralize from 'pluralize'
 import {map, uniqBy} from 'lodash'
-import {Maybe, Card} from 'egghead-ui'
 import {hasUnlockedPublished, hasUnlockedCoursePublished} from 'utils/milestones'
 import createLessonsUrl from 'utils/createLessonsUrl'
+import Maybe from 'components/Maybe'
+import Card from 'components/Card'
 import Request from 'components/Request'
 import InstructorStat from './components/InstructorStat'
 

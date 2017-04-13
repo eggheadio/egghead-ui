@@ -1,8 +1,9 @@
 import React, {PropTypes} from 'react'
 import ReactPaginate from 'react-paginate'
 import {map} from 'lodash'
-import {Maybe, Card} from 'egghead-ui'
 import {Text} from 'react-localize'
+import Maybe from 'components/Maybe'
+import Card from 'components/Card'
 import sortLessonsByState from './utils/sortLessonsByState'
 import LessonOverview from './components/LessonOverview'
 

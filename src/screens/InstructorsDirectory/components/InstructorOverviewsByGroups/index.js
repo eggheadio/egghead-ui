@@ -1,8 +1,8 @@
 import React from 'react'
 import {filter, reject} from 'lodash'
 import {Text} from 'react-localize'
-import {Tabs} from 'egghead-ui'
 import sortBy from 'sort-by'
+import Tabs from 'components/Tabs'
 import Request from 'components/Request'
 import InstructorOverviews from './components/InstructorOverviews'
 

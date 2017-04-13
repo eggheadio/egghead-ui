@@ -1,9 +1,12 @@
 import React from 'react'
 import {map} from 'lodash'
-import {Maybe, Paragraph, List, Heading} from 'egghead-ui'
 import {Text} from 'react-localize'
 import {guideUrl, chatUrl, instructorsChatUrl} from 'utils/urls'
 import {hasUnlockedPublished} from 'utils/milestones'
+import Maybe from 'components/Maybe'
+import Paragraph from 'components/Paragraph'
+import List from 'components/List'
+import Heading from 'components/Heading'
 import TitleCard from 'components/TitleCard'
 import Anchor from 'components/Anchor'
 
