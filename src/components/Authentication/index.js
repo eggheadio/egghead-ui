@@ -1,11 +1,10 @@
 import React, {PropTypes} from 'react'
 import {login, logout} from 'utils/authentication'
-import {getLoginUrl} from 'utils/urls'
 import Heading from 'components/Heading'
 import Anchor from 'components/Anchor'
 import Request from 'components/Request'
 
-const Authentication = ({children, userPermissionProperty}) => {
+const Authentication = ({children, loginUrl, userPermissionProperty}) => {
   
   const decodedToken = login()
 
@@ -15,7 +14,7 @@ const Authentication = ({children, userPermissionProperty}) => {
         <Heading level='3'>
           You need to log in to view this
         </Heading>
-        <Anchor url={getLoginUrl()}>
+        <Anchor url={loginUrl}>
           Sign in via egghead
         </Anchor>
       </div>
@@ -55,6 +54,8 @@ const Authentication = ({children, userPermissionProperty}) => {
 
 Authentication.propTypes = {
   children: PropTypes.func.isRequired,
+  loginUrl: PropTypes.string.isRequired,
+  userPermissionProperty: PropTypes.string,
 }
 
 export default Authentication
