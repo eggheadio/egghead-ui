@@ -15,7 +15,7 @@ const Error = ({children}) => (
 )
 
 Error.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.string.isRequired,
 }
 
 export default Error
