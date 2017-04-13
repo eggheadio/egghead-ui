@@ -11,10 +11,10 @@ storiesOf('Open')
       <Open>
         {({isOpen, handleOpenToggleClick}) => (
           <div>
+            <div>isOpen: {`${isOpen}`}</div>
             <Button onClick={handleOpenToggleClick}>
               Example to tap
             </Button>
-            <div>isOpen: {isOpen}</div>
           </div>
         )}
       </Open>
