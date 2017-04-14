@@ -54,6 +54,7 @@
     "react-dom": "^15.4.1",
     "react-icons": "github:eggheadio/react-icons#3.0.2",
     "react-markdown": "^2.4.5",
+    "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-tabs": "^0.8.2",
     "styled-components": "^1.4.3",

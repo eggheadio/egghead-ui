@@ -32,13 +32,13 @@
 - `src/`: source code
   - `package/`: **package** resources
     - `index.js`: exports for npm
-    - `components/{ComponentName}`: component code
+    - `components/{ComponentName}`: **package** component
       - `index.js`: defines and exports the component
       - `components/`: contains sub-components used by the component
       - `utils/`: modules used by the component
     - `utils/`: modules shared across multiple components
   - `index.js` wires up the **app**
-  - `app/`: **app** resources
+  - `App/`: **app** component
 - `public`: required by create-react-app to create the **app** build
 - `lib`: generated for **package** installs on npm
 - `build`: generated for a deployable version of the **app**
