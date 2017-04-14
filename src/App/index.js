@@ -46,7 +46,7 @@ const navigationItems = [
 
 const App = () => (
   <BrowserRouter>
-    <div className='flex-ns'>
+    <div className='flex-ns items-stretch-ns'>
 
       <Navigation items={navigationItems} />
 

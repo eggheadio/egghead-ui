@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import {find, size, map} from 'lodash'
 import Card from 'components/Card'
 import Maybe from 'components/Maybe'
@@ -117,5 +117,9 @@ const InstructorRevenue = ({revenueUrl}) => (
     </Request>
   </Maybe>
 )
+
+InstructorRevenue.propTypes = {
+  revenueUrl: PropTypes.string.isRequired,
+}
 
 export default InstructorRevenue
