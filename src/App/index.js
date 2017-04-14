@@ -1,9 +1,10 @@
 import 'tachyons-egghead'
 import React from 'react'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import Heading from 'components/Heading'
 import Navigation from './components/Navigation'
 import RouteNotFound from './components/RouteNotFound'
-import Readme from './components/Readme'
+import Usage from './components/Usage'
 import ComponentsDirectory from './components/ComponentsDirectory'
 import ScreensDirectory from './components/ScreensDirectory'
 import UtilitiesDirectory from './components/UtilitiesDirectory'
@@ -11,9 +12,9 @@ import UtilitiesDirectory from './components/UtilitiesDirectory'
 const navigationItems = [
   {
     exact: true,
-    label: 'README',
+    label: 'Usage',
     path: '/',
-    component: Readme,
+    component: Usage,
   },
   {
     exact: true,
@@ -43,19 +44,24 @@ const App = () => (
         <Navigation items={navigationItems} />
       </aside>
 
-      <main className='pa4'>
-        <Switch>
-          {navigationItems.map((navigationItem) => (
-            <Route 
-              key={navigationItem.label}
-              exact={navigationItem.exact}
-              path={navigationItem.path}
-              component={navigationItem.component}
-            />
-          ))}
-          <Route component={RouteNotFound} />
-        </Switch>
-      </main>
+      <Switch>
+        {navigationItems.map((navigationItem) => (
+          <Route 
+            key={navigationItem.label}
+            exact={navigationItem.exact}
+            path={navigationItem.path}
+            render={() => (
+              <main className='pa4'>
+                <Heading level='1'>
+                  {navigationItem.label}
+                </Heading>
+                <navigationItem.component />
+              </main>
+            )}
+          />
+        ))}
+        <Route component={RouteNotFound} />
+      </Switch>
 
     </div>
   </BrowserRouter>
