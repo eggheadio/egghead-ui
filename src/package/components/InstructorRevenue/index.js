@@ -16,7 +16,7 @@ const revenueColor = '#59cd90' // # blue
 const minutesColor = '#B0B6BE' // # dark-gray-secondary
 const activeLabelClassName = 'dark-gray b'
 
-export default ({revenueUrl}) => (
+const InstructorRevenue = ({revenueUrl}) => (
   <Maybe condition={Boolean(revenueUrl)}>
     <Request url={revenueUrl}>
       {({data}) => {
@@ -117,3 +117,5 @@ export default ({revenueUrl}) => (
     </Request>
   </Maybe>
 )
+
+export default InstructorRevenue

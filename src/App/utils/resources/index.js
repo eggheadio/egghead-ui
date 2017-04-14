@@ -1,7 +1,14 @@
 import React from 'react'
 import {internet, lorem, random} from 'faker'
 import colors from 'utils/colors'
+import Authentication from '../../components/Authentication'
+
 import Anchor, {types as anchorTypes} from 'components/Anchor'
+import InstructorRevenue from 'components/InstructorRevenue'
+
+const getLoginUrl = () => (
+  `https://egghead-io-staging.com/users/jwt?return_to=${window.location.href}`
+)
 
 export const componentResources = [
   {
@@ -29,6 +36,22 @@ export const componentResources = [
       >
         {lorem.words()}
       </Anchor>,
+    ],
+  },
+  {
+    component: InstructorRevenue,
+    types: {
+      'revenueUrl*': 'string',
+    },
+    createExamples: () => [
+      <Authentication 
+        loginUrl={getLoginUrl()}
+        userPermissionProperty='instructor_url'
+      >
+        {({instructor}) => (
+          <InstructorRevenue revenueUrl={instructor.revenue_url} />
+        )}
+      </Authentication>,
     ],
   },
 ]
