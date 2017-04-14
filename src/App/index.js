@@ -1,38 +1,40 @@
 import 'tachyons-egghead'
 import React from 'react'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import Heading from 'components/Heading'
+import {map} from 'lodash'
+import componentResources from './componentResources'
+import screenResources from './screenResources'
+import utilityResources from './utilityResources'
 import Navigation from './components/Navigation'
+import Main from './components/Main'
 import RouteNotFound from './components/RouteNotFound'
 import Usage from './components/Usage'
-import ComponentsDirectory from './components/ComponentsDirectory'
-import ScreensDirectory from './components/ScreensDirectory'
-import UtilitiesDirectory from './components/UtilitiesDirectory'
+import Directory from './components/Directory'
 
 const navigationItems = [
   {
     exact: true,
     label: 'Usage',
     path: '/',
-    component: Usage,
+    children: <Usage />,
   },
   {
     exact: true,
     label: 'Components',
     path: '/components',
-    component: ComponentsDirectory,
+    children: <Directory resources={componentResources} />,
   },
   {
     exact: true,
     label: 'Screens',
     path: '/screens',
-    component: ScreensDirectory,
+    children: <Directory resources={screenResources} />,
   },
   {
     exact: true,
     label: 'Utilities',
     path: '/utils',
-    component: UtilitiesDirectory,
+    children: <Directory resources={utilityResources} />,
   },
 ]
 
@@ -40,27 +42,24 @@ const App = () => (
   <BrowserRouter>
     <div className='flex-ns'>
 
-      <aside>
-        <Navigation items={navigationItems} />
-      </aside>
+      <Navigation items={navigationItems} />
 
       <Switch>
-        {navigationItems.map((navigationItem) => (
+        {map(navigationItems, (navigationItem) => (
           <Route 
             key={navigationItem.label}
             exact={navigationItem.exact}
             path={navigationItem.path}
             render={() => (
-              <main className='pa4'>
-                <Heading level='1'>
-                  {navigationItem.label}
-                </Heading>
-                <navigationItem.component />
-              </main>
+              <Main title={navigationItem.label}>
+                {navigationItem.children}
+              </Main>
             )}
           />
         ))}
-        <Route component={RouteNotFound} />
+        <Route render={() => (
+          <RouteNotFound />
+        )} />
       </Switch>
 
     </div>
