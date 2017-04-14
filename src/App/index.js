@@ -7,14 +7,15 @@ import screenResources from './screenResources'
 import utilityResources from './utilityResources'
 import Navigation from './components/Navigation'
 import Main from './components/Main'
-import Usage from './components/Usage'
+import Readme from './components/Readme'
 import Directory from './components/Directory'
+import Contributing from './components/Contributing'
 
 const navigationItems = [
   {
-    label: 'Usage',
+    label: 'Readme',
     path: '/',
-    children: <Usage />,
+    children: <Readme />,
     exact: true,
   },
   {
@@ -31,6 +32,11 @@ const navigationItems = [
     label: 'Utilities',
     path: '/utils',
     children: <Directory resources={utilityResources} />,
+  },
+  {
+    label: 'Contributing',
+    path: '/contributing',
+    children: <Contributing />,
   },
 ]
 

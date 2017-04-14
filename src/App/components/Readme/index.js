@@ -3,7 +3,7 @@ import Heading from 'components/Heading'
 import Markdown from 'components/Markdown'
 import Paragraph from 'components/Paragraph'
 
-const Usage = () => (
+const Readme = () => (
   <section>
 
     <Heading level='2'>
@@ -33,4 +33,4 @@ const Usage = () => (
   </section>
 )
 
-export default Usage
+export default Readme

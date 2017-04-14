@@ -3,7 +3,7 @@
 ## Workflow
 
 - Ensure you have Git, Node, and Yarn installed
-- Clone this repo and `cd` into it
+- Clone the `egghead-ui` repo and `cd` into it
 - Create a feature branch off of `master`
 - `yarn` to install latest dependencies
 - `yarn dev:package` to develop the **package**
@@ -12,7 +12,7 @@
   - [localhost:2000](http://localhost:2000) to view the **app**
 - `yarn test` to run tests
 - `yarn lint` to run linting
-- Ensure any changed functionality is available in both the **package** and **app**
+- Ensure any changed functionality in `src/package/*` is updated in the related `src/App/*Resources` file(s)
 - Stage, commit, and push
 - If you want to publish a new **package** release, run `yarn bump` and type in the new version using [Semantic Versioning](http://semver.org/); this will bump the `package.json` version and push a new git tag
 - Submit a pull request for the feature branch to `master`
