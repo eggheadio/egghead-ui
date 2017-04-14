@@ -7,31 +7,27 @@ import screenResources from './screenResources'
 import utilityResources from './utilityResources'
 import Navigation from './components/Navigation'
 import Main from './components/Main'
-import RouteNotFound from './components/RouteNotFound'
 import Usage from './components/Usage'
 import Directory from './components/Directory'
 
 const navigationItems = [
   {
-    exact: true,
     label: 'Usage',
     path: '/',
     children: <Usage />,
+    exact: true,
   },
   {
-    exact: true,
     label: 'Components',
     path: '/components',
     children: <Directory resources={componentResources} />,
   },
   {
-    exact: true,
     label: 'Screens',
     path: '/screens',
     children: <Directory resources={screenResources} />,
   },
   {
-    exact: true,
     label: 'Utilities',
     path: '/utils',
     children: <Directory resources={utilityResources} />,
@@ -58,7 +54,9 @@ const App = () => (
           />
         ))}
         <Route render={() => (
-          <RouteNotFound />
+          <Main title='Route Not Found'>
+            Check your URL
+          </Main>
         )} />
       </Switch>
 

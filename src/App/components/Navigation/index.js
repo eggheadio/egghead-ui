@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import {NavLink} from 'react-router-dom'
 
 const Navigation = ({items}) => (
@@ -16,5 +16,14 @@ const Navigation = ({items}) => (
     ))}
   </nav>
 )
+
+Navigation.propTypes = {
+  items: PropTypes.arrayOf(React.PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
+    exact: PropTypes.bool,
+  })).isRequired,
+}
 
 export default Navigation
