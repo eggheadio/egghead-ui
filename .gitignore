@@ -1,9 +1,7 @@
-build
-lib
-storybook-static
-node_modules
+node_modules/
+lib/
+build/
 npm-debug.log
-.npmrc
 .DS_Store
 .tern-port
 /.idea

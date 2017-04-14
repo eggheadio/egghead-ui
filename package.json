@@ -4,15 +4,15 @@
   "description": "Components used across egghead projects",
   "scripts": {
     "dev:package": "yarn build:package -- -w",
-    "dev:app": "NODE_PATH=./src start-storybook -p 2000",
-    "test": "NODE_PATH=./src react-scripts test",
-    "lint": "NODE_PATH=./src eslint src",
-    "build:package": "NODE_PATH=./src babel src -d lib",
-    "build:app": "NODE_PATH=./src NODE_ENV=development build-storybook",
+    "dev:app": "NODE_PATH=./src/package react-scripts start",
+    "test": "NODE_PATH=./src/package react-scripts test",
+    "lint": "NODE_PATH=./src/package eslint src",
+    "build:package": "NODE_PATH=./src/package babel src/package -d lib",
+    "build:app": "NODE_PATH=./src/package NODE_ENV=development react-scripts build",
     "verify": "CI=true yarn test && yarn lint && yarn build:package && yarn build:app",
     "bump": "yarn version && git push && git push --tags",
     "prepublish": "yarn build:package",
-    "start": "NODE_PATH=./src react-scripts start"
+    "start": "NODE_PATH=./src/package react-scripts start"
   },
   "main": "lib/index.js",
   "files": [
@@ -33,14 +33,16 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "dependencies": {
-    "@kadira/storybook": "^2.5.2",
-    "axios": "^0.15.3",
+  "devDependencies": {
     "babel-cli": "^6.22.2",
     "babel-plugin-transform-class-properties": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-latest": "^6.22.0",
     "babel-preset-react": "^6.22.0",
+    "react-scripts": "^0.8.4"
+  },
+  "dependencies": {
+    "axios": "^0.15.3",
     "chart.js": "^2.5.0",
     "eslint": "^3.16.1",
     "format-number": "^2.0.2",
@@ -53,9 +55,6 @@
     "react-icons": "github:eggheadio/react-icons#3.0.2",
     "react-markdown": "^2.4.5",
     "react-router-dom": "^4.1.1",
-    "react-scripts": "^0.8.4",
-    "react-storybook-addon-info": "github:eggheadio/react-storybook-addon-info#4.0.4",
-    "react-storybook-addon-props-combinations": "^0.3.0",
     "react-tabs": "^0.8.2",
     "styled-components": "^1.4.3",
     "tachyons-egghead": "^2.3.1"
