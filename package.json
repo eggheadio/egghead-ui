@@ -45,6 +45,7 @@
     "axios": "^0.15.3",
     "chart.js": "^2.5.0",
     "eslint": "^3.16.1",
+    "faker": "^4.1.0",
     "format-number": "^2.0.2",
     "hex-rgba": "^1.0.1",
     "jwt-simple": "^0.5.1",

@@ -3,6 +3,7 @@ import {map, isArray} from 'lodash'
 import Heading from 'components/Heading'
 import Markdown from 'components/Markdown'
 import Anchor from 'components/Anchor'
+import Examples from './components/Examples'
 
 const Directory = ({resources}) => (
   <section>
@@ -55,11 +56,7 @@ const Directory = ({resources}) => (
         </div>
 
         <div className='mb3'>
-          <Heading level='3'>
-            Examples
-          </Heading>
-        </div>
-        <div className='mb4'>
+          <Examples createExamples={resource.createExamples} />
         </div>
 
       </section>
@@ -71,7 +68,7 @@ Directory.propTypes = {
   resources: PropTypes.arrayOf(React.PropTypes.shape({
     component: PropTypes.func.isRequired,
     types: PropTypes.object.isRequired,
-    examples: PropTypes.array.isRequired,
+    createExamples: PropTypes.func.isRequired,
   })).isRequired,
 }
 
