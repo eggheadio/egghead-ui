@@ -17,8 +17,7 @@ storiesOf('Tabs')
           title: stringFixture,
           component: NodeFixture
         }
-      ]}
-      />
+      ]} />
     )
   )
 
