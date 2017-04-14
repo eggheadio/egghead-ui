@@ -12,7 +12,7 @@
   - [localhost:2000](http://localhost:2000) to view the **app**
 - `yarn test` to run tests
 - `yarn lint` to run linting
-- Ensure any changed functionality in `src/package/*` is updated in the related `src/App/*Resources` file(s)
+- Ensure any changed functionality in `src/package/*` is updated in the related `src/App/utils/resources` file(s)
 - Stage, commit, and push
 - If you want to publish a new **package** release, run `yarn bump` and type in the new version using [Semantic Versioning](http://semver.org/); this will bump the `package.json` version and push a new git tag
 - Submit a pull request for the feature branch to `master`

@@ -1,7 +1,6 @@
-import React from 'react'
 import Anchor, {types as anchorTypes} from 'components/Anchor'
 
-const componentResources = [
+export const componentResources = [
   {
     component: Anchor,
     types: {
@@ -17,4 +16,8 @@ const componentResources = [
   },
 ]
 
-export default componentResources
+export const screenResources = [
+]
+
+export const utilityResources = [
+]
