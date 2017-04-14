@@ -8,6 +8,7 @@ import utilityResources from './utilityResources'
 import Navigation from './components/Navigation'
 import Main from './components/Main'
 import Readme from './components/Readme'
+import Colors from './components/Colors'
 import Directory from './components/Directory'
 import Contributing from './components/Contributing'
 
@@ -17,6 +18,11 @@ const navigationItems = [
     path: '/',
     children: <Readme />,
     exact: true,
+  },
+  {
+    label: 'Colors',
+    path: '/colors',
+    children: <Colors />,
   },
   {
     label: 'Components',

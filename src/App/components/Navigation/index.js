@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react'
 import {NavLink} from 'react-router-dom'
 
 const Navigation = ({items}) => (
-  <nav className='bg-base-secondary vh-100-ns'>
+  <nav className='bg-base-secondary'>
     {items.map((item) => (
       <NavLink
         key={item.label}
