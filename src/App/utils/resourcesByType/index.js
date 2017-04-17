@@ -7,7 +7,14 @@ import Anchor, {types as anchorTypes} from 'components/Anchor'
 import Avatar, {sizes as avatarSizes} from 'components/Avatar'
 import Button, {sizes as buttonSizes} from 'components/Button'
 import Card, {levels as cardLevels} from 'components/Card'
+import DeviceWidth from 'components/DeviceWidth'
+import Error from 'components/Error'
+import Heading, {levels as headingLevels} from 'components/Heading'
+import Icon, {types as iconTypes, sizes as iconSizes} from 'components/Icon'
+import IconLabel from 'components/IconLabel'
+import Image from 'components/Image'
 import InstructorRevenue from 'components/InstructorRevenue'
+import LayoutColumns from 'components/LayoutColumns'
 
 const getLoginUrl = () => (
   `${process.env.REACT_APP_EGGHEAD_BASE_URL}/users/jwt?return_to=${window.location.href}`
@@ -128,6 +135,90 @@ export const resourcesByType = {
         ],
       },
 
+      DeviceWidth: {
+        types: {
+          'children*': 'node',
+          'onWidthChange': 'func',
+        },
+        createExamples: () => [
+          <DeviceWidth>
+            {(screenSize) => <div>screenSize: {screenSize}</div>}
+          </DeviceWidth>,
+        ],
+      },
+
+      Error: {
+        types: {
+          'children*': 'string',
+        },
+        createExamples: () => [
+          <Error>
+            {lorem.sentence()}
+          </Error>,
+        ],
+      },
+
+      Heading: {
+        types: {
+          'children*': 'string',
+          'level': headingLevels,
+        },
+        createExamples: () => [
+          <Heading level={random.arrayElement(cardLevels)}>
+            {lorem.words()}
+          </Heading>,
+        ],
+      },
+
+      Icon: {
+        types: {
+          'type*': iconTypes,
+          'size': iconSizes,
+          'color': 'colors',
+        },
+        createExamples: () => [
+          <Icon type='add' />,
+          <Icon
+            type={random.arrayElement(iconTypes)}
+            size={random.arrayElement(iconSizes)}
+            color={random.arrayElement(colors)}
+          />,
+        ],
+      },
+
+      IconLabel: {
+        types: {
+          'iconType*': iconTypes,
+          'labelText*': 'string',
+          'color': 'colors',
+        },
+        createExamples: () => [
+          <IconLabel
+            iconType='add'
+            labelText={lorem.words()}
+          />,
+          <IconLabel
+            iconType={random.arrayElement(iconTypes)}
+            labelText={lorem.words()}
+            color={random.arrayElement(colors)}
+          />,
+        ],
+      },
+
+      Image: {
+        types: {
+          'src*': 'string',
+          'alt*': 'string',
+          'className': 'string',
+        },
+        createExamples: () => [
+          <Image 
+            src={random.image()}
+            alt={lorem.words()}
+          />,
+        ],
+      },
+
       InstructorRevenue: {
         types: {
           'revenueUrl*': 'string',
@@ -141,6 +232,35 @@ export const resourcesByType = {
               <InstructorRevenue revenueUrl={instructor.revenue_url} />
             )}
           </Authentication>,
+        ],
+      },
+
+      LayoutColumns: {
+        types: {
+          'items*': '[node]',
+          'relativeSizes': '[number]',
+        },
+        createExamples: () => [
+          <LayoutColumns 
+            items={[
+              createNodeExample(),
+              createNodeExample(),
+              createNodeExample(),
+            ]}
+          />,
+          <LayoutColumns 
+            items={[
+              createNodeExample(),
+              createNodeExample(),
+            ]}
+            relativeSizes={random.arrayElement([
+              [1, 1], 
+              [2, 1], 
+              [3, 1], 
+              [1, 2], 
+              [1, 3], 
+            ])}
+          />,
         ],
       },
 
