@@ -77,7 +77,7 @@ class Examples extends Component {
 
         <div className='bg-base-secondary pa3 br2 mb4'>
 
-          <div className='mb3'>
+          <div className='mb2'>
             <Heading level='5'>
               Screen Width
             </Heading>
@@ -98,7 +98,7 @@ class Examples extends Component {
             </div>
           </div>
 
-          <div className='mb3'>
+          <div className='mb2'>
             <Heading level='5'>
               Background
             </Heading>
