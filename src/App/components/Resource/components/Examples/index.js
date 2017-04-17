@@ -9,22 +9,22 @@ import {
 import Heading from 'components/Heading'
 import Button from 'components/Button'
 
-const screenWidthActions = [
+const containerWidthActions = [
   {
     label: 'Minimum',
-    screenWidth: minimumScreenWidth,
+    containerWidth: minimumScreenWidth,
   },
   {
     label: 'Small',
-    screenWidth: smallScreenWidth,
+    containerWidth: smallScreenWidth,
   },
   {
     label: 'Large',
-    screenWidth: largeScreenWidth,
+    containerWidth: largeScreenWidth,
   },
   {
     label: 'XLarge',
-    screenWidth: xlargeScreenWidth,
+    containerWidth: xlargeScreenWidth,
   },
 ]
 
@@ -42,7 +42,7 @@ const backgroundActions = [
 class Examples extends Component {
 
   state = {
-    screenWidth: minimumScreenWidth,
+    containerWidth: minimumScreenWidth,
     background: 'dark',
     examples: false,
   }
@@ -51,9 +51,9 @@ class Examples extends Component {
     this.handleCreateExamples()
   }
 
-  handleScreenWidthChange = (screenWidth) => {
+  handleContainerWidthChange = (containerWidth) => {
     this.setState({
-      screenWidth,
+      containerWidth,
     })
   }
 
@@ -70,7 +70,7 @@ class Examples extends Component {
   }
 
   render() {
-    const {screenWidth, background, examples} = this.state
+    const {containerWidth, background, examples} = this.state
 
     return (
       <section>
@@ -79,16 +79,16 @@ class Examples extends Component {
 
           <div className='mb2'>
             <Heading level='5'>
-              Screen Width
+              Container Width
             </Heading>
             <div className='flex flex-wrap'>
-              {map(screenWidthActions, action => (
+              {map(containerWidthActions, action => (
                 <div 
                   key={action.label}
                   className='mr3 mb3'
                 >
                   <Button 
-                    onClick={this.handleScreenWidthChange.bind(null, action.screenWidth)}
+                    onClick={this.handleContainerWidthChange.bind(null, action.containerWidth)}
                     size='extra-small'
                   >
                     {action.label}
@@ -146,7 +146,7 @@ class Examples extends Component {
                   ${background === 'light' ? 'bg-gray' : 'bg-base'}
                 `}
                 style={{
-                  width: screenWidth,
+                  width: containerWidth,
                 }}
               >
                 {example}

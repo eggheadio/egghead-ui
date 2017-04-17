@@ -1,19 +1,22 @@
 import React, {PropTypes} from 'react'
 import {map} from 'lodash'
+import {minimumScreenWidth} from 'utils/hardCodedSizes'
 
 const LayoutColumns = ({items, relativeSizes}) => (
-  <div className='flex-l'>
+  <div className='flex flex-wrap'>
     {map(items, (item, index) => (
       <div
         key={index}
         className={`
           mb4
-          ${index < items.length - 1 ? 'mr4-l' : ''}
+          ${index < items.length - 1 ? 'mr4' : ''}
         `}
         style={{
-          flex: relativeSizes
+          flexGrow: relativeSizes
             ? relativeSizes[index]
-            : 1
+            : 1,
+          flexShrink: 0,
+          flexBasis: minimumScreenWidth - 100,
         }}
       >
         {item}

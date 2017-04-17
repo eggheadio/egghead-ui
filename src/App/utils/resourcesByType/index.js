@@ -21,7 +21,7 @@ const getLoginUrl = () => (
 )
 
 const createNodeExample = () => random.arrayElement([
-  <div className='pa4'>
+  <div>
     <div>
       <Avatar
         name={name.firstName()}
