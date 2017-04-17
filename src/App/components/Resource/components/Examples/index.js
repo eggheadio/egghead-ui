@@ -28,14 +28,14 @@ const containerWidthActions = [
   },
 ]
 
-const backgroundActions = [
+const containerBackgroundActions = [
   {
     label: 'Dark',
-    background: 'dark',
+    containerBackground: 'dark',
   },
   {
     label: 'Light',
-    background: 'light',
+    containerBackground: 'light',
   },
 ]
 
@@ -43,7 +43,7 @@ class Examples extends Component {
 
   state = {
     containerWidth: minimumScreenWidth,
-    background: 'dark',
+    containerBackground: 'dark',
     examples: false,
   }
 
@@ -57,9 +57,9 @@ class Examples extends Component {
     })
   }
 
-  handleBackgroundChange = (background) => {
+  handleBackgroundChange = (containerBackground) => {
     this.setState({
-      background,
+      containerBackground,
     })
   }
 
@@ -70,7 +70,7 @@ class Examples extends Component {
   }
 
   render() {
-    const {containerWidth, background, examples} = this.state
+    const {containerWidth, containerBackground, examples} = this.state
 
     return (
       <section>
@@ -100,16 +100,16 @@ class Examples extends Component {
 
           <div className='mb2'>
             <Heading level='5'>
-              Background
+              Container Background
             </Heading>
             <div className='flex flex-wrap'>
-              {map(backgroundActions, action => (
+              {map(containerBackgroundActions, action => (
                 <div 
                   key={action.label}
                   className='mr3 mb3'
                 >
                   <Button 
-                    onClick={this.handleBackgroundChange.bind(null, action.background)}
+                    onClick={this.handleBackgroundChange.bind(null, action.containerBackground)}
                     size='extra-small'
                   >
                     {action.label}
@@ -143,7 +143,7 @@ class Examples extends Component {
                 className={`
                   dib
                   b--solid b--base-secondary bw2
-                  ${background === 'light' ? 'bg-gray' : 'bg-base'}
+                  ${containerBackground === 'light' ? 'bg-gray' : 'bg-base'}
                 `}
                 style={{
                   width: containerWidth,

@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import {map, isArray} from 'lodash'
+import {map, isArray, size} from 'lodash'
 import {Link} from 'react-router-dom'
 import Tabs from 'components/Tabs'
 import Markdown from 'components/Markdown'
@@ -26,32 +26,35 @@ const Resource = ({name, resource}) => (
             </Markdown>
 
             <div className='mv4 flex-ns flex-wrap-ns'>
-              {map(resource.types, (value, key) => (
-                <div 
-                  key={key}
-                  className='mb4 mr5-ns'
-                >
-                  <div className='white mb1'>
-                    {key}
-                  </div>
-                  <div>
-                    {isArray(value)
-                      ? <div>
-                          {map(value, x => (
-                            <div key={x}>
-                              '{x}'
+              {size(resource.types) > 0
+                ? map(resource.types, (value, key) => (
+                    <div 
+                      key={key}
+                      className='mb4 mr5-ns'
+                    >
+                      <div className='white mb1'>
+                        {key}
+                      </div>
+                      <div>
+                        {isArray(value)
+                          ? <div>
+                              {map(value, x => (
+                                <div key={x}>
+                                  '{x}'
+                                </div>
+                              ))}
                             </div>
-                          ))}
-                        </div>
-                      : value === 'colors'
-                        ? <Link to='/colors'>
-                            colors
-                          </Link>
-                        : value
-                    }
-                  </div>
-                </div>
-              ))}
+                          : value === 'colors'
+                            ? <Link to='/colors'>
+                                colors
+                              </Link>
+                            : value
+                        }
+                      </div>
+                    </div>
+                  ))
+                : <div>No prop types</div>
+              }
             </div>
 
           </div>

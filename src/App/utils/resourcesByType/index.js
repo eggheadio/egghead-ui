@@ -15,6 +15,8 @@ import IconLabel from 'components/IconLabel'
 import Image from 'components/Image'
 import InstructorRevenue from 'components/InstructorRevenue'
 import LayoutColumns from 'components/LayoutColumns'
+import List from 'components/List'
+import Loading from 'components/Loading'
 
 const getLoginUrl = () => (
   `${process.env.REACT_APP_EGGHEAD_BASE_URL}/users/jwt?return_to=${window.location.href}`
@@ -261,6 +263,28 @@ export const resourcesByType = {
               [1, 3], 
             ])}
           />,
+        ],
+      },
+
+      List: {
+        types: {
+          'items*': '[node]',
+        },
+        createExamples: () => [
+          <List items={[
+            createNodeExample(),
+            createNodeExample(),
+            createNodeExample(),
+            createNodeExample(),
+            createNodeExample(),
+          ]} />,
+        ],
+      },
+
+      Loading: {
+        types: {},
+        createExamples: () => [
+          <Loading />,
         ],
       },
 
