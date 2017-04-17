@@ -143,7 +143,7 @@ class Examples extends Component {
                 className={`
                   dib
                   b--solid b--base-secondary bw2
-                  ${background === 'light' ? 'bg-white' : 'bg-base'}
+                  ${background === 'light' ? 'bg-gray' : 'bg-base'}
                 `}
                 style={{
                   width: screenWidth,
