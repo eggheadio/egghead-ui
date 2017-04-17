@@ -28,21 +28,27 @@ const screenWidthActions = [
   },
 ]
 
+const backgroundActions = [
+  {
+    label: 'Dark',
+    background: 'dark',
+  },
+  {
+    label: 'Light',
+    background: 'light',
+  },
+]
+
 class Examples extends Component {
 
   state = {
-    examples: false,
     screenWidth: minimumScreenWidth,
+    background: 'dark',
+    examples: false,
   }
 
   componentWillMount = () => {
     this.handleCreateExamples()
-  }
-
-  handleCreateExamples = () => {
-    this.setState({
-      examples: this.props.createExamples(),
-    })
   }
 
   handleScreenWidthChange = (screenWidth) => {
@@ -51,8 +57,21 @@ class Examples extends Component {
     })
   }
 
+  handleBackgroundChange = (background) => {
+    this.setState({
+      background,
+    })
+  }
+
+  handleCreateExamples = () => {
+    this.setState({
+      examples: this.props.createExamples(),
+    })
+  }
+
   render() {
-    const {screenWidth, examples} = this.state
+    const {screenWidth, background, examples} = this.state
+
     return (
       <section>
 
@@ -70,6 +89,27 @@ class Examples extends Component {
                 >
                   <Button 
                     onClick={this.handleScreenWidthChange.bind(null, action.screenWidth)}
+                    size='extra-small'
+                  >
+                    {action.label}
+                  </Button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className='mb3'>
+            <Heading level='5'>
+              Background
+            </Heading>
+            <div className='flex flex-wrap'>
+              {map(backgroundActions, action => (
+                <div 
+                  key={action.label}
+                  className='mr3 mb3'
+                >
+                  <Button 
+                    onClick={this.handleBackgroundChange.bind(null, action.background)}
                     size='extra-small'
                   >
                     {action.label}
@@ -100,7 +140,11 @@ class Examples extends Component {
               className='mb4'
             >
               <div 
-                className='dib b--solid b--base-secondary bw2'
+                className={`
+                  dib
+                  b--solid b--base-secondary bw2
+                  ${background === 'light' ? 'bg-white' : 'bg-base'}
+                `}
                 style={{
                   width: screenWidth,
                 }}
