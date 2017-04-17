@@ -1,13 +1,14 @@
 import 'tachyons-egghead'
 import React from 'react'
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import {map} from 'lodash'
-import {componentResources, screenResources, utilityResources} from './utils/resources'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import resourcesByType from './utils/resourcesByType'
 import Navigation from './components/Navigation'
 import Main from './components/Main'
 import Readme from './components/Readme'
 import Colors from './components/Colors'
-import Directory from './components/Directory'
+import ResourceDirectory from './components/ResourceDirectory'
+import Resource from './components/Resource'
 import Contributing from './components/Contributing'
 
 const navigationItems = [
@@ -24,18 +25,18 @@ const navigationItems = [
   },
   {
     label: 'Components',
-    path: '/components',
-    children: <Directory resources={componentResources} />,
+    path: resourcesByType['components'].urlBase,
+    children: <ResourceDirectory resources={resourcesByType['components']} />,
   },
   {
     label: 'Screens',
-    path: '/screens',
-    children: <Directory resources={screenResources} />,
+    path: resourcesByType['screens'].urlBase,
+    children: <ResourceDirectory resources={resourcesByType['screens']} />,
   },
   {
     label: 'Utilities',
-    path: '/utils',
-    children: <Directory resources={utilityResources} />,
+    path: resourcesByType['utilities'].urlBase,
+    children: <ResourceDirectory resources={resourcesByType['utilities']} />,
   },
   {
     label: 'Contributing',
@@ -51,6 +52,28 @@ const App = () => (
       <Navigation items={navigationItems} />
 
       <Switch>
+
+        {map(resourcesByType, (value, key) => {
+          const resources = resourcesByType[key]
+          return (
+            <Route 
+              key={key}
+              path={`${resources.urlBase}/:name`}
+              render={({match}) => {
+                const {name} = match.params
+                return (
+                  <Main title={name}>
+                    <Resource 
+                      name={name}
+                      resource={resources.items[name]}
+                    />
+                  </Main>
+                )
+              }}
+            />
+          )
+        })}
+
         {map(navigationItems, (navigationItem) => (
           <Route 
             key={navigationItem.label}
@@ -63,11 +86,13 @@ const App = () => (
             )}
           />
         ))}
+
         <Route render={() => (
           <Main title='Route Not Found'>
             Check your URL
           </Main>
         )} />
+
       </Switch>
 
     </div>

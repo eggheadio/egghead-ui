@@ -21,8 +21,6 @@ Navigation.propTypes = {
   items: PropTypes.arrayOf(React.PropTypes.shape({
     label: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
-    children: PropTypes.node.isRequired,
-    exact: PropTypes.bool,
   })).isRequired,
 }
 

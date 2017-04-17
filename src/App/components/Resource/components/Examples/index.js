@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {map} from 'lodash'
-import Heading from 'components/Heading'
 import Button from 'components/Button'
 
 class Examples extends Component {
@@ -24,18 +23,13 @@ class Examples extends Component {
     return (
       <section>
 
-        <div className='mb3'>
-          <Heading level='3'>
-            Examples
-          </Heading>
-          <div className='mv4'>
-            <Button 
-              onClick={this.createExamples}
-              size='extra-small'
-            >
-              Randomize Prop Values
-            </Button>
-          </div>
+        <div className='mb4'>
+          <Button 
+            onClick={this.createExamples}
+            size='extra-small'
+          >
+            Randomize Prop Values
+          </Button>
         </div>
 
         <div className='mb4'>
