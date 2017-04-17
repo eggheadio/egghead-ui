@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react'
 import {map, isArray} from 'lodash'
+import {Link} from 'react-router-dom'
 import Tabs from 'components/Tabs'
 import Markdown from 'components/Markdown'
-import Anchor from 'components/Anchor'
 import Examples from './components/Examples'
 
 const Resource = ({name, resource}) => (
@@ -44,9 +44,9 @@ const Resource = ({name, resource}) => (
                           ))}
                         </div>
                       : value === 'colors'
-                        ? <Anchor url='/colors'>
+                        ? <Link to='/colors'>
                             colors
-                          </Anchor>
+                          </Link>
                         : value
                     }
                   </div>

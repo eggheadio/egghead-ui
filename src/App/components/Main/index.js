@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react'
 import Heading from 'components/Heading'
 
 const Main = ({children, title}) => (
-  <main className='pa4 min-vh-100-ns w-100 mw9'>
+  <main className='pa4 min-vh-100-ns w-100 mw8'>
     <Heading level='1'>
       {title}
     </Heading>
