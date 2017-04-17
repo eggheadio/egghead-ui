@@ -7,7 +7,7 @@ import Anchor, {types as anchorTypes} from 'components/Anchor'
 import InstructorRevenue from 'components/InstructorRevenue'
 
 const getLoginUrl = () => (
-  `https://egghead-io-staging.com/users/jwt?return_to=${window.location.href}`
+  `${process.env.REACT_APP_EGGHEAD_BASE_URL}/users/jwt?return_to=${window.location.href}`
 )
 
 export const resourcesByType = {
