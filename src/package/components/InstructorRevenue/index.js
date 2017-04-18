@@ -39,14 +39,17 @@ const InstructorRevenue = ({revenueUrl}) => (
               <ContainerWidth>
                 {(containerWidth) => (
                   <Card>
-                    <div className='tc tl-l flex-l justify-between-l'>
+                    <div className={containerWidth === 'small'
+                      ? 'tc'
+                      : 'tl flex justify-between'
+                    }>
 
                       <div 
-                        className='pa5 nowrap-l'
+                        className={`pa5 ${containerWidth === 'small' ? '' : 'nowrap'}`}
                         style={{
-                          boxShadow: containerWidth === 'large'
-                            ? '10px 0px 25px -10px rgba(35,45,59, 0.1)'
-                            : '0px 25px 25px -25px rgba(35,45,59, 0.1)',
+                          boxShadow: containerWidth === 'small'
+                            ? '0px 25px 25px -25px rgba(35,45,59, 0.1)'
+                            : '10px 0px 25px -10px rgba(35,45,59, 0.1)',
                         }}
                       >
 
@@ -69,7 +72,7 @@ const InstructorRevenue = ({revenueUrl}) => (
                       <div className='w-100 pa3'>
                         <div 
                           onClick={handleOpenToggleClick}
-                          className='dark-gray-secondary ttl f6 pa2 tr-l'
+                          className={`dark-gray-secondary ttl f6 pa2 ${containerWidth === 'small' ? '' : 'tr'}`}
                         >
                           <span className={`${isOpen ? '' : activeLabelClassName} mr2`}>
                             Revenue

@@ -1,5 +1,5 @@
 import React, {PropTypes, Component} from 'react'
-import elementResizeEvent from 'element-resize-event'
+import elementResizeEvent, {unbind} from 'element-resize-event'
 import {
   mediumContainerWidth,
   largeContainerWidth,
@@ -14,12 +14,11 @@ export default class DeviceWidth extends Component {
 
   componentDidMount = () => {
     this.handleWidthChange()
-    window.onresize = this.handleWidthChange
     elementResizeEvent(this.refs.container, this.handleWidthChange)
   }
 
   componentWillUnmount = () => {
-    elementResizeEvent(this.refs.container, null)
+    unbind(this.refs.container)
   }
 
   handleWidthChange = () => {

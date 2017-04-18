@@ -7,8 +7,6 @@ import numberFormattingByType from 'utils/numberFormattingByType'
 const tooltipColor = '#63768d' // # dark-gray
 
 const sharedOptions = (currency) => ({
-  responsive: true,
-  maintainAspectRatio: false,
   legend: {
     display: false,
   },

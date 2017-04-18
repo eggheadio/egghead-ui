@@ -25,12 +25,16 @@ const Resource = ({name, resource}) => (
               {`\`import {${name}} from 'egghead-ui'\``}
             </Markdown>
 
-            <div className='mv4 flex-ns flex-wrap-ns'>
+            <div className='mv4 flex flex-wrap justify-start'>
               {size(resource.types) > 0
                 ? map(resource.types, (value, key) => (
                     <div 
                       key={key}
-                      className='mb4 mr5-ns'
+                      className='mb4 mr4'
+                      style={{
+                        minWidth: 100,
+                        maxWidth: 200,
+                      }}
                     >
                       <div className='white mb1'>
                         {key}
