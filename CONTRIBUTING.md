@@ -93,7 +93,7 @@ Latest JS syntax is used where it makes sense. [Lodash](lodash.com) methods are 
 
 ### Styles
 
-The root egghead-ui components are used wherever possible. Styling is largely taken care of by these components. When app specific styles are needed beyond that, `tachyons-egghead` classes are used where possible. Styles are added to work on mobile first; the tachyons `*-ns` (not small) and `*-l` (large only) classes are appended to override/extend styles for large screen sizes. When more customization is needed, `styled-components` is used.
+The root egghead-ui components are used wherever possible. Styling is largely taken care of by these components. When app specific styles are needed beyond that, `tachyons-egghead` classes are used where possible. Styles are added to work on mobile first based on the container size (using flex wrap with flex values or `<ContainerWidth>`). When more customization is needed, `styled-components` is used.
 
 ### Linting
 

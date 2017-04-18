@@ -4,7 +4,7 @@ import Card from 'components/Card'
 import Maybe from 'components/Maybe'
 import Request from 'components/Request'
 import Open from 'components/Open'
-import DeviceWidth from 'components/DeviceWidth'
+import ContainerWidth from 'components/ContainerWidth'
 import currentMonthStartDate from './utils/currentMonthStartDate'
 import totalRevenue from './utils/totalRevenue'
 import removeRevenueMonth from './utils/removeRevenueMonth'
@@ -36,15 +36,15 @@ const InstructorRevenue = ({revenueUrl}) => (
         return (
           <Open>
             {({isOpen, handleOpenToggleClick}) => (
-              <DeviceWidth>
-                {(screenSize) => (
+              <ContainerWidth>
+                {(containerWidth) => (
                   <Card>
                     <div className='tc tl-l flex-l justify-between-l'>
 
                       <div 
                         className='pa5 nowrap-l'
                         style={{
-                          boxShadow: screenSize === 'large'
+                          boxShadow: containerWidth === 'large'
                             ? '10px 0px 25px -10px rgba(35,45,59, 0.1)'
                             : '0px 25px 25px -25px rgba(35,45,59, 0.1)',
                         }}
@@ -109,7 +109,7 @@ const InstructorRevenue = ({revenueUrl}) => (
                     </div>
                   </Card>
                 )}
-              </DeviceWidth>
+              </ContainerWidth>
             )}
           </Open>
         )

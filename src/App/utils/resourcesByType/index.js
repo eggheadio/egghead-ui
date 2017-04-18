@@ -7,7 +7,7 @@ import Anchor, {types as anchorTypes} from 'components/Anchor'
 import Avatar, {sizes as avatarSizes} from 'components/Avatar'
 import Button, {sizes as buttonSizes} from 'components/Button'
 import Card, {levels as cardLevels} from 'components/Card'
-import DeviceWidth from 'components/DeviceWidth'
+import ContainerWidth from 'components/ContainerWidth'
 import Error from 'components/Error'
 import Heading, {levels as headingLevels} from 'components/Heading'
 import Icon, {types as iconTypes, sizes as iconSizes} from 'components/Icon'
@@ -137,15 +137,15 @@ export const resourcesByType = {
         ],
       },
 
-      DeviceWidth: {
+      ContainerWidth: {
         types: {
           'children*': 'node',
           'onWidthChange': 'func',
         },
         createExamples: () => [
-          <DeviceWidth>
-            {(screenSize) => <div>screenSize: {screenSize}</div>}
-          </DeviceWidth>,
+          <ContainerWidth>
+            {(containerWidth) => <div>containerWidth: {containerWidth}</div>}
+          </ContainerWidth>,
         ],
       },
 

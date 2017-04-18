@@ -46,6 +46,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "chart.js": "^2.5.0",
+    "element-resize-event": "^2.0.9",
     "eslint": "^3.16.1",
     "faker": "^4.1.0",
     "format-number": "^2.0.2",

@@ -1,6 +1,6 @@
-export const minimumScreenWidth = 320
-export const smallScreenWidth = 640
-export const largeScreenWidth = 992
-export const xlargeScreenWidth = 1700
+export const smallContainerWidth = 320
+export const mediumContainerWidth = 640
+export const largeContainerWidth = 992
+export const xlargeContainerWidth = 1700
 
 export const navigationWidth = 200

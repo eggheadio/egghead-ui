@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react'
 import {map} from 'lodash'
-import {minimumScreenWidth} from 'utils/hardCodedSizes'
+import {smallContainerWidth} from 'utils/hardCodedSizes'
 
 const LayoutColumns = ({items, relativeSizes}) => (
   <div className='flex flex-wrap'>
@@ -16,7 +16,7 @@ const LayoutColumns = ({items, relativeSizes}) => (
             ? relativeSizes[index]
             : 1,
           flexShrink: 0,
-          flexBasis: minimumScreenWidth - 100,
+          flexBasis: smallContainerWidth - 100,
         }}
       >
         {item}

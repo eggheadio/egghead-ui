@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {detailsByLessonState} from 'utils/lessonStates'
-import {minimumScreenWidth} from 'utils/hardCodedSizes'
+import {smallContainerWidth} from 'utils/hardCodedSizes'
 import Maybe from 'components/Maybe'
 import Heading from 'components/Heading'
 import Image from 'components/Image'
@@ -14,7 +14,9 @@ export default ({lesson, requestCurrentPage}) => (
     <div 
       className='pa4 flex'
       style={{
-        flex: `1 0 ${minimumScreenWidth}px`,
+        flexGrow: 1,
+        flexShrink: 0,
+        flexBasis: smallContainerWidth,
       }}
     >
 
@@ -67,7 +69,9 @@ export default ({lesson, requestCurrentPage}) => (
     </div>
 
     <div style={{
-      flex: `1 0 ${minimumScreenWidth}px`,
+      flexGrow: 1,
+      flexShrink: 0,
+      flexBasis: smallContainerWidth,
     }}>
       <LessonActions 
         lesson={lesson} 

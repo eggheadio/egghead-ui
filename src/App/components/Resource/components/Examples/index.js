@@ -1,30 +1,30 @@
 import React, {Component} from 'react'
 import {map} from 'lodash'
 import {
-  minimumScreenWidth, 
-  smallScreenWidth,
-  largeScreenWidth,
-  xlargeScreenWidth,
+  smallContainerWidth,
+  mediumContainerWidth,
+  largeContainerWidth,
+  xlargeContainerWidth,
 } from 'utils/hardCodedSizes'
 import Heading from 'components/Heading'
 import Button from 'components/Button'
 
 const containerWidthActions = [
   {
-    label: 'Minimum',
-    containerWidth: minimumScreenWidth,
+    label: 'Small',
+    containerWidth: smallContainerWidth,
   },
   {
-    label: 'Small',
-    containerWidth: smallScreenWidth,
+    label: 'Medium',
+    containerWidth: mediumContainerWidth,
   },
   {
     label: 'Large',
-    containerWidth: largeScreenWidth,
+    containerWidth: largeContainerWidth,
   },
   {
     label: 'XLarge',
-    containerWidth: xlargeScreenWidth,
+    containerWidth: xlargeContainerWidth,
   },
 ]
 
@@ -39,10 +39,12 @@ const containerBackgroundActions = [
   },
 ]
 
+const containerBoxSizing = 8
+
 class Examples extends Component {
 
   state = {
-    containerWidth: minimumScreenWidth,
+    containerWidth: smallContainerWidth,
     containerBackground: 'dark',
     examples: false,
   }
@@ -146,7 +148,7 @@ class Examples extends Component {
                   ${containerBackground === 'light' ? 'bg-gray' : 'bg-base'}
                 `}
                 style={{
-                  width: containerWidth,
+                  width: containerWidth + containerBoxSizing,
                 }}
               >
                 {example}
