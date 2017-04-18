@@ -35,6 +35,11 @@ const sharedOptions = (currency) => ({
     bodyFontColor: tooltipColor,
     bodyFontStyle: 'bold',
   },
+  layout: {
+    padding: {
+      top: 5,
+    },
+  },
 })
 
 const sharedData = (color) => ({
@@ -58,7 +63,7 @@ const sharedData = (color) => ({
 })
 
 export default ({xAxis, yAxis, currency = false}) => (
-  <div className='w-100 h-100'>
+  <div className='w-100'>
     <Line 
       options={sharedOptions(currency)}
       data={{

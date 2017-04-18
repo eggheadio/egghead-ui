@@ -69,7 +69,8 @@ const InstructorRevenue = ({revenueUrl}) => (
 
                       </div>
 
-                      <div className='w-100 pa3'>
+                      <div className='w-100 pa3 flex flex-column justify-between'>
+
                         <div 
                           onClick={handleOpenToggleClick}
                           className={`dark-gray-secondary ttl f6 pa2 ${containerWidth === 'small' ? '' : 'tr'}`}
@@ -84,9 +85,10 @@ const InstructorRevenue = ({revenueUrl}) => (
                             Minutes
                           </span>
                         </div>
+
                         {isOpen
                           ? <LineChart
-                              key='minutes'
+                              key={`minutes-${containerWidth}`}
                               xAxis={currentMonthNames}
                               yAxis={[
                                 {
@@ -96,7 +98,7 @@ const InstructorRevenue = ({revenueUrl}) => (
                               ]}
                             />
                           : <LineChart
-                              key='revenue'
+                              key={`revenue-${containerWidth}`}
                               xAxis={currentMonthNames}
                               yAxis={[
                                 {
@@ -107,6 +109,7 @@ const InstructorRevenue = ({revenueUrl}) => (
                               currency
                             />
                         }
+
                       </div>
 
                     </div>
