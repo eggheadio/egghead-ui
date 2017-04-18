@@ -1,19 +1,11 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import axios from 'axios'
-import {first} from 'lodash'
 import Error from 'components/Error'
 import Loading from 'components/Loading'
 
 const http = axios.create()
 
-const methods = [
-  'get',
-  'post',
-  'put',
-  'delete',
-]
-
-export default class Request extends Component {
+class RequestBase extends Component {
 
   state = {
     running: !this.props.lazy,
@@ -135,24 +127,4 @@ export default class Request extends Component {
   }
 }
 
-Request.propTypes = {
-  children: PropTypes.func.isRequired,
-  url: PropTypes.string.isRequired,
-  params: PropTypes.object,
-  headers: PropTypes.object,
-  body: PropTypes.object,
-  lazy: PropTypes.bool,
-  onResponse: PropTypes.func,
-  onData: PropTypes.func,
-  onError: PropTypes.func,
-  placeholder: PropTypes.node,
-  method: PropTypes.oneOf(methods),
-  subscribe: PropTypes.bool,
-  subscribeInterval: PropTypes.number,
-}
-
-Request.defaultProps = {
-  method: first(methods),
-  subscribe: false,
-  subscribeInterval: 10000,
-}
+export default RequestBase

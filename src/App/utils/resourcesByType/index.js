@@ -17,6 +17,15 @@ import InstructorRevenue from 'components/InstructorRevenue'
 import LayoutColumns from 'components/LayoutColumns'
 import List from 'components/List'
 import Loading from 'components/Loading'
+import Markdown from 'components/Markdown'
+import Maybe from 'components/Maybe'
+import Open from 'components/Open'
+import Paragraph, {types as paragraphTypes} from 'components/Paragraph'
+import Prompt from 'components/Prompt'
+import Request, {methods as requestMethods} from 'components/Request'
+import Tabs from 'components/Tabs'
+import TitleCard from 'components/TitleCard'
+import Toggle, {selectedItems as toggleSelectedItems} from 'components/Toggle'
 
 const getLoginUrl = () => (
   `${process.env.REACT_APP_EGGHEAD_BASE_URL}/users/jwt?return_to=${window.location.href}`
@@ -139,7 +148,7 @@ export const resourcesByType = {
 
       ContainerWidth: {
         types: {
-          'children*': 'node',
+          'children*': 'func',
           'onWidthChange': 'func',
         },
         createExamples: () => [
@@ -285,6 +294,205 @@ export const resourcesByType = {
         types: {},
         createExamples: () => [
           <Loading />,
+        ],
+      },
+
+      Markdown: {
+        types: {
+          'children*': 'string',
+        },
+        createExamples: () => [
+          <Markdown>
+            {`${lorem.words()} \`${lorem.word()}\` **${lorem.words()}**`}
+          </Markdown>,
+        ],
+      },
+
+      Maybe: {
+        types: {
+          'children*': 'node',
+          'condition*': 'bool',
+        },
+        createExamples: () => [
+          <Maybe condition={random.boolean()}>
+            {createNodeExample()}
+          </Maybe>,
+        ],
+      },
+
+      Open: {
+        types: {
+          'children*': 'func',
+        },
+        createExamples: () => [
+          <Open>
+            {({isOpen, handleOpenToggleClick}) => (
+              <div>
+                <div className='mb3'>
+                  isOpen: {`${isOpen}`}
+                </div>
+                <Button 
+                  onClick={handleOpenToggleClick}
+                  color='dark-gray'
+                  size='extra-small'
+                >
+                  Example click handler
+                </Button>
+              </div>
+            )}
+          </Open>
+        ],
+      },
+
+      Paragraph: {
+        types: {
+          'children*': 'string',
+          'type': paragraphTypes,
+        },
+        createExamples: () => [
+          <Paragraph>
+            {lorem.paragraph()}
+          </Paragraph>,
+          <Paragraph type={random.arrayElement(paragraphTypes)}>
+            {lorem.paragraph()}
+          </Paragraph>
+        ],
+      },
+
+      Prompt: {
+        types: {
+          'description*': 'string',
+          'actionText*': 'string',
+          'action*': 'string',
+        },
+        createExamples: () => [
+          <Prompt
+            description={lorem.sentence()}
+            actionText={lorem.words()}
+            action={internet.url()}
+          />,
+        ],
+      },
+
+      Request: {
+        types: {
+          'children*': 'func',
+          'url*': 'string',
+          'lazy': 'bool',
+          'placeholder': 'node',
+          'params': 'object',
+          'headers': 'object',
+          'body': 'object',
+          'onResponse': 'func',
+          'onData': 'func',
+          'onError': 'func',
+          'method': requestMethods,
+          'subscribe': 'bool',
+          'subscribeInterval': 'number'
+        },
+        createExamples: () => [
+          <Request url='https://jsonplaceholder.typicode.com/users'>
+            {({data}) => (
+              <div>
+                {JSON.stringify(data, null, 2)}
+              </div>
+            )}
+          </Request>,
+          <Request url='https://error'>
+            {({data}) => (
+              <div>
+                {JSON.stringify(data, null, 2)}
+              </div>
+            )}
+          </Request>,
+          <Request 
+            url='https://jsonplaceholder.typicode.com/users'
+            placeholder={createNodeExample()}
+          >
+            {({data}) => (
+              <div>
+                {JSON.stringify(data, null, 2)}
+              </div>
+            )}
+          </Request>,
+          <Request
+            lazy
+            url='https://jsonplaceholder.typicode.com/users'
+          >
+            {({request, data}) => data
+              ? <div>
+                  {JSON.stringify(data, null, 2)}
+                </div>
+              : <a onClick={() => request()}>
+                  Example click handler
+                </a>
+            }
+          </Request>
+        ],
+      },
+
+      Tabs: {
+        types: {
+          'groups*': '{title: string, component: node}',
+        },
+        createExamples: () => [
+          <Tabs groups={[
+            {
+              title: lorem.words(),
+              component: createNodeExample(),
+            },
+            {
+              title: lorem.words(),
+              component: createNodeExample(),
+            },
+            {
+              title: lorem.words(),
+              component: createNodeExample(),
+            },
+          ]} />,
+        ],
+      },
+
+      TitleCard: {
+        types: {
+          'children*': 'node',
+          'title*': 'string',
+          'description': 'string',
+          'intro': 'node',
+          'subtle': 'bool',
+        },
+        createExamples: () => [
+          <TitleCard title={lorem.words()}>
+            {createNodeExample()}
+          </TitleCard>,
+          <TitleCard 
+            title={lorem.words()}
+            description={lorem.sentence()}
+            intro={createNodeExample()}
+            subtle={random.boolean()}
+          >
+            {createNodeExample()}
+          </TitleCard>,
+        ],
+      },
+
+      Toggle: {
+        types: {
+          'leftOption*': 'string',
+          'rightOption*': 'string',
+          'onClick': 'func',
+          'selectedItem': toggleSelectedItems,
+        },
+        createExamples: () => [
+          <Toggle
+            leftOption={lorem.word()}
+            rightOption={lorem.word()}
+          />,
+          <Toggle
+            leftOption={lorem.word()}
+            rightOption={lorem.word()}
+            selectedItem={random.arrayElement(toggleSelectedItems)}
+          />,
         ],
       },
 

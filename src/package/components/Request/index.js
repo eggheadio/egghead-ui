@@ -1,7 +1,14 @@
-import React, {Component} from 'react'
-import {includes} from 'lodash'
+import React, {Component, PropTypes} from 'react'
+import {includes, first} from 'lodash'
 import {logout} from 'utils/authentication'
 import RequestBase from './components/RequestBase'
+
+export const methods = [
+  'get',
+  'post',
+  'put',
+  'delete',
+]
 
 class Request extends Component {
 
@@ -43,6 +50,28 @@ class Request extends Component {
       </RequestBase>
     )
   }
+}
+
+Request.propTypes = {
+  children: PropTypes.func.isRequired,
+  url: PropTypes.string.isRequired,
+  lazy: PropTypes.bool,
+  placeholder: PropTypes.node,
+  params: PropTypes.object,
+  headers: PropTypes.object,
+  body: PropTypes.object,
+  onResponse: PropTypes.func,
+  onData: PropTypes.func,
+  onError: PropTypes.func,
+  method: PropTypes.oneOf(methods),
+  subscribe: PropTypes.bool,
+  subscribeInterval: PropTypes.number,
+}
+
+Request.defaultProps = {
+  method: first(methods),
+  subscribe: false,
+  subscribeInterval: 10000,
 }
 
 export default Request
