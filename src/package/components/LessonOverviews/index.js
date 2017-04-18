@@ -3,7 +3,7 @@ import createLessonsUrl from 'utils/createLessonsUrl'
 import Request from 'components/Request'
 import PaginatedLessonOverviews from './components/PaginatedLessonOverviews'
 
-export default class LessonOverviews extends Component {
+class LessonOverviews extends Component {
   
   static propTypes = {
     states: PropTypes.array.isRequired,
@@ -67,3 +67,5 @@ export default class LessonOverviews extends Component {
     )
   }
 }
+
+export default LessonOverviews

@@ -1,6 +1,7 @@
 import React from 'react'
 import {internet, lorem, random, name} from 'faker'
 import colors from 'utils/colors'
+import {lessonStates} from 'utils/lessonStates'
 import Authentication from '../../components/Authentication'
 
 import Anchor, {types as anchorTypes} from 'components/Anchor'
@@ -13,8 +14,13 @@ import Heading, {levels as headingLevels} from 'components/Heading'
 import Icon, {types as iconTypes, sizes as iconSizes} from 'components/Icon'
 import IconLabel from 'components/IconLabel'
 import Image from 'components/Image'
+// import InstructorLessons from 'components/InstructorLessons'
 import InstructorRevenue from 'components/InstructorRevenue'
+// import InstructorStats from 'components/InstructorStats'
 import LayoutColumns from 'components/LayoutColumns'
+// import LessonActions from 'components/LessonActions'
+import LessonOverviews from 'components/LessonOverviews'
+// import LessonOverviewsByGroup from 'components/LessonOverviewsByGroup'
 import List from 'components/List'
 import Loading from 'components/Loading'
 import Markdown from 'components/Markdown'
@@ -23,6 +29,7 @@ import Open from 'components/Open'
 import Paragraph, {types as paragraphTypes} from 'components/Paragraph'
 import Prompt from 'components/Prompt'
 import Request, {methods as requestMethods} from 'components/Request'
+// import RequestedLessons from 'components/RequestedLessons'
 import Tabs from 'components/Tabs'
 import TitleCard from 'components/TitleCard'
 import Toggle, {selectedItems as toggleSelectedItems} from 'components/Toggle'
@@ -272,6 +279,54 @@ export const resourcesByType = {
               [1, 3], 
             ])}
           />,
+        ],
+      },
+
+      LessonOverviews: {
+        types: {
+          'states*': lessonStates,
+          'fallback*': 'node',
+          'instructor': 'object',
+          'pageSize': 'number',
+          'includeLessonsInCourses': 'bool',
+        },
+        createExamples: () => [
+          <Authentication 
+            loginUrl={getLoginUrl()}
+            userPermissionProperty='instructor_url'
+          >
+            {({instructor}) => (
+              <LessonOverviews
+                states={[random.arrayElement(lessonStates)]}
+                fallback={
+                  <Prompt
+                    description='No lessons to show'
+                    actionText='Create a new lesson'
+                    action={'/lessons/new'}
+                  />
+                }
+                instructor={instructor}
+                includeLessonsInCourses
+              />
+            )}
+          </Authentication>,
+          <Authentication 
+            loginUrl={getLoginUrl()}
+            userPermissionProperty='instructor_url'
+          >
+            {({instructor}) => (
+              <LessonOverviews
+                states={lessonStates}
+                fallback={
+                  <Prompt
+                    description='No lessons to show'
+                    actionText='Create a new lesson'
+                    action={'/lessons/new'}
+                  />
+                }
+              />
+            )}
+          </Authentication>,
         ],
       },
 

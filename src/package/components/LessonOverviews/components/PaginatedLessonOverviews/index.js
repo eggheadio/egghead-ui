@@ -20,7 +20,7 @@ const PaginatedLessonOverviews = ({ fallback,
 
   const linkClassNames = {
     mobileHide: 'dn db-ns',
-    link: 'db dim bg-orange white mr2 pa2 ph3-ns br2',
+    link: 'db dim bg-orange white mb2 mr2 pa2 ph3-ns br2',
   }
 
   return total > 0
@@ -55,7 +55,7 @@ const PaginatedLessonOverviews = ({ fallback,
                   requestNextPage(selected + 1)
                 }
               }}
-              containerClassName='mb0 pa0 list mt4 flex items-center'
+              containerClassName='mb0 pa0 list mt4 flex flex-wrap items-center'
               previousClassName={linkClassNames.mobileHide}
               nextClassName={linkClassNames.mobileHide}
               disabledClassName='o-20'

@@ -54,7 +54,7 @@ export default ({lesson, requestCurrentPage}) => (
                 <Avatar
                   name={lesson.instructor.full_name}
                   url={lesson.instructor.avatar_url}
-                  size={2}
+                  size='2'
                 />
                 <div className='ml2'>
                   {lesson.instructor.full_name}
