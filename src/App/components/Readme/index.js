@@ -30,6 +30,13 @@ const Readme = () => (
       When new versions are released
     </Paragraph>
 
+    <Heading level='5'>
+      Notes
+    </Heading>
+    <Paragraph>
+      Components that request data require you to log in with an egghead account (a `token` is required to be in local storage for endpoint use).
+    </Paragraph>
+
   </section>
 )
 
