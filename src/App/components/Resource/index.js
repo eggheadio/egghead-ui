@@ -1,6 +1,8 @@
 import React, {PropTypes} from 'react'
-import {map, isArray, compact} from 'lodash'
+import {map, isArray, compact, size} from 'lodash'
 import {Link} from 'react-router-dom'
+import Heading from 'components/Heading'
+import Paragraph from 'components/Paragraph'
 import Tabs from 'components/Tabs'
 import Markdown from 'components/Markdown'
 import Examples from './components/Examples'
@@ -13,42 +15,64 @@ const Resource = ({name, resource}) => (
         component: (
           <div className='mt4'>
 
-            <Markdown>
-              {`\`import {${name}} from 'egghead-ui'\``}
-            </Markdown>
+            <section>
+              <Heading level='2'>
+                Description
+              </Heading>
+              <Paragraph>
+                {resource.description}
+              </Paragraph>
+            </section>
 
-            <div className='mv4 flex flex-wrap justify-start'>
-              {map(resource.arguments, (value, key) => (
-                <div 
-                  key={key}
-                  className='mb4 mr4'
-                  style={{
-                    minWidth: 100,
-                    maxWidth: 200,
-                  }}
-                >
-                  <div className='white mb1'>
-                    {key}
-                  </div>
-                  <div>
-                    {isArray(value)
-                      ? <div>
-                          {map(value, x => (
-                            <div key={x}>
-                              '{x}'
-                            </div>
-                          ))}
+            <section>
+              <Heading level='2'>
+                Import
+              </Heading>
+              <Markdown>
+                {`\`import {${name}} from 'egghead-ui'\``}
+              </Markdown>
+            </section>
+
+            {resource.arguments && size(resource.arguments) > 0
+              ? <section>
+                  <Heading level='2'>
+                    Arguments
+                  </Heading>
+                  <div className='flex flex-wrap justify-start'>
+                    {map(resource.arguments, (value, key) => (
+                      <div 
+                        key={key}
+                        className='mb4 mr4'
+                        style={{
+                          minWidth: 100,
+                          maxWidth: 200,
+                        }}
+                      >
+                        <div className='white mb1'>
+                          {key}
                         </div>
-                      : value === 'colors'
-                        ? <Link to='/colors'>
-                            colors
-                          </Link>
-                        : value
-                    }
+                        <div>
+                          {isArray(value)
+                            ? <div>
+                                {map(value, x => (
+                                  <div key={x}>
+                                    '{x}'
+                                  </div>
+                                ))}
+                              </div>
+                            : value === 'colors'
+                              ? <Link to='/colors'>
+                                  colors
+                                </Link>
+                              : value
+                          }
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                </div>
-              ))}
-            </div>
+                </section>
+              : null
+            }
 
           </div>
         ),
@@ -73,6 +97,7 @@ const Resource = ({name, resource}) => (
 Resource.propTypes = {
   name: PropTypes.string.isRequired,
   resource: React.PropTypes.shape({
+    description: PropTypes.string.isRequired,
     arguments: PropTypes.object,
     createExamples: PropTypes.func,
     optOut: PropTypes.array,

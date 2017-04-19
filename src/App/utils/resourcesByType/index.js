@@ -76,6 +76,7 @@ export const resourcesByType = {
     items: {
 
       Anchor: {
+        description: `Used in place of the html <a> to link to other pages.`,
         arguments: {
           'children*': 'node',
           'url*': 'string',
@@ -103,6 +104,7 @@ export const resourcesByType = {
       },
 
       Avatar: {
+        description: `Used to display a person's picture.`,
         arguments: {
           'name*': 'string',
           'url*': 'string',
@@ -122,6 +124,7 @@ export const resourcesByType = {
       },
 
       Button: {
+        description: `Used to give the user an action to take.`,
         arguments: {
           'children*': 'node',
           'href': 'string',
@@ -148,6 +151,7 @@ export const resourcesByType = {
       },
 
       Card: {
+        description: `Used to display related node(s) in a container with a hierarchy.`,
         arguments: {
           'children*': 'node',
           'level': cardLevels,
@@ -163,6 +167,7 @@ export const resourcesByType = {
       },
 
       ContainerWidth: {
+        description: `Used to get the current node's container width. This is a Render Callback which passes "containerWidth" to the children.`,
         arguments: {
           'children*': 'func',
           'onWidthChange': 'func',
@@ -176,6 +181,7 @@ export const resourcesByType = {
       },
 
       Error: {
+        description: `Used to display an error to the user.`,
         arguments: {
           'children*': 'string',
         },
@@ -187,6 +193,7 @@ export const resourcesByType = {
       },
 
       Heading: {
+        description: `Used to label related node(s) with a hierarchy.`,
         arguments: {
           'children*': 'string',
           'level': headingLevels,
@@ -199,6 +206,7 @@ export const resourcesByType = {
       },
 
       Icon: {
+        description: `Used to display a vector graphic.`,
         arguments: {
           'type*': iconTypes,
           'size': iconSizes,
@@ -215,6 +223,7 @@ export const resourcesByType = {
       },
 
       IconLabel: {
+        description: `Used to display a vector graphic with a label.`,
         arguments: {
           'iconType*': iconTypes,
           'labelText*': 'string',
@@ -234,6 +243,7 @@ export const resourcesByType = {
       },
 
       Image: {
+        description: `Used to display a raster graphic.`,
         arguments: {
           'src*': 'string',
           'alt*': 'string',
@@ -248,6 +258,7 @@ export const resourcesByType = {
       },
 
       InstructorLessons: {
+        description: `Used to display the lessons of a specific instructor.`,
         arguments: {
           'instructor*': 'object',
         },
@@ -265,6 +276,7 @@ export const resourcesByType = {
       },
 
       InstructorRevenue: {
+        description: `Used to display the revenue of a specific instructor.`,
         arguments: {
           'revenueUrl*': 'string',
         },
@@ -282,6 +294,7 @@ export const resourcesByType = {
       },
 
       InstructorStats: {
+        description: `Used to display the stats of a specific instructor.`,
         arguments: {
           'instructor*': 'object',
         },
@@ -299,6 +312,7 @@ export const resourcesByType = {
       },
 
       LayoutColumns: {
+        description: `Used to group nodes into columns when the container's width is large enough; otherwise the groups stack vertically.`,
         arguments: {
           'items*': '[node]',
           'relativeSizes': '[number]',
@@ -328,6 +342,7 @@ export const resourcesByType = {
       },
 
       LessonActions: {
+        description: `Used to take action on a specific lesson.`,
         arguments: {
           'lesson*': 'object',
           'requestLesson': 'func',
@@ -350,6 +365,7 @@ export const resourcesByType = {
       },
 
       LessonOverviews: {
+        description: `Used to show a collection of lessons.`,
         arguments: {
           'states*': lessonStates,
           'fallback*': 'node',
@@ -385,6 +401,7 @@ export const resourcesByType = {
       },
 
       LessonOverviewsByGroup: {
+        description: `Used to show a collection of lessons organized by lesson state groups.`,
         arguments: {
           'instructor': 'object',
         },
@@ -408,6 +425,7 @@ export const resourcesByType = {
       },
 
       List: {
+        description: `Used to show a collection of nodes in a vertical stack.`,
         arguments: {
           'items*': '[node]',
         },
@@ -423,13 +441,14 @@ export const resourcesByType = {
       },
 
       Loading: {
-        arguments: {},
+        description: `Used to let the user know something is loading.`,
         createExamples: () => [
           <Loading />,
         ],
       },
 
       Markdown: {
+        description: `Used to display markdown strings.`,
         arguments: {
           'children*': 'string',
         },
@@ -441,6 +460,7 @@ export const resourcesByType = {
       },
 
       Maybe: {
+        description: `Used to conditionally display a node or null.`,
         arguments: {
           'children*': 'node',
           'condition*': 'bool',
@@ -453,6 +473,7 @@ export const resourcesByType = {
       },
 
       Open: {
+        description: `Used to toggle a boolean state. This is a Render Callback which passes "isOpen" and "handleOpenToggleClick" to the children.`,
         arguments: {
           'children*': 'func',
         },
@@ -477,6 +498,7 @@ export const resourcesByType = {
       },
 
       Paragraph: {
+        description: `Used to display a paragraph of text.`,
         arguments: {
           'children*': 'string',
           'type': paragraphTypes,
@@ -492,6 +514,7 @@ export const resourcesByType = {
       },
 
       Prompt: {
+        description: `Used as a fallback to prompt the user to take action.`,
         arguments: {
           'description*': 'string',
           'actionText*': 'string',
@@ -507,6 +530,7 @@ export const resourcesByType = {
       },
 
       Request: {
+        description: `Used to make requests to endpoints. This is a Render Callback which constructs a request, then passes "request", "data", and other request items to the children.`,
         arguments: {
           'children*': 'func',
           'url*': 'string',
@@ -564,6 +588,7 @@ export const resourcesByType = {
       },
 
       RequestedLessons: {
+        description: `Used to give instructors a list of options for starting a new lesson.`,
         arguments: {
           'instructor*': 'object',
         },
@@ -580,8 +605,8 @@ export const resourcesByType = {
         ],
       },
 
-
       Tabs: {
+        description: `Used to group related nodes into tabs.`,
         arguments: {
           'groups*': '{title: string, component: node}',
         },
@@ -604,6 +629,7 @@ export const resourcesByType = {
       },
 
       TitleCard: {
+        description: `Used to display a Card with a header.`,
         arguments: {
           'children*': 'node',
           'title*': 'string',
@@ -627,6 +653,7 @@ export const resourcesByType = {
       },
 
       Toggle: {
+        description: `Used to let the user toggle a boolean state choice.`,
         arguments: {
           'leftOption*': 'string',
           'rightOption*': 'string',
@@ -654,6 +681,7 @@ export const resourcesByType = {
     items: {
 
       InstructorDashboard: {
+        description: `Used to show instructors their most important information.`,
         arguments: {
           'instructor*': 'object',
         },
@@ -671,6 +699,7 @@ export const resourcesByType = {
       },
 
       InstructorDetails: {
+        description: `Used to show full details about a specific instructor.`,
         arguments: {
           'instructor*': 'object',
         },
@@ -688,6 +717,7 @@ export const resourcesByType = {
       },
 
       InstructorsDirectory: {
+        description: `Used to show a list of all instructors.`,
         arguments: {
           'instructor*': 'object',
         },
@@ -701,6 +731,7 @@ export const resourcesByType = {
       },
 
       LessonDetails: {
+        description: `Used to show full details about a specific lesson.`,
         arguments: {
           'lesson*': 'object',
           'requestLesson': 'func',
@@ -722,7 +753,7 @@ export const resourcesByType = {
       },
 
       LessonsDirectory: {
-        arguments: {},
+        description: `Used to show a list of all lessons.`,
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
             {(data) => (
@@ -733,6 +764,7 @@ export const resourcesByType = {
       },
 
       NewLesson: {
+        description: `Used to help instructors start a new lesson.`,
         arguments: {
           'instructor*': 'object',
         },
@@ -757,12 +789,14 @@ export const resourcesByType = {
     items: {
 
       colors: {
+        description: `An array of the egghead color keys.`,
         createExamples: () => [
           colors,
         ],
       },
 
       colorValues: {
+        description: `An array of the egghead color keys and values.`,
         arguments: {
           'key*': 'colors',
         },
