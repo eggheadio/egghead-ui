@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {map, includes} from 'lodash'
+import {map, includes, size} from 'lodash'
 import {
   smallContainerWidth,
   mediumContainerWidth,
@@ -46,6 +46,12 @@ const containerBackgroundActions = [
 
 const containerBoxSizing = 8
 
+export const optOuts = [
+  'containerWidth',
+  'containerBackground',
+  'arguments',
+]
+
 class Examples extends Component {
 
   state = {
@@ -83,72 +89,75 @@ class Examples extends Component {
     return (
       <section>
 
-        <div className='bg-base-secondary pa3 br2 mb4'>
+        {size(optOut) < size(optOuts)
+          ? <div className='bg-base-secondary pa3 br2 mb4'>
 
-          {includes(optOut, 'containerWidth')
-            ? null
-            : <div className='mb2'>
-                <Heading level='5'>
-                  Container Width
-                </Heading>
-                <div className='flex flex-wrap'>
-                  {map(containerWidthActions, action => (
-                    <div 
-                      key={action.label}
-                      className='mr3 mb3'
-                    >
-                      <Button 
-                        onClick={this.handleContainerWidthChange.bind(null, action.containerWidth)}
-                        size='extra-small'
-                      >
-                        {action.label}
-                      </Button>
+              {includes(optOut, 'containerWidth')
+                ? null
+                : <div className='mb2'>
+                    <Heading level='5'>
+                      Container Width
+                    </Heading>
+                    <div className='flex flex-wrap'>
+                      {map(containerWidthActions, action => (
+                        <div 
+                          key={action.label}
+                          className='mr3 mb3'
+                        >
+                          <Button 
+                            onClick={this.handleContainerWidthChange.bind(null, action.containerWidth)}
+                            size='extra-small'
+                          >
+                            {action.label}
+                          </Button>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
-          }
+                  </div>
+              }
 
-          {includes(optOut, 'containerBackground')
-            ? null
-            : <div className='mb2'>
-                <Heading level='5'>
-                  Container Background
-                </Heading>
-                <div className='flex flex-wrap'>
-                  {map(containerBackgroundActions, action => (
-                    <div 
-                      key={action.label}
-                      className='mr3 mb3'
-                    >
-                      <Button 
-                        onClick={this.handleBackgroundChange.bind(null, action.containerBackground)}
-                        size='extra-small'
-                      >
-                        {action.label}
-                      </Button>
+              {includes(optOut, 'containerBackground')
+                ? null
+                : <div className='mb2'>
+                    <Heading level='5'>
+                      Container Background
+                    </Heading>
+                    <div className='flex flex-wrap'>
+                      {map(containerBackgroundActions, action => (
+                        <div 
+                          key={action.label}
+                          className='mr3 mb3'
+                        >
+                          <Button 
+                            onClick={this.handleBackgroundChange.bind(null, action.containerBackground)}
+                            size='extra-small'
+                          >
+                            {action.label}
+                          </Button>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
-          }
+                  </div>
+              }
 
-          {includes(optOut, 'arguments')
-            ? null
-            : <div>
-                <Heading level='5'>
-                  Arguments
-                </Heading>
-                <Button 
-                  onClick={this.handleCreateExamples}
-                  size='extra-small'
-                >
-                  Randomize
-                </Button>
-              </div>
-          }
+              {includes(optOut, 'arguments')
+                ? null
+                : <div>
+                    <Heading level='5'>
+                      Arguments
+                    </Heading>
+                    <Button 
+                      onClick={this.handleCreateExamples}
+                      size='extra-small'
+                    >
+                      Randomize
+                    </Button>
+                  </div>
+              }
 
-        </div>
+            </div>
+          : null
+        }
 
         <div>
           {map(examples, (example, index) => (

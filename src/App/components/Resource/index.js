@@ -6,7 +6,7 @@ import Heading from 'components/Heading'
 import Paragraph from 'components/Paragraph'
 import Tabs from 'components/Tabs'
 import Markdown from 'components/Markdown'
-import Examples from './components/Examples'
+import Examples, {optOuts} from './components/Examples'
 
 const Resource = ({name, resource}) => (
   <section>
@@ -102,7 +102,7 @@ Resource.propTypes = {
     description: PropTypes.string.isRequired,
     arguments: PropTypes.object,
     createExamples: PropTypes.func,
-    optOut: PropTypes.array,
+    optOut: PropTypes.arrayOf(PropTypes.oneOf(optOuts)),
   }).isRequired,
 }
 

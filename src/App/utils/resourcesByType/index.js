@@ -445,6 +445,7 @@ export const resourcesByType = {
         createExamples: () => [
           <Loading />,
         ],
+        optOut: ['arguments'],
       },
 
       Markdown: {
@@ -470,6 +471,7 @@ export const resourcesByType = {
             {createNodeExample()}
           </Maybe>,
         ],
+        optOut: ['containerWidth', 'containerBackground'],
       },
 
       Open: {
@@ -495,6 +497,7 @@ export const resourcesByType = {
             )}
           </Open>
         ],
+        optOut: ['containerWidth', 'containerBackground', 'arguments'],
       },
 
       Paragraph: {
@@ -585,6 +588,7 @@ export const resourcesByType = {
             }
           </Request>
         ],
+        optOut: ['containerWidth', 'containerBackground', 'arguments'],
       },
 
       RequestedLessons: {
@@ -793,6 +797,7 @@ export const resourcesByType = {
         createExamples: () => [
           colors,
         ],
+        optOut: ['containerWidth', 'containerBackground', 'arguments'],
       },
 
       colorValues: {
@@ -803,6 +808,7 @@ export const resourcesByType = {
         createExamples: () => [
           colorValues[random.arrayElement(colors)],
         ],
+        optOut: ['containerWidth', 'containerBackground'],
       },
 
     },
