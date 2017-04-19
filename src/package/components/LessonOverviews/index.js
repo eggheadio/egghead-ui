@@ -14,7 +14,7 @@ class LessonOverviews extends Component {
   }
 
   static defaultProps = {
-    pageSize: 20,
+    pageSize: 10,
     includeLessonsInCourses: true,
   }
 

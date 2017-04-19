@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import {map, compact} from 'lodash'
 import {publicLessonsUrl} from 'utils/urls'
 import {selfReviewThreshold, hasUnlockedSelfReview} from 'utils/instructorMilestones' 
@@ -7,7 +7,7 @@ import Tabs from 'components/Tabs'
 import LessonOverviews from 'components/LessonOverviews'
 import Prompt from 'components/Prompt'
 
-export default ({instructor}) => {
+const LessonOverviewsByGroup = ({instructor}) => {
 
   const items = compact([
     {
@@ -94,3 +94,9 @@ export default ({instructor}) => {
     ]} />
   )
 }
+
+LessonOverviewsByGroup.propTypes = {
+  instructor: PropTypes.object,
+}
+
+export default LessonOverviewsByGroup

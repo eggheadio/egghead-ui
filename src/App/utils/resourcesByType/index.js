@@ -14,13 +14,13 @@ import Heading, {levels as headingLevels} from 'components/Heading'
 import Icon, {types as iconTypes, sizes as iconSizes} from 'components/Icon'
 import IconLabel from 'components/IconLabel'
 import Image from 'components/Image'
-// import InstructorLessons from 'components/InstructorLessons'
+import InstructorLessons from 'components/InstructorLessons'
 import InstructorRevenue from 'components/InstructorRevenue'
 import InstructorStats from 'components/InstructorStats'
 import LayoutColumns from 'components/LayoutColumns'
 import LessonActions from 'components/LessonActions'
 import LessonOverviews from 'components/LessonOverviews'
-// import LessonOverviewsByGroup from 'components/LessonOverviewsByGroup'
+import LessonOverviewsByGroup from 'components/LessonOverviewsByGroup'
 import List from 'components/List'
 import Loading from 'components/Loading'
 import Markdown from 'components/Markdown'
@@ -237,6 +237,22 @@ export const resourcesByType = {
         ],
       },
 
+      InstructorLessons: {
+        types: {
+          'instructor*': 'object',
+        },
+        createExamples: () => [
+          <Authentication 
+            loginUrl={getLoginUrl()}
+            userPermissionProperty='instructor_url'
+          >
+            {({instructor}) => (
+              <InstructorLessons instructor={instructor} />
+            )}
+          </Authentication>,
+        ],
+      },
+
       InstructorRevenue: {
         types: {
           'revenueUrl*': 'string',
@@ -324,7 +340,6 @@ export const resourcesByType = {
         ],
       },
 
-
       LessonOverviews: {
         types: {
           'states*': lessonStates,
@@ -372,6 +387,31 @@ export const resourcesByType = {
           </Authentication>,
         ],
       },
+
+      LessonOverviewsByGroup: {
+        types: {
+          'instructor': 'object',
+        },
+        createExamples: () => [
+          <Authentication 
+            loginUrl={getLoginUrl()}
+            userPermissionProperty='instructor_url'
+          >
+            {({instructor}) => (
+              <LessonOverviewsByGroup instructor={instructor} />
+            )}
+          </Authentication>,
+          <Authentication 
+            loginUrl={getLoginUrl()}
+            userPermissionProperty='instructor_url'
+          >
+            {() => (
+              <LessonOverviewsByGroup />
+            )}
+          </Authentication>,
+        ],
+      },
+
 
       List: {
         types: {

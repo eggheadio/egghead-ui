@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Maybe from 'components/Maybe'
 import Heading from 'components/Heading'
 import LessonOverviewsByGroup from 'components/LessonOverviewsByGroup'
 
-export default ({instructor}) => (
+const InstructorLessons = ({instructor}) => (
   <Maybe condition={Boolean(instructor)}>
     <div>
       <Heading level='5'>
@@ -13,3 +13,9 @@ export default ({instructor}) => (
     </div>
   </Maybe>
 )
+
+InstructorLessons.propTypes = {
+  instructor: PropTypes.object,
+}
+
+export default InstructorLessons
