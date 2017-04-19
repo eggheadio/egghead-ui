@@ -18,10 +18,10 @@ const Resource = ({name, resource}) => (
 
             <section>
               <Heading level='2'>
-                Description
+                Use Case
               </Heading>
               <Paragraph>
-                {resource.description}
+                {resource.useCase}
               </Paragraph>
             </section>
 
@@ -99,7 +99,7 @@ const Resource = ({name, resource}) => (
 Resource.propTypes = {
   name: PropTypes.string.isRequired,
   resource: React.PropTypes.shape({
-    description: PropTypes.string.isRequired,
+    useCase: PropTypes.string.isRequired,
     arguments: PropTypes.object,
     createExamples: PropTypes.func,
     optOut: PropTypes.arrayOf(PropTypes.oneOf(optOuts)),
