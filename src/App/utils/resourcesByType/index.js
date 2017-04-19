@@ -82,7 +82,7 @@ export const resourcesByType = {
           'url*': 'string',
           'isSeparateTab': 'bool',
           'type': anchorTypes,
-          'color': 'colors',
+          'color': colors,
         },
         createExamples: () => [
           <Anchor url={internet.url()}>
@@ -129,7 +129,7 @@ export const resourcesByType = {
           'children*': 'node',
           'href': 'string',
           'onClick': 'func',
-          'color': 'colors',
+          'color': colors,
           'size': buttonSizes,
           'outline': 'bool',
           'pill': 'bool',
@@ -210,7 +210,7 @@ export const resourcesByType = {
         arguments: {
           'type*': iconTypes,
           'size': iconSizes,
-          'color': 'colors',
+          'color': colors,
         },
         createExamples: () => [
           <Icon type='add' />,
@@ -227,7 +227,7 @@ export const resourcesByType = {
         arguments: {
           'iconType*': iconTypes,
           'labelText*': 'string',
-          'color': 'colors',
+          'color': colors,
         },
         createExamples: () => [
           <IconLabel
@@ -798,7 +798,7 @@ export const resourcesByType = {
       colorValues: {
         description: `An array of the egghead color keys and values.`,
         arguments: {
-          'key*': 'colors',
+          'key*': colors,
         },
         createExamples: () => [
           colorValues[random.arrayElement(colors)],

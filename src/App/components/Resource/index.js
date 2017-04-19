@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react'
 import {map, isArray, compact, size} from 'lodash'
 import {Link} from 'react-router-dom'
+import colors from 'utils/colors'
 import Heading from 'components/Heading'
 import Paragraph from 'components/Paragraph'
 import Tabs from 'components/Tabs'
@@ -49,7 +50,12 @@ const Resource = ({name, resource}) => (
                         }}
                       >
                         <div className='white mb1'>
-                          {key}
+                          {value === colors
+                            ? <Link to='/colors'>
+                                color
+                              </Link>
+                            : key
+                          }
                         </div>
                         <div>
                           {isArray(value)
@@ -60,11 +66,7 @@ const Resource = ({name, resource}) => (
                                   </div>
                                 ))}
                               </div>
-                            : value === 'colors'
-                              ? <Link to='/colors'>
-                                  colors
-                                </Link>
-                              : value
+                            : value
                           }
                         </div>
                       </div>
