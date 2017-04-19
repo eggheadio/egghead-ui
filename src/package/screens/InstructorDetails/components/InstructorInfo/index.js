@@ -1,7 +1,7 @@
 import React from 'react'
 import {map, compact} from 'lodash'
 import List from 'components/List'
-import TitleCard from 'components/TitleCard'
+import HeaderCard from 'components/HeaderCard'
 import Avatar from 'components/Avatar'
 import InfoBit from './components/InfoBit'
 
@@ -45,8 +45,8 @@ export default ({instructor}) => {
   ])
 
   return (
-    <TitleCard title={instructor.full_name}>
+    <HeaderCard title={instructor.full_name}>
       <List items={map(items, (item, index) => item)} />
-    </TitleCard>
+    </HeaderCard>
   )
 }

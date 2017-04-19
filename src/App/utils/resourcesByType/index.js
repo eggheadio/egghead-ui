@@ -9,6 +9,7 @@ import Button, {sizes as buttonSizes} from 'components/Button'
 import Card, {levels as cardLevels} from 'components/Card'
 import ContainerWidth from 'components/ContainerWidth'
 import Error from 'components/Error'
+import HeaderCard from 'components/HeaderCard'
 import Heading, {levels as headingLevels} from 'components/Heading'
 import Icon, {types as iconTypes, sizes as iconSizes} from 'components/Icon'
 import IconLabel from 'components/IconLabel'
@@ -30,7 +31,6 @@ import Prompt from 'components/Prompt'
 import Request, {methods as requestMethods} from 'components/Request'
 import RequestedLessons from 'components/RequestedLessons'
 import Tabs from 'components/Tabs'
-import TitleCard from 'components/TitleCard'
 import Toggle, {selectedItems as toggleSelectedItems} from 'components/Toggle'
 
 import InstructorDashboard from 'screens/InstructorDashboard'
@@ -189,6 +189,30 @@ export const resourcesByType = {
           <Error>
             {lorem.sentence()}
           </Error>,
+        ],
+      },
+
+      HeaderCard: {
+        useCase: `Used to display a Card with a header.`,
+        arguments: {
+          'children*': 'node',
+          'title*': 'string',
+          'description': 'string',
+          'intro': 'node',
+          'subtle': 'bool',
+        },
+        createExamples: () => [
+          <HeaderCard title={lorem.words()}>
+            {createNodeExample()}
+          </HeaderCard>,
+          <HeaderCard 
+            title={lorem.words()}
+            description={lorem.sentence()}
+            intro={createNodeExample()}
+            subtle={random.boolean()}
+          >
+            {createNodeExample()}
+          </HeaderCard>,
         ],
       },
 
@@ -629,30 +653,6 @@ export const resourcesByType = {
               component: createNodeExample(),
             },
           ]} />,
-        ],
-      },
-
-      TitleCard: {
-        useCase: `Used to display a Card with a header.`,
-        arguments: {
-          'children*': 'node',
-          'title*': 'string',
-          'description': 'string',
-          'intro': 'node',
-          'subtle': 'bool',
-        },
-        createExamples: () => [
-          <TitleCard title={lorem.words()}>
-            {createNodeExample()}
-          </TitleCard>,
-          <TitleCard 
-            title={lorem.words()}
-            description={lorem.sentence()}
-            intro={createNodeExample()}
-            subtle={random.boolean()}
-          >
-            {createNodeExample()}
-          </TitleCard>,
         ],
       },
 

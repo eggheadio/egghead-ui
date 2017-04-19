@@ -4,7 +4,7 @@ import {chatInfoUrl, roughDraftInfoUrl, gearSetupInfoUrl} from 'utils/urls'
 import {hasUnlockedPublished} from 'utils/instructorMilestones'
 import createLessonsUrlWithParams from 'utils/createLessonsUrlWithParams'
 import {Maybe} from 'components/Maybe'
-import TitleCard from 'components/TitleCard'
+import HeaderCard from 'components/HeaderCard'
 import isStepComplete from './utils/isStepComplete'
 import Progress from './components/Progress'
 import Checklist from './components/Checklist'
@@ -62,7 +62,7 @@ export default ({instructor}) => (
         ]
 
         return (
-          <TitleCard
+          <HeaderCard
             title='To Do'
             description='Work with your mentor to complete these items so you can get published.'
             intro={
@@ -73,7 +73,7 @@ export default ({instructor}) => (
             }
           >
             <Checklist items={checklistItems} />
-          </TitleCard>
+          </HeaderCard>
         )
       }}
     </Request>

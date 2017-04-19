@@ -4,7 +4,7 @@ import Markdown from 'components/Markdown'
 import Heading from 'components/Heading'
 import List from 'components/List'
 import Image from 'components/Image'
-import TitleCard from 'components/TitleCard'
+import HeaderCard from 'components/HeaderCard'
 import LessonActions from 'components/LessonActions'
 import Avatar from 'components/Avatar'
 import LessonState from './components/LessonState'
@@ -74,7 +74,7 @@ const LessonDetails = ({lesson, requestLesson}) => {
   ])
 
   return (
-    <TitleCard title={lesson.title}>
+    <HeaderCard title={lesson.title}>
       <List items={map(items, (item, index) => (
         <div>
           <Heading level='4'>
@@ -85,7 +85,7 @@ const LessonDetails = ({lesson, requestLesson}) => {
           </div>
         </div>
       ))} />
-    </TitleCard>
+    </HeaderCard>
   )
 }
 

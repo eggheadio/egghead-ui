@@ -4,6 +4,7 @@ import ButtonSource from './components/Button'
 import CardSource from './components/Card'
 import ContainerWidthSource from './components/ContainerWidth'
 import ErrorSource from './components/Error'
+import HeaderCardSource from './components/HeaderCard'
 import HeadingSource from './components/Heading'
 import IconSource from './components/Icon'
 import IconLabelSource from './components/IconLabel'
@@ -25,7 +26,6 @@ import PromptSource from './components/Prompt'
 import RequestSource from './components/Request'
 import RequestedLessonsSource from './components/RequestedLessons'
 import TabsSource from './components/Tabs'
-import TitleCardSource from './components/TitleCard'
 import ToggleSource from './components/Toggle'
 
 import InstructorDashboardSource from './screens/InstructorDashboard'
@@ -44,6 +44,7 @@ export const Button = ButtonSource
 export const Card = CardSource
 export const ContainerWidth = ContainerWidthSource
 export const Error = ErrorSource
+export const HeaderCard = HeaderCardSource
 export const Heading = HeadingSource
 export const Icon = IconSource
 export const IconLabel = IconLabelSource
@@ -65,7 +66,6 @@ export const Prompt = PromptSource
 export const Request = RequestSource
 export const RequestedLessons = RequestedLessonsSource
 export const Tabs = TabsSource
-export const TitleCard = TitleCardSource
 export const Toggle = ToggleSource
 
 export const InstructorDashboard = InstructorDashboardSource

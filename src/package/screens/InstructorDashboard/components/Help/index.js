@@ -6,7 +6,7 @@ import Maybe from 'components/Maybe'
 import Paragraph from 'components/Paragraph'
 import List from 'components/List'
 import Heading from 'components/Heading'
-import TitleCard from 'components/TitleCard'
+import HeaderCard from 'components/HeaderCard'
 import Anchor from 'components/Anchor'
 
 const items=[
@@ -32,7 +32,7 @@ const items=[
 
 export default ({publishedLessons}) => (
   <Maybe condition={!hasUnlockedPublished(publishedLessons)}>
-    <TitleCard
+    <HeaderCard
       title='Got questions? Feeling stuck?'
       description='Making screencasts is hard. The first few can be frustrating. But it gets easier and faster! There are many resources to help you as well.'
       subtle
@@ -53,6 +53,6 @@ export default ({publishedLessons}) => (
           </Anchor>
         </div>
       ))} />
-    </TitleCard>
+    </HeaderCard>
   </Maybe>
 )

@@ -4,7 +4,7 @@ import Heading from 'components/Heading'
 import Paragraph from 'components/Paragraph'
 import Card from 'components/Card'
 
-const TitleCard = ({
+const HeaderCard = ({
   children, 
   title, 
   description, 
@@ -39,7 +39,7 @@ const TitleCard = ({
   </section>
 )
 
-TitleCard.propTypes = {
+HeaderCard.propTypes = {
   children: PropTypes.node.isRequired, 
   title: PropTypes.string.isRequired, 
   description: PropTypes.string, 
@@ -47,10 +47,10 @@ TitleCard.propTypes = {
   subtle: PropTypes.bool,
 }
 
-TitleCard.defaultProps = {
+HeaderCard.defaultProps = {
   description: null, 
   intro: null,
   subtle: false,
 }
 
-export default TitleCard
+export default HeaderCard
