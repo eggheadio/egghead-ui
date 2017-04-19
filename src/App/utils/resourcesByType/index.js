@@ -41,7 +41,7 @@ import LessonsDirectory from 'screens/LessonsDirectory'
 import NewLesson from 'screens/NewLesson'
 
 import colors from 'utils/colors'
-// import colorValues from 'utils/colorValues'
+import colorValues from 'utils/colorValues'
 
 const getLoginUrl = () => (
   `${process.env.REACT_APP_EGGHEAD_BASE_URL}/users/jwt?return_to=${window.location.href}`
@@ -775,9 +775,18 @@ export const resourcesByType = {
     items: {
 
       colors: {
+        createExamples: () => [
+          colors,
+        ],
       },
 
       colorValues: {
+        arguments: {
+          'key*': 'colors',
+        },
+        createExamples: () => [
+          colorValues[random.arrayElement(colors)],
+        ],
       },
 
     },
