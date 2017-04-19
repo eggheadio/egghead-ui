@@ -172,6 +172,7 @@ export const resourcesByType = {
             {(containerWidth) => <div>containerWidth: {containerWidth}</div>}
           </ContainerWidth>,
         ],
+        optOut: ['arguments', 'containerBackground'],
       },
 
       Error: {
@@ -251,12 +252,13 @@ export const resourcesByType = {
           'instructor*': 'object',
         },
         createExamples: () => [
-          <Authentication 
-            loginUrl={getLoginUrl()}
-            userPermissionProperty='instructor_url'
-          >
-            {({instructor}) => (
-              <InstructorLessons instructor={instructor} />
+          <Authentication loginUrl={getLoginUrl()}>
+            {({data}) => (
+              <Request url={data.instructors_url}>
+                {({data}) => (
+                  <InstructorLessons instructor={random.arrayElement(data)} />
+                )}
+              </Request>
             )}
           </Authentication>,
         ],
@@ -267,12 +269,13 @@ export const resourcesByType = {
           'revenueUrl*': 'string',
         },
         createExamples: () => [
-          <Authentication 
-            loginUrl={getLoginUrl()}
-            userPermissionProperty='instructor_url'
-          >
-            {({instructor}) => (
-              <InstructorRevenue revenueUrl={instructor.revenue_url} />
+          <Authentication loginUrl={getLoginUrl()}>
+            {({data}) => (
+              <Request url={data.instructors_url}>
+                {({data}) => (
+                  <InstructorRevenue instructor={random.arrayElement(data)} />
+                )}
+              </Request>
             )}
           </Authentication>,
         ],
@@ -283,12 +286,13 @@ export const resourcesByType = {
           'instructor*': 'object',
         },
         createExamples: () => [
-          <Authentication 
-            loginUrl={getLoginUrl()}
-            userPermissionProperty='instructor_url'
-          >
-            {({instructor}) => (
-              <InstructorStats instructor={instructor} />
+          <Authentication loginUrl={getLoginUrl()}>
+            {({data}) => (
+              <Request url={data.instructors_url}>
+                {({data}) => (
+                  <InstructorStats instructor={random.arrayElement(data)} />
+                )}
+              </Request>
             )}
           </Authentication>,
         ],
@@ -330,12 +334,9 @@ export const resourcesByType = {
           'requestCurrentPage': 'func',
         },
         createExamples: () => [
-          <Authentication 
-            loginUrl={getLoginUrl()}
-            userPermissionProperty='instructor_url'
-          >
-            {({instructor}) => (
-              <Request url={instructor.lessons_url}>
+          <Authentication loginUrl={getLoginUrl()}>
+            {({data}) => (
+              <Request url={data.lessons_url}>
                 {({request, data}) => (
                   <LessonActions
                     lesson={random.arrayElement(data)}
@@ -357,40 +358,24 @@ export const resourcesByType = {
           'includeLessonsInCourses': 'bool',
         },
         createExamples: () => [
-          <Authentication 
-            loginUrl={getLoginUrl()}
-            userPermissionProperty='instructor_url'
-          >
-            {({instructor}) => (
-              <LessonOverviews
-                states={[random.arrayElement(lessonStates)]}
-                fallback={
-                  <Prompt
-                    description='No lessons to show'
-                    actionText='Create a new lesson'
-                    action={'/lessons/new'}
+          <Authentication loginUrl={getLoginUrl()}>
+            {({data}) => (
+              <Request url={data.instructors_url}>
+                {({data}) => (
+                  <LessonOverviews
+                    states={[random.arrayElement(lessonStates)]}
+                    fallback={
+                      <Prompt
+                        description='No lessons to show'
+                        actionText='Create a new lesson'
+                        action={'/lessons/new'}
+                      />
+                    }
+                    instructor={random.arrayElement(data)}
+                    includeLessonsInCourses
                   />
-                }
-                instructor={instructor}
-                includeLessonsInCourses
-              />
-            )}
-          </Authentication>,
-          <Authentication 
-            loginUrl={getLoginUrl()}
-            userPermissionProperty='instructor_url'
-          >
-            {({instructor}) => (
-              <LessonOverviews
-                states={lessonStates}
-                fallback={
-                  <Prompt
-                    description='No lessons to show'
-                    actionText='Create a new lesson'
-                    action={'/lessons/new'}
-                  />
-                }
-              />
+                )}
+              </Request>
             )}
           </Authentication>,
         ],
@@ -401,20 +386,13 @@ export const resourcesByType = {
           'instructor': 'object',
         },
         createExamples: () => [
-          <Authentication 
-            loginUrl={getLoginUrl()}
-            userPermissionProperty='instructor_url'
-          >
-            {({instructor}) => (
-              <LessonOverviewsByGroup instructor={instructor} />
-            )}
-          </Authentication>,
-          <Authentication 
-            loginUrl={getLoginUrl()}
-            userPermissionProperty='instructor_url'
-          >
-            {() => (
-              <LessonOverviewsByGroup />
+          <Authentication loginUrl={getLoginUrl()}>
+            {({data}) => (
+              <Request url={data.instructors_url}>
+                {({data}) => (
+                  <LessonOverviewsByGroup instructor={random.arrayElement(data)} />
+                )}
+              </Request>
             )}
           </Authentication>,
         ],
@@ -581,12 +559,13 @@ export const resourcesByType = {
           'instructor*': 'object',
         },
         createExamples: () => [
-          <Authentication 
-            loginUrl={getLoginUrl()}
-            userPermissionProperty='instructor_url'
-          >
-            {({instructor}) => (
-              <RequestedLessons instructor={instructor} />
+          <Authentication loginUrl={getLoginUrl()}>
+            {({data}) => (
+              <Request url={data.instructors_url}>
+                {({data}) => (
+                  <RequestedLessons instructor={random.arrayElement(data)} />
+                )}
+              </Request>
             )}
           </Authentication>,
         ],
@@ -670,12 +649,13 @@ export const resourcesByType = {
           'instructor*': 'object',
         },
         createExamples: () => [
-          <Authentication 
-            loginUrl={getLoginUrl()}
-            userPermissionProperty='instructor_url'
-          >
-            {({instructor}) => (
-              <InstructorDashboard instructor={instructor} />
+          <Authentication loginUrl={getLoginUrl()}>
+            {({data}) => (
+              <Request url={data.instructors_url}>
+                {({data}) => (
+                  <InstructorDashboard instructor={random.arrayElement(data)} />
+                )}
+              </Request>
             )}
           </Authentication>,
         ],
@@ -686,12 +666,13 @@ export const resourcesByType = {
           'instructor*': 'object',
         },
         createExamples: () => [
-          <Authentication 
-            loginUrl={getLoginUrl()}
-            userPermissionProperty='instructor_url'
-          >
-            {({instructor}) => (
-              <InstructorDetails instructor={instructor} />
+          <Authentication loginUrl={getLoginUrl()}>
+            {({data}) => (
+              <Request url={data.instructors_url}>
+                {({data}) => (
+                  <InstructorDetails instructor={random.arrayElement(data)} />
+                )}
+              </Request>
             )}
           </Authentication>,
         ],
@@ -702,10 +683,7 @@ export const resourcesByType = {
           'instructor*': 'object',
         },
         createExamples: () => [
-          <Authentication 
-            loginUrl={getLoginUrl()}
-            userPermissionProperty='instructor_url'
-          >
+          <Authentication loginUrl={getLoginUrl()}>
             {() => (
               <InstructorsDirectory />
             )}
@@ -719,12 +697,9 @@ export const resourcesByType = {
           'requestLesson': 'func',
         },
         createExamples: () => [
-          <Authentication 
-            loginUrl={getLoginUrl()}
-            userPermissionProperty='instructor_url'
-          >
-            {({instructor}) => (
-              <Request url={instructor.lessons_url}>
+          <Authentication loginUrl={getLoginUrl()}>
+            {({data}) => (
+              <Request url={data.lessons_url}>
                 {({request, data}) => (
                   <LessonDetails
                     lesson={random.arrayElement(data)}
@@ -740,10 +715,7 @@ export const resourcesByType = {
       LessonsDirectory: {
         arguments: {},
         createExamples: () => [
-          <Authentication 
-            loginUrl={getLoginUrl()}
-            userPermissionProperty='instructor_url'
-          >
+          <Authentication loginUrl={getLoginUrl()}>
             {() => (
               <LessonsDirectory />
             )}
@@ -756,12 +728,13 @@ export const resourcesByType = {
           'instructor*': 'object',
         },
         createExamples: () => [
-          <Authentication 
-            loginUrl={getLoginUrl()}
-            userPermissionProperty='instructor_url'
-          >
-            {({instructor}) => (
-              <NewLesson instructor={instructor} />
+          <Authentication loginUrl={getLoginUrl()}>
+            {({data}) => (
+              <Request url={data.instructor_url}>
+                {({data}) => (
+                  <NewLesson instructor={data} />
+                )}
+              </Request>
             )}
           </Authentication>,
         ],

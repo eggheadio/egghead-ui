@@ -26,28 +26,8 @@ const Authentication = ({children, loginUrl, userPermissionProperty}) => {
   }
 
   return (
-    <Request url={decodedToken.user_url}>
-      {({data}) => {
-
-        const user = data
-
-        if(user && !user[userPermissionProperty]) {
-          return (
-            <div>
-              You need other permissions to access this
-            </div>
-          )
-        }
-
-        return (
-          <Request url={user.instructor_url}>
-            {({data}) => {
-              const instructor = data
-              return children({user, instructor})
-            }}
-          </Request>
-        )
-      }}
+    <Request url={`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1`}>
+      {({data}) => children({data})}
     </Request>
   )
 }
@@ -55,7 +35,6 @@ const Authentication = ({children, loginUrl, userPermissionProperty}) => {
 Authentication.propTypes = {
   children: PropTypes.func.isRequired,
   loginUrl: PropTypes.string.isRequired,
-  userPermissionProperty: PropTypes.string,
 }
 
 export default Authentication

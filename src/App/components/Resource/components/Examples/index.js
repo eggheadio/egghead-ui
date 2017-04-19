@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {map} from 'lodash'
+import {map, includes} from 'lodash'
 import {
   smallContainerWidth,
   mediumContainerWidth,
@@ -78,65 +78,75 @@ class Examples extends Component {
 
   render() {
     const {containerWidth, containerBackground, examples} = this.state
+    const {optOut} = this.props
 
     return (
       <section>
 
         <div className='bg-base-secondary pa3 br2 mb4'>
 
-          <div className='mb2'>
-            <Heading level='5'>
-              Container Width
-            </Heading>
-            <div className='flex flex-wrap'>
-              {map(containerWidthActions, action => (
-                <div 
-                  key={action.label}
-                  className='mr3 mb3'
-                >
-                  <Button 
-                    onClick={this.handleContainerWidthChange.bind(null, action.containerWidth)}
-                    size='extra-small'
-                  >
-                    {action.label}
-                  </Button>
+          {includes(optOut, 'containerWidth')
+            ? null
+            : <div className='mb2'>
+                <Heading level='5'>
+                  Container Width
+                </Heading>
+                <div className='flex flex-wrap'>
+                  {map(containerWidthActions, action => (
+                    <div 
+                      key={action.label}
+                      className='mr3 mb3'
+                    >
+                      <Button 
+                        onClick={this.handleContainerWidthChange.bind(null, action.containerWidth)}
+                        size='extra-small'
+                      >
+                        {action.label}
+                      </Button>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
+          }
 
-          <div className='mb2'>
-            <Heading level='5'>
-              Container Background
-            </Heading>
-            <div className='flex flex-wrap'>
-              {map(containerBackgroundActions, action => (
-                <div 
-                  key={action.label}
-                  className='mr3 mb3'
-                >
-                  <Button 
-                    onClick={this.handleBackgroundChange.bind(null, action.containerBackground)}
-                    size='extra-small'
-                  >
-                    {action.label}
-                  </Button>
+          {includes(optOut, 'containerBackground')
+            ? null
+            : <div className='mb2'>
+                <Heading level='5'>
+                  Container Background
+                </Heading>
+                <div className='flex flex-wrap'>
+                  {map(containerBackgroundActions, action => (
+                    <div 
+                      key={action.label}
+                      className='mr3 mb3'
+                    >
+                      <Button 
+                        onClick={this.handleBackgroundChange.bind(null, action.containerBackground)}
+                        size='extra-small'
+                      >
+                        {action.label}
+                      </Button>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
+          }
 
-          <div>
-            <Heading level='5'>
-              Prop Values
-            </Heading>
-            <Button 
-              onClick={this.handleCreateExamples}
-              size='extra-small'
-            >
-              Randomize
-            </Button>
-          </div>
+          {includes(optOut, 'arguments')
+            ? null
+            : <div>
+                <Heading level='5'>
+                  Arguments
+                </Heading>
+                <Button 
+                  onClick={this.handleCreateExamples}
+                  size='extra-small'
+                >
+                  Randomize
+                </Button>
+              </div>
+          }
 
         </div>
 

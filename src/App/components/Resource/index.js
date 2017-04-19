@@ -58,7 +58,10 @@ const Resource = ({name, resource}) => (
             title: 'Examples',
             component: (
               <div className='mt4'>
-                <Examples createExamples={resource.createExamples} />
+                <Examples 
+                  createExamples={resource.createExamples}
+                  optOut={resource.optOut}
+                />
               </div>
             ),
         }
@@ -72,6 +75,7 @@ Resource.propTypes = {
   resource: React.PropTypes.shape({
     arguments: PropTypes.object,
     createExamples: PropTypes.func,
+    optOut: PropTypes.array,
   }).isRequired,
 }
 
