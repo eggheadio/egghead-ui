@@ -35,9 +35,8 @@ import LessonDetailsSource from './screens/Lessons/screens/LessonDetails'
 import LessonsDirectorySource from './screens/LessonsDirectory'
 import NewLessonSource from './screens/Lessons/screens/NewLesson'
 
-import authenticationSource from './utils/authentication'
 import colorsSource from './utils/colors'
-import hardCodedSizesSource from './utils/hardCodedSizes'
+import colorValuesSource from './utils/colorValues'
 
 export const Anchor = AnchorSource
 export const Avatar = AvatarSource
@@ -76,6 +75,5 @@ export const LessonsDirectory = LessonsDirectorySource
 export const InstructorDetails = InstructorDetailsSource
 export const InstructorsDirectory = InstructorsDirectorySource
 
-export const authentication = authenticationSource
 export const colors = colorsSource
-export const hardCodedSizes = hardCodedSizesSource
+export const colorValues = colorValuesSource

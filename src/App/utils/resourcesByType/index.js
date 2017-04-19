@@ -1,6 +1,5 @@
 import React from 'react'
 import {internet, lorem, random, name} from 'faker'
-import colors from 'utils/colors'
 import {lessonStates} from 'utils/lessonStates'
 import Authentication from '../../components/Authentication'
 
@@ -41,6 +40,9 @@ import LessonDetails from 'screens/LessonDetails'
 import LessonsDirectory from 'screens/LessonsDirectory'
 import NewLesson from 'screens/NewLesson'
 
+import colors from 'utils/colors'
+// import colorValues from 'utils/colorValues'
+
 const getLoginUrl = () => (
   `${process.env.REACT_APP_EGGHEAD_BASE_URL}/users/jwt?return_to=${window.location.href}`
 )
@@ -74,7 +76,7 @@ export const resourcesByType = {
     items: {
 
       Anchor: {
-        types: {
+        arguments: {
           'children*': 'node',
           'url*': 'string',
           'isSeparateTab': 'bool',
@@ -101,7 +103,7 @@ export const resourcesByType = {
       },
 
       Avatar: {
-        types: {
+        arguments: {
           'name*': 'string',
           'url*': 'string',
           'size': avatarSizes,
@@ -120,7 +122,7 @@ export const resourcesByType = {
       },
 
       Button: {
-        types: {
+        arguments: {
           'children*': 'node',
           'href': 'string',
           'onClick': 'func',
@@ -146,7 +148,7 @@ export const resourcesByType = {
       },
 
       Card: {
-        types: {
+        arguments: {
           'children*': 'node',
           'level': cardLevels,
         },
@@ -161,7 +163,7 @@ export const resourcesByType = {
       },
 
       ContainerWidth: {
-        types: {
+        arguments: {
           'children*': 'func',
           'onWidthChange': 'func',
         },
@@ -173,7 +175,7 @@ export const resourcesByType = {
       },
 
       Error: {
-        types: {
+        arguments: {
           'children*': 'string',
         },
         createExamples: () => [
@@ -184,7 +186,7 @@ export const resourcesByType = {
       },
 
       Heading: {
-        types: {
+        arguments: {
           'children*': 'string',
           'level': headingLevels,
         },
@@ -196,7 +198,7 @@ export const resourcesByType = {
       },
 
       Icon: {
-        types: {
+        arguments: {
           'type*': iconTypes,
           'size': iconSizes,
           'color': 'colors',
@@ -212,7 +214,7 @@ export const resourcesByType = {
       },
 
       IconLabel: {
-        types: {
+        arguments: {
           'iconType*': iconTypes,
           'labelText*': 'string',
           'color': 'colors',
@@ -231,7 +233,7 @@ export const resourcesByType = {
       },
 
       Image: {
-        types: {
+        arguments: {
           'src*': 'string',
           'alt*': 'string',
           'className': 'string',
@@ -245,7 +247,7 @@ export const resourcesByType = {
       },
 
       InstructorLessons: {
-        types: {
+        arguments: {
           'instructor*': 'object',
         },
         createExamples: () => [
@@ -261,7 +263,7 @@ export const resourcesByType = {
       },
 
       InstructorRevenue: {
-        types: {
+        arguments: {
           'revenueUrl*': 'string',
         },
         createExamples: () => [
@@ -277,7 +279,7 @@ export const resourcesByType = {
       },
 
       InstructorStats: {
-        types: {
+        arguments: {
           'instructor*': 'object',
         },
         createExamples: () => [
@@ -293,7 +295,7 @@ export const resourcesByType = {
       },
 
       LayoutColumns: {
-        types: {
+        arguments: {
           'items*': '[node]',
           'relativeSizes': '[number]',
         },
@@ -322,7 +324,7 @@ export const resourcesByType = {
       },
 
       LessonActions: {
-        types: {
+        arguments: {
           'lesson*': 'object',
           'requestLesson': 'func',
           'requestCurrentPage': 'func',
@@ -347,7 +349,7 @@ export const resourcesByType = {
       },
 
       LessonOverviews: {
-        types: {
+        arguments: {
           'states*': lessonStates,
           'fallback*': 'node',
           'instructor': 'object',
@@ -395,7 +397,7 @@ export const resourcesByType = {
       },
 
       LessonOverviewsByGroup: {
-        types: {
+        arguments: {
           'instructor': 'object',
         },
         createExamples: () => [
@@ -419,7 +421,7 @@ export const resourcesByType = {
       },
 
       List: {
-        types: {
+        arguments: {
           'items*': '[node]',
         },
         createExamples: () => [
@@ -434,14 +436,14 @@ export const resourcesByType = {
       },
 
       Loading: {
-        types: {},
+        arguments: {},
         createExamples: () => [
           <Loading />,
         ],
       },
 
       Markdown: {
-        types: {
+        arguments: {
           'children*': 'string',
         },
         createExamples: () => [
@@ -452,7 +454,7 @@ export const resourcesByType = {
       },
 
       Maybe: {
-        types: {
+        arguments: {
           'children*': 'node',
           'condition*': 'bool',
         },
@@ -464,7 +466,7 @@ export const resourcesByType = {
       },
 
       Open: {
-        types: {
+        arguments: {
           'children*': 'func',
         },
         createExamples: () => [
@@ -488,7 +490,7 @@ export const resourcesByType = {
       },
 
       Paragraph: {
-        types: {
+        arguments: {
           'children*': 'string',
           'type': paragraphTypes,
         },
@@ -503,7 +505,7 @@ export const resourcesByType = {
       },
 
       Prompt: {
-        types: {
+        arguments: {
           'description*': 'string',
           'actionText*': 'string',
           'action*': 'string',
@@ -518,7 +520,7 @@ export const resourcesByType = {
       },
 
       Request: {
-        types: {
+        arguments: {
           'children*': 'func',
           'url*': 'string',
           'lazy': 'bool',
@@ -575,7 +577,7 @@ export const resourcesByType = {
       },
 
       RequestedLessons: {
-        types: {
+        arguments: {
           'instructor*': 'object',
         },
         createExamples: () => [
@@ -592,7 +594,7 @@ export const resourcesByType = {
 
 
       Tabs: {
-        types: {
+        arguments: {
           'groups*': '{title: string, component: node}',
         },
         createExamples: () => [
@@ -614,7 +616,7 @@ export const resourcesByType = {
       },
 
       TitleCard: {
-        types: {
+        arguments: {
           'children*': 'node',
           'title*': 'string',
           'description': 'string',
@@ -637,7 +639,7 @@ export const resourcesByType = {
       },
 
       Toggle: {
-        types: {
+        arguments: {
           'leftOption*': 'string',
           'rightOption*': 'string',
           'onClick': 'func',
@@ -664,7 +666,7 @@ export const resourcesByType = {
     items: {
 
       InstructorDashboard: {
-        types: {
+        arguments: {
           'instructor*': 'object',
         },
         createExamples: () => [
@@ -680,7 +682,7 @@ export const resourcesByType = {
       },
 
       InstructorDetails: {
-        types: {
+        arguments: {
           'instructor*': 'object',
         },
         createExamples: () => [
@@ -696,7 +698,7 @@ export const resourcesByType = {
       },
 
       InstructorsDirectory: {
-        types: {
+        arguments: {
           'instructor*': 'object',
         },
         createExamples: () => [
@@ -712,7 +714,7 @@ export const resourcesByType = {
       },
 
       LessonDetails: {
-        types: {
+        arguments: {
           'lesson*': 'object',
           'requestLesson': 'func',
         },
@@ -736,7 +738,7 @@ export const resourcesByType = {
       },
 
       LessonsDirectory: {
-        types: {},
+        arguments: {},
         createExamples: () => [
           <Authentication 
             loginUrl={getLoginUrl()}
@@ -750,7 +752,7 @@ export const resourcesByType = {
       },
 
       NewLesson: {
-        types: {
+        arguments: {
           'instructor*': 'object',
         },
         createExamples: () => [
@@ -771,6 +773,13 @@ export const resourcesByType = {
   utilities: {
     urlBase: '/utils',
     items: {
+
+      colors: {
+      },
+
+      colorValues: {
+      },
+
     },
   },
 }

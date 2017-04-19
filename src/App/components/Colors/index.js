@@ -3,11 +3,14 @@ import {map} from 'lodash'
 import colors from 'utils/colors'
 
 const Colors = () => (
-  <div>
+  <div className='flex flex-wrap'>
     {map(colors, (color) => (
       <div 
         key={color}
-        className='mb3 flex items-center'
+        className='mr3 mb3 flex items-center'
+        style={{
+          minWidth: 225,
+        }}
       >
         <div className={`bg-${color} w2 h2 mr2`} />
         <div>
