@@ -1,14 +1,14 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import pluralize from 'pluralize'
 import {map, uniqBy} from 'lodash'
-import {hasUnlockedPublished, hasUnlockedCoursePublished} from 'utils/milestones'
+import {hasUnlockedPublished, hasUnlockedCoursePublished} from 'utils/instructorMilestones'
 import createLessonsUrl from 'utils/createLessonsUrl'
 import Maybe from 'components/Maybe'
 import Card from 'components/Card'
 import Request from 'components/Request'
 import InstructorStat from './components/InstructorStat'
 
-export default ({instructor}) => {
+const InstructorStats = ({instructor}) => {
 
   if(!hasUnlockedPublished(instructor.published_lessons)) {
     return null
@@ -55,3 +55,9 @@ export default ({instructor}) => {
     </Card>
   )
 }
+
+InstructorStats.propTypes = {
+  instructor: PropTypes.object.isRequired,
+}
+
+export default InstructorStats

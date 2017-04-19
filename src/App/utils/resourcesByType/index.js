@@ -16,9 +16,9 @@ import IconLabel from 'components/IconLabel'
 import Image from 'components/Image'
 // import InstructorLessons from 'components/InstructorLessons'
 import InstructorRevenue from 'components/InstructorRevenue'
-// import InstructorStats from 'components/InstructorStats'
+import InstructorStats from 'components/InstructorStats'
 import LayoutColumns from 'components/LayoutColumns'
-// import LessonActions from 'components/LessonActions'
+import LessonActions from 'components/LessonActions'
 import LessonOverviews from 'components/LessonOverviews'
 // import LessonOverviewsByGroup from 'components/LessonOverviewsByGroup'
 import List from 'components/List'
@@ -29,7 +29,7 @@ import Open from 'components/Open'
 import Paragraph, {types as paragraphTypes} from 'components/Paragraph'
 import Prompt from 'components/Prompt'
 import Request, {methods as requestMethods} from 'components/Request'
-// import RequestedLessons from 'components/RequestedLessons'
+import RequestedLessons from 'components/RequestedLessons'
 import Tabs from 'components/Tabs'
 import TitleCard from 'components/TitleCard'
 import Toggle, {selectedItems as toggleSelectedItems} from 'components/Toggle'
@@ -253,6 +253,23 @@ export const resourcesByType = {
         ],
       },
 
+      InstructorStats: {
+        types: {
+          'instructor*': 'object',
+        },
+        createExamples: () => [
+          <Authentication 
+            loginUrl={getLoginUrl()}
+            userPermissionProperty='instructor_url'
+          >
+            {({instructor}) => (
+              <InstructorStats instructor={instructor} />
+            )}
+          </Authentication>,
+        ],
+      },
+
+
       LayoutColumns: {
         types: {
           'items*': '[node]',
@@ -281,6 +298,32 @@ export const resourcesByType = {
           />,
         ],
       },
+
+      LessonActions: {
+        types: {
+          'lesson*': 'object',
+          'requestLesson': 'func',
+          'requestCurrentPage': 'func',
+        },
+        createExamples: () => [
+          <Authentication 
+            loginUrl={getLoginUrl()}
+            userPermissionProperty='instructor_url'
+          >
+            {({instructor}) => (
+              <Request url={instructor.lessons_url}>
+                {({request, data}) => (
+                  <LessonActions
+                    lesson={random.arrayElement(data)}
+                    requestLesson={request}
+                  />
+                )}
+              </Request>
+            )}
+          </Authentication>,
+        ],
+      },
+
 
       LessonOverviews: {
         types: {
@@ -485,6 +528,23 @@ export const resourcesByType = {
           </Request>
         ],
       },
+
+      RequestedLessons: {
+        types: {
+          'instructor*': 'object',
+        },
+        createExamples: () => [
+          <Authentication 
+            loginUrl={getLoginUrl()}
+            userPermissionProperty='instructor_url'
+          >
+            {({instructor}) => (
+              <RequestedLessons instructor={instructor} />
+            )}
+          </Authentication>,
+        ],
+      },
+
 
       Tabs: {
         types: {

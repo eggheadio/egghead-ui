@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import {map, keys, compact} from 'lodash'
 import {lessonStateVerbToPastTense, detailsByLessonState} from 'utils/lessonStates'
 import Request from 'components/Request'
@@ -6,7 +6,11 @@ import LessonAction from './components/LessonAction'
 
 const stateVerbs = keys(lessonStateVerbToPastTense)
 
-export default ({lesson, requestLesson, requestCurrentPage}) => {
+const LessonActions = ({
+  lesson,
+  requestLesson,
+  requestCurrentPage,
+}) => {
 
   const items = compact([
 
@@ -78,3 +82,11 @@ export default ({lesson, requestLesson, requestCurrentPage}) => {
     </div>
   )
 }
+
+LessonActions.propTypes = {
+  lesson: PropTypes.object.isRequired,
+  requestLesson: PropTypes.func,
+  requestCurrentPage: PropTypes.func,
+}
+
+export default LessonActions

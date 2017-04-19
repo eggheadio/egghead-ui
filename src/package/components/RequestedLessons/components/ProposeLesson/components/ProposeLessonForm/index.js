@@ -75,7 +75,7 @@ export default class extends Component {
           />
         </div>
 
-        <Request url='/api/v1/technologies'>
+        <Request url={`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/technologies`}>
           {({data}) => (
             <div className='mb3'>
               <div className='b'>

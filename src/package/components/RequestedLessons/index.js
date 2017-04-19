@@ -1,11 +1,11 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Paragraph from 'components/Paragraph'
 import Heading from 'components/Heading'
 import Card from 'components/Card'
 import LessonOverviews from 'components/LessonOverviews'
 import ProposeLesson from './components/ProposeLesson'
 
-export default ({instructor}) => (
+const RequestedLessons = ({instructor}) => (
   <div>
 
     <Heading level='5'>
@@ -35,3 +35,9 @@ export default ({instructor}) => (
 
   </div>
 )
+
+RequestedLessons.propTypes = {
+  instructor: PropTypes.object.isRequired,
+}
+
+export default RequestedLessons
