@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import {hasUnlockedPublished} from 'utils/instructorMilestones'
 import LayoutColumns from 'components/LayoutColumns'
 import InstructorRevenue from 'components/InstructorRevenue'
@@ -8,7 +8,7 @@ import RequestedLessons from 'components/RequestedLessons'
 import GetPublished from './components/GetPublished'
 import Help from './components/Help'
 
-export default ({instructor}) => hasUnlockedPublished(instructor.published_lessons)
+const InstructorDashboard = ({instructor}) => hasUnlockedPublished(instructor.published_lessons)
   ? <div>
       <LayoutColumns 
         items={[
@@ -33,3 +33,9 @@ export default ({instructor}) => hasUnlockedPublished(instructor.published_lesso
       ]} />
       <InstructorLessons instructor={instructor} />
     </div>
+
+InstructorDashboard.propTypes = {
+  instructor: PropTypes.object,
+}
+
+export default InstructorDashboard

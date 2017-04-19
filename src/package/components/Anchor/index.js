@@ -43,7 +43,7 @@ const Anchor = ({
 }
 
 Anchor.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   url: PropTypes.string.isRequired,
   isSeparateTab: PropTypes.bool,
   type: PropTypes.oneOf(types),

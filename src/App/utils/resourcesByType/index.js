@@ -34,6 +34,8 @@ import Tabs from 'components/Tabs'
 import TitleCard from 'components/TitleCard'
 import Toggle, {selectedItems as toggleSelectedItems} from 'components/Toggle'
 
+import InstructorDashboard from 'screens/InstructorDashboard'
+
 const getLoginUrl = () => (
   `${process.env.REACT_APP_EGGHEAD_BASE_URL}/users/jwt?return_to=${window.location.href}`
 )
@@ -68,7 +70,7 @@ export const resourcesByType = {
 
       Anchor: {
         types: {
-          'children*': 'string',
+          'children*': 'node',
           'url*': 'string',
           'isSeparateTab': 'bool',
           'type': anchorTypes,
@@ -656,10 +658,32 @@ export const resourcesByType = {
 
   screens: {
     urlBase: '/screens',
+    items: {
+
+      InstructorDashboard: {
+        types: {
+          'instructor*': 'object',
+        },
+        createExamples: () => [
+          <Authentication 
+            loginUrl={getLoginUrl()}
+            userPermissionProperty='instructor_url'
+          >
+            {({instructor}) => (
+              <InstructorDashboard instructor={instructor} />
+            )}
+          </Authentication>,
+        ],
+      },
+
+    },
   },
 
   utilities: {
     urlBase: '/utils',
+    items: {
+
+    },
   },
 }
 

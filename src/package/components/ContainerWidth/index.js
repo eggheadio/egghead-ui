@@ -4,6 +4,7 @@ import {
   mediumContainerWidth,
   largeContainerWidth,
   xlargeContainerWidth,
+  xxlargeContainerWidth,
 } from 'utils/hardCodedSizes'
 
 export default class DeviceWidth extends Component {
@@ -27,7 +28,12 @@ export default class DeviceWidth extends Component {
       onWidthChange()
     }
     const containerExactWidth = this.refs.container.clientWidth
-    if(containerExactWidth >= xlargeContainerWidth) {
+    if(containerExactWidth >= xxlargeContainerWidth) {
+      this.setState({
+        containerWidth: 'xxlarge',
+      })
+    }
+    else if(containerExactWidth >= xlargeContainerWidth) {
       this.setState({
         containerWidth: 'xlarge',
       })

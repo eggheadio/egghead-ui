@@ -5,6 +5,7 @@ import {
   mediumContainerWidth,
   largeContainerWidth,
   xlargeContainerWidth,
+  xxlargeContainerWidth,
 } from 'utils/hardCodedSizes'
 import Heading from 'components/Heading'
 import Button from 'components/Button'
@@ -25,6 +26,10 @@ const containerWidthActions = [
   {
     label: 'XLarge',
     containerWidth: xlargeContainerWidth,
+  },
+  {
+    label: 'XXLarge',
+    containerWidth: xxlargeContainerWidth,
   },
 ]
 

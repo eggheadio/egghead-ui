@@ -1,7 +1,7 @@
 import React from 'react'
 import {map, uniq, compact, isString, size, filter} from 'lodash'
 import {chatInfoUrl, roughDraftInfoUrl, gearSetupInfoUrl} from 'utils/urls'
-import {hasUnlockedPublished} from 'utils/milestones'
+import {hasUnlockedPublished} from 'utils/instructorMilestones'
 import createLessonsUrl from 'utils/createLessonsUrl'
 import {Maybe} from 'components/Maybe'
 import TitleCard from 'components/TitleCard'

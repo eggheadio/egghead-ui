@@ -36,7 +36,7 @@ const InstructorStats = ({instructor}) => {
         </Request>
         <Maybe condition={hasUnlockedCoursePublished(instructor.published_courses)}>
           <div className='mt4'>
-            <Request url={`/api/v1/series?instructor_id=${instructor.id}`}>
+            <Request url={`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/series?instructor_id=${instructor.id}`}>
               {({data}) => (
                 <InstructorStat
                   count={instructor.published_courses}

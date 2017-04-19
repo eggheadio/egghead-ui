@@ -1,7 +1,7 @@
 import React from 'react'
 import {map} from 'lodash'
 import {guideUrl, chatUrl, instructorsChatUrl} from 'utils/urls'
-import {hasUnlockedPublished} from 'utils/milestones'
+import {hasUnlockedPublished} from 'utils/instructorMilestones'
 import Maybe from 'components/Maybe'
 import Paragraph from 'components/Paragraph'
 import List from 'components/List'
