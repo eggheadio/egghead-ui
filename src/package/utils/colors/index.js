@@ -1,4 +1,4 @@
-export default [
+const colors = [
   'white-secondary',
   'base',
   'base-secondary',
@@ -20,3 +20,4 @@ export default [
   'yellow-secondary',
 ]
 
+export default colors

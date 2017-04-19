@@ -292,7 +292,6 @@ export const resourcesByType = {
         ],
       },
 
-
       LayoutColumns: {
         types: {
           'items*': '[node]',
@@ -418,7 +417,6 @@ export const resourcesByType = {
           </Authentication>,
         ],
       },
-
 
       List: {
         types: {
@@ -773,7 +771,6 @@ export const resourcesByType = {
   utilities: {
     urlBase: '/utils',
     items: {
-
     },
   },
 }

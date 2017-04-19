@@ -1,6 +1,6 @@
 import createQueryString from './utils/createQueryString'
 
-export default ({
+const createLessonUrl = ({
   states,
   pageSize = 10,
   page = 1,
@@ -25,3 +25,5 @@ export default ({
 
   return `${lessonsUrl}${queryString}`
 }
+
+export default createLessonUrl
