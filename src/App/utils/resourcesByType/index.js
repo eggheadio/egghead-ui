@@ -35,6 +35,11 @@ import TitleCard from 'components/TitleCard'
 import Toggle, {selectedItems as toggleSelectedItems} from 'components/Toggle'
 
 import InstructorDashboard from 'screens/InstructorDashboard'
+import InstructorDetails from 'screens/InstructorDetails'
+import InstructorsDirectory from 'screens/InstructorsDirectory'
+import LessonDetails from 'screens/LessonDetails'
+import LessonsDirectory from 'screens/LessonsDirectory'
+import NewLesson from 'screens/NewLesson'
 
 const getLoginUrl = () => (
   `${process.env.REACT_APP_EGGHEAD_BASE_URL}/users/jwt?return_to=${window.location.href}`
@@ -671,6 +676,92 @@ export const resourcesByType = {
           >
             {({instructor}) => (
               <InstructorDashboard instructor={instructor} />
+            )}
+          </Authentication>,
+        ],
+      },
+
+      InstructorDetails: {
+        types: {
+          'instructor*': 'object',
+        },
+        createExamples: () => [
+          <Authentication 
+            loginUrl={getLoginUrl()}
+            userPermissionProperty='instructor_url'
+          >
+            {({instructor}) => (
+              <InstructorDetails instructor={instructor} />
+            )}
+          </Authentication>,
+        ],
+      },
+
+      InstructorsDirectory: {
+        types: {
+          'instructor*': 'object',
+        },
+        createExamples: () => [
+          <Authentication 
+            loginUrl={getLoginUrl()}
+            userPermissionProperty='instructor_url'
+          >
+            {() => (
+              <InstructorsDirectory />
+            )}
+          </Authentication>,
+        ],
+      },
+
+      LessonDetails: {
+        types: {
+          'lesson*': 'object',
+          'requestLesson': 'func',
+        },
+        createExamples: () => [
+          <Authentication 
+            loginUrl={getLoginUrl()}
+            userPermissionProperty='instructor_url'
+          >
+            {({instructor}) => (
+              <Request url={instructor.lessons_url}>
+                {({request, data}) => (
+                  <LessonDetails
+                    lesson={random.arrayElement(data)}
+                    requestLesson={request}
+                  />
+                )}
+              </Request>
+            )}
+          </Authentication>,
+        ],
+      },
+
+      LessonsDirectory: {
+        types: {},
+        createExamples: () => [
+          <Authentication 
+            loginUrl={getLoginUrl()}
+            userPermissionProperty='instructor_url'
+          >
+            {() => (
+              <LessonsDirectory />
+            )}
+          </Authentication>,
+        ],
+      },
+
+      NewLesson: {
+        types: {
+          'instructor*': 'object',
+        },
+        createExamples: () => [
+          <Authentication 
+            loginUrl={getLoginUrl()}
+            userPermissionProperty='instructor_url'
+          >
+            {({instructor}) => (
+              <NewLesson instructor={instructor} />
             )}
           </Authentication>,
         ],

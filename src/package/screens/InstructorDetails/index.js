@@ -1,11 +1,11 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import LayoutColumns from 'components/LayoutColumns'
 import InstructorStats from 'components/InstructorStats'
 import InstructorLessons from 'components/InstructorLessons'
 import InstructorRevenue from 'components/InstructorRevenue'
 import InstructorInfo from './components/InstructorInfo'
 
-export default ({instructor}) => (
+const InstructorDetails = ({instructor}) => (
   <div>
     <LayoutColumns 
       items={[
@@ -25,3 +25,9 @@ export default ({instructor}) => (
     />
   </div>
 )
+
+InstructorDetails.propTypes = {
+  instructor: PropTypes.object,
+}
+
+export default InstructorDetails

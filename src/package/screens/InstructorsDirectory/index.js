@@ -1,8 +1,10 @@
 import React from 'react'
 import InstructorOverviewsByGroups from './components/InstructorOverviewsByGroups'
 
-export default ({instructors}) => (
+const InstructorsDirectory = () => (
   <div>
     <InstructorOverviewsByGroups />
   </div>
 )
+
+export default InstructorsDirectory

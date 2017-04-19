@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import {map, compact} from 'lodash'
 import Markdown from 'components/Markdown'
 import Heading from 'components/Heading'
@@ -10,7 +10,7 @@ import Avatar from 'components/Avatar'
 import LessonState from './components/LessonState'
 import WistiaVideo from './components/WistiaVideo'
 
-export default ({lesson, requestLesson}) => {
+const LessonDetails = ({lesson, requestLesson}) => {
 
   const items = compact([
     {
@@ -88,3 +88,10 @@ export default ({lesson, requestLesson}) => {
     </TitleCard>
   )
 }
+
+LessonDetails.propTypes = {
+  lesson: PropTypes.object.isRequired,
+  requestLesson: PropTypes.func.isRequired,
+}
+
+export default LessonDetails

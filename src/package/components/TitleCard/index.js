@@ -16,11 +16,12 @@ const TitleCard = ({
       <Heading level='5'>
         {title}
       </Heading>
-      <Maybe condition={Boolean(description)}>
-        <Paragraph type='small'>
-          <span>{description}</span>
-        </Paragraph>
-      </Maybe>
+      {description
+        ? <Paragraph type='small'>
+            {description}
+          </Paragraph>
+        : null
+      }
       <Maybe condition={Boolean(intro)}>
         <div>
           {intro}

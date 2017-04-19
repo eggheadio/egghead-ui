@@ -2,7 +2,7 @@ import React from 'react'
 import Heading from 'components/Heading'
 import LessonOverviewsByGroup from 'components/LessonOverviewsByGroup'
 
-export default () => (
+const LessonsDirectory = () => (
   <div>
     <Heading level='5'>
       All Lessons
@@ -10,3 +10,5 @@ export default () => (
     <LessonOverviewsByGroup />
   </div>
 )
+
+export default LessonsDirectory
