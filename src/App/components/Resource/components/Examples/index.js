@@ -49,7 +49,7 @@ const containerBoxSizing = 8
 export const optOuts = [
   'containerWidth',
   'containerBackground',
-  'arguments',
+  'types',
 ]
 
 class Examples extends Component {
@@ -140,11 +140,11 @@ class Examples extends Component {
                   </div>
               }
 
-              {includes(optOut, 'arguments')
+              {includes(optOut, 'types')
                 ? null
                 : <div>
                     <Heading level='5'>
-                      Arguments
+                      Types
                     </Heading>
                     <Button 
                       onClick={this.handleCreateExamples}

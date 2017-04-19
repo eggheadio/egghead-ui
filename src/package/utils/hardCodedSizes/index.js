@@ -5,3 +5,11 @@ export const xlargeContainerWidth = 1300
 export const xxlargeContainerWidth = 1700
 
 export const navigationWidth = 200
+
+export const containerWidths = [
+  'small',
+  'medium',
+  'large',
+  'xlarge',
+  'xxlarge',
+]

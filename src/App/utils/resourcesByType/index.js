@@ -1,5 +1,6 @@
 import React from 'react'
 import {internet, lorem, random, name} from 'faker'
+import {containerWidths} from 'utils/hardCodedSizes'
 import {lessonStates} from 'utils/lessonStates'
 import Authentication from '../../components/Authentication'
 
@@ -77,7 +78,7 @@ export const resourcesByType = {
 
       Anchor: {
         useCase: `Used in place of the html <a> to link to other pages.`,
-        arguments: {
+        types: {
           'children*': 'node',
           'url*': 'string',
           'isSeparateTab': 'bool',
@@ -105,7 +106,7 @@ export const resourcesByType = {
 
       Avatar: {
         useCase: `Used to display a person's picture.`,
-        arguments: {
+        types: {
           'name*': 'string',
           'url*': 'string',
           'size': avatarSizes,
@@ -125,7 +126,7 @@ export const resourcesByType = {
 
       Button: {
         useCase: `Used to give the user an action to take.`,
-        arguments: {
+        types: {
           'children*': 'node',
           'href': 'string',
           'onClick': 'func',
@@ -152,7 +153,7 @@ export const resourcesByType = {
 
       Card: {
         useCase: `Used to display related node(s) in a container with a hierarchy.`,
-        arguments: {
+        types: {
           'children*': 'node',
           'level': cardLevels,
         },
@@ -167,22 +168,25 @@ export const resourcesByType = {
       },
 
       ContainerWidth: {
-        useCase: `Used to get the current node's container width. This is a Render Callback which passes "containerWidth" to the children.`,
-        arguments: {
+        useCase: `Used to get the current node's container width.`,
+        types: {
           'children*': 'func',
           'onWidthChange': 'func',
+        },
+        childrenTypes: {
+          'containerWidth': containerWidths,
         },
         createExamples: () => [
           <ContainerWidth>
             {(containerWidth) => <div>containerWidth: {containerWidth}</div>}
           </ContainerWidth>,
         ],
-        optOut: ['arguments', 'containerBackground'],
+        optOut: ['types', 'containerBackground'],
       },
 
       Error: {
         useCase: `Used to display an error to the user.`,
-        arguments: {
+        types: {
           'children*': 'string',
         },
         createExamples: () => [
@@ -194,7 +198,7 @@ export const resourcesByType = {
 
       HeaderCard: {
         useCase: `Used to display a Card with a header.`,
-        arguments: {
+        types: {
           'children*': 'node',
           'title*': 'string',
           'description': 'string',
@@ -218,7 +222,7 @@ export const resourcesByType = {
 
       Heading: {
         useCase: `Used to label related node(s) with a hierarchy.`,
-        arguments: {
+        types: {
           'children*': 'string',
           'level': headingLevels,
         },
@@ -231,7 +235,7 @@ export const resourcesByType = {
 
       Icon: {
         useCase: `Used to display a vector graphic.`,
-        arguments: {
+        types: {
           'type*': iconTypes,
           'size': iconSizes,
           'color': colors,
@@ -248,7 +252,7 @@ export const resourcesByType = {
 
       IconLabel: {
         useCase: `Used to display a vector graphic with a label.`,
-        arguments: {
+        types: {
           'iconType*': iconTypes,
           'labelText*': 'string',
           'color': colors,
@@ -268,7 +272,7 @@ export const resourcesByType = {
 
       Image: {
         useCase: `Used to display a raster graphic.`,
-        arguments: {
+        types: {
           'src*': 'string',
           'alt*': 'string',
           'className': 'string',
@@ -283,7 +287,7 @@ export const resourcesByType = {
 
       InstructorLessons: {
         useCase: `Used to display the lessons of a specific instructor.`,
-        arguments: {
+        types: {
           'instructor*': 'object',
         },
         createExamples: () => [
@@ -301,7 +305,7 @@ export const resourcesByType = {
 
       InstructorRevenue: {
         useCase: `Used to display the revenue of a specific instructor.`,
-        arguments: {
+        types: {
           'revenueUrl*': 'string',
         },
         createExamples: () => [
@@ -319,7 +323,7 @@ export const resourcesByType = {
 
       InstructorStats: {
         useCase: `Used to display the stats of a specific instructor.`,
-        arguments: {
+        types: {
           'instructor*': 'object',
         },
         createExamples: () => [
@@ -337,7 +341,7 @@ export const resourcesByType = {
 
       LayoutColumns: {
         useCase: `Used to group nodes into columns when the container's width is large enough; otherwise the groups stack vertically.`,
-        arguments: {
+        types: {
           'items*': '[node]',
           'relativeSizes': '[number]',
         },
@@ -367,7 +371,7 @@ export const resourcesByType = {
 
       LessonActions: {
         useCase: `Used to take action on a specific lesson.`,
-        arguments: {
+        types: {
           'lesson*': 'object',
           'requestLesson': 'func',
           'requestCurrentPage': 'func',
@@ -390,7 +394,7 @@ export const resourcesByType = {
 
       LessonOverviews: {
         useCase: `Used to show a collection of lessons.`,
-        arguments: {
+        types: {
           'states*': lessonStates,
           'fallback*': 'node',
           'instructor': 'object',
@@ -426,7 +430,7 @@ export const resourcesByType = {
 
       LessonOverviewsByGroup: {
         useCase: `Used to show a collection of lessons organized by lesson state groups.`,
-        arguments: {
+        types: {
           'instructor': 'object',
         },
         createExamples: () => [
@@ -450,7 +454,7 @@ export const resourcesByType = {
 
       List: {
         useCase: `Used to show a collection of nodes in a vertical stack.`,
-        arguments: {
+        types: {
           'items*': '[node]',
         },
         createExamples: () => [
@@ -469,12 +473,12 @@ export const resourcesByType = {
         createExamples: () => [
           <Loading />,
         ],
-        optOut: ['arguments'],
+        optOut: ['types'],
       },
 
       Markdown: {
         useCase: `Used to display markdown strings.`,
-        arguments: {
+        types: {
           'children*': 'string',
         },
         createExamples: () => [
@@ -486,7 +490,7 @@ export const resourcesByType = {
 
       Maybe: {
         useCase: `Used to conditionally display a node or null.`,
-        arguments: {
+        types: {
           'children*': 'node',
           'condition*': 'bool',
         },
@@ -499,9 +503,13 @@ export const resourcesByType = {
       },
 
       Open: {
-        useCase: `Used to toggle a boolean state. This is a Render Callback which passes "isOpen" and "handleOpenToggleClick" to the children.`,
-        arguments: {
+        useCase: `Used to toggle a boolean state.`,
+        types: {
           'children*': 'func',
+        },
+        childrenTypes: {
+          'isOpen': 'bool',
+          'handleOpenToggleClick': 'func',
         },
         createExamples: () => [
           <Open>
@@ -521,12 +529,12 @@ export const resourcesByType = {
             )}
           </Open>
         ],
-        optOut: ['containerWidth', 'containerBackground', 'arguments'],
+        optOut: ['containerWidth', 'containerBackground', 'types'],
       },
 
       Paragraph: {
         useCase: `Used to display a paragraph of text.`,
-        arguments: {
+        types: {
           'children*': 'string',
           'type': paragraphTypes,
         },
@@ -542,7 +550,7 @@ export const resourcesByType = {
 
       Prompt: {
         useCase: `Used as a fallback to prompt the user to take action.`,
-        arguments: {
+        types: {
           'description*': 'string',
           'actionText*': 'string',
           'action*': 'string',
@@ -557,8 +565,8 @@ export const resourcesByType = {
       },
 
       Request: {
-        useCase: `Used to make requests to endpoints. This is a Render Callback which constructs a request, then passes "request", "data", and other request items to the children.`,
-        arguments: {
+        useCase: `Used to make requests to endpoints.`,
+        types: {
           'children*': 'func',
           'url*': 'string',
           'lazy': 'bool',
@@ -572,6 +580,14 @@ export const resourcesByType = {
           'method': requestMethods,
           'subscribe': 'bool',
           'subscribeInterval': 'number'
+        },
+        childrenTypes: {
+          'handleOpenToggleClick': 'func',
+          'request': 'func',
+          'running': 'bool',
+          'error': 'object',
+          'data': 'object',
+          'response': 'object',
         },
         createExamples: () => [
           <Request url='https://jsonplaceholder.typicode.com/users'>
@@ -612,12 +628,12 @@ export const resourcesByType = {
             }
           </Request>
         ],
-        optOut: ['containerWidth', 'containerBackground', 'arguments'],
+        optOut: ['containerWidth', 'containerBackground', 'types'],
       },
 
       RequestedLessons: {
         useCase: `Used to give instructors a list of options for starting a new lesson.`,
-        arguments: {
+        types: {
           'instructor*': 'object',
         },
         createExamples: () => [
@@ -635,7 +651,7 @@ export const resourcesByType = {
 
       Tabs: {
         useCase: `Used to group related nodes into tabs.`,
-        arguments: {
+        types: {
           'groups*': '{title: string, component: node}',
         },
         createExamples: () => [
@@ -658,7 +674,7 @@ export const resourcesByType = {
 
       Toggle: {
         useCase: `Used to let the user toggle a boolean state choice.`,
-        arguments: {
+        types: {
           'leftOption*': 'string',
           'rightOption*': 'string',
           'onClick': 'func',
@@ -686,7 +702,7 @@ export const resourcesByType = {
 
       InstructorDashboard: {
         useCase: `Used to show instructors their most important information.`,
-        arguments: {
+        types: {
           'instructor*': 'object',
         },
         createExamples: () => [
@@ -704,7 +720,7 @@ export const resourcesByType = {
 
       InstructorDetails: {
         useCase: `Used to show full details about a specific instructor.`,
-        arguments: {
+        types: {
           'instructor*': 'object',
         },
         createExamples: () => [
@@ -722,7 +738,7 @@ export const resourcesByType = {
 
       InstructorsDirectory: {
         useCase: `Used to show a list of all instructors.`,
-        arguments: {
+        types: {
           'instructor*': 'object',
         },
         createExamples: () => [
@@ -736,7 +752,7 @@ export const resourcesByType = {
 
       LessonDetails: {
         useCase: `Used to show full details about a specific lesson.`,
-        arguments: {
+        types: {
           'lesson*': 'object',
           'requestLesson': 'func',
         },
@@ -769,7 +785,7 @@ export const resourcesByType = {
 
       NewLesson: {
         useCase: `Used to help instructors start a new lesson.`,
-        arguments: {
+        types: {
           'instructor*': 'object',
         },
         createExamples: () => [
@@ -797,12 +813,12 @@ export const resourcesByType = {
         createExamples: () => [
           colors,
         ],
-        optOut: ['containerWidth', 'containerBackground', 'arguments'],
+        optOut: ['containerWidth', 'containerBackground', 'types'],
       },
 
       colorValues: {
         useCase: `An array of the egghead color keys and values.`,
-        arguments: {
+        types: {
           'key*': colors,
         },
         createExamples: () => [

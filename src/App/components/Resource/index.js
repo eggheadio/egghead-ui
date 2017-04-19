@@ -1,11 +1,10 @@
 import React, {PropTypes} from 'react'
-import {map, isArray, compact, size} from 'lodash'
-import {Link} from 'react-router-dom'
-import colors from 'utils/colors'
+import {compact, size} from 'lodash'
 import Heading from 'components/Heading'
 import Paragraph from 'components/Paragraph'
 import Tabs from 'components/Tabs'
 import Markdown from 'components/Markdown'
+import Types from './components/Types'
 import Examples, {optOuts} from './components/Examples'
 
 const Resource = ({name, resource}) => (
@@ -34,45 +33,19 @@ const Resource = ({name, resource}) => (
               </Markdown>
             </section>
 
-            {resource.arguments && size(resource.arguments) > 0
-              ? <section>
-                  <Heading level='2'>
-                    Arguments
-                  </Heading>
-                  <div className='flex flex-wrap justify-start'>
-                    {map(resource.arguments, (value, key) => (
-                      <div 
-                        key={key}
-                        className='mb4 mr4'
-                        style={{
-                          minWidth: 100,
-                          maxWidth: 200,
-                        }}
-                      >
-                        <div className='white mb1'>
-                          {value === colors
-                            ? <Link to='/colors'>
-                                color
-                              </Link>
-                            : key
-                          }
-                        </div>
-                        <div>
-                          {isArray(value)
-                            ? <div>
-                                {map(value, x => (
-                                  <div key={x}>
-                                    '{x}'
-                                  </div>
-                                ))}
-                              </div>
-                            : value
-                          }
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </section>
+            {resource.types && size(resource.types) > 0
+              ? <Types
+                  title='Types' 
+                  types={resource.types}
+                />
+              : null
+            }
+
+            {resource.childrenTypes && size(resource.childrenTypes) > 0
+              ? <Types
+                  title='Children Types' 
+                  types={resource.childrenTypes}
+                />
               : null
             }
 
@@ -100,7 +73,8 @@ Resource.propTypes = {
   name: PropTypes.string.isRequired,
   resource: React.PropTypes.shape({
     useCase: PropTypes.string.isRequired,
-    arguments: PropTypes.object,
+    types: PropTypes.object,
+    childrenTypes: PropTypes.object,
     createExamples: PropTypes.func,
     optOut: PropTypes.arrayOf(PropTypes.oneOf(optOuts)),
   }).isRequired,
