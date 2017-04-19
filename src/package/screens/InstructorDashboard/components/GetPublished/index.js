@@ -2,7 +2,7 @@ import React from 'react'
 import {map, uniq, compact, isString, size, filter} from 'lodash'
 import {chatInfoUrl, roughDraftInfoUrl, gearSetupInfoUrl} from 'utils/urls'
 import {hasUnlockedPublished} from 'utils/instructorMilestones'
-import createLessonsUrl from 'utils/createLessonsUrl'
+import createLessonsUrlWithParams from 'utils/createLessonsUrlWithParams'
 import {Maybe} from 'components/Maybe'
 import TitleCard from 'components/TitleCard'
 import isStepComplete from './utils/isStepComplete'
@@ -12,8 +12,8 @@ import Checklist from './components/Checklist'
 export default ({instructor}) => (
   <Maybe condition={!hasUnlockedPublished(instructor.published_lessons)}>
     <Request
-      url={createLessonsUrl({
-        lessons_url: instructor.lessons_url
+      url={createLessonsUrlWithParams({
+        lessonsUrl: instructor.lessons_url
       })}
       subscribe
     >

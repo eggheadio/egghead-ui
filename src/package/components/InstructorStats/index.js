@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react'
 import pluralize from 'pluralize'
 import {map, uniqBy} from 'lodash'
 import {hasUnlockedPublished, hasUnlockedCoursePublished} from 'utils/instructorMilestones'
-import createLessonsUrl from 'utils/createLessonsUrl'
+import createLessonsUrlWithParams from 'utils/createLessonsUrlWithParams'
 import Maybe from 'components/Maybe'
 import Card from 'components/Card'
 import Request from 'components/Request'
@@ -18,8 +18,8 @@ const InstructorStats = ({instructor}) => {
     <Card>
       <div className='pa5'>
         <Request
-          url={createLessonsUrl({
-            lessons_url: instructor.lessons_url
+          url={createLessonsUrlWithParams({
+            lessonsUrl: instructor.lessons_url
           })}
         >
           {({data}) => (

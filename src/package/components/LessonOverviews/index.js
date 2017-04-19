@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-import createLessonsUrl from 'utils/createLessonsUrl'
+import createLessonsUrlWithParams from 'utils/createLessonsUrlWithParams'
 import Request from 'components/Request'
 import PaginatedLessonOverviews from './components/PaginatedLessonOverviews'
 
@@ -8,7 +8,7 @@ class LessonOverviews extends Component {
   static propTypes = {
     states: PropTypes.array.isRequired,
     fallback: PropTypes.node.isRequired,
-    instructor: PropTypes.object,
+    lessonsUrl: PropTypes.string.isRequired,
     pageSize: PropTypes.number,
     includeLessonsInCourses: PropTypes.bool,
   }
@@ -31,20 +31,18 @@ class LessonOverviews extends Component {
     const {
       states,
       fallback,
-      instructor,
+      lessonsUrl,
       pageSize,
       includeLessonsInCourses,
     } = this.props
 
     return (
       <Request
-        url={createLessonsUrl({
+        url={createLessonsUrlWithParams({
           states,
           pageSize,
           page: currentPage,
-          lessons_url: instructor
-            ? instructor.lessons_url
-            : false,
+          lessonsUrl: lessonsUrl,
           includeLessonsInCourses,
         })}
         subscribe

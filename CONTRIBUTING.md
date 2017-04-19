@@ -79,6 +79,10 @@ SomeScreenName/
   utils/ (optional utility modules)
 ```
 
+### Endpoints
+
+The `Request` component is used for making requests to endpoints. Hypermedia properties (`*_url`) should be used for all URLs in `package/*` resources; this ensures endpoint permissions and environment.
+
 ### Paths
 
 ES2015 modules are used for sharing code between files. `NODE_PATH` is set to `src/package` so `import Icon from 'components/Icon'` will grab `src/package/components/Icon`. When trying to decide if an import should use an absolute or relative path, it depends on the situation: if something belongs to an inner module/component, it should reference the pieces relatively; if something is using a general promoted module/component, it should import the pieces absolutely. A good rule of thumb is to keep everything relative that would be moved together so it is self-contained.

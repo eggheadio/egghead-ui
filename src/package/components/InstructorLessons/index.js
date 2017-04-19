@@ -9,7 +9,10 @@ const InstructorLessons = ({instructor}) => (
       <Heading level='5'>
         {`${instructor.first_name}'s Lessons`}
       </Heading>
-      <LessonOverviewsByGroup instructor={instructor} />
+      <LessonOverviewsByGroup 
+        lessonsUrl={instructor.lessons_url}
+        instructor={instructor} 
+      />
     </div>
   </Maybe>
 )

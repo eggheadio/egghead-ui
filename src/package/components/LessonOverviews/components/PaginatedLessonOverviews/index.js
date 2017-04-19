@@ -6,7 +6,8 @@ import Card from 'components/Card'
 import sortLessonsByState from './utils/sortLessonsByState'
 import LessonOverview from './components/LessonOverview'
 
-const PaginatedLessonOverviews = ({ fallback,
+const PaginatedLessonOverviews = ({ 
+  fallback,
   pageSize,
   currentPage,
   total,

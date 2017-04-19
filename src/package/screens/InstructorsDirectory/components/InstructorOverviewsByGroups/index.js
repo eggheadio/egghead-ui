@@ -5,8 +5,8 @@ import Tabs from 'components/Tabs'
 import Request from 'components/Request'
 import InstructorOverviews from './components/InstructorOverviews'
 
-export default ({instructors}) => (
-  <Request url={`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/instructors`}>
+export default ({instructorsUrl}) => (
+  <Request url={instructorsUrl}>
     {({data}) => (
       <Tabs groups={[
         {

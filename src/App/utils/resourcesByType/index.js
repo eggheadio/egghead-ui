@@ -359,24 +359,27 @@ export const resourcesByType = {
         },
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
-            {({data}) => (
-              <Request url={data.instructors_url}>
-                {({data}) => (
-                  <LessonOverviews
-                    states={[random.arrayElement(lessonStates)]}
-                    fallback={
-                      <Prompt
-                        description='No lessons to show'
-                        actionText='Create a new lesson'
-                        action={'/lessons/new'}
-                      />
-                    }
-                    instructor={random.arrayElement(data)}
-                    includeLessonsInCourses
-                  />
-                )}
-              </Request>
-            )}
+            {({data}) => {
+              const rootData = data.lessons_url
+              return (
+                <Request url={data.instructors_url}>
+                  {({data}) => (
+                    <LessonOverviews
+                      states={[random.arrayElement(lessonStates)]}
+                      fallback={
+                        <Prompt
+                          description='No lessons to show'
+                          actionText='Create a new lesson'
+                          action={'/lessons/new'}
+                        />
+                      }
+                      lessonsUrl={rootData.lessonsUrl}
+                      includeLessonsInCourses
+                    />
+                  )}
+                </Request>
+              )
+            }}
           </Authentication>,
         ],
       },
@@ -389,9 +392,15 @@ export const resourcesByType = {
           <Authentication loginUrl={getLoginUrl()}>
             {({data}) => (
               <Request url={data.instructors_url}>
-                {({data}) => (
-                  <LessonOverviewsByGroup instructor={random.arrayElement(data)} />
-                )}
+                {({data}) => {
+                  const instructor = random.arrayElement(data)
+                  return (
+                    <LessonOverviewsByGroup 
+                      lessonsUrl={instructor.lessons_url}
+                      instructor={instructor} 
+                    />
+                  )
+                }}
               </Request>
             )}
           </Authentication>,
@@ -684,8 +693,8 @@ export const resourcesByType = {
         },
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
-            {() => (
-              <InstructorsDirectory />
+            {({data}) => (
+              <InstructorsDirectory instructorsUrl={data.instructors_url} />
             )}
           </Authentication>,
         ],
@@ -716,8 +725,8 @@ export const resourcesByType = {
         arguments: {},
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
-            {() => (
-              <LessonsDirectory />
+            {(data) => (
+              <LessonsDirectory lessonsUrl={data.lessons_url} />
             )}
           </Authentication>,
         ],

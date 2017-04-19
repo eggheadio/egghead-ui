@@ -1,15 +1,12 @@
 import createQueryString from './utils/createQueryString'
 
-const createLessonUrl = ({
+const createLessonsUrlWithParams = ({
   states,
   pageSize = 10,
   page = 1,
-  lessons_url, 
+  lessonsUrl, 
   includeLessonsInCourses = true,
 }) => {
-
-  const allLessonsUrl = `${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/lessons`
-  const lessonsUrl = lessons_url || allLessonsUrl
 
   const params = {
     'page': page,
@@ -26,4 +23,4 @@ const createLessonUrl = ({
   return `${lessonsUrl}${queryString}`
 }
 
-export default createLessonUrl
+export default createLessonsUrlWithParams

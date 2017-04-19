@@ -1,10 +1,14 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import InstructorOverviewsByGroups from './components/InstructorOverviewsByGroups'
 
-const InstructorsDirectory = () => (
+const InstructorsDirectory = ({instructorsUrl}) => (
   <div>
-    <InstructorOverviewsByGroups />
+    <InstructorOverviewsByGroups instructorsUrl={instructorsUrl} />
   </div>
 )
+
+InstructorsDirectory.propTypes = {
+  instructorsUrl: PropTypes.string.isRequired,
+}
 
 export default InstructorsDirectory

@@ -7,7 +7,7 @@ import Tabs from 'components/Tabs'
 import LessonOverviews from 'components/LessonOverviews'
 import Prompt from 'components/Prompt'
 
-const LessonOverviewsByGroup = ({instructor}) => {
+const LessonOverviewsByGroup = ({lessonsUrl, instructor}) => {
 
   const items = compact([
     {
@@ -72,7 +72,7 @@ const LessonOverviewsByGroup = ({instructor}) => {
                     action={'/lessons/new'}
                   />
                 }
-                instructor={instructor}
+                lessonsUrl={lessonsUrl}
                 includeLessonsInCourses={item.includeLessonsInCourses}
               />
             </div>
@@ -96,6 +96,7 @@ const LessonOverviewsByGroup = ({instructor}) => {
 }
 
 LessonOverviewsByGroup.propTypes = {
+  lessonsUrl: PropTypes.string.isRequired,
   instructor: PropTypes.object,
 }
 
