@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react'
-import Heading from 'components/Heading'
-import LessonOverviewsByGroup from 'components/LessonOverviewsByGroup'
+import Heading from 'package/components/Heading'
+import LessonOverviewsByGroup from 'package/components/LessonOverviewsByGroup'
 
 const LessonsDirectory = ({lessonsUrl}) => (
   <div>

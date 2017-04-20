@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react'
 import {map, isArray} from 'lodash'
 import {Link} from 'react-router-dom'
-import colors from 'utils/colors'
-import Heading from 'components/Heading'
+import colors from 'package/utils/colors'
+import Heading from 'package/components/Heading'
 
 const Arguments = ({title, types}) => (
   <section>

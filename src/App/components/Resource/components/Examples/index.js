@@ -6,9 +6,9 @@ import {
   largeContainerWidth,
   xlargeContainerWidth,
   xxlargeContainerWidth,
-} from 'utils/hardCodedSizes'
-import Heading from 'components/Heading'
-import Button from 'components/Button'
+} from 'package/utils/hardCodedSizes'
+import Heading from 'package/components/Heading'
+import Button from 'package/components/Button'
 
 const containerWidthActions = [
   {

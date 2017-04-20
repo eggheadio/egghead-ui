@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react'
 import {Link} from 'react-router-dom'
 import {map} from 'lodash'
-import Icon from 'components/Icon'
-import List from 'components/List'
+import Icon from 'package/components/Icon'
+import List from 'package/components/List'
 import MoreInfo from './components/MoreInfo'
 
 const Checklist = ({items}) => (

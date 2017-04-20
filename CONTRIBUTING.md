@@ -1,5 +1,10 @@
 # Contributing
 
+## Background
+
+- The **app** uses `react-scripts` from Create React App
+- The **package** is an npm package
+
 ## Workflow
 
 - Ensure you have Git, Node, and Yarn installed
@@ -85,7 +90,7 @@ The `Request` component is used for making requests to endpoints. Hypermedia pro
 
 ### Paths
 
-ES2015 modules are used for sharing code between files. `NODE_PATH` is set to `src/package` so `import Icon from 'components/Icon'` will grab `src/package/components/Icon`. When trying to decide if an import should use an absolute or relative path, it depends on the situation: if something belongs to an inner module/component, it should reference the pieces relatively; if something is using a general promoted module/component, it should import the pieces absolutely. A good rule of thumb is to keep everything relative that would be moved together so it is self-contained.
+ES2015 modules are used for sharing code between files. Both `NODE_PATH` (for the **app**) and `babel-plugin-module-resolver` (for the **package**) are set to `src` so `import Icon from 'package/components/Icon'` will grab `src/package/components/Icon`. When trying to decide if an import should use an absolute or relative path, it depends on the situation: if something belongs to an inner module/component, it should reference the pieces relatively; if something is using a general promoted module/component, it should import the pieces absolutely. A good rule of thumb is to keep everything relative that would be moved together so it is self-contained.
 
 ### Promotion
 

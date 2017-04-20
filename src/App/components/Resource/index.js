@@ -1,9 +1,9 @@
 import React, {PropTypes} from 'react'
 import {compact, size} from 'lodash'
-import Heading from 'components/Heading'
-import Paragraph from 'components/Paragraph'
-import Tabs from 'components/Tabs'
-import Markdown from 'components/Markdown'
+import Heading from 'package/components/Heading'
+import Paragraph from 'package/components/Paragraph'
+import Tabs from 'package/components/Tabs'
+import Markdown from 'package/components/Markdown'
 import Types from './components/Types'
 import Examples, {optOuts} from './components/Examples'
 

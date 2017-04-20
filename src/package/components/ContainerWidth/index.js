@@ -5,7 +5,7 @@ import {
   largeContainerWidth,
   xlargeContainerWidth,
   xxlargeContainerWidth,
-} from 'utils/hardCodedSizes'
+} from 'package/utils/hardCodedSizes'
 
 export default class DeviceWidth extends Component {
   

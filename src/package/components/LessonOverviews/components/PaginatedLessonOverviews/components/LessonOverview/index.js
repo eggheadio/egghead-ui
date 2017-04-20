@@ -1,12 +1,12 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {detailsByLessonState} from 'utils/lessonStates'
-import {smallContainerWidth} from 'utils/hardCodedSizes'
-import Maybe from 'components/Maybe'
-import Heading from 'components/Heading'
-import Image from 'components/Image'
-import Avatar from 'components/Avatar'
-import LessonActions from 'components/LessonActions'
+import {detailsByLessonState} from 'package/utils/lessonStates'
+import {smallContainerWidth} from 'package/utils/hardCodedSizes'
+import Maybe from 'package/components/Maybe'
+import Heading from 'package/components/Heading'
+import Image from 'package/components/Image'
+import Avatar from 'package/components/Avatar'
+import LessonActions from 'package/components/LessonActions'
 
 export default ({lesson, requestCurrentPage}) => (
   <div className='flex flex-wrap justify-between'>

@@ -1,11 +1,11 @@
 import React, {PropTypes} from 'react'
 import {map, compact} from 'lodash'
-import {publicLessonsUrl} from 'utils/urls'
-import {selfReviewThreshold, hasUnlockedSelfReview} from 'utils/instructorMilestones' 
-import Maybe from 'components/Maybe'
-import Tabs from 'components/Tabs'
-import LessonOverviews from 'components/LessonOverviews'
-import Prompt from 'components/Prompt'
+import {publicLessonsUrl} from 'package/utils/urls'
+import {selfReviewThreshold, hasUnlockedSelfReview} from 'package/utils/instructorMilestones' 
+import Maybe from 'package/components/Maybe'
+import Tabs from 'package/components/Tabs'
+import LessonOverviews from 'package/components/LessonOverviews'
+import Prompt from 'package/components/Prompt'
 
 const LessonOverviewsByGroup = ({lessonsUrl, instructor}) => {
 

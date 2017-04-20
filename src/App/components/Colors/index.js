@@ -1,6 +1,6 @@
 import React from 'react'
 import {map} from 'lodash'
-import colors from 'utils/colors'
+import colors from 'package/utils/colors'
 
 const Colors = () => (
   <div className='flex flex-wrap'>

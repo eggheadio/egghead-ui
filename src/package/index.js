@@ -1,42 +1,44 @@
-import AnchorSource from './components/Anchor'
-import AvatarSource from './components/Avatar'
-import ButtonSource from './components/Button'
-import CardSource from './components/Card'
-import ContainerWidthSource from './components/ContainerWidth'
-import ErrorSource from './components/Error'
-import HeaderCardSource from './components/HeaderCard'
-import HeadingSource from './components/Heading'
-import IconSource from './components/Icon'
-import IconLabelSource from './components/IconLabel'
-import ImageSource from './components/Image'
-import InstructorLessonsSource from './components/InstructorLessons'
-import InstructorRevenueSource from './components/InstructorRevenue'
-import InstructorStatsSource from './components/InstructorStats'
-import LayoutColumnsSource from './components/LayoutColumns'
-import LessonActionsSource from './components/LessonActions'
-import LessonOverviewsSource from './components/LessonOverviews'
-import LessonOverviewByGroupSource from './components/LessonOverviewByGroup'
-import ListSource from './components/List'
-import LoadingSource from './components/Loading'
-import MarkdownSource from './components/Markdown'
-import MaybeSource from './components/Maybe'
-import OpenSource from './components/Open'
-import ParagraphSource from './components/Paragraph'
-import PromptSource from './components/Prompt'
-import RequestSource from './components/Request'
-import RequestedLessonsSource from './components/RequestedLessons'
-import TabsSource from './components/Tabs'
-import ToggleSource from './components/Toggle'
+import AnchorSource from 'package/components/Anchor'
+import AvatarSource from 'package/components/Avatar'
+import ButtonSource from 'package/components/Button'
+import CardSource from 'package/components/Card'
+import ContainerWidthSource from 'package/components/ContainerWidth'
+import ErrorSource from 'package/components/Error'
+import HeaderCardSource from 'package/components/HeaderCard'
+import HeadingSource from 'package/components/Heading'
+import IconSource from 'package/components/Icon'
+import IconLabelSource from 'package/components/IconLabel'
+import ImageSource from 'package/components/Image'
+import InstructorLessonsSource from 'package/components/InstructorLessons'
+import InstructorRevenueSource from 'package/components/InstructorRevenue'
+import InstructorStatsSource from 'package/components/InstructorStats'
+import LayoutColumnsSource from 'package/components/LayoutColumns'
+import LessonActionsSource from 'package/components/LessonActions'
+import LessonOverviewsSource from 'package/components/LessonOverviews'
+import LessonOverviewsByGroupSource from 'package/components/LessonOverviewsByGroup'
+import ListSource from 'package/components/List'
+import LoadingSource from 'package/components/Loading'
+import MarkdownSource from 'package/components/Markdown'
+import MaybeSource from 'package/components/Maybe'
+import OpenSource from 'package/components/Open'
+import ParagraphSource from 'package/components/Paragraph'
+import PromptSource from 'package/components/Prompt'
+import RequestSource from 'package/components/Request'
+import RequestedLessonsSource from 'package/components/RequestedLessons'
+import TabsSource from 'package/components/Tabs'
+import ToggleSource from 'package/components/Toggle'
 
-import InstructorDashboardSource from './screens/InstructorDashboard'
-import InstructorDetailsSource from './screens/Instructors/screens/InstructorDetails'
-import InstructorsDirectorySource from './screens/InstructorsDirectory'
-import LessonDetailsSource from './screens/Lessons/screens/LessonDetails'
-import LessonsDirectorySource from './screens/LessonsDirectory'
-import NewLessonSource from './screens/Lessons/screens/NewLesson'
+import InstructorDashboardSource from 'package/screens/InstructorDashboard'
+import InstructorDetailsSource from 'package/screens/InstructorDetails'
+import InstructorsDirectorySource from 'package/screens/InstructorsDirectory'
+import LessonDetailsSource from 'package/screens/LessonDetails'
+import LessonsDirectorySource from 'package/screens/LessonsDirectory'
+import NewLessonSource from 'package/screens/NewLesson'
 
-import colorsSource from './utils/colors'
-import colorValuesSource from './utils/colorValues'
+import colorsSource from 'package/utils/colors'
+import colorValuesSource from 'package/utils/colorValues'
+import loginSource from 'package/utils/login'
+import logoutSource from 'package/utils/logout'
 
 export const Anchor = AnchorSource
 export const Avatar = AvatarSource
@@ -55,7 +57,7 @@ export const InstructorStats = InstructorStatsSource
 export const LayoutColumns = LayoutColumnsSource
 export const LessonActions = LessonActionsSource
 export const LessonOverviews = LessonOverviewsSource
-export const LessonOverviewByGroup = LessonOverviewByGroupSource
+export const LessonOverviewsByGroup = LessonOverviewsByGroupSource
 export const List = ListSource
 export const Loading = LoadingSource
 export const Markdown = MarkdownSource
@@ -77,3 +79,5 @@ export const InstructorsDirectory = InstructorsDirectorySource
 
 export const colors = colorsSource
 export const colorValues = colorValuesSource
+export const login = loginSource
+export const logout = logoutSource

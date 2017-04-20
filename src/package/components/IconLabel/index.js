@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react'
-import colors from 'utils/colors'
-import Icon, {types as iconTypes} from 'components/Icon'
+import colors from 'package/utils/colors'
+import Icon, {types as iconTypes} from 'package/components/Icon'
 
 const IconLabel = ({
   iconType, 

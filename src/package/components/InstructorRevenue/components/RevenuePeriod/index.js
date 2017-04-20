@@ -1,5 +1,5 @@
 import React from 'react'
-import numberFormattingByType from 'utils/numberFormattingByType'
+import numberFormattingByType from 'package/utils/numberFormattingByType'
 
 export default ({title, revenue, subscriberMinutes}) => (
   <div>

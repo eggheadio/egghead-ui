@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react'
-import createLessonsUrlWithParams from 'utils/createLessonsUrlWithParams'
-import Request from 'components/Request'
+import createLessonsUrlWithParams from 'package/utils/createLessonsUrlWithParams'
+import Request from 'package/components/Request'
 import PaginatedLessonOverviews from './components/PaginatedLessonOverviews'
 
 class LessonOverviews extends Component {

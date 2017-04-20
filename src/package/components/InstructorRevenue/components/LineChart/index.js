@@ -2,7 +2,7 @@ import React from 'react'
 import {map} from 'lodash'
 import hexToRgba from 'hex-rgba'
 import {Line} from 'react-chartjs-2'
-import numberFormattingByType from 'utils/numberFormattingByType'
+import numberFormattingByType from 'package/utils/numberFormattingByType'
 
 const tooltipColor = '#63768d' // # dark-gray
 

@@ -1,6 +1,6 @@
 import React from 'react'
-import Open from 'components/Open'
-import IconLabel from 'components/IconLabel'
+import Open from 'package/components/Open'
+import IconLabel from 'package/components/IconLabel'
 import ProposeLessonForm from './components/ProposeLessonForm'
 
 export default ({instructor}) => (

@@ -1,8 +1,8 @@
 import React from 'react'
 import {map, compact} from 'lodash'
-import List from 'components/List'
-import HeaderCard from 'components/HeaderCard'
-import Avatar from 'components/Avatar'
+import List from 'package/components/List'
+import HeaderCard from 'package/components/HeaderCard'
+import Avatar from 'package/components/Avatar'
 import InfoBit from './components/InfoBit'
 
 export default ({instructor}) => {

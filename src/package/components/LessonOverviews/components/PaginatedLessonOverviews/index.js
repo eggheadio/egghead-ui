@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react'
 import ReactPaginate from 'react-paginate'
 import {map} from 'lodash'
-import Maybe from 'components/Maybe'
-import Card from 'components/Card'
+import Maybe from 'package/components/Maybe'
+import Card from 'package/components/Card'
 import sortLessonsByState from './utils/sortLessonsByState'
 import LessonOverview from './components/LessonOverview'
 

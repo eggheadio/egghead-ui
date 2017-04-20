@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react'
-import Maybe from 'components/Maybe'
-import Heading from 'components/Heading'
-import Paragraph from 'components/Paragraph'
-import Card from 'components/Card'
+import Maybe from 'package/components/Maybe'
+import Heading from 'package/components/Heading'
+import Paragraph from 'package/components/Paragraph'
+import Card from 'package/components/Card'
 
 const HeaderCard = ({
   children, 

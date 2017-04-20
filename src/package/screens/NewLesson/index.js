@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import RequestedLessons from 'components/RequestedLessons'
+import RequestedLessons from 'package/components/RequestedLessons'
 
 const NewLesson = ({
   instructor,

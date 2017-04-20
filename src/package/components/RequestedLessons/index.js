@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react'
-import Paragraph from 'components/Paragraph'
-import Heading from 'components/Heading'
-import Card from 'components/Card'
-import LessonOverviews from 'components/LessonOverviews'
+import Paragraph from 'package/components/Paragraph'
+import Heading from 'package/components/Heading'
+import Card from 'package/components/Card'
+import LessonOverviews from 'package/components/LessonOverviews'
 import ProposeLesson from './components/ProposeLesson'
 
 const RequestedLessons = ({

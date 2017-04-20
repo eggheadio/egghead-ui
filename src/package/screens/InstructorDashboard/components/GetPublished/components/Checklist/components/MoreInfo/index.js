@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react'
-import Maybe from 'components/Maybe'
-import Icon from 'components/Icon'
-import Anchor from 'components/Anchor'
+import Maybe from 'package/components/Maybe'
+import Icon from 'package/components/Icon'
+import Anchor from 'package/components/Anchor'
 
 const MoreInfo = ({url}) => (
   <Maybe condition={Boolean(url)}>

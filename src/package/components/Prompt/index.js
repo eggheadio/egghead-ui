@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react'
 import {Link} from 'react-router-dom'
 import {startsWith} from 'lodash'
-import Button from 'components/Button'
-import Paragraph from 'components/Paragraph'
+import Button from 'package/components/Button'
+import Paragraph from 'package/components/Paragraph'
 
 const Prompt = ({
   description,

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Paragraph from 'components/Paragraph'
+import Paragraph from 'package/components/Paragraph'
 
 export default class extends Component {
 

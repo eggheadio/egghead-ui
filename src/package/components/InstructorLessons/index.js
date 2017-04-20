@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react'
-import Maybe from 'components/Maybe'
-import Heading from 'components/Heading'
-import LessonOverviewsByGroup from 'components/LessonOverviewsByGroup'
+import Maybe from 'package/components/Maybe'
+import Heading from 'package/components/Heading'
+import LessonOverviewsByGroup from 'package/components/LessonOverviewsByGroup'
 
 const InstructorLessons = ({instructor}) => (
   <Maybe condition={Boolean(instructor)}>

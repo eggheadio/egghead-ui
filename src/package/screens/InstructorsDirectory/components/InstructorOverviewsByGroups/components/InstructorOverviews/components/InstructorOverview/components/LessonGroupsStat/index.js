@@ -1,5 +1,5 @@
 import React from 'react'
-import Heading from 'components/Heading'
+import Heading from 'package/components/Heading'
 
 export default ({label, count}) => (
   <div className='pv2 ph3 bg-gray-secondary br2 tc'>

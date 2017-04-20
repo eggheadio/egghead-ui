@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import {map, size, every} from 'lodash'
-import Maybe from 'components/Maybe'
-import Error from 'components/Error'
-import Button from 'components/Button'
-import Paragraph from 'components/Paragraph'
-import Request from 'components/Request'
+import Maybe from 'package/components/Maybe'
+import Error from 'package/components/Error'
+import Button from 'package/components/Button'
+import Paragraph from 'package/components/Paragraph'
+import Request from 'package/components/Request'
 
 const inputClassNames = 'input-reset pa2 br2 ba b--gray-secondary dark-gray w-100'
 

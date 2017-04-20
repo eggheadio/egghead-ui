@@ -1,48 +1,49 @@
 import React from 'react'
 import {internet, lorem, random, name} from 'faker'
-import {containerWidths} from 'utils/hardCodedSizes'
-import {lessonStates} from 'utils/lessonStates'
-import Authentication from '../../components/Authentication'
 
-import Anchor, {types as anchorTypes} from 'components/Anchor'
-import Avatar, {sizes as avatarSizes} from 'components/Avatar'
-import Button, {sizes as buttonSizes} from 'components/Button'
-import Card, {levels as cardLevels} from 'components/Card'
-import ContainerWidth from 'components/ContainerWidth'
-import Error from 'components/Error'
-import HeaderCard from 'components/HeaderCard'
-import Heading, {levels as headingLevels} from 'components/Heading'
-import Icon, {types as iconTypes, sizes as iconSizes} from 'components/Icon'
-import IconLabel from 'components/IconLabel'
-import Image from 'components/Image'
-import InstructorLessons from 'components/InstructorLessons'
-import InstructorRevenue from 'components/InstructorRevenue'
-import InstructorStats from 'components/InstructorStats'
-import LayoutColumns from 'components/LayoutColumns'
-import LessonActions from 'components/LessonActions'
-import LessonOverviews from 'components/LessonOverviews'
-import LessonOverviewsByGroup from 'components/LessonOverviewsByGroup'
-import List from 'components/List'
-import Loading from 'components/Loading'
-import Markdown from 'components/Markdown'
-import Maybe from 'components/Maybe'
-import Open from 'components/Open'
-import Paragraph, {types as paragraphTypes} from 'components/Paragraph'
-import Prompt from 'components/Prompt'
-import Request, {methods as requestMethods} from 'components/Request'
-import RequestedLessons from 'components/RequestedLessons'
-import Tabs from 'components/Tabs'
-import Toggle, {selectedItems as toggleSelectedItems} from 'components/Toggle'
+import Anchor, {types as anchorTypes} from 'package/components/Anchor'
+import Avatar, {sizes as avatarSizes} from 'package/components/Avatar'
+import Button, {sizes as buttonSizes} from 'package/components/Button'
+import Card, {levels as cardLevels} from 'package/components/Card'
+import ContainerWidth from 'package/components/ContainerWidth'
+import Error from 'package/components/Error'
+import HeaderCard from 'package/components/HeaderCard'
+import Heading, {levels as headingLevels} from 'package/components/Heading'
+import Icon, {types as iconTypes, sizes as iconSizes} from 'package/components/Icon'
+import IconLabel from 'package/components/IconLabel'
+import Image from 'package/components/Image'
+import InstructorLessons from 'package/components/InstructorLessons'
+import InstructorRevenue from 'package/components/InstructorRevenue'
+import InstructorStats from 'package/components/InstructorStats'
+import LayoutColumns from 'package/components/LayoutColumns'
+import LessonActions from 'package/components/LessonActions'
+import LessonOverviews from 'package/components/LessonOverviews'
+import LessonOverviewsByGroup from 'package/components/LessonOverviewsByGroup'
+import List from 'package/components/List'
+import Loading from 'package/components/Loading'
+import Markdown from 'package/components/Markdown'
+import Maybe from 'package/components/Maybe'
+import Open from 'package/components/Open'
+import Paragraph, {types as paragraphTypes} from 'package/components/Paragraph'
+import Prompt from 'package/components/Prompt'
+import Request, {methods as requestMethods} from 'package/components/Request'
+import RequestedLessons from 'package/components/RequestedLessons'
+import Tabs from 'package/components/Tabs'
+import Toggle, {selectedItems as toggleSelectedItems} from 'package/components/Toggle'
 
-import InstructorDashboard from 'screens/InstructorDashboard'
-import InstructorDetails from 'screens/InstructorDetails'
-import InstructorsDirectory from 'screens/InstructorsDirectory'
-import LessonDetails from 'screens/LessonDetails'
-import LessonsDirectory from 'screens/LessonsDirectory'
-import NewLesson from 'screens/NewLesson'
+import InstructorDashboard from 'package/screens/InstructorDashboard'
+import InstructorDetails from 'package/screens/InstructorDetails'
+import InstructorsDirectory from 'package/screens/InstructorsDirectory'
+import LessonDetails from 'package/screens/LessonDetails'
+import LessonsDirectory from 'package/screens/LessonsDirectory'
+import NewLesson from 'package/screens/NewLesson'
 
-import colors from 'utils/colors'
-import colorValues from 'utils/colorValues'
+import colors from 'package/utils/colors'
+import colorValues from 'package/utils/colorValues'
+import {containerWidths} from 'package/utils/hardCodedSizes'
+import {lessonStates} from 'package/utils/lessonStates'
+
+import Authentication from 'App/components/Authentication'
 
 const getLoginUrl = () => (
   `${process.env.REACT_APP_EGGHEAD_BASE_URL}/users/jwt?return_to=${window.location.href}`
@@ -858,6 +859,14 @@ export const resourcesByType = {
           colorValues[random.arrayElement(colors)],
         ],
         optOut: ['containerWidth', 'containerBackground'],
+      },
+
+      login: {
+        useCase: `Uses local storage "token" if it exists. Adds/updates local storage "token" if there is a "jwt" query param in the URL from an egghead login URL redirect.`,
+      },
+
+      logout: {
+        useCase: `Removes "token" from local storage and refreshes the page to log the user out.`,
       },
 
     },

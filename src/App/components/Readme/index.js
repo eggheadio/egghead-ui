@@ -1,7 +1,7 @@
 import React from 'react'
-import Heading from 'components/Heading'
-import Markdown from 'components/Markdown'
-import Paragraph from 'components/Paragraph'
+import Heading from 'package/components/Heading'
+import Markdown from 'package/components/Markdown'
+import Paragraph from 'package/components/Paragraph'
 
 const Readme = () => (
   <section>

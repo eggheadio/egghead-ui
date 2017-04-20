@@ -1,7 +1,7 @@
 import React from 'react'
 import {map} from 'lodash'
-import Anchor from 'components/Anchor'
-import Image from 'components/Image'
+import Anchor from 'package/components/Anchor'
+import Image from 'package/components/Image'
 
 export default ({count, label, graphics}) => (
   <div>

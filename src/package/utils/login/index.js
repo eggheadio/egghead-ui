@@ -4,7 +4,7 @@ import getUrlParameter from './utils/getUrlParameter'
 
 const decodeToken = (token) => jwt.decode(token, null, true)
 
-export const login = (addTokenData) => {
+const login = () => {
   if (localStorage.getItem('token')) {
     const token = localStorage.getItem('token')
     return decodeToken(token)
@@ -17,7 +17,4 @@ export const login = (addTokenData) => {
   }
 }
 
-export const logout = () => {
-  localStorage.removeItem('token')
-  window.location.reload()
-}
+export default login

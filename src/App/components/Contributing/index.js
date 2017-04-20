@@ -1,5 +1,5 @@
 import React from 'react'
-import Anchor from 'components/Anchor'
+import Anchor from 'package/components/Anchor'
 
 const Contributing = () => (
   <Anchor url={'https://github.com/eggheadio/egghead-ui/blob/master/CONTRIBUTING.md'}>

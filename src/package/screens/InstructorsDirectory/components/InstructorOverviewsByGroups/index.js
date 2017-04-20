@@ -1,8 +1,8 @@
 import React from 'react'
 import {filter, reject} from 'lodash'
 import sortBy from 'sort-by'
-import Tabs from 'components/Tabs'
-import Request from 'components/Request'
+import Tabs from 'package/components/Tabs'
+import Request from 'package/components/Request'
 import InstructorOverviews from './components/InstructorOverviews'
 
 export default ({instructorsUrl}) => (

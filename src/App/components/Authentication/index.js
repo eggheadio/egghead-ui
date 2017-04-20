@@ -1,8 +1,9 @@
 import React, {PropTypes} from 'react'
-import {login, logout} from 'utils/authentication'
-import Heading from 'components/Heading'
-import Anchor from 'components/Anchor'
-import Request from 'components/Request'
+import login from 'package/utils/login'
+import logout from 'package/utils/logout'
+import Heading from 'package/components/Heading'
+import Anchor from 'package/components/Anchor'
+import Request from 'package/components/Request'
 
 const Authentication = ({children, loginUrl, userPermissionProperty}) => {
   

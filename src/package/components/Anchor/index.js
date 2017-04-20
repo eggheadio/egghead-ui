@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react'
 import {first} from 'lodash'
-import colors from 'utils/colors'
-import Icon from 'components/Icon'
+import colors from 'package/utils/colors'
+import Icon from 'package/components/Icon'
 
 export const types = ['inline', 'prominent']
 

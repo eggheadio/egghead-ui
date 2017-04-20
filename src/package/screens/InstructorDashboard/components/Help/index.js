@@ -1,13 +1,13 @@
 import React from 'react'
 import {map} from 'lodash'
-import {guideUrl, chatUrl, instructorsChatUrl} from 'utils/urls'
-import {hasUnlockedPublished} from 'utils/instructorMilestones'
-import Maybe from 'components/Maybe'
-import Paragraph from 'components/Paragraph'
-import List from 'components/List'
-import Heading from 'components/Heading'
-import HeaderCard from 'components/HeaderCard'
-import Anchor from 'components/Anchor'
+import {guideUrl, chatUrl, instructorsChatUrl} from 'package/utils/urls'
+import {hasUnlockedPublished} from 'package/utils/instructorMilestones'
+import Maybe from 'package/components/Maybe'
+import Paragraph from 'package/components/Paragraph'
+import List from 'package/components/List'
+import Heading from 'package/components/Heading'
+import HeaderCard from 'package/components/HeaderCard'
+import Anchor from 'package/components/Anchor'
 
 const items=[
   {

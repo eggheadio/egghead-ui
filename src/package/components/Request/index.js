@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import {includes, first} from 'lodash'
-import {logout} from 'utils/authentication'
+import logout from 'package/utils/logout'
 import RequestBase from './components/RequestBase'
 
 export const methods = [

@@ -1,11 +1,11 @@
 import React, {PropTypes} from 'react'
 import pluralize from 'pluralize'
 import {map, uniqBy} from 'lodash'
-import {hasUnlockedPublished, hasUnlockedCoursePublished} from 'utils/instructorMilestones'
-import createLessonsUrlWithParams from 'utils/createLessonsUrlWithParams'
-import Maybe from 'components/Maybe'
-import Card from 'components/Card'
-import Request from 'components/Request'
+import {hasUnlockedPublished, hasUnlockedCoursePublished} from 'package/utils/instructorMilestones'
+import createLessonsUrlWithParams from 'package/utils/createLessonsUrlWithParams'
+import Maybe from 'package/components/Maybe'
+import Card from 'package/components/Card'
+import Request from 'package/components/Request'
 import InstructorStat from './components/InstructorStat'
 
 const InstructorStats = ({instructor}) => {

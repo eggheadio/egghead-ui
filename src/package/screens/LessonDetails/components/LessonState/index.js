@@ -1,6 +1,6 @@
 import React from 'react'
-import Paragraph from 'components/Paragraph'
-import {detailsByLessonState} from 'utils/lessonStates'
+import Paragraph from 'package/components/Paragraph'
+import {detailsByLessonState} from 'package/utils/lessonStates'
 
 export default ({lesson}) => {
   const statusColor = detailsByLessonState[lesson.state].color

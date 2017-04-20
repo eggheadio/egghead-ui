@@ -1,5 +1,5 @@
 import React from 'react'
-import Anchor from 'components/Anchor'
+import Anchor from 'package/components/Anchor'
 
 export default ({label, value, href}) => (
   <div>

@@ -1,9 +1,9 @@
 import React from 'react'
 import {map} from 'lodash'
 import {Link} from 'react-router-dom'
-import Maybe from 'components/Maybe'  
-import Heading from 'components/Heading'
-import Avatar from 'components/Avatar'
+import Maybe from 'package/components/Maybe'  
+import Heading from 'package/components/Heading'
+import Avatar from 'package/components/Avatar'
 import LessonGroupsStat from './components/LessonGroupsStat'
 
 export default ({instructor}) => {

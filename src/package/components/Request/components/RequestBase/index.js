@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import Error from 'components/Error'
-import Loading from 'components/Loading'
+import Error from 'package/components/Error'
+import Loading from 'package/components/Loading'
 
 const http = axios.create()
 

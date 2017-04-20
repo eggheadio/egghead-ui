@@ -1,7 +1,7 @@
 import React from 'react'
 import {map, size} from 'lodash'
-import Paragraph from 'components/Paragraph'
-import Card from 'components/Card'
+import Paragraph from 'package/components/Paragraph'
+import Card from 'package/components/Card'
 import InstructorOverview from './components/InstructorOverview'
 
 export default ({title, instructors}) => size(instructors) > 0

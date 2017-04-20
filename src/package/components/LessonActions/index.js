@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react'
 import {map, keys, compact} from 'lodash'
-import {lessonStateVerbToPastTense, detailsByLessonState} from 'utils/lessonStates'
-import Request from 'components/Request'
+import {lessonStateVerbToPastTense, detailsByLessonState} from 'package/utils/lessonStates'
+import Request from 'package/components/Request'
 import LessonAction from './components/LessonAction'
 
 const stateVerbs = keys(lessonStateVerbToPastTense)

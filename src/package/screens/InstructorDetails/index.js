@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react'
-import LayoutColumns from 'components/LayoutColumns'
-import InstructorStats from 'components/InstructorStats'
-import InstructorLessons from 'components/InstructorLessons'
-import InstructorRevenue from 'components/InstructorRevenue'
+import LayoutColumns from 'package/components/LayoutColumns'
+import InstructorStats from 'package/components/InstructorStats'
+import InstructorLessons from 'package/components/InstructorLessons'
+import InstructorRevenue from 'package/components/InstructorRevenue'
 import InstructorInfo from './components/InstructorInfo'
 
 const InstructorDetails = ({instructor}) => (
