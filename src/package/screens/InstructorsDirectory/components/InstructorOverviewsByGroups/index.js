@@ -1,0 +1,46 @@
+import React from 'react'
+import {filter, reject} from 'lodash'
+import sortBy from 'sort-by'
+import Tabs from 'package/components/Tabs'
+import Request from 'package/components/Request'
+import InstructorOverviews from './components/InstructorOverviews'
+
+export default ({instructorsUrl}) => (
+  <Request url={instructorsUrl}>
+    {({data}) => (
+      <Tabs groups={[
+        {
+          title: 'Unpublished',
+          component: (
+            <div className='mt3'>
+              <InstructorOverviews
+                instructors={filter(data, ['published_lessons', 0]).sort(sortBy(
+                  '-submitted_lessons',
+                  '-claimed_lessons',
+                  '-approved_lessons',
+                  '-id'
+                ))}
+              />
+            </div>
+          ),
+        },
+        {
+          title: 'Published',
+          component: (
+            <div className='mt3'>
+              <InstructorOverviews
+                instructors={reject(data, ['published_lessons', 0]).sort(sortBy(
+                  '-submitted_lessons',
+                  '-claimed_lessons',
+                  '-approved_lessons',
+                  'published_lessons',
+                  '-id'
+                ))}
+              />
+            </div>
+          ),
+        },
+      ]} />
+    )}
+  </Request>
+)

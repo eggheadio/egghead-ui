@@ -1,18 +1,20 @@
 {
   "name": "egghead-ui",
-  "version": "4.7.2",
+  "version": "5.0.0",
   "description": "Components used across egghead projects",
   "scripts": {
-    "dev:styleguide": "start-storybook -p 2000",
-    "dev:library": "yarn build:library -- -w",
-    "verify": "yarn lint && yarn build",
+    "dev:package": "yarn build:package -- -w",
+    "dev:app": "REACT_APP_EGGHEAD_BASE_URL=http://egghead.dev:5000 NODE_PATH=./src react-scripts start",
+    "dev:app:staging": "REACT_APP_EGGHEAD_BASE_URL=https://egghead-io-staging.com NODE_PATH=./src react-scripts start",
+    "dev:app:prod": "REACT_APP_EGGHEAD_BASE_URL=https://egghead.io NODE_PATH=./src react-scripts start",
+    "test": "NODE_PATH=./src react-scripts test",
+    "lint": "NODE_PATH=./src eslint src",
+    "build:package": "NODE_PATH=./src babel src/package -d lib",
+    "build:app": "REACT_APP_EGGHEAD_BASE_URL=https://egghead.io NODE_PATH=./src react-scripts build",
+    "verify": "CI=true yarn test && yarn lint && yarn build:package && yarn build:app",
     "bump": "yarn version && git push && git push --tags",
-    "lint": "eslint src",
-    "build": "yarn build:styleguide && yarn build:library",
-    "build:styleguide": "NODE_ENV=development build-storybook",
-    "build:library": "babel src -d lib",
-    "prepublish": "yarn build:library",
-    "start": "react-scripts start"
+    "prepublish": "yarn build:package",
+    "start": "NODE_PATH=./src react-scripts start"
   },
   "main": "lib/index.js",
   "files": [
@@ -26,29 +28,50 @@
       "latest"
     ],
     "plugins": [
-      "transform-class-properties"
+      "transform-class-properties",
+      "transform-object-rest-spread",
+      [
+        "module-resolver",
+        {
+          "root": [
+            "./src"
+          ]
+        }
+      ]
     ]
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "dependencies": {
-    "@kadira/storybook": "^2.5.2",
-    "axios": "^0.15.3",
+  "devDependencies": {
     "babel-cli": "^6.22.2",
+    "babel-plugin-module-resolver": "^2.7.0",
     "babel-plugin-transform-class-properties": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-latest": "^6.22.0",
     "babel-preset-react": "^6.22.0",
+    "react-scripts": "^0.8.4"
+  },
+  "dependencies": {
+    "axios": "^0.15.3",
+    "chart.js": "^2.5.0",
+    "element-resize-event": "^2.0.9",
     "eslint": "^3.16.1",
+    "faker": "^4.1.0",
+    "format-number": "^2.0.2",
+    "hex-rgba": "^1.0.1",
+    "jwt-simple": "^0.5.1",
     "lodash": "^4.16.2",
     "react": "^15.4.1",
+    "react-chartjs-2": "^2.0.5",
     "react-dom": "^15.4.1",
     "react-icons": "github:eggheadio/react-icons#3.0.2",
     "react-markdown": "^2.4.5",
-    "react-scripts": "^0.8.4",
-    "react-storybook-addon-info": "github:eggheadio/react-storybook-addon-info#4.0.4",
-    "react-storybook-addon-props-combinations": "^0.3.0",
+    "react-paginate": "^4.3.1",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
     "react-tabs": "^0.8.2",
+    "sort-by": "^1.2.0",
     "styled-components": "^1.4.3",
     "tachyons-egghead": "^2.3.1"
   },
