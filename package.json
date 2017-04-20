@@ -1,6 +1,6 @@
 {
   "name": "egghead-ui",
-  "version": "4.7.2",
+  "version": "5.0.0",
   "description": "Components used across egghead projects",
   "scripts": {
     "dev:package": "yarn build:package -- -w",
@@ -31,8 +31,11 @@
       "transform-class-properties",
       "transform-object-rest-spread",
       [
-        "module-resolver", {
-          "root": ["./src"]
+        "module-resolver",
+        {
+          "root": [
+            "./src"
+          ]
         }
       ]
     ]
