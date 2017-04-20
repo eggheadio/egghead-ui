@@ -1,11 +1,11 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import {Link} from 'react-router-dom'
 import {map} from 'lodash'
 import Icon from 'components/Icon'
 import List from 'components/List'
 import MoreInfo from './components/MoreInfo'
 
-export default ({items}) => (
+const Checklist = ({items}) => (
   <List items={map(items, (item, index) => (
     <div 
       key={index}
@@ -57,3 +57,14 @@ export default ({items}) => (
     </div>
   ))} />
 )
+
+Checklist.propTypes = {
+  items: PropTypes.arrayOf(React.PropTypes.shape({
+    isComplete: PropTypes.bool.isRequired,
+    description: PropTypes.string.isRequired,
+    moreInfoUrl: PropTypes.string,
+    action: PropTypes.string,
+  })).isRequired,
+}
+
+export default Checklist

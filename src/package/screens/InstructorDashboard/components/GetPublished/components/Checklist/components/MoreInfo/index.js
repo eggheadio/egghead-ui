@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Maybe from 'components/Maybe'
 import Icon from 'components/Icon'
 import Anchor from 'components/Anchor'
 
-export default ({url}) => (
+const MoreInfo = ({url}) => (
   <Maybe condition={Boolean(url)}>
     <Anchor 
       url={url}
@@ -16,3 +16,9 @@ export default ({url}) => (
     </Anchor>
   </Maybe>
 )
+
+MoreInfo.propTypes = {
+  url: PropTypes.string.isRequired,
+}
+
+export default MoreInfo

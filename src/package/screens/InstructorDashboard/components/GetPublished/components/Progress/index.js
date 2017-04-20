@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 
 const barHeight = 7
 
-export default ({total, complete}) => (
+const Progress = ({total, complete}) => (
   <div>
 
     <div className='flex f6'>
@@ -38,3 +38,10 @@ export default ({total, complete}) => (
     </div>
   </div>
 )
+
+Progress.propTypes = {
+  total: PropTypes.number.isRequired,
+  complete: PropTypes.number.isRequired,
+}
+
+export default Progress

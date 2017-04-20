@@ -30,7 +30,7 @@ const items=[
   },
 ]
 
-export default ({publishedLessons}) => (
+const Help = ({publishedLessons}) => (
   <Maybe condition={!hasUnlockedPublished(publishedLessons)}>
     <HeaderCard
       title='Got questions? Feeling stuck?'
@@ -56,3 +56,5 @@ export default ({publishedLessons}) => (
     </HeaderCard>
   </Maybe>
 )
+
+export default Help
