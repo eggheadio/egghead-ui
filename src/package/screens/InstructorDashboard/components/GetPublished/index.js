@@ -2,12 +2,13 @@ import React from 'react'
 import {map, uniq, compact, isString, size, filter} from 'lodash'
 import {chatInfoUrl, roughDraftInfoUrl, gearSetupInfoUrl} from 'utils/urls'
 import createLessonsUrlWithParams from 'utils/createLessonsUrlWithParams'
+import Request from 'components/Request'
 import HeaderCard from 'components/HeaderCard'
 import isStepComplete from './utils/isStepComplete'
 import Progress from './components/Progress'
 import Checklist from './components/Checklist'
 
-const GetPublished = ({instructor}) => console.log('instructor', instructor) || (
+const GetPublished = ({instructor}) => (
   <Request
     url={createLessonsUrlWithParams({
       lessonsUrl: instructor.lessons_url
