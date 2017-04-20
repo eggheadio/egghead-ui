@@ -3,15 +3,13 @@ import {map, uniq, compact, isString, size, filter} from 'lodash'
 import {chatInfoUrl, roughDraftInfoUrl, gearSetupInfoUrl} from 'utils/urls'
 import {hasUnlockedPublished} from 'utils/instructorMilestones'
 import createLessonsUrlWithParams from 'utils/createLessonsUrlWithParams'
-import {Maybe} from 'components/Maybe'
 import HeaderCard from 'components/HeaderCard'
 import isStepComplete from './utils/isStepComplete'
 import Progress from './components/Progress'
 import Checklist from './components/Checklist'
 
-export default ({instructor}) => (
-  <Maybe condition={!hasUnlockedPublished(instructor.published_lessons)}>
-    <Request
+const GetPublished = ({instructor}) => instructor && !hasUnlockedPublished(instructor.published_lessons)
+  ? <Request
       url={createLessonsUrlWithParams({
         lessonsUrl: instructor.lessons_url
       })}
@@ -77,5 +75,6 @@ export default ({instructor}) => (
         )
       }}
     </Request>
-  </Maybe>
-)
+  : null
+
+export default GetPublished

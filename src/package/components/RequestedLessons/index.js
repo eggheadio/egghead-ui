@@ -5,7 +5,10 @@ import Card from 'components/Card'
 import LessonOverviews from 'components/LessonOverviews'
 import ProposeLesson from './components/ProposeLesson'
 
-const RequestedLessons = ({instructor}) => (
+const RequestedLessons = ({
+  instructor,
+  lessonsUrl,
+}) => (
   <div>
 
     <Heading level='5'>
@@ -31,6 +34,7 @@ const RequestedLessons = ({instructor}) => (
           There are no requested lessons, but you can create your own.
         </Paragraph>
       }
+      lessonsUrl={lessonsUrl}
     />
 
   </div>
@@ -38,6 +42,7 @@ const RequestedLessons = ({instructor}) => (
 
 RequestedLessons.propTypes = {
   instructor: PropTypes.object.isRequired,
+  lessonsUrl: PropTypes.string.isRequired,
 }
 
 export default RequestedLessons

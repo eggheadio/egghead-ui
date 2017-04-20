@@ -30,11 +30,11 @@ const styleMap = (size) => {
 const StyledButton = styled(({
   children,
   href,
-  color,
   size,
   outline,
   pill,
   onClick,
+  color,
 }) => {
 
   const colorByBackground = {
@@ -68,17 +68,17 @@ StyledButton.propTypes = {
   children: PropTypes.node.isRequired,
   href: PropTypes.string,
   onClick: PropTypes.func,
-  color: PropTypes.oneOf(colors),
   size: PropTypes.oneOf(sizes),
   outline: PropTypes.bool,
   pill: PropTypes.bool,
+  color: PropTypes.oneOf(colors),
 }
 
 StyledButton.defaultProps = {
-  color: 'orange',
   size: first(sizes),
   outline: false,
   pill: false,
+  color: 'orange',
 }
 
 export default StyledButton

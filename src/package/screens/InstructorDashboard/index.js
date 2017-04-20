@@ -8,7 +8,10 @@ import RequestedLessons from 'components/RequestedLessons'
 import GetPublished from './components/GetPublished'
 import Help from './components/Help'
 
-const InstructorDashboard = ({instructor}) => hasUnlockedPublished(instructor.published_lessons)
+const InstructorDashboard = ({
+  instructor,
+  lessonsUrl,
+}) => hasUnlockedPublished(instructor.published_lessons)
   ? <div>
       <LayoutColumns 
         items={[
@@ -20,7 +23,10 @@ const InstructorDashboard = ({instructor}) => hasUnlockedPublished(instructor.pu
       <LayoutColumns 
         items={[
           <InstructorLessons instructor={instructor} />,
-          <RequestedLessons instructor={instructor} />,
+          <RequestedLessons 
+            instructor={instructor} 
+            lessonsUrl={lessonsUrl}
+          />,
         ]}
         relativeSizes={[2, 1]}
       />
@@ -28,14 +34,18 @@ const InstructorDashboard = ({instructor}) => hasUnlockedPublished(instructor.pu
   : <div>
       <LayoutColumns items={[
         <GetPublished instructor={instructor} />,
-        <RequestedLessons instructor={instructor} />,
+        <RequestedLessons 
+          instructor={instructor} 
+          lessonsUrl={lessonsUrl}
+        />,
         <Help publishedLessons={instructor.published_lessons} />,
       ]} />
       <InstructorLessons instructor={instructor} />
     </div>
 
 InstructorDashboard.propTypes = {
-  instructor: PropTypes.object,
+  instructor: PropTypes.object.isRequired,
+  lessonsUrl: PropTypes.string.isRequired,
 }
 
 export default InstructorDashboard

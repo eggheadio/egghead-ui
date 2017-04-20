@@ -49,6 +49,7 @@ const getLoginUrl = () => (
 )
 
 const createNodeExample = () => random.arrayElement([
+
   <div>
     <div>
       <Avatar
@@ -60,6 +61,28 @@ const createNodeExample = () => random.arrayElement([
       {lorem.words()}
     </Button>
   </div>,
+
+  <div>
+    <IconLabel
+      iconType='edit'
+      labelText={lorem.words()}
+    />
+    <IconLabel
+      iconType='check'
+      labelText={lorem.words()}
+    />
+  </div>,
+
+  <div>
+    <Heading level='3'>
+      {lorem.words()}
+    </Heading>
+    <Toggle
+      leftOption={lorem.word()}
+      rightOption={lorem.word()}
+    />
+  </div>,
+
   <div>
     <div>
       {lorem.paragraph()}
@@ -68,6 +91,7 @@ const createNodeExample = () => random.arrayElement([
       {lorem.words()}
     </Anchor>
   </div>,
+
 ])
 
 export const resourcesByType = {
@@ -130,10 +154,10 @@ export const resourcesByType = {
           'children*': 'node',
           'href': 'string',
           'onClick': 'func',
-          'color': colors,
           'size': buttonSizes,
           'outline': 'bool',
           'pill': 'bool',
+          'color': colors,
         },
         createExamples: () => [
           <Button>
@@ -313,7 +337,7 @@ export const resourcesByType = {
             {({data}) => (
               <Request url={data.instructors_url}>
                 {({data}) => (
-                  <InstructorRevenue instructor={random.arrayElement(data)} />
+                  <InstructorRevenue revenueUrl={random.arrayElement(data).revenue_url} />
                 )}
               </Request>
             )}
@@ -404,9 +428,9 @@ export const resourcesByType = {
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
             {({data}) => {
-              const rootData = data.lessons_url
+              const rootData = data
               return (
-                <Request url={data.instructors_url}>
+                <Request url={rootData.instructors_url}>
                   {({data}) => (
                     <LessonOverviews
                       states={[random.arrayElement(lessonStates)]}
@@ -417,7 +441,7 @@ export const resourcesByType = {
                           action={'/lessons/new'}
                         />
                       }
-                      lessonsUrl={rootData.lessonsUrl}
+                      lessonsUrl={rootData.lessons_url}
                       includeLessonsInCourses
                     />
                   )}
@@ -590,7 +614,7 @@ export const resourcesByType = {
           'response': 'object',
         },
         createExamples: () => [
-          <Request url='https://jsonplaceholder.typicode.com/users'>
+          <Request url='https://jsonplaceholder.typicode.com/users/1'>
             {({data}) => (
               <div>
                 {JSON.stringify(data, null, 2)}
@@ -604,19 +628,9 @@ export const resourcesByType = {
               </div>
             )}
           </Request>,
-          <Request 
-            url='https://jsonplaceholder.typicode.com/users'
-            placeholder={createNodeExample()}
-          >
-            {({data}) => (
-              <div>
-                {JSON.stringify(data, null, 2)}
-              </div>
-            )}
-          </Request>,
           <Request
             lazy
-            url='https://jsonplaceholder.typicode.com/users'
+            url='https://jsonplaceholder.typicode.com/users/1'
           >
             {({request, data}) => data
               ? <div>
@@ -638,21 +652,28 @@ export const resourcesByType = {
         },
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
-            {({data}) => (
-              <Request url={data.instructors_url}>
-                {({data}) => (
-                  <RequestedLessons instructor={random.arrayElement(data)} />
-                )}
-              </Request>
-            )}
+            {({data}) => {
+              const rootData = data
+              return (
+                <Request url={rootData.instructor_url}>
+                  {({data}) => (
+                    <RequestedLessons 
+                      instructor={data} 
+                      lessonsUrl={rootData.lessons_url}
+                    />
+                  )}
+                </Request>
+              )
+            }}
           </Authentication>,
         ],
+        optOut: ['types'],
       },
 
       Tabs: {
         useCase: `Used to group related nodes into tabs.`,
         types: {
-          'groups*': '{title: string, component: node}',
+          'groups*': '[{title: string, component: node}]',
         },
         createExamples: () => [
           <Tabs groups={[
@@ -701,19 +722,25 @@ export const resourcesByType = {
     items: {
 
       InstructorDashboard: {
-        useCase: `Used to show instructors their most important information.`,
+        useCase: `Used to show instructors their most important information. If the instructor is unpublished, it shows information for getting published. Once the instructor is published it shows the "normal" Instructor Dashboard.`,
         types: {
           'instructor*': 'object',
         },
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
-            {({data}) => (
-              <Request url={data.instructors_url}>
-                {({data}) => (
-                  <InstructorDashboard instructor={random.arrayElement(data)} />
-                )}
-              </Request>
-            )}
+            {({data}) => {
+              const rootData = data
+              return (
+                <Request url={rootData.instructors_url}>
+                  {({data}) => (
+                    <InstructorDashboard 
+                      instructor={random.arrayElement(data)} 
+                      lessonsUrl={rootData.lessons_url}
+                    />
+                  )}
+                </Request>
+              )
+            }}
           </Authentication>,
         ],
       },
@@ -776,7 +803,7 @@ export const resourcesByType = {
         useCase: `Used to show a list of all lessons.`,
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
-            {(data) => (
+            {({data}) => (
               <LessonsDirectory lessonsUrl={data.lessons_url} />
             )}
           </Authentication>,
@@ -790,13 +817,19 @@ export const resourcesByType = {
         },
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
-            {({data}) => (
-              <Request url={data.instructor_url}>
-                {({data}) => (
-                  <NewLesson instructor={data} />
-                )}
-              </Request>
-            )}
+            {({data}) => {
+              const rootData = data
+              return (
+                <Request url={data.instructor_url}>
+                  {({data}) => (
+                    <NewLesson 
+                      instructor={data} 
+                      lessonsUrl={rootData.lessons_url}
+                    />
+                  )}
+                </Request>
+              )
+            }}
           </Authentication>,
         ],
       },

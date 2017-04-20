@@ -35,7 +35,7 @@ const Readme = () => (
         Notes
       </Heading>
       <Paragraph type='small'>
-        Components that request data require you to log in with an egghead account (local storage needs a "token" key with a jwt for endpoint use).
+        Components that request data require you to log in with an egghead account (local storage needs a "token" key with a jwt for endpoint use). These components also conditionally display parts of their UI based on what is available to the currently logged in user.
       </Paragraph>
     </div>
 
