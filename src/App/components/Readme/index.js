@@ -35,7 +35,7 @@ const Readme = () => (
         Notes
       </Heading>
       <Paragraph type='small'>
-        Components that request data require you to log in with an egghead account (local storage needs a "token" key with a jwt for endpoint use). These components also conditionally display parts of their UI based on what is available to the currently logged in user.
+        Components that request data require you to log in with an egghead account (local storage needs a "token" key with a jwt for endpoint use). These components also conditionally display parts of their UI based on what is available to the currently logged in user. This means that when viewing examples sometimes nothing will be rendered (for example, if the passed in instructor or lesson doesn't have certain data); when this happens, keep tapping "Randomize" until you get a set of data that can show the component.
       </Paragraph>
     </div>
 

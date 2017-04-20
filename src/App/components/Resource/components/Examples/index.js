@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {map, includes, size} from 'lodash'
+import {map, includes, size, uniqueId} from 'lodash'
 import {
   smallContainerWidth,
   mediumContainerWidth,
@@ -79,11 +79,12 @@ class Examples extends Component {
   handleCreateExamples = () => {
     this.setState({
       examples: this.props.createExamples(),
+      renderId: uniqueId(),
     })
   }
 
   render() {
-    const {containerWidth, containerBackground, examples} = this.state
+    const {containerWidth, containerBackground, examples, renderId} = this.state
     const {optOut} = this.props
 
     return (
@@ -162,7 +163,7 @@ class Examples extends Component {
         <div>
           {map(examples, (example, index) => (
             <div
-              key={index}
+              key={`${renderId}-${index}`}
               className='mb4'
             >
               <div 
