@@ -10,7 +10,7 @@
     "test": "NODE_PATH=./src react-scripts test",
     "lint": "NODE_PATH=./src eslint src",
     "build:package": "NODE_PATH=./src babel src/package -d lib",
-    "build:app": "REACT_APP_EGGHEAD_BASE_URL=https://egghead.io NODE_PATH=./src react-scripts build",
+    "build:app": "REACT_APP_EGGHEAD_BASE_URL=https://egghead-io-staging.com NODE_PATH=./src react-scripts build",
     "verify": "CI=true yarn test && yarn lint && yarn build:package && yarn build:app",
     "bump": "yarn version && git push && git push --tags",
     "prepublish": "yarn build:package",
