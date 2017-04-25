@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react'
 import {find, size, map} from 'lodash'
 import Card from 'package/components/Card'
-import Maybe from 'package/components/Maybe'
 import Request from 'package/components/Request'
 import Open from 'package/components/Open'
 import ContainerWidth from 'package/components/ContainerWidth'
@@ -16,9 +15,8 @@ const revenueColor = '#59cd90' // # blue
 const minutesColor = '#B0B6BE' // # dark-gray-secondary
 const activeLabelClassName = 'dark-gray b'
 
-const InstructorRevenue = ({revenueUrl}) => (
-  <Maybe condition={Boolean(revenueUrl)}>
-    <Request url={revenueUrl}>
+const InstructorRevenue = ({revenueUrl}) => revenueUrl
+  ? <Request url={revenueUrl}>
       {({data}) => {
         const currentMonthRevenue = find(data, ['month', currentMonthStartDate()])
         const currentTotalRevenue = totalRevenue(removeRevenueMonth(data, currentMonthStartDate()))
@@ -121,11 +119,10 @@ const InstructorRevenue = ({revenueUrl}) => (
         )
       }}
     </Request>
-  </Maybe>
-)
+  : null
 
 InstructorRevenue.propTypes = {
-  revenueUrl: PropTypes.string.isRequired,
+  revenueUrl: PropTypes.string,
 }
 
 export default InstructorRevenue

@@ -3,10 +3,13 @@ import Open from 'package/components/Open'
 import IconLabel from 'package/components/IconLabel'
 import ProposeLessonForm from './components/ProposeLessonForm'
 
-export default ({instructor}) => (
+export default ({instructor, technologiesUrl}) => (
   <Open>
     {({isOpen, handleOpenToggleClick}) => isOpen 
-      ? <ProposeLessonForm instructor={instructor} />
+      ? <ProposeLessonForm 
+          instructor={instructor} 
+          technologiesUrl={technologiesUrl}
+        />
       : <div 
           onClick={handleOpenToggleClick}
           className='ttu'

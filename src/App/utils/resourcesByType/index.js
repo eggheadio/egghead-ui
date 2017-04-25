@@ -661,6 +661,7 @@ export const resourcesByType = {
                     <RequestedLessons 
                       instructor={data} 
                       lessonsUrl={rootData.lessons_url}
+                      technologiesUrl={rootData.technologies_url}
                     />
                   )}
                 </Request>
@@ -737,6 +738,7 @@ export const resourcesByType = {
                     <InstructorDashboard 
                       instructor={random.arrayElement(data)} 
                       lessonsUrl={rootData.lessons_url}
+                      technologiesUrl={rootData.technologies_url}
                     />
                   )}
                 </Request>
@@ -826,6 +828,7 @@ export const resourcesByType = {
                     <NewLesson 
                       instructor={data} 
                       lessonsUrl={rootData.lessons_url}
+                      technologiesUrl={rootData.technologies_url}
                     />
                   )}
                 </Request>
