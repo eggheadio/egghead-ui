@@ -54,7 +54,7 @@ export default class extends Component {
       summary, 
       hasMissingInput,
     } = this.state
-    const {instructor} = this.props
+    const {instructor, technologiesUrl} = this.props
 
     return (
       <div>
@@ -75,7 +75,7 @@ export default class extends Component {
           />
         </div>
 
-        <Request url={`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/technologies`}>
+        <Request url={technologiesUrl}>
           {({data}) => (
             <div className='mb3'>
               <div className='b'>

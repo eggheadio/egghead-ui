@@ -8,6 +8,7 @@ import ProposeLesson from './components/ProposeLesson'
 const RequestedLessons = ({
   instructor,
   lessonsUrl,
+  technologiesUrl,
 }) => (
   <div>
 
@@ -22,7 +23,10 @@ const RequestedLessons = ({
     <div className='mb3'>
       <Card>
         <div className='pa4'>
-          <ProposeLesson instructor={instructor} />
+          <ProposeLesson 
+            instructor={instructor} 
+            technologiesUrl={technologiesUrl}
+          />
         </div>
       </Card>
     </div>

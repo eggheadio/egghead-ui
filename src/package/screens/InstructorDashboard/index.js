@@ -11,6 +11,7 @@ import Help from './components/Help'
 const InstructorDashboard = ({
   instructor,
   lessonsUrl,
+  technologiesUrl,
 }) => hasUnlockedPublished(instructor.published_lessons)
   ? <div>
       <LayoutColumns 
@@ -26,6 +27,7 @@ const InstructorDashboard = ({
           <RequestedLessons 
             instructor={instructor} 
             lessonsUrl={lessonsUrl}
+            technologiesUrl={technologiesUrl}
           />,
         ]}
         relativeSizes={[2, 1]}
@@ -37,6 +39,7 @@ const InstructorDashboard = ({
         <RequestedLessons 
           instructor={instructor} 
           lessonsUrl={lessonsUrl}
+          technologiesUrl={technologiesUrl}
         />,
         <Help publishedLessons={instructor.published_lessons} />,
       ]} />

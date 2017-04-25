@@ -4,11 +4,13 @@ import RequestedLessons from 'package/components/RequestedLessons'
 const NewLesson = ({
   instructor,
   lessonsUrl,
+  technologiesUrl,
 }) => (
   <div>
     <RequestedLessons 
       instructor={instructor} 
       lessonsUrl={lessonsUrl}
+      technologiesUrl={technologiesUrl}
     />
   </div>
 )
