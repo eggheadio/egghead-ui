@@ -1,7 +1,6 @@
 import React from 'react'
 import {map} from 'lodash'
 import {Link} from 'react-router-dom'
-import Maybe from 'package/components/Maybe'  
 import Heading from 'package/components/Heading'
 import Avatar from 'package/components/Avatar'
 import LessonGroupsStat from './components/LessonGroupsStat'
@@ -28,9 +27,9 @@ export default ({instructor}) => {
   ]
 
   return (
-    <div>
+    <div className='flex flex-wrap items-center justify-between'>
 
-      <div className='flex items-center'>
+      <div className='flex items-center mr3'>
 
         <div className='mr3'>
           <Avatar
@@ -49,17 +48,15 @@ export default ({instructor}) => {
 
       <section className='flex flex-wrap'>
         {map(lessonOverviewsByGroupStats, group => (
-          <Maybe 
+          <div 
             key={group.label}
-            condition={Boolean(group.count)}
+            className='mt3 mr3'
           >
-            <div className='mt3 mr3'>
-              <LessonGroupsStat
-                label={group.label}
-                count={group.count}
-              /> 
-            </div>
-          </Maybe>
+            <LessonGroupsStat
+              label={group.label}
+              count={group.count}
+            /> 
+          </div>
         ))}
       </section>
 

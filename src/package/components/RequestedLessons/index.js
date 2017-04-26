@@ -25,6 +25,7 @@ const RequestedLessons = ({
         <div className='pa4'>
           <ProposeLesson 
             instructor={instructor} 
+            lessonsUrl={lessonsUrl}
             technologiesUrl={technologiesUrl}
           />
         </div>

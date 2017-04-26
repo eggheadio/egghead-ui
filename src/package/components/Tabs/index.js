@@ -22,7 +22,7 @@ class TabsComponent extends Component {
     return (
       <Tabs onSelect={this.handleSelect}>
 
-        <TabList className='list pa0 ma0 flex flex-wrap br2 br--top bb b--gray-secondary'>
+        <TabList className='list pa0 ma0 flex flex-wrap br2 br--top'>
           {map(groups, (group, index) => (
             <Tab
               key={index}

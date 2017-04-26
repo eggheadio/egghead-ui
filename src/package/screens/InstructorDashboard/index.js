@@ -49,6 +49,7 @@ const InstructorDashboard = ({
 InstructorDashboard.propTypes = {
   instructor: PropTypes.object.isRequired,
   lessonsUrl: PropTypes.string.isRequired,
+  technologiesUrl: PropTypes.string.isRequired,
 }
 
 export default InstructorDashboard

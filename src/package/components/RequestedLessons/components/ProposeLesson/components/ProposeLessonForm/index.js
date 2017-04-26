@@ -54,7 +54,7 @@ export default class extends Component {
       summary, 
       hasMissingInput,
     } = this.state
-    const {instructor, technologiesUrl} = this.props
+    const {instructor, lessonsUrl, technologiesUrl} = this.props
 
     return (
       <div>
@@ -124,7 +124,7 @@ export default class extends Component {
         <Request
           lazy
           method='post'
-          url='/api/v1/lessons'
+          url={lessonsUrl}
           body={{
             'lesson': {
               title: title,

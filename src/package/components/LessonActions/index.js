@@ -61,7 +61,7 @@ const LessonActions = ({
   ])
 
   return (
-    <div className='flex flex-wrap items-stretch h-100'>
+    <div className='flex flex-wrap items-stretch justify-end h-100'>
       {map(items, (item, index) => (
         <div 
           key={index}
@@ -70,7 +70,8 @@ const LessonActions = ({
             flex
             items-center
             justify-center
-            ${index < items.length - 1 ? 'br b--gray-secondary' : ''}
+            mw4
+            bl b--gray-secondary
           `}
           style={{
             flex: `1 0 115px`,
