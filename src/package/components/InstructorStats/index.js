@@ -3,7 +3,6 @@ import pluralize from 'pluralize'
 import {map, uniqBy} from 'lodash'
 import {hasUnlockedPublished, hasUnlockedCoursePublished} from 'package/utils/instructorMilestones'
 import createLessonsUrlWithParams from 'package/utils/createLessonsUrlWithParams'
-import Maybe from 'package/components/Maybe'
 import Card from 'package/components/Card'
 import Request from 'package/components/Request'
 import InstructorStat from './components/InstructorStat'
@@ -17,6 +16,7 @@ const InstructorStats = ({instructor}) => {
   return (
     <Card>
       <div className='pa5'>
+
         <Request
           url={createLessonsUrlWithParams({
             lessonsUrl: instructor.lessons_url
@@ -34,23 +34,26 @@ const InstructorStats = ({instructor}) => {
             />
           )}
         </Request>
-        <Maybe condition={hasUnlockedCoursePublished(instructor.published_courses)}>
-          <div className='mt4'>
-            <Request url={instructor.series_url}>
-              {({data}) => (
-                <InstructorStat
-                  count={instructor.published_courses}
-                  label={pluralize('Course', instructor.published_courses)}
-                  graphics={map(data, course => ({
-                    name: course.title,
-                    graphicUrl: course.square_cover_url,
-                    httpUrl: course.http_url,
-                  }))}
-                />
-              )}
-            </Request>
-          </div>
-        </Maybe>
+
+        {hasUnlockedCoursePublished(instructor.published_courses)
+          ? <div className='mt4'>
+              <Request url={instructor.courses_url}>
+                {({data}) => (
+                  <InstructorStat
+                    count={instructor.published_courses}
+                    label={pluralize('Course', instructor.published_courses)}
+                    graphics={map(data, course => ({
+                      name: course.title,
+                      graphicUrl: course.square_cover_url,
+                      httpUrl: course.http_url,
+                    }))}
+                  />
+                )}
+              </Request>
+            </div>
+          : null
+        }
+
       </div>
     </Card>
   )
