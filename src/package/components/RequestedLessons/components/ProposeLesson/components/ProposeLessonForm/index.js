@@ -54,7 +54,7 @@ export default class extends Component {
       summary, 
       hasMissingInput,
     } = this.state
-    const {instructor, lessonsUrl, lessonsUrl} = this.props
+    const {instructor, lessonsUrl, technologiesUrl} = this.props
 
     return (
       <div>
