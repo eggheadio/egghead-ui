@@ -102,7 +102,7 @@ export const resourcesByType = {
     items: {
 
       Anchor: {
-        useCase: `Used in place of the html <a> to link to other pages.`,
+        useCase: `Used in place of the inline html <a> to link to other pages.`,
         types: {
           'children*': 'node',
           'url*': 'string',
@@ -637,7 +637,10 @@ export const resourcesByType = {
               ? <div>
                   {JSON.stringify(data, null, 2)}
                 </div>
-              : <a onClick={() => request()}>
+              : <a 
+                  onClick={() => request()}
+                  className='pointer dim'
+                >
                   Example click handler
                 </a>
             }

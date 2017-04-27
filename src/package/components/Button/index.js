@@ -3,7 +3,7 @@ import {keys, first} from 'lodash'
 import styled from 'styled-components'
 import colors from 'package/utils/colors'
 
-const commonClasses = 'link dib fw6 tracked tc br2 ttu ba pointer'
+const commonClasses = 'link dib fw6 tracked tc br2 ttu ba pointer dim'
 
 const sizedBtnClasses = {
   'large': 'f5 pa3',

@@ -11,7 +11,7 @@ export default ({
   <a
     href={url}
     onClick={onClick}
-    className='flex flex-column tc items-center dark-gray no-underline'
+    className='pa4 flex flex-column tc items-center dark-gray no-underline pointer dim'
   >
     <Icon
       type={iconType}
