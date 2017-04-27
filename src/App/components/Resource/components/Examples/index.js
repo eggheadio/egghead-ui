@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {map, includes, size, uniqueId} from 'lodash'
 import {
+  xsmallContainerWidth,
   smallContainerWidth,
   mediumContainerWidth,
   largeContainerWidth,
@@ -11,6 +12,10 @@ import Heading from 'package/components/Heading'
 import Button from 'package/components/Button'
 
 const containerWidthActions = [
+  {
+    label: 'XSmall',
+    containerWidth: xsmallContainerWidth,
+  },
   {
     label: 'Small',
     containerWidth: smallContainerWidth,
@@ -55,7 +60,7 @@ export const optOuts = [
 class Examples extends Component {
 
   state = {
-    containerWidth: smallContainerWidth,
+    containerWidth: xsmallContainerWidth,
     containerBackground: 'dark',
     examples: false,
   }

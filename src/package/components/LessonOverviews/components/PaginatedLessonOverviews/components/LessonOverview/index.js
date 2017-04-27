@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {detailsByLessonState} from 'package/utils/lessonStates'
-import {smallContainerWidth} from 'package/utils/hardCodedSizes'
+import {xsmallContainerWidth} from 'package/utils/hardCodedSizes'
 import Maybe from 'package/components/Maybe'
 import Heading from 'package/components/Heading'
 import Image from 'package/components/Image'
@@ -16,7 +16,7 @@ export default ({lesson, requestCurrentPage}) => (
       style={{
         flexGrow: 1,
         flexShrink: 0,
-        flexBasis: smallContainerWidth,
+        flexBasis: xsmallContainerWidth,
       }}
     >
 
@@ -71,7 +71,7 @@ export default ({lesson, requestCurrentPage}) => (
     <div style={{
       flexGrow: 1,
       flexShrink: 0,
-      flexBasis: smallContainerWidth,
+      flexBasis: xsmallContainerWidth,
     }}>
       <LessonActions 
         lesson={lesson} 

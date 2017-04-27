@@ -1,13 +1,14 @@
 import React, {PropTypes, Component} from 'react'
 import elementResizeEvent, {unbind} from 'element-resize-event'
 import {
+  smallContainerWidth,
   mediumContainerWidth,
   largeContainerWidth,
   xlargeContainerWidth,
   xxlargeContainerWidth,
 } from 'package/utils/hardCodedSizes'
 
-export default class DeviceWidth extends Component {
+export default class ContainerWidth extends Component {
   
   state = {
     containerWidth: 'small',
@@ -48,25 +49,33 @@ export default class DeviceWidth extends Component {
         containerWidth: 'medium',
       })
     }
-    else {
+    else if (containerExactWidth >= smallContainerWidth) {
       this.setState({
         containerWidth: 'small',
+      })
+    }
+    else {
+      this.setState({
+        containerWidth: 'xsmall',
       })
     }
   }
 
   render() {
     const {containerWidth} = this.state
-    const {children} = this.props
+    const {children, className} = this.props
     return (
-      <div ref='container'>
+      <div 
+        ref='container'
+        className={className}
+      >
         {children(containerWidth)}
       </div>
     )
   }
 }
 
-DeviceWidth.propTypes = {
+ContainerWidth.propTypes = {
   children: PropTypes.func.isRequired,
   onWidthChange: PropTypes.func,
 }
