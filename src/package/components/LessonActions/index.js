@@ -66,7 +66,6 @@ const LessonActions = ({
         <div 
           key={index}
           className={`
-            pv4 ph1 ph3-ns
             flex
             items-center
             justify-center

@@ -35,7 +35,7 @@ const Anchor = ({
     <a
       href={url}
       target={isSeparateTab ? '_blank' : '_self'}
-      className={classNameByType[type]}
+      className={`pointer dim ${classNameByType[type]}`}
     >
       {prefixByType[type]}{children}
     </a>

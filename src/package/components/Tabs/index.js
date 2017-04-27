@@ -31,6 +31,7 @@ class TabsComponent extends Component {
                 pv3 ph4
                 ttu
                 pointer
+                dim
                 b
                 bb
                 ${this.state.selected === index

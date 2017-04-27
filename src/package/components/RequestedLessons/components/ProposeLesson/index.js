@@ -11,16 +11,16 @@ export default ({instructor, lessonsUrl, technologiesUrl}) => (
           lessonsUrl={lessonsUrl}
           technologiesUrl={technologiesUrl}
         />
-      : <div 
+      : <a
           onClick={handleOpenToggleClick}
-          className='ttu'
+          className='pointer dim ttu'
         >
           <IconLabel
             iconType='add'
             labelText='Propose a new lesson'
             color='blue'
           />
-        </div>
+        </a>
     }
   </Open>
 )

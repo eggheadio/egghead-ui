@@ -21,7 +21,10 @@ const Arguments = ({title, types}) => (
         >
           <div className='white mb1'>
             {value === colors
-              ? <Link to='/colors'>
+              ? <Link 
+                  className='pointer dim'
+                  to='/colors'
+                >
                   color
                 </Link>
               : key

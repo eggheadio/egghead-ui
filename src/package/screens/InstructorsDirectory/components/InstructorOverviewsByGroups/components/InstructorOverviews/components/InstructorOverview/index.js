@@ -29,22 +29,25 @@ export default ({instructor}) => {
   return (
     <div className='flex flex-wrap items-center justify-between'>
 
-      <div className='flex items-center mr3'>
+      <Link
+        to={`/instructors/${instructor.slug}`}
+        className='pointer dim'
+      >
+        <div className='flex items-center mr3'>
 
-        <div className='mr3'>
-          <Avatar
-            name={instructor.first_name}
-            url={instructor.avatar_url}
-          />
-        </div>
+          <div className='mr3'>
+            <Avatar
+              name={instructor.first_name}
+              url={instructor.avatar_url}
+            />
+          </div>
 
-        <Link to={`/instructors/${instructor.slug}`}>
           <Heading level='3'>
             {instructor.full_name}
           </Heading>
-        </Link>
 
-      </div>
+        </div>
+      </Link>
 
       <section className='flex flex-wrap'>
         {map(lessonOverviewsByGroupStats, group => (

@@ -20,7 +20,10 @@ const Prompt = ({
               {actionText}
             </Button>
           </Link>
-        : <a href={action}>
+        : <a 
+            href={action}
+            className='pointer dim'
+          >
             <Button size='extra-small'>
               {actionText}
             </Button>

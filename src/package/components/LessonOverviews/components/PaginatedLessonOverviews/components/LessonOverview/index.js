@@ -34,7 +34,7 @@ export default ({lesson, requestCurrentPage}) => (
 
         <Link 
           to={`/lessons/${lesson.slug}`}
-          className='no-underline base'
+          className='pointer dim no-underline base'
           style={{
             wordBreak: 'break-word',
           }}
@@ -48,7 +48,7 @@ export default ({lesson, requestCurrentPage}) => (
           <div className='mt3'>
             <Link 
               to={`/instructors/${lesson.instructor.slug}`}
-              className='no-underline dark-gray-secondary'
+              className='pointer dim no-underline dark-gray-secondary'
             >
               <div className='flex items-center'>
                 <Avatar

@@ -42,7 +42,7 @@ const Checklist = ({items}) => (
             {item.action
               ? <Link 
                   to={item.action}
-                  className='ml2'
+                  className='pointer dim ml2'
                 >
                   <Icon 
                     type='chevron-right' 

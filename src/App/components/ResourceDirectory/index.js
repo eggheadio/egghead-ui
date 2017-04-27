@@ -8,7 +8,7 @@ const ResourceDirectory = ({resources}) => (
       <Link 
         key={key}
         to={`${resources.urlBase}/${key}`}
-        className='db pa3 mb2 mr2 bg-base-secondary dark-gray no-underline'
+        className='pointer dim db pa3 mb2 mr2 bg-base-secondary dark-gray no-underline'
       >
         {key}
       </Link>
