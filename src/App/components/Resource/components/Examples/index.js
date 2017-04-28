@@ -49,11 +49,23 @@ const containerBackgroundActions = [
   },
 ]
 
+const containerPaddingActions = [
+  {
+    label: 'Off',
+    containerPadding: false,
+  },
+  {
+    label: 'On',
+    containerPadding: true,
+  },
+]
+
 const containerBoxSizing = 8
 
 export const optOuts = [
   'containerWidth',
   'containerBackground',
+  'containerPadding',
   'types',
 ]
 
@@ -62,6 +74,7 @@ class Examples extends Component {
   state = {
     containerWidth: xsmallContainerWidth,
     containerBackground: 'dark',
+    containerPadding: false,
     examples: false,
   }
 
@@ -81,6 +94,12 @@ class Examples extends Component {
     })
   }
 
+  handlePaddingChange = (containerPadding) => {
+    this.setState({
+      containerPadding,
+    })
+  }
+
   handleCreateExamples = () => {
     this.setState({
       examples: this.props.createExamples(),
@@ -89,7 +108,13 @@ class Examples extends Component {
   }
 
   render() {
-    const {containerWidth, containerBackground, examples, renderId} = this.state
+    const {
+      containerWidth, 
+      containerBackground, 
+      containerPadding, 
+      examples, 
+      renderId,
+    } = this.state
     const {optOut} = this.props
 
     return (
@@ -136,7 +161,31 @@ class Examples extends Component {
                         >
                           <Button 
                             onClick={this.handleBackgroundChange.bind(null, action.containerBackground)}
-                            size='extra-small'
+                            size='small'
+                          >
+                            {action.label}
+                          </Button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+              }
+
+              {includes(optOut, 'containerPadding')
+                ? null
+                : <div className='mb2'>
+                    <Heading level='5'>
+                      Container Padding
+                    </Heading>
+                    <div className='flex flex-wrap'>
+                      {map(containerPaddingActions, action => (
+                        <div 
+                          key={action.label}
+                          className='mr3 mb3'
+                        >
+                          <Button 
+                            onClick={this.handlePaddingChange.bind(null, action.containerPadding)}
+                            size='small'
                           >
                             {action.label}
                           </Button>
@@ -176,6 +225,7 @@ class Examples extends Component {
                   dib
                   b--solid b--base-secondary bw2
                   ${containerBackground === 'light' ? 'bg-gray' : 'bg-base'}
+                  ${containerPadding ? 'pa4' : ''}
                 `}
                 style={{
                   width: containerWidth + containerBoxSizing,

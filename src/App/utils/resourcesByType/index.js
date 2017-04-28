@@ -207,7 +207,7 @@ export const resourcesByType = {
             {(containerWidth) => <div>containerWidth: {containerWidth}</div>}
           </ContainerWidth>,
         ],
-        optOut: ['types', 'containerBackground'],
+        optOut: ['types', 'containerBackground', 'containerPadding'],
       },
 
       Error: {
@@ -525,7 +525,7 @@ export const resourcesByType = {
             {createNodeExample()}
           </Maybe>,
         ],
-        optOut: ['containerWidth', 'containerBackground'],
+        optOut: ['containerWidth', 'containerBackground', 'containerPadding'],
       },
 
       Open: {
@@ -555,7 +555,7 @@ export const resourcesByType = {
             )}
           </Open>
         ],
-        optOut: ['containerWidth', 'containerBackground', 'types'],
+        optOut: ['containerWidth', 'containerBackground', 'containerPadding', 'types'],
       },
 
       Paragraph: {
@@ -647,7 +647,7 @@ export const resourcesByType = {
             }
           </Request>
         ],
-        optOut: ['containerWidth', 'containerBackground', 'types'],
+        optOut: ['containerWidth', 'containerBackground', 'containerPadding', 'types'],
       },
 
       RequestedLessons: {
@@ -734,7 +734,7 @@ export const resourcesByType = {
             {(isLikelyDesktop) => <div>isLikelyDesktop: {`${isLikelyDesktop}`}</div>}
           </ViewportWidth>,
         ],
-        optOut: ['types', 'containerBackground'],
+        optOut: ['containerBackground', 'containerPadding', 'types'],
       },
 
     }
@@ -871,7 +871,7 @@ export const resourcesByType = {
         createExamples: () => [
           colors,
         ],
-        optOut: ['containerWidth', 'containerBackground', 'types'],
+        optOut: ['containerWidth', 'containerBackground', 'containerPadding', 'types'],
       },
 
       colorValues: {
@@ -882,7 +882,7 @@ export const resourcesByType = {
         createExamples: () => [
           colorValues[random.arrayElement(colors)],
         ],
-        optOut: ['containerWidth', 'containerBackground'],
+        optOut: ['containerWidth', 'containerBackground', 'containerPadding'],
       },
 
       login: {
