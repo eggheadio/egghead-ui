@@ -30,6 +30,7 @@ import Request, {methods as requestMethods} from 'package/components/Request'
 import RequestedLessons from 'package/components/RequestedLessons'
 import Tabs from 'package/components/Tabs'
 import Toggle, {selectedItems as toggleSelectedItems} from 'package/components/Toggle'
+import ViewportWidth from 'package/components/ViewportWidth'
 
 import InstructorDashboard from 'package/screens/InstructorDashboard'
 import InstructorDetails from 'package/screens/InstructorDetails'
@@ -717,6 +718,23 @@ export const resourcesByType = {
             selectedItem={random.arrayElement(toggleSelectedItems)}
           />,
         ],
+      },
+
+      ViewportWidth: {
+        useCase: `Used to get the current browser width. ContainerWidth is preferred in most situations unless the entire viewport width is needed.`,
+        types: {
+          'children*': 'func',
+          'onWidthChange': 'func',
+        },
+        childrenTypes: {
+          'isLikelyDesktop': 'bool',
+        },
+        createExamples: () => [
+          <ViewportWidth>
+            {(isLikelyDesktop) => <div>isLikelyDesktop: {`${isLikelyDesktop}`}</div>}
+          </ViewportWidth>,
+        ],
+        optOut: ['types', 'containerBackground'],
       },
 
     }

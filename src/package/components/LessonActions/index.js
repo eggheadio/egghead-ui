@@ -2,6 +2,8 @@ import React, {PropTypes} from 'react'
 import {map, keys, compact} from 'lodash'
 import {lessonStateVerbToPastTense, detailsByLessonState} from 'package/utils/lessonStates'
 import Request from 'package/components/Request'
+import ViewportWidth from 'package/components/ViewportWidth'
+import ContainerWidth from 'package/components/ContainerWidth'
 import LessonAction from './components/LessonAction'
 
 const stateVerbs = keys(lessonStateVerbToPastTense)
@@ -12,9 +14,9 @@ const LessonActions = ({
   requestCurrentPage,
 }) => {
 
-  const items = compact([
+  const getItems = (isLikelyDesktop) => compact([
 
-    lesson.upload_lesson_http_url
+    isLikelyDesktop && lesson.upload_lesson_http_url
       ? <LessonAction
           actionText={lesson.wistia_id
             ? 'Replace Video'
@@ -61,25 +63,42 @@ const LessonActions = ({
   ])
 
   return (
-    <div className='flex flex-wrap items-stretch justify-end h-100'>
-      {map(items, (item, index) => (
-        <div 
-          key={index}
-          className={`
-            flex
-            items-center
-            justify-center
-            mw4
-            bl b--gray-secondary
-          `}
-          style={{
-            flex: `1 0 115px`,
-          }}
-        >
-          {item}
-        </div>
-      ))}
-    </div>
+    <ViewportWidth>
+      {(isLikelyDesktop) => (
+        <ContainerWidth className='h-100'>
+          {(containerWidth) => (
+            <div className={`
+              h-100
+              ${containerWidth === 'xsmall'
+                ? ''
+                : 'flex flex-wrap justify-end'
+              }
+            `}>
+              {map(getItems(isLikelyDesktop), (item, index) => (
+                <div 
+                  key={index}
+                  className={`
+                    flex
+                    items-center
+                    ${containerWidth === 'xsmall'
+                      ? index === 0 ? '' : 'bt b--gray-secondary'
+                      : index === 0 ? '' : 'bl b--gray-secondary justify-center'
+                    }
+                  `}
+                  style={{
+                    flexGrow: 0,
+                    flexShrink: 0,
+                    flexBasis: 90,
+                  }}
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          )}
+        </ContainerWidth>
+      )}
+    </ViewportWidth>
   )
 }
 
