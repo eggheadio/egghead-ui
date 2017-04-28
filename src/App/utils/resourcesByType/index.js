@@ -169,6 +169,7 @@ export const resourcesByType = {
             size={random.arrayElement(buttonSizes)}
             color={random.arrayElement(colors)}
             outline={random.boolean()}
+            overDark={random.boolean()}
           >
             {lorem.words()}
           </Button>,

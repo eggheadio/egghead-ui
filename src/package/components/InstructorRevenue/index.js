@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react'
 import {find, size, map} from 'lodash'
+import colorValues from 'package/utils/colorValues'
 import Card from 'package/components/Card'
 import Request from 'package/components/Request'
 import Open from 'package/components/Open'
@@ -11,8 +12,8 @@ import prettyMonthName from './utils/prettyMonthName'
 import RevenuePeriod from './components/RevenuePeriod'
 import LineChart from './components/LineChart'
 
-const revenueColor = '#59cd90' // # blue
-const minutesColor = '#B0B6BE' // # dark-gray-secondary
+const revenueColor = colorValues['blue']
+const minutesColor = colorValues['dark-gray-secondary']
 const activeLabelClassName = 'dark-gray b'
 
 const InstructorRevenue = ({revenueUrl}) => revenueUrl

@@ -1,38 +1,54 @@
 import React, {PropTypes} from 'react'
 import {keys} from 'lodash'
+import hexToRgba from 'hex-rgba'
+import styled from 'styled-components'
 import colors from 'package/utils/colors'
+import colorValues from 'package/utils/colorValues'
 
-const styleNonSmallShared = {
-  minWidth: 200,
-  paddingLeft: 36,
-  paddingRight: 36,
-}
-
-const styleBySize = {
+const verticalPaddingBySize = {
   'small': {
-    paddingLeft: 24,
-    paddingRight: 24,
-    paddingTop: 8,
-    paddingBottom: 8,
+    paddingTop: '8px',
+    paddingBottom: '8px',
   },
   'medium': {
-    ...styleNonSmallShared,
-    paddingTop: 12,
-    paddingBottom: 12,
+    paddingTop: '12px',
+    paddingBottom: '12px',
   },
   'large': {
-    ...styleNonSmallShared,
-    paddingTop: 16,
-    paddingBottom: 16,
+    paddingTop: '16px',
+    paddingBottom: '16px',
   },
   'xlarge': {
-    ...styleNonSmallShared,
-    paddingTop: 20,
-    paddingBottom: 20,
+    paddingTop: '20px',
+    paddingBottom: '20px',
   },
 }
 
-export const sizes = keys(styleBySize)
+export const sizes = keys(verticalPaddingBySize)
+
+/*
+color: base-secondary, alpha: 0.2 over light 0.7 over dark
+x: 0, y: 8, blur: 12, spread: 0
+*/
+
+const StyledButton = styled.button`
+  min-width: ${props => props.size === 'small' ? '0px' : '200px'};
+  padding-left: ${props => props.size === 'small' ? '24px' : '36px'};
+  padding-right: ${props => props.size === 'small' ? '24px' : '36px'};
+  padding-top: ${props => verticalPaddingBySize[props.size].paddingTop};
+  padding-bottom: ${props => verticalPaddingBySize[props.size].paddingBottom};
+  transition: box-shadow 0.3s ease-in-out;
+
+  &:hover,
+  &:active,
+  &:focus {
+    box-shadow: 0px 8px 12px 0px ${props =>
+      hexToRgba(
+        colorValues['base-secondary'], 
+        props.overDark ? 70 : 20
+      )};
+  }
+`
 
 const Button = ({
   children,
@@ -41,8 +57,9 @@ const Button = ({
   size,
   color,
   outline,
+  overDark,
 }) => (
-  <button
+  <StyledButton
     className={`
       flex items-center justify-center 
       f6 fw6 ttu b 
@@ -54,12 +71,13 @@ const Button = ({
         : `bg-${color} white`
       }
     `}
-    style={styleBySize[size]}
     href={href}
     onClick={onClick}
+    size={size}
+    overDark={overDark}
   >
     {children}
-  </button>
+  </StyledButton>
 )
 
 Button.propTypes = {
@@ -69,12 +87,14 @@ Button.propTypes = {
   size: PropTypes.oneOf(sizes),
   color: PropTypes.oneOf(colors),
   outline: PropTypes.bool,
+  overDark: PropTypes.bool,
 }
 
 Button.defaultProps = {
   size: 'medium',
   color: 'orange',
   outline: false,
+  overDark: false,
 }
 
 export default Button

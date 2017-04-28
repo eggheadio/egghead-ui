@@ -3,8 +3,9 @@ import {map} from 'lodash'
 import hexToRgba from 'hex-rgba'
 import {Line} from 'react-chartjs-2'
 import numberFormattingByType from 'package/utils/numberFormattingByType'
+import colorValues from 'package/utils/colorValues'
 
-const tooltipColor = '#63768d' // # dark-gray
+const tooltipColor = colorValues['dark-gray']
 
 const sharedOptions = (currency) => ({
   legend: {
