@@ -47,7 +47,6 @@ const StyledButton = styled.button`
 
 const Button = ({
   children,
-  href,
   onClick,
   size,
   color,
@@ -66,7 +65,6 @@ const Button = ({
         : `bg-${color} white`
       }
     `}
-    href={href}
     onClick={onClick}
     size={size}
     overDark={overDark}
@@ -77,7 +75,6 @@ const Button = ({
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  href: PropTypes.string,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(sizes),
   color: PropTypes.oneOf(colors),

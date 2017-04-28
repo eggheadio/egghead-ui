@@ -154,7 +154,6 @@ export const resourcesByType = {
         useCase: `Used to give the user an action to take.`,
         types: {
           'children*': 'node',
-          'href': 'string',
           'onClick': 'func',
           'size': buttonSizes,
           'color': colors,
@@ -165,7 +164,6 @@ export const resourcesByType = {
             {lorem.words()}
           </Button>,
           <Button
-            href={internet.url()}
             size={random.arrayElement(buttonSizes)}
             color={random.arrayElement(colors)}
             outline={random.boolean()}
