@@ -40,23 +40,23 @@ const containerWidthActions = [
 
 const containerBackgroundActions = [
   {
-    label: 'Dark',
-    containerBackground: 'dark',
-  },
-  {
     label: 'Light',
     containerBackground: 'light',
+  },
+  {
+    label: 'Dark',
+    containerBackground: 'dark',
   },
 ]
 
 const containerPaddingActions = [
   {
-    label: 'Off',
-    containerPadding: false,
-  },
-  {
     label: 'On',
     containerPadding: true,
+  },
+  {
+    label: 'Off',
+    containerPadding: false,
   },
 ]
 
@@ -73,8 +73,8 @@ class Examples extends Component {
 
   state = {
     containerWidth: xsmallContainerWidth,
-    containerBackground: 'dark',
-    containerPadding: false,
+    containerBackground: 'light',
+    containerPadding: true,
     examples: false,
   }
 
@@ -118,10 +118,33 @@ class Examples extends Component {
     const {optOut} = this.props
 
     return (
-      <section>
+      <section className='flex'>
 
         {size(optOut) < size(optOuts)
-          ? <div className='bg-base-secondary pa3 br2 mb4'>
+          ? <div 
+              className='mr4'
+              style={{
+                flexGrow: 0,
+                flexShrink: 0,
+                flexBasis: xsmallContainerWidth,
+              }}
+            >
+
+              {includes(optOut, 'types')
+                ? null
+                : <div className='mb3'>
+                    <Heading level='5'>
+                      Types
+                    </Heading>
+                    <Button 
+                      onClick={this.handleCreateExamples}
+                      size='small'
+                      overDark
+                    >
+                      Randomize
+                    </Button>
+                  </div>
+              }
 
               {includes(optOut, 'containerWidth')
                 ? null
@@ -138,6 +161,7 @@ class Examples extends Component {
                           <Button 
                             onClick={this.handleContainerWidthChange.bind(null, action.containerWidth)}
                             size='small'
+                            overDark
                           >
                             {action.label}
                           </Button>
@@ -162,6 +186,7 @@ class Examples extends Component {
                           <Button 
                             onClick={this.handleBackgroundChange.bind(null, action.containerBackground)}
                             size='small'
+                            overDark
                           >
                             {action.label}
                           </Button>
@@ -186,27 +211,13 @@ class Examples extends Component {
                           <Button 
                             onClick={this.handlePaddingChange.bind(null, action.containerPadding)}
                             size='small'
+                            overDark
                           >
                             {action.label}
                           </Button>
                         </div>
                       ))}
                     </div>
-                  </div>
-              }
-
-              {includes(optOut, 'types')
-                ? null
-                : <div>
-                    <Heading level='5'>
-                      Types
-                    </Heading>
-                    <Button 
-                      onClick={this.handleCreateExamples}
-                      size='small'
-                    >
-                      Randomize
-                    </Button>
                   </div>
               }
 
