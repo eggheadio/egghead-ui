@@ -26,11 +26,6 @@ const verticalPaddingBySize = {
 
 export const sizes = keys(verticalPaddingBySize)
 
-/*
-color: base-secondary, alpha: 0.2 over light 0.7 over dark
-x: 0, y: 8, blur: 12, spread: 0
-*/
-
 const StyledButton = styled.button`
   min-width: ${props => props.size === 'small' ? '0px' : '200px'};
   padding-left: ${props => props.size === 'small' ? '24px' : '36px'};
