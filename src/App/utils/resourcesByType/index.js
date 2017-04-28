@@ -157,9 +157,8 @@ export const resourcesByType = {
           'href': 'string',
           'onClick': 'func',
           'size': buttonSizes,
-          'outline': 'bool',
-          'pill': 'bool',
           'color': colors,
+          'outline': 'bool',
         },
         createExamples: () => [
           <Button>
@@ -167,10 +166,9 @@ export const resourcesByType = {
           </Button>,
           <Button
             href={internet.url()}
-            color={random.arrayElement(colors)}
             size={random.arrayElement(buttonSizes)}
+            color={random.arrayElement(colors)}
             outline={random.boolean()}
-            pill={random.boolean()}
           >
             {lorem.words()}
           </Button>,
@@ -547,7 +545,7 @@ export const resourcesByType = {
                 <Button 
                   onClick={handleOpenToggleClick}
                   color='dark-gray'
-                  size='extra-small'
+                  size='small'
                 >
                   Example click handler
                 </Button>

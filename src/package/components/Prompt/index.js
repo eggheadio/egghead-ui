@@ -16,7 +16,7 @@ const Prompt = ({
     <div className='mt3'>
       {startsWith(action, '/') 
         ? <Link to={action}>
-            <Button size='extra-small'>
+            <Button size='small'>
               {actionText}
             </Button>
           </Link>
@@ -24,7 +24,7 @@ const Prompt = ({
             href={action}
             className='pointer dim'
           >
-            <Button size='extra-small'>
+            <Button size='small'>
               {actionText}
             </Button>
           </a>

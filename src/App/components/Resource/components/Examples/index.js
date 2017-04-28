@@ -137,7 +137,7 @@ class Examples extends Component {
                         >
                           <Button 
                             onClick={this.handleContainerWidthChange.bind(null, action.containerWidth)}
-                            size='extra-small'
+                            size='small'
                           >
                             {action.label}
                           </Button>
@@ -203,7 +203,7 @@ class Examples extends Component {
                     </Heading>
                     <Button 
                       onClick={this.handleCreateExamples}
-                      size='extra-small'
+                      size='small'
                     >
                       Randomize
                     </Button>
