@@ -27,7 +27,7 @@ import RequestSource from 'package/components/Request'
 import RequestedLessonsSource from 'package/components/RequestedLessons'
 import TabsSource from 'package/components/Tabs'
 import ToggleSource from 'package/components/Toggle'
-import ViewportContainerSource from 'package/components/ViewportContainer'
+import ViewportWidthSource from 'package/components/ViewportWidth'
 
 import InstructorDashboardSource from 'package/screens/InstructorDashboard'
 import InstructorDetailsSource from 'package/screens/InstructorDetails'
@@ -70,7 +70,7 @@ export const Request = RequestSource
 export const RequestedLessons = RequestedLessonsSource
 export const Tabs = TabsSource
 export const Toggle = ToggleSource
-export const ViewportContainer = ViewportContainerSource
+export const ViewportWidth = ViewportWidthSource
 
 export const InstructorDashboard = InstructorDashboardSource
 export const NewLesson = NewLessonSource
