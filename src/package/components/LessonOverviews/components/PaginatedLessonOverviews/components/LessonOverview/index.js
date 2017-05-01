@@ -16,7 +16,7 @@ export default ({lesson, requestCurrentPage}) => (
       style={{
         flexGrow: 1,
         flexShrink: 0,
-        flexBasis: xsmallContainerWidth,
+        flexBasis: xsmallContainerWidth - 100,
       }}
     >
 
@@ -26,7 +26,7 @@ export default ({lesson, requestCurrentPage}) => (
         className='w2 h2 mr3'
       />
 
-      <div>
+      <div className='w-100'>
 
         <div className='mb3 ttu b'>
           {detailsByLessonState[lesson.state].title || lesson.state}
@@ -34,10 +34,7 @@ export default ({lesson, requestCurrentPage}) => (
 
         <Link 
           to={`/lessons/${lesson.slug}`}
-          className='pointer dim no-underline base'
-          style={{
-            wordBreak: 'break-word',
-          }}
+          className='db pointer dim no-underline base'
         >
           <Heading level='3'>
             {lesson.title}
@@ -71,7 +68,7 @@ export default ({lesson, requestCurrentPage}) => (
     <div style={{
       flexGrow: 1,
       flexShrink: 0,
-      flexBasis: xsmallContainerWidth,
+      flexBasis: xsmallContainerWidth - 100,
     }}>
       <LessonActions 
         lesson={lesson} 
