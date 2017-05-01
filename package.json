@@ -1,6 +1,6 @@
 {
   "name": "egghead-ui",
-  "version": "6.1.2",
+  "version": "6.1.3",
   "description": "Components used across egghead projects",
   "scripts": {
     "dev:package": "yarn build:package -- -w",
