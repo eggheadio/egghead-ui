@@ -19,7 +19,7 @@ import LayoutColumns from 'package/components/LayoutColumns'
 import LessonActions from 'package/components/LessonActions'
 import LessonOverviews from 'package/components/LessonOverviews'
 import LessonOverviewsByGroup from 'package/components/LessonOverviewsByGroup'
-import List from 'package/components/List'
+import List, {sizes as listSizes} from 'package/components/List'
 import Loading from 'package/components/Loading'
 import Markdown from 'package/components/Markdown'
 import Maybe from 'package/components/Maybe'
@@ -72,16 +72,6 @@ const createNodeExample = () => random.arrayElement([
     <IconLabel
       iconType='check'
       labelText={lorem.words()}
-    />
-  </div>,
-
-  <div>
-    <Heading level='3'>
-      {lorem.words()}
-    </Heading>
-    <Toggle
-      leftOption={lorem.word()}
-      rightOption={lorem.word()}
     />
   </div>,
 
@@ -480,6 +470,8 @@ export const resourcesByType = {
         useCase: `Used to show a collection of nodes in a vertical stack.`,
         types: {
           'items*': '[node]',
+          'size': listSizes,
+          'overDark': 'bool',
         },
         createExamples: () => [
           <List items={[
@@ -489,6 +481,15 @@ export const resourcesByType = {
             createNodeExample(),
             createNodeExample(),
           ]} />,
+          <List 
+            items={[
+              createNodeExample(),
+              createNodeExample(),
+              createNodeExample(),
+            ]} 
+            size={random.arrayElement(listSizes)}
+            overDark={random.boolean()}
+          />,
         ]
       },
 
