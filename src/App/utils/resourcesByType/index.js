@@ -158,6 +158,7 @@ export const resourcesByType = {
           'size': buttonSizes,
           'color': colors,
           'outline': 'bool',
+          'overDark': 'bool',
         },
         createExamples: () => [
           <Button>
