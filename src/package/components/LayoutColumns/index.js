@@ -1,28 +1,33 @@
 import React, {PropTypes} from 'react'
 import {map} from 'lodash'
 import {xsmallContainerWidth} from 'package/utils/hardCodedSizes'
+import ContainerWidth from 'package/components/ContainerWidth'
 
 const LayoutColumns = ({items, relativeSizes}) => (
-  <div className='flex flex-wrap'>
-    {map(items, (item, index) => (
-      <div
-        key={index}
-        className={`
-          mb4
-          ${index < items.length - 1 ? 'mr4' : ''}
-        `}
-        style={{
-          flexGrow: relativeSizes
-            ? relativeSizes[index]
-            : 1,
-          flexShrink: 0,
-          flexBasis: xsmallContainerWidth - 100,
-        }}
-      >
-        {item}
+  <ContainerWidth>
+    {(containerWidth) => (
+      <div className='flex flex-wrap'>
+        {map(items, (item, index) => (
+          <div
+            key={index}
+            className={`
+              mb4
+              ${containerWidth !== 'xsmall' && index < items.length - 1 ? 'mr4' : ''}
+            `}
+            style={{
+              flexGrow: relativeSizes
+                ? relativeSizes[index]
+                : 1,
+              flexShrink: 0,
+              flexBasis: xsmallContainerWidth - 100,
+            }}
+          >
+            {item}
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
+    )}
+  </ContainerWidth>
 )
 
 LayoutColumns.propTypes = {

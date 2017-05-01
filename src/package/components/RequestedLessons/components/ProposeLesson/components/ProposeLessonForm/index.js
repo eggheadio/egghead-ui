@@ -137,7 +137,7 @@ export default class extends Component {
         >
           {({request}) => (
             <Button
-              size='extra-small'
+              size='small'
               onClick={() => {
                 if(every([title, technologyId], (input) => size(input) > 0)) {
                   request()

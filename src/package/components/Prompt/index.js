@@ -15,16 +15,19 @@ const Prompt = ({
     </Paragraph>
     <div className='mt3'>
       {startsWith(action, '/') 
-        ? <Link to={action}>
-            <Button size='extra-small'>
+        ? <Link 
+            to={action}
+            className='no-underline'
+          >
+            <Button size='small'>
               {actionText}
             </Button>
           </Link>
         : <a 
             href={action}
-            className='pointer dim'
+            className='pointer dim no-underline'
           >
-            <Button size='extra-small'>
+            <Button size='small'>
               {actionText}
             </Button>
           </a>
