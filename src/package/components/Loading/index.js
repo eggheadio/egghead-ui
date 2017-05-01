@@ -9,23 +9,21 @@ const rotate360 = keyframes`
   to {
     transform: rotate(360deg);
   }
-`;
+`
 
-const Rotate = styled.div`
+const StyledDiv = styled.div`
   animation: ${rotate360} 1.5s linear infinite;
-`;
-
-Rotate.displayName = 'Rotate'
+`
 
 const Loading = () => (
   <div className='orange flex items-center'>
     <div className='mr2'>
-      <Rotate>
+      <StyledDiv>
         <Icon
           type='refresh'
           color='orange'
         />
-      </Rotate>
+      </StyledDiv>
     </div>
     Loading...
   </div>

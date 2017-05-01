@@ -154,23 +154,20 @@ export const resourcesByType = {
         useCase: `Used to give the user an action to take.`,
         types: {
           'children*': 'node',
-          'href': 'string',
           'onClick': 'func',
           'size': buttonSizes,
-          'outline': 'bool',
-          'pill': 'bool',
           'color': colors,
+          'outline': 'bool',
         },
         createExamples: () => [
           <Button>
             {lorem.words()}
           </Button>,
           <Button
-            href={internet.url()}
-            color={random.arrayElement(colors)}
             size={random.arrayElement(buttonSizes)}
+            color={random.arrayElement(colors)}
             outline={random.boolean()}
-            pill={random.boolean()}
+            overDark={random.boolean()}
           >
             {lorem.words()}
           </Button>,
@@ -207,7 +204,7 @@ export const resourcesByType = {
             {(containerWidth) => <div>containerWidth: {containerWidth}</div>}
           </ContainerWidth>,
         ],
-        optOut: ['types', 'containerBackground'],
+        optOut: ['types', 'containerBackground', 'containerPadding'],
       },
 
       Error: {
@@ -525,7 +522,7 @@ export const resourcesByType = {
             {createNodeExample()}
           </Maybe>,
         ],
-        optOut: ['containerWidth', 'containerBackground'],
+        optOut: ['containerWidth', 'containerBackground', 'containerPadding'],
       },
 
       Open: {
@@ -547,7 +544,7 @@ export const resourcesByType = {
                 <Button 
                   onClick={handleOpenToggleClick}
                   color='dark-gray'
-                  size='extra-small'
+                  size='small'
                 >
                   Example click handler
                 </Button>
@@ -555,7 +552,7 @@ export const resourcesByType = {
             )}
           </Open>
         ],
-        optOut: ['containerWidth', 'containerBackground', 'types'],
+        optOut: ['containerWidth', 'containerBackground', 'containerPadding', 'types'],
       },
 
       Paragraph: {
@@ -647,7 +644,7 @@ export const resourcesByType = {
             }
           </Request>
         ],
-        optOut: ['containerWidth', 'containerBackground', 'types'],
+        optOut: ['containerWidth', 'containerBackground', 'containerPadding', 'types'],
       },
 
       RequestedLessons: {
@@ -734,7 +731,7 @@ export const resourcesByType = {
             {(isLikelyDesktop) => <div>isLikelyDesktop: {`${isLikelyDesktop}`}</div>}
           </ViewportWidth>,
         ],
-        optOut: ['types', 'containerBackground'],
+        optOut: ['containerBackground', 'containerPadding', 'types'],
       },
 
     }
@@ -871,7 +868,7 @@ export const resourcesByType = {
         createExamples: () => [
           colors,
         ],
-        optOut: ['containerWidth', 'containerBackground', 'types'],
+        optOut: ['containerWidth', 'containerBackground', 'containerPadding', 'types'],
       },
 
       colorValues: {
@@ -882,7 +879,7 @@ export const resourcesByType = {
         createExamples: () => [
           colorValues[random.arrayElement(colors)],
         ],
-        optOut: ['containerWidth', 'containerBackground'],
+        optOut: ['containerWidth', 'containerBackground', 'containerPadding'],
       },
 
       login: {

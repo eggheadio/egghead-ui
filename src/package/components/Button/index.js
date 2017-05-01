@@ -1,84 +1,92 @@
-import React, { PropTypes } from 'react'
-import {keys, first} from 'lodash'
+import React, {PropTypes} from 'react'
+import {keys} from 'lodash'
+import hexToRgba from 'hex-rgba'
 import styled from 'styled-components'
 import colors from 'package/utils/colors'
+import colorValues from 'package/utils/colorValues'
 
-const commonClasses = 'link dib fw6 tracked tc br2 ttu ba pointer dim'
-
-const sizedBtnClasses = {
-  'large': 'f5 pa3',
-  'extra-large': 'f5 lh-solid ph4 pv4',
-  'small': 'f5 lh-solid pa3',
-  'extra-small': 'f6 pa2',
+const verticalPaddingBySize = {
+  'small': {
+    paddingTop: '8px',
+    paddingBottom: '8px',
+  },
+  'medium': {
+    paddingTop: '12px',
+    paddingBottom: '12px',
+  },
+  'large': {
+    paddingTop: '16px',
+    paddingBottom: '16px',
+  },
+  'xlarge': {
+    paddingTop: '20px',
+    paddingBottom: '20px',
+  },
 }
 
-export const sizes = keys(sizedBtnClasses)
+export const sizes = keys(verticalPaddingBySize)
 
-const styleMap = (size) => {
-  const classes = {
-    'extra-small': ['min-width: 70px;'],
-    'small': ['min-width: 140px;'],
-    'large': ['line-height: 2rem;', 'min-width: 200px;'],
-    'extra-large': ['min-width: 280px;']
+const StyledButton = styled.button`
+  min-width: ${props => props.size === 'small' ? '0px' : '200px'};
+  padding-left: ${props => props.size === 'small' ? '24px' : '36px'};
+  padding-right: ${props => props.size === 'small' ? '24px' : '36px'};
+  padding-top: ${props => verticalPaddingBySize[props.size].paddingTop};
+  padding-bottom: ${props => verticalPaddingBySize[props.size].paddingBottom};
+  transition: box-shadow 0.3s ease-in-out;
+
+  &:hover,
+  &:active,
+  &:focus {
+    box-shadow: 0px 8px 12px 0px ${props =>
+      hexToRgba(
+        colorValues['base-secondary'], 
+        props.overDark ? 70 : 20
+      )};
   }
+`
 
-  return size === undefined 
-    ? classes['large']
-    : classes[size]
-}
-
-const StyledButton = styled(({
+const Button = ({
   children,
-  href,
-  size,
-  outline,
-  pill,
   onClick,
+  size,
   color,
-}) => {
+  outline,
+  overDark,
+}) => (
+  <StyledButton
+    className={`
+      flex items-center justify-center 
+      f6 fw6 ttu b 
+      ba br-pill 
+      pointer
+      b--${color}
+      ${outline
+        ? `bg-transparent ${color}` 
+        : `bg-${color} white`
+      }
+    `}
+    onClick={onClick}
+    size={size}
+    overDark={overDark}
+  >
+    {children}
+  </StyledButton>
+)
 
-  const colorByBackground = {
-    white: 'dark-gray',
-  }
-
-  const btnClasses = `
-    b--${color}
-    ${outline
-      ? `bg-transparent ${color}` 
-      : `bg-${color} ${colorByBackground[color] || 'white'}`
-    }
-  `
-
-  const sizeClasses = sizedBtnClasses[size]
-
-  return (
-    <button
-      href={href}
-      className={`${commonClasses} ${btnClasses} ${sizeClasses} ${pill ? 'br-pill' : ''}`}
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  )
-})`${props => styleMap(props.size)}`
-
-StyledButton.displayName = 'Button'
-
-StyledButton.propTypes = {
+Button.propTypes = {
   children: PropTypes.node.isRequired,
-  href: PropTypes.string,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(sizes),
-  outline: PropTypes.bool,
-  pill: PropTypes.bool,
   color: PropTypes.oneOf(colors),
+  outline: PropTypes.bool,
+  overDark: PropTypes.bool,
 }
 
-StyledButton.defaultProps = {
-  size: first(sizes),
-  outline: false,
-  pill: false,
+Button.defaultProps = {
+  size: 'medium',
   color: 'orange',
+  outline: false,
+  overDark: false,
 }
 
-export default StyledButton
+export default Button
