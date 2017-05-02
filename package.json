@@ -1,6 +1,6 @@
 {
   "name": "egghead-ui",
-  "version": "6.3.0",
+  "version": "6.4.0",
   "description": "Components used across egghead projects",
   "scripts": {
     "dev:package": "yarn build:package -- -w",
@@ -59,7 +59,7 @@
     "jwt-simple": "^0.5.1",
     "lodash": "^4.16.2",
     "react-chartjs-2": "^2.0.5",
-    "react-icons": "github:eggheadio/react-icons#3.1.0",
+    "react-icons": "github:eggheadio/react-icons#3.2.0",
     "react-markdown": "^2.4.5",
     "react-paginate": "^4.3.1",
     "react-router": "^4.1.1",
