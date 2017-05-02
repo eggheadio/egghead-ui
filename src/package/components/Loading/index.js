@@ -12,20 +12,27 @@ const rotate360 = keyframes`
 `
 
 const StyledDiv = styled.div`
-  animation: ${rotate360} 1.5s linear infinite;
+  animation: ${rotate360} 0.7s linear infinite;
 `
 
 const Loading = () => (
-  <div className='orange flex items-center'>
+  <div 
+    className='flex items-center'
+    style={{
+      color: 'transparent',
+    }}
+  >
     <div className='mr2'>
       <StyledDiv>
-        <Icon
-          type='refresh'
-          color='orange'
+        <Icon 
+          type='progress-ring' 
+          color='transparent'
         />
       </StyledDiv>
     </div>
-    Loading...
+    <div className='orange'>
+      Loading...
+    </div>
   </div>
 )
 
