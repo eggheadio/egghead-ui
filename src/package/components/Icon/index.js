@@ -16,6 +16,7 @@ import {
   EggheadProfile,
   EggheadQuickLessonsHeadline,
   EggheadQuestion,
+  EggheadRss,
   EggheadTechnology,
   EggheadUpload,
 } from 'react-icons/lib/egghead'
@@ -75,6 +76,7 @@ const typeToSvgIcon = {
   'play': FaPlay,
   'profile': EggheadProfile,
   'question': EggheadQuestion,
+  'rss': EggheadRss,
   'refresh': FaRefresh,
   'remove': FaMinusCircle,
   'search': FaSearch,
