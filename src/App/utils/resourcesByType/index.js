@@ -46,9 +46,9 @@ import {lessonStates} from 'package/utils/lessonStates'
 
 import Authentication from 'App/components/Authentication'
 
-const getLoginUrl = () => (
-  `${process.env.REACT_APP_EGGHEAD_BASE_URL}/users/jwt?return_to=${window.location.href}`
-)
+const getLoginUrl = () => window
+  ? `${process.env.REACT_APP_EGGHEAD_BASE_URL}/users/jwt?return_to=${window.location.href}`
+  : false
 
 const createNodeExample = () => random.arrayElement([
 

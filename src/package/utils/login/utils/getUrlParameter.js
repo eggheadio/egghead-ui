@@ -1,4 +1,7 @@
 export default (key) => {
+  if(!location) {
+    return false
+  }
   const cleanKey = key.replace(/[[]/, '\\[').replace(/[\]]/, '\\]')
   const regex = new RegExp(`[\\?&]${cleanKey}=([^&#]*)`)
   const results = regex.exec(location.search)

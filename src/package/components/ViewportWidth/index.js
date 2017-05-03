@@ -8,15 +8,24 @@ class ViewportWidth extends Component {
   }
 
   componentDidMount = () => {
+    if (!window) {
+      return
+    }
     this.handleWidthChange()
     window.onresize = this.handleWidthChange
   }
 
   componentWillUnmount = () => {
+    if (!window) {
+      return
+    }
     window.onresize = null
   }
 
   handleWidthChange = () => {
+    if (!window) {
+      return
+    }
     const {onWidthChange} = this.props
     if(onWidthChange) {
       onWidthChange()

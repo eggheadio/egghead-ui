@@ -1,17 +1,17 @@
 import jwt from 'jwt-simple'
+import {get, set} from 'lodash'
 import removeQueryString from './utils/removeQueryString'
 import getUrlParameter from './utils/getUrlParameter'
 
 const decodeToken = (token) => jwt.decode(token, null, true)
 
 const login = () => {
-  if (localStorage.getItem('token')) {
-    const token = localStorage.getItem('token')
-    return decodeToken(token)
+  if (get(localStorage, 'token')) {
+    return decodeToken(get(localStorage, 'token'))
   }
   if (getUrlParameter('jwt')) {
     const token = getUrlParameter('jwt')
-    localStorage.setItem('token', token)
+    set(localStorage, 'token', token)
     removeQueryString()
     return decodeToken(token)
   }
