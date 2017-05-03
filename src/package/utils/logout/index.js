@@ -1,3 +1,5 @@
+const localStorage = localStorage || false // eslint-disable-line 
+
 const logout = () => {
   if(!localStorage) {
     return

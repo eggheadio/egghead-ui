@@ -3,6 +3,8 @@ import {includes, first, get} from 'lodash'
 import logout from 'package/utils/logout'
 import RequestBase from './components/RequestBase'
 
+const localStorage = localStorage || false // eslint-disable-line 
+
 export const methods = [
   'get',
   'post',

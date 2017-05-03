@@ -5,6 +5,8 @@ import getUrlParameter from './utils/getUrlParameter'
 
 const decodeToken = (token) => jwt.decode(token, null, true)
 
+const localStorage = localStorage || false // eslint-disable-line 
+
 const login = () => {
   if (get(localStorage, 'token')) {
     return decodeToken(get(localStorage, 'token'))

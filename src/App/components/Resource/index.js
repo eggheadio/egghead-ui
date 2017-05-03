@@ -52,19 +52,17 @@ const Resource = ({name, resource}) => (
           </div>
         ),
       },
-      resource.createExamples 
-        ? {
-            title: 'Examples',
-            component: (
-              <div className='mt4'>
-                <Examples 
-                  createExamples={resource.createExamples}
-                  optOut={resource.optOut}
-                />
-              </div>
-            ),
-        }
-        : null,
+      {
+        title: 'Examples',
+        component: (
+          <div className='mt4'>
+            <Examples 
+              createExamples={resource.createExamples}
+              optOut={resource.optOut}
+            />
+          </div>
+        ),
+      },
     ])} />
   </section>
 )
@@ -75,7 +73,7 @@ Resource.propTypes = {
     useCase: PropTypes.string.isRequired,
     types: PropTypes.object,
     childrenTypes: PropTypes.object,
-    createExamples: PropTypes.func,
+    createExamples: PropTypes.func.isRequired,
     optOut: PropTypes.arrayOf(PropTypes.oneOf(optOuts)),
   }).isRequired,
 }

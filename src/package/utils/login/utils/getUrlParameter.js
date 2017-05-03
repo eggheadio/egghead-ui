@@ -1,3 +1,5 @@
+const location = location || false // eslint-disable-line
+
 export default (key) => {
   if(!location) {
     return false

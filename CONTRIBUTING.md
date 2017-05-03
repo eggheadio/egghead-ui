@@ -17,7 +17,7 @@
   - [localhost:2000](http://localhost:2000) to view the **app**
   - `yarn dev:app:staging` to develop the **app** with staging endpoints
   - `yarn dev:app:prod` to check the **app** with prod endpoints
-- `yarn test` to run tests
+- `yarn test:unit` and `yarn test:functional` to run tests
 - `yarn lint` to run linting
 - Ensure any changed functionality in `src/package/*` is updated in the related `src/App/utils/resourcesByTypes` file(s), using faker where possible
 - Stage, commit, and push
@@ -110,4 +110,6 @@ Linting is currently provided by `react-scripts` (ESLint).
 
 ### Testing
 
-Testing is currently provided by `react-scripts` (Jest). Files that could benefit from tests have an `index.test.js` file next to them. These are generally simple unit or snapshot tests where they provide value.
+Unit testing is currently provided by `react-scripts` (Jest). Files that could benefit from tests have an `index.test.js` file next to them.
+
+Functional testing is currently provided by a next.js server, using the `pages` directory.

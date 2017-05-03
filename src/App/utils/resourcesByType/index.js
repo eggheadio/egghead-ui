@@ -41,14 +41,18 @@ import NewLesson from 'package/screens/NewLesson'
 
 import colors from 'package/utils/colors'
 import colorValues from 'package/utils/colorValues'
+import login from 'package/utils/login'
+import logout from 'package/utils/logout'
 import {containerWidths} from 'package/utils/hardCodedSizes'
 import {lessonStates} from 'package/utils/lessonStates'
 
 import Authentication from 'App/components/Authentication'
 
+const window = window || false // eslint-disable-line  no-use-before-define
+
 const getLoginUrl = () => window
   ? `${process.env.REACT_APP_EGGHEAD_BASE_URL}/users/jwt?return_to=${window.location.href}`
-  : false
+  : ''
 
 const createNodeExample = () => random.arrayElement([
 
@@ -886,10 +890,16 @@ export const resourcesByType = {
 
       login: {
         useCase: `Uses local storage "token" if it exists. Adds/updates local storage "token" if there is a "jwt" query param in the URL from an egghead login URL redirect.`,
+        createExamples: () => [
+          login(),
+        ],
       },
 
       logout: {
         useCase: `Removes "token" from local storage and refreshes the page to log the user out.`,
+        createExamples: () => [
+          logout(),
+        ],
       },
 
     },
