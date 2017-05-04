@@ -17,18 +17,23 @@ class TabsComponent extends Component {
   )
 
   render() {
-    const {groups} = this.props
+    const {groups, center} = this.props
 
     return (
       <Tabs onSelect={this.handleSelect}>
 
-        <TabList className='list pa0 ma0 flex flex-wrap br2 br--top'>
+        <TabList
+          className={`list pa0 ma0
+                      flex br2 br--top
+                      items-center
+                      ${center ? 'justify-center' : ''}`}>
           {map(groups, (group, index) => (
             <Tab
               key={index}
               className={`
+                flex-grow-1
                 f6
-                pv3 ph4
+                pv3
                 ttu
                 pointer
                 dim
@@ -52,7 +57,7 @@ class TabsComponent extends Component {
           <TabPanel key={index}>
             {group.component}
           </TabPanel>
-        ))}  
+        ))}
 
       </Tabs>
     )
