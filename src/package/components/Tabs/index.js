@@ -17,7 +17,7 @@ class TabsComponent extends Component {
   )
 
   render() {
-    const {groups, center} = this.props
+    const {groups, TabListClasses, TabClasses} = this.props
 
     return (
       <Tabs onSelect={this.handleSelect}>
@@ -26,12 +26,11 @@ class TabsComponent extends Component {
           className={`list pa0 ma0
                       flex br2 br--top
                       items-center
-                      ${center ? 'justify-center' : ''}`}>
+                      ${TabListClasses ? `${TabListClasses}` : ''}`}>
           {map(groups, (group, index) => (
             <Tab
               key={index}
               className={`
-                flex-grow-1
                 f6
                 pv3
                 ttu
@@ -39,6 +38,7 @@ class TabsComponent extends Component {
                 dim
                 b
                 bb
+                ${TabClasses ? `${TabClasses}` : ''}
                 ${this.state.selected === index
                   ? 'b--orange orange'
                   : 'b--transparent dark-gray-secondary'
