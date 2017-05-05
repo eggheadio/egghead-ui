@@ -105,13 +105,13 @@ export const resourcesByType = {
           <Anchor url={internet.url()}>
             {lorem.words()}
           </Anchor>,
-          <Anchor 
+          <Anchor
             url={internet.url()}
             type='prominent'
           >
             {lorem.words()}
           </Anchor>,
-          <Anchor 
+          <Anchor
             url={internet.url()}
             color={random.arrayElement(colors)}
           >
@@ -223,7 +223,7 @@ export const resourcesByType = {
           <HeaderCard title={lorem.words()}>
             {createNodeExample()}
           </HeaderCard>,
-          <HeaderCard 
+          <HeaderCard
             title={lorem.words()}
             description={lorem.sentence()}
             intro={createNodeExample()}
@@ -292,7 +292,7 @@ export const resourcesByType = {
           'className': 'string',
         },
         createExamples: () => [
-          <Image 
+          <Image
             src={random.image()}
             alt={lorem.words()}
           />,
@@ -360,24 +360,24 @@ export const resourcesByType = {
           'relativeSizes': '[number]',
         },
         createExamples: () => [
-          <LayoutColumns 
+          <LayoutColumns
             items={[
               createNodeExample(),
               createNodeExample(),
               createNodeExample(),
             ]}
           />,
-          <LayoutColumns 
+          <LayoutColumns
             items={[
               createNodeExample(),
               createNodeExample(),
             ]}
             relativeSizes={random.arrayElement([
-              [1, 1], 
-              [2, 1], 
-              [3, 1], 
-              [1, 2], 
-              [1, 3], 
+              [1, 1],
+              [2, 1],
+              [3, 1],
+              [1, 2],
+              [1, 3],
             ])}
           />,
         ],
@@ -454,9 +454,9 @@ export const resourcesByType = {
                 {({data}) => {
                   const instructor = random.arrayElement(data)
                   return (
-                    <LessonOverviewsByGroup 
+                    <LessonOverviewsByGroup
                       lessonsUrl={instructor.lessons_url}
-                      instructor={instructor} 
+                      instructor={instructor}
                     />
                   )
                 }}
@@ -481,12 +481,12 @@ export const resourcesByType = {
             createNodeExample(),
             createNodeExample(),
           ]} />,
-          <List 
+          <List
             items={[
               createNodeExample(),
               createNodeExample(),
               createNodeExample(),
-            ]} 
+            ]}
             size={random.arrayElement(listSizes)}
             overDark={random.boolean()}
           />,
@@ -543,7 +543,7 @@ export const resourcesByType = {
                 <div className='mb3'>
                   isOpen: {`${isOpen}`}
                 </div>
-                <Button 
+                <Button
                   onClick={handleOpenToggleClick}
                   color='dark-gray'
                   size='small'
@@ -637,7 +637,7 @@ export const resourcesByType = {
               ? <div>
                   {JSON.stringify(data, null, 2)}
                 </div>
-              : <a 
+              : <a
                   onClick={() => request()}
                   className='pointer dim'
                 >
@@ -661,8 +661,8 @@ export const resourcesByType = {
               return (
                 <Request url={rootData.instructor_url}>
                   {({data}) => (
-                    <RequestedLessons 
-                      instructor={data} 
+                    <RequestedLessons
+                      instructor={data}
                       lessonsUrl={rootData.lessons_url}
                       technologiesUrl={rootData.technologies_url}
                     />
@@ -679,6 +679,8 @@ export const resourcesByType = {
         useCase: `Used to group related nodes into tabs.`,
         types: {
           'groups*': '[{title: string, component: node}]',
+           'tabListClassName*': 'string',
+           'tabClassName*': 'string',
         },
         createExamples: () => [
           <Tabs groups={[
@@ -694,7 +696,7 @@ export const resourcesByType = {
               title: lorem.words(),
               component: createNodeExample(),
             },
-          ]} />,
+          ]} tabClassName={'ph4'} />,
         ],
       },
 
@@ -755,8 +757,8 @@ export const resourcesByType = {
               return (
                 <Request url={rootData.instructors_url}>
                   {({data}) => (
-                    <InstructorDashboard 
-                      instructor={random.arrayElement(data)} 
+                    <InstructorDashboard
+                      instructor={random.arrayElement(data)}
                       lessonsUrl={rootData.lessons_url}
                       technologiesUrl={rootData.technologies_url}
                     />
@@ -845,8 +847,8 @@ export const resourcesByType = {
               return (
                 <Request url={data.instructor_url}>
                   {({data}) => (
-                    <NewLesson 
-                      instructor={data} 
+                    <NewLesson
+                      instructor={data}
                       lessonsUrl={rootData.lessons_url}
                       technologiesUrl={rootData.technologies_url}
                     />
