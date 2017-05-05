@@ -17,28 +17,30 @@ class TabsComponent extends Component {
   )
 
   render() {
-    const {groups, tabListClassName, tabClassName} = this.props
+    const {groups} = this.props
 
     return (
       <Tabs onSelect={this.handleSelect}>
 
         <TabList
-          className={`list pa0 ma0
-                      flex br2 br--top
-                      items-center
-                      ${tabListClassName ? `${tabListClassName}` : ''}`}>
+          className='list pa0 ma0
+                    flex br2 br--top
+                    items-center'
+          style={{justifyContent: 'inherit'}}>
           {map(groups, (group, index) => (
             <Tab
               key={index}
               className={`
                 f6
-                pv3
+                pv3 ph4-ns
+                flex-grow-1
+                flex-grow-0-ns
+                tc
                 ttu
                 pointer
                 dim
                 b
                 bb
-                ${tabClassName ? `${tabClassName}` : ''}
                 ${this.state.selected === index
                   ? 'b--orange orange'
                   : 'b--transparent dark-gray-secondary'
@@ -69,8 +71,6 @@ TabsComponent.propTypes = {
     title: React.PropTypes.string.isRequired,
     component: React.PropTypes.node.isRequired,
   })).isRequired,
-  tabListClassName: React.PropTypes.string,
-  tabClassName: React.PropTypes.string,
 }
 
 export default TabsComponent

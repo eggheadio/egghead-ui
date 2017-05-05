@@ -679,8 +679,6 @@ export const resourcesByType = {
         useCase: `Used to group related nodes into tabs.`,
         types: {
           'groups*': '[{title: string, component: node}]',
-           'tabListClassName*': 'string',
-           'tabClassName*': 'string',
         },
         createExamples: () => [
           <Tabs groups={[
@@ -696,7 +694,7 @@ export const resourcesByType = {
               title: lorem.words(),
               component: createNodeExample(),
             },
-          ]} tabClassName={'ph4'} />,
+          ]} />,
         ],
       },
 
