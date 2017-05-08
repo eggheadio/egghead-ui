@@ -110,6 +110,4 @@ Linting is currently provided by `react-scripts` (ESLint).
 
 ### Testing
 
-Unit testing is currently provided by `react-scripts` (Jest). Files that could benefit from tests have an `index.test.js` file next to them.
-
-Functional testing is currently provided by a next.js server, using the `pages` directory.
+Testing is currently provided by `react-scripts` (Jest). Files that could benefit from tests have an `index.test.js` file next to them.
