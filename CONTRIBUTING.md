@@ -17,7 +17,7 @@
   - [localhost:2000](http://localhost:2000) to view the **app**
   - `yarn dev:app:staging` to develop the **app** with staging endpoints
   - `yarn dev:app:prod` to check the **app** with prod endpoints
-- `yarn test:unit` and `yarn test:functional` to run tests
+- `yarn test` to run tests
 - `yarn lint` to run linting
 - Ensure any changed functionality in `src/package/*` is updated in the related `src/App/utils/resourcesByTypes` file(s), using faker where possible
 - Stage, commit, and push
