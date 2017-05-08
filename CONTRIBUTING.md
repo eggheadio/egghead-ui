@@ -110,4 +110,4 @@ Linting is currently provided by `react-scripts` (ESLint).
 
 ### Testing
 
-Testing is currently provided by `react-scripts` (Jest). Files that could benefit from tests have an `index.test.js` file next to them.
+Testing is currently provided by `react-scripts` (Jest). Files that could benefit from tests have an `index.test.js` file next to them. These are generally simple unit or snapshot tests where they provide value.
