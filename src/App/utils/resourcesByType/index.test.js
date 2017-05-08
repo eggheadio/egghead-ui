@@ -1,8 +1,9 @@
 import React from 'react'
+import ReactDOMServer from 'react-dom/server'
 import {map} from 'lodash'
-import resourcesByType from '../src/App/utils/resourcesByType'
+import resourcesByType from '.'
 
-export default () => (
+const AllResources = () => (
   <main>
     {map(resourcesByType, (value, key) => {
       const resources = resourcesByType[key]
@@ -12,3 +13,7 @@ export default () => (
     })}
   </main>
 )
+
+it('renders on a server without crashing', () => {
+  ReactDOMServer.renderToString(<AllResources />)
+})
