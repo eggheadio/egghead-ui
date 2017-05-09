@@ -45,11 +45,16 @@ import login from 'package/utils/login'
 import logout from 'package/utils/logout'
 import {containerWidths} from 'package/utils/hardCodedSizes'
 import {lessonStates} from 'package/utils/lessonStates'
+import windowMock from 'package/utils/windowMock'
 
 import Authentication from 'App/components/Authentication'
 
+const universalWindow = typeof(window) === 'undefined' 
+  ? windowMock 
+  : window
+
 const getLoginUrl = () =>
-  `${process.env.REACT_APP_EGGHEAD_BASE_URL}/users/jwt?return_to=${window.location.href}`
+  `${process.env.REACT_APP_EGGHEAD_BASE_URL}/users/jwt?return_to=${universalWindow.location.href}`
 
 const createNodeExample = () => random.arrayElement([
 
