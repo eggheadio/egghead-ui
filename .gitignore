@@ -1,7 +1,6 @@
 node_modules/
 lib/
 build/
-src/App/markdown
 npm-debug.log
 .DS_Store
 .tern-port

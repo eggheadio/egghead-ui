@@ -21,7 +21,7 @@ class RequestBase extends Component {
       this.request()
       if (subscribe) {
         this.setState({
-          subscription: window.setInterval(() => {
+          subscription: setInterval(() => {
             const {running} = this.state
             if(!running) {
               this.request()
@@ -35,7 +35,7 @@ class RequestBase extends Component {
   componentWillUnmount() {
     this.willUnmount = true
     const {subscription} = this.state
-    window.clearInterval(subscription)
+    clearInterval(subscription)
   }
 
   request = (body = this.props.body) => {

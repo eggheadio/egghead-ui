@@ -1,7 +1,9 @@
 import React, {Component, PropTypes} from 'react'
-import {includes, first} from 'lodash'
+import {includes, first, get} from 'lodash'
 import logout from 'package/utils/logout'
 import RequestBase from './components/RequestBase'
+
+const localStorage = localStorage || false // eslint-disable-line 
 
 export const methods = [
   'get',
@@ -14,8 +16,8 @@ class Request extends Component {
 
   getHeaders = () => ({
     ...this.props.headers,
-    Authorization: localStorage.token
-      ? `Bearer ${localStorage.token}`
+    Authorization: get(localStorage, 'token')
+      ? `Bearer ${get(localStorage, 'token')}`
       : null,
     'Content-Type': 'application/json',
   })
