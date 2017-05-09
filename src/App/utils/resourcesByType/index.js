@@ -201,7 +201,7 @@ export const resourcesByType = {
             {(containerWidth) => <div>containerWidth: {containerWidth}</div>}
           </ContainerWidth>,
         ],
-        optOut: ['types', 'containerBackground', 'containerPadding'],
+        optOut: ['types', 'containerBackground'],
       },
 
       Error: {
