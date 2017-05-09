@@ -7,6 +7,10 @@ import LessonGroupsStat from './components/LessonGroupsStat'
 
 export default ({instructor}) => {
 
+  if(!instructor) {
+    return null
+  }
+
   const lessonOverviewsByGroupStats = [
     {
       label: 'In Progress',
