@@ -28,6 +28,7 @@ const Navigation = ({items}) => (
         ? <Button 
             onClick={logout}
             size='small'
+            overDark
           >
             Logout
           </Button>
