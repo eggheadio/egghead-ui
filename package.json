@@ -2,11 +2,20 @@
   "name": "egghead-ui",
   "version": "6.5.1",
   "description": "Components used across egghead projects",
+  "homepage": "https://styleguide.egghead.io",
+  "engines": {
+    "node": ">=7.0.0"
+  },
+  "main": "lib/index.js",
+  "files": [
+    "package.json",
+    "README.md",
+    "lib"
+  ],
   "scripts": {
     "dev:package": "yarn build:package -- -w",
-    "dev:app": "REACT_APP_EGGHEAD_BASE_URL=http://egghead.dev:5000 NODE_PATH=./src react-scripts start",
-    "dev:app:staging": "REACT_APP_EGGHEAD_BASE_URL=https://egghead-io-staging.com NODE_PATH=./src react-scripts start",
-    "dev:app:prod": "REACT_APP_EGGHEAD_BASE_URL=https://egghead.io NODE_PATH=./src react-scripts start",
+    "dev:app": "REACT_APP_EGGHEAD_BASE_URL=http://egghead.dev:5000 NODE_PATH=./src BROWSER=none react-scripts start",
+    "dev:app:staging": "REACT_APP_EGGHEAD_BASE_URL=https://egghead-io-staging.com NODE_PATH=./src BROWSER=none react-scripts start",
     "test": "NODE_PATH=./src react-scripts test",
     "lint": "NODE_PATH=./src eslint src",
     "build:package": "NODE_PATH=./src babel src/package -d lib -i '**/*.test.js'",
@@ -17,16 +26,13 @@
     "build": "yarn build:app",
     "start": "NODE_PATH=./src react-scripts start"
   },
-  "main": "lib/index.js",
-  "files": [
-    "package.json",
-    "README.md",
-    "lib"
-  ],
+  "eslintConfig": {
+    "extends": "react-app"
+  },
   "babel": {
     "presets": [
       "babel-preset-react",
-      "latest"
+      "env"
     ],
     "plugins": [
       "transform-class-properties",
@@ -41,12 +47,20 @@
       ]
     ]
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "peerDependencies": {
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-module-resolver": "^2.7.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-react": "^6.24.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-scripts": "^0.9.5"
   },
   "dependencies": {
     "axios": "^0.15.3",
@@ -68,20 +82,5 @@
     "sort-by": "^1.2.0",
     "styled-components": "^1.4.3",
     "tachyons-egghead": "^2.3.1"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.22.2",
-    "babel-plugin-module-resolver": "^2.7.0",
-    "babel-plugin-transform-class-properties": "^6.22.0",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-preset-latest": "^6.22.0",
-    "babel-preset-react": "^6.22.0",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-scripts": "^0.7.0"
-  },
-  "homepage": "https://styleguide.egghead.io",
-  "engines": {
-    "node": ">=7.0.0"
   }
 }
