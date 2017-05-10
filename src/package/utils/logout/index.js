@@ -1,11 +1,12 @@
-const localStorage = localStorage || false // eslint-disable-line 
+import windowMock from 'package/utils/windowMock'
+
+const universalWindow = typeof(window) === 'undefined' 
+  ? windowMock 
+  : window
 
 const logout = () => {
-  if(!localStorage) {
-    return
-  }
-  localStorage.removeItem('token')
-  window.location.reload()
+  universalWindow.localStorage.removeItem('token')
+  universalWindow.location.reload()
 }
 
 export default logout

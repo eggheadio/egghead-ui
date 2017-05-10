@@ -1,19 +1,22 @@
 import jwt from 'jwt-simple'
-import {get, set} from 'lodash'
+import windowMock from 'package/utils/windowMock'
 import removeQueryString from './utils/removeQueryString'
 import getUrlParameter from './utils/getUrlParameter'
 
+const universalWindow = typeof(window) === 'undefined' 
+  ? windowMock 
+  : window
+
 const decodeToken = (token) => jwt.decode(token, null, true)
 
-const localStorage = localStorage || false // eslint-disable-line 
-
 const login = () => {
-  if (get(localStorage, 'token')) {
-    return decodeToken(get(localStorage, 'token'))
+  if (universalWindow.localStorage.getItem('token')) {
+    const token = universalWindow.localStorage.getItem('token')
+    return decodeToken(token)
   }
   if (getUrlParameter('jwt')) {
     const token = getUrlParameter('jwt')
-    set(localStorage, 'token', token)
+    universalWindow.localStorage.setItem('token', token)
     removeQueryString()
     return decodeToken(token)
   }

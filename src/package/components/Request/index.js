@@ -1,9 +1,12 @@
 import React, {Component, PropTypes} from 'react'
-import {includes, first, get} from 'lodash'
+import {includes, first} from 'lodash'
 import logout from 'package/utils/logout'
+import windowMock from 'package/utils/windowMock'
 import RequestBase from './components/RequestBase'
 
-const localStorage = localStorage || false // eslint-disable-line 
+const universalWindow = typeof(window) === 'undefined' 
+  ? windowMock 
+  : window
 
 export const methods = [
   'get',
@@ -16,8 +19,8 @@ class Request extends Component {
 
   getHeaders = () => ({
     ...this.props.headers,
-    Authorization: get(localStorage, 'token')
-      ? `Bearer ${get(localStorage, 'token')}`
+    Authorization: universalWindow.localStorage.token
+      ? `Bearer ${universalWindow.localStorage.token}`
       : null,
     'Content-Type': 'application/json',
   })

@@ -45,14 +45,16 @@ import login from 'package/utils/login'
 import logout from 'package/utils/logout'
 import {containerWidths} from 'package/utils/hardCodedSizes'
 import {lessonStates} from 'package/utils/lessonStates'
+import windowMock from 'package/utils/windowMock'
 
 import Authentication from 'App/components/Authentication'
 
-const window = window || false // eslint-disable-line  no-use-before-define
+const universalWindow = typeof(window) === 'undefined' 
+  ? windowMock 
+  : window
 
-const getLoginUrl = () => window
-  ? `${process.env.REACT_APP_EGGHEAD_BASE_URL}/users/jwt?return_to=${window.location.href}`
-  : ''
+const getLoginUrl = () =>
+  `${process.env.REACT_APP_EGGHEAD_BASE_URL}/users/jwt?return_to=${universalWindow.location.href}`
 
 const createNodeExample = () => random.arrayElement([
 
@@ -199,7 +201,7 @@ export const resourcesByType = {
             {(containerWidth) => <div>containerWidth: {containerWidth}</div>}
           </ContainerWidth>,
         ],
-        optOut: ['types', 'containerBackground', 'containerPadding'],
+        optOut: ['types', 'containerBackground'],
       },
 
       Error: {

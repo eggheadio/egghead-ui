@@ -1,11 +1,9 @@
 import React, {PropTypes} from 'react'
-import Maybe from 'package/components/Maybe'
 import Heading from 'package/components/Heading'
 import LessonOverviewsByGroup from 'package/components/LessonOverviewsByGroup'
 
-const InstructorLessons = ({instructor}) => (
-  <Maybe condition={Boolean(instructor)}>
-    <div>
+const InstructorLessons = ({instructor}) => instructor
+  ? <div>
       <Heading level='5'>
         {`${instructor.first_name}'s Lessons`}
       </Heading>
@@ -14,8 +12,7 @@ const InstructorLessons = ({instructor}) => (
         instructor={instructor} 
       />
     </div>
-  </Maybe>
-)
+  : null
 
 InstructorLessons.propTypes = {
   instructor: PropTypes.object,
