@@ -63,24 +63,24 @@
     "react-scripts": "^0.9.5"
   },
   "dependencies": {
-    "axios": "^0.15.3",
+    "axios": "^0.16.1",
     "chart.js": "chartjs/Chart.js",
     "element-resize-event": "^2.0.9",
-    "eslint": "^3.16.1",
+    "eslint": "^3.19.0",
     "faker": "^4.1.0",
     "format-number": "^2.0.2",
     "hex-rgba": "^1.0.1",
     "jwt-simple": "^0.5.1",
-    "lodash": "^4.16.2",
-    "react-chartjs-2": "^2.0.5",
-    "react-icons": "github:eggheadio/react-icons#3.3.0",
-    "react-markdown": "^2.4.5",
-    "react-paginate": "^4.3.1",
+    "lodash": "^4.17.4",
+    "react-chartjs-2": "^2.1.0",
+    "react-icons": "github:eggheadio/react-icons#3.3.1",
+    "react-markdown": "^2.5.0",
+    "react-paginate": "^4.4.2",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
-    "react-tabs": "^0.8.2",
+    "react-tabs": "^1.0.0",
     "sort-by": "^1.2.0",
-    "styled-components": "^1.4.3",
+    "styled-components": "^1.4.6",
     "tachyons-egghead": "^2.3.1"
   }
 }
