@@ -22,8 +22,8 @@ class LessonOverviews extends Component {
     currentPage: 1,
   }
 
-  handleCurrentPage = (currentPage) => {
-    this.setState({currentPage})
+  handleCurrentPage = (currentPage, request) => {
+    this.setState({currentPage}, () => {request()})
   }
 
   render() {
@@ -55,8 +55,7 @@ class LessonOverviews extends Component {
             total={response.headers['x-total-count']}
             lessons={data}
             requestNextPage={(nextPage) => {
-              this.handleCurrentPage(nextPage)
-              request()
+              this.handleCurrentPage(nextPage, request)
             }}
             requestCurrentPage={request}
           />

@@ -31,7 +31,7 @@ export default ({instructor}) => {
   ]
 
   return (
-    <div className='flex flex-wrap items-center justify-between'>
+    <div className='pa4 flex flex-wrap items-center justify-between'>
 
       <Link
         to={`/instructors/${instructor.slug}`}
