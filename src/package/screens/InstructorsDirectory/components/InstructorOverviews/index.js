@@ -28,12 +28,15 @@ class InstructorOverviews extends Component {
     const {instructorsUrl, pageSize} = this.props
 
     return (
-      <Request url={createInstructorsUrlWithParams({
-        pageSize,
-        page: currentPage,
-        instructorsUrl: instructorsUrl,
-      })}>
-        {({request, data, response}) => (
+      <Request 
+        url={createInstructorsUrlWithParams({
+          pageSize,
+          page: currentPage,
+          instructorsUrl: instructorsUrl,
+        })}
+        showLoadingBetweenRequests
+      >
+        {({request, running, data, response}) => (
           <PaginatedInstructorOverviews
             fallback={
               <Paragraph>

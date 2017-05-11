@@ -45,7 +45,7 @@ class LessonOverviews extends Component {
           lessonsUrl: lessonsUrl,
           includeLessonsInCourses,
         })}
-        subscribe
+        showLoadingBetweenRequests
       >
         {({request, data, response}) => (
           <PaginatedLessonOverviews
