@@ -1,6 +1,6 @@
 {
   "name": "egghead-ui",
-  "version": "6.5.1",
+  "version": "6.6.0",
   "description": "Components used across egghead projects",
   "homepage": "https://styleguide.egghead.io",
   "engines": {
@@ -73,7 +73,7 @@
     "jwt-simple": "^0.5.1",
     "lodash": "^4.17.4",
     "react-chartjs-2": "^2.1.0",
-    "react-icons": "github:eggheadio/react-icons#3.3.1",
+    "react-icons": "github:eggheadio/react-icons#3.4.0",
     "react-markdown": "^2.5.0",
     "react-paginate": "^4.4.2",
     "react-router": "^4.1.1",
