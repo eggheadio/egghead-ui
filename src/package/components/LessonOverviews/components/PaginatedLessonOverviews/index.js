@@ -16,8 +16,8 @@ const PaginatedLessonOverviews = ({
   requestCurrentPage,
 }) => {
 
-  const pageNum = Math.ceil(total / pageSize)
-  const hasMoreThanOnePage = (pageNum > 1) && (lessons.length > 0)
+  const pageCount = Math.ceil(total / pageSize)
+  const hasMoreThanOnePage = (pageCount > 1) && (lessons.length > 0)
 
   const linkClassNames = {
     mobileHide: 'dn db-ns',
@@ -44,13 +44,13 @@ const PaginatedLessonOverviews = ({
         <Maybe condition={hasMoreThanOnePage}>
           <div className='pa3'>
             <ReactPaginate
-              pageNum={pageNum}
+              pageCount={pageCount}
               pageRangeDisplayed={3}
               marginPagesDisplayed={1}
-              initialSelected={currentPage - 1}
+              initialPage={currentPage - 1}
               previousLabel={'Previous'}
               nextLabel={'Next'}
-              clickCallback={(page) => {
+              onPageChange={(page) => {
                 const {selected} = page
                 if (currentPage !== selected + 1) {
                   requestNextPage(selected + 1)
