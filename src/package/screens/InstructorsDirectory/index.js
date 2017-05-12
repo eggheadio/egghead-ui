@@ -1,9 +1,9 @@
 import React, {PropTypes} from 'react'
-import InstructorOverviewsByGroups from './components/InstructorOverviewsByGroups'
+import InstructorOverviews from './components/InstructorOverviews'
 
 const InstructorsDirectory = ({instructorsUrl}) => (
   <div>
-    <InstructorOverviewsByGroups instructorsUrl={instructorsUrl} />
+    <InstructorOverviews instructorsUrl={instructorsUrl} />
   </div>
 )
 

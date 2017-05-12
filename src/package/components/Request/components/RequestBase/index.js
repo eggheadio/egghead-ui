@@ -102,12 +102,12 @@ class RequestBase extends Component {
   }
 
   render() {
-    const {children, lazy, placeholder} = this.props
+    const {children, lazy, placeholder, showLoadingBetweenRequests} = this.props
     const {running, error, data, response} = this.state
     if (!children) {
       return null
     }
-    if (running && (lazy || !data)) {
+    if ((running && showLoadingBetweenRequests) || (running && (lazy || !data))) {
       return placeholder ? placeholder : <Loading />
     }
     if (error) {

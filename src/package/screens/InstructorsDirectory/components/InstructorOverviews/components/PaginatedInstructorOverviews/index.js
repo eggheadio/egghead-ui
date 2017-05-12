@@ -3,21 +3,19 @@ import ReactPaginate from 'react-paginate'
 import {map} from 'lodash'
 import Maybe from 'package/components/Maybe'
 import Card from 'package/components/Card'
-import sortLessonsByState from './utils/sortLessonsByState'
-import LessonOverview from './components/LessonOverview'
+import InstructorOverview from './components/InstructorOverview'
 
-const PaginatedLessonOverviews = ({ 
+const PaginatedInstructorOverviews = ({ 
   fallback,
   pageSize,
   currentPage,
   total,
-  lessons,
+  instructors,
   requestNextPage,
-  requestCurrentPage,
 }) => {
 
   const pageCount = Math.ceil(total / pageSize)
-  const hasMoreThanOnePage = (pageCount > 1) && (lessons.length > 0)
+  const hasMoreThanOnePage = (pageCount > 1) && (instructors.length > 0)
 
   const linkClassNames = {
     mobileHide: 'dn db-ns',
@@ -27,16 +25,13 @@ const PaginatedLessonOverviews = ({
   return total > 0
     ? <div>
 
-        {map(sortLessonsByState(lessons), (lesson, index) => (
+        {map(instructors, (instructor, index) => (
           <div 
-            key={lesson.id}
-            className={index < lessons.length - 1 ? 'mb3' : ''}
+            key={instructor.id}
+            className={index < instructors.length - 1 ? 'mb3' : ''}
           >
             <Card>
-              <LessonOverview 
-                lesson={lesson}
-                requestCurrentPage={requestCurrentPage}
-              />
+              <InstructorOverview instructor={instructor} />
             </Card>
           </div>
         ))}
@@ -73,13 +68,13 @@ const PaginatedLessonOverviews = ({
     : fallback
 }
 
-PaginatedLessonOverviews.propTypes = {
+PaginatedInstructorOverviews.propTypes = {
   fallback: PropTypes.node.isRequired,
   pageSize: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
   total: PropTypes.string,
-  lessons: PropTypes.array.isRequired,
+  instructors: PropTypes.array.isRequired,
   requestNextPage: PropTypes.func.isRequired,
 }
 
-export default PaginatedLessonOverviews
+export default PaginatedInstructorOverviews

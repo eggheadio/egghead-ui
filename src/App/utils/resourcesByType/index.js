@@ -610,7 +610,8 @@ export const resourcesByType = {
           'onError': 'func',
           'method': requestMethods,
           'subscribe': 'bool',
-          'subscribeInterval': 'number'
+          'subscribeInterval': 'number',
+          'showLoadingBetweenRequests': 'bool',
         },
         childrenTypes: {
           'handleOpenToggleClick': 'func',
