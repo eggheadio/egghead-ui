@@ -10,8 +10,8 @@ const Icons = () => (
         className='mr3 mb3 flex items-center'
       >
           {
-            <div className='flex flex-column justify-center w5 h3 items-center'>
-              <Icon type={type} color='white-90' />
+            <div className='flex flex-column justify-center w5 h3 items-center mv3'>
+              <Icon type={type} color='white-90' size='1' />
               <span className='mt2 f6 code'>{type}</span>
             </div>
           }
