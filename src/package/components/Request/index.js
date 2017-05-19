@@ -17,16 +17,23 @@ export const methods = [
 
 class Request extends Component {
 
-  getHeaders = () => ({
-    ...this.props.headers,
-    Authorization: universalWindow.localStorage.token
-      ? `Bearer ${universalWindow.localStorage.token}`
-      : null,
-    'Content-Type': 'application/json',
-  })
+  getHeaders = () => {
+    const headers = {...this.props.headers}
+    if (this.props.auth) {
+      return {
+        ...headers,
+        Authorization: universalWindow.localStorage.token
+          ? `Bearer ${universalWindow.localStorage.token}`
+          : null,
+        'Content-Type': 'application/json',
+      }
+    }
+
+    return headers
+  }
 
   handleError = (error) => {
-    if (includes([401, 403], error.response.status)) {
+    if (includes([401, 403], error.response.status) && this.props.auth) {
       logout()
     }
     if (this.props.onError) {
@@ -61,6 +68,7 @@ Request.propTypes = {
   children: PropTypes.func.isRequired,
   url: PropTypes.string.isRequired,
   lazy: PropTypes.bool,
+  auth: PropTypes.bool,
   placeholder: PropTypes.node,
   params: PropTypes.object,
   headers: PropTypes.object,
@@ -76,6 +84,7 @@ Request.propTypes = {
 Request.defaultProps = {
   method: first(methods),
   subscribe: false,
+  auth: false,
   subscribeInterval: 10000,
 }
 
