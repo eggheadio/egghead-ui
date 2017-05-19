@@ -4578,9 +4578,15 @@ react-icon-base@^2.0.7:
   dependencies:
     prop-types "15.5.8"
 
+<<<<<<< HEAD
 "react-icons@github:eggheadio/react-icons#3.8.0":
   version "3.8.0"
   resolved "https://codeload.github.com/eggheadio/react-icons/tar.gz/7c82f2cc3c8bf82b32670a05186333396ca0beac"
+=======
+"react-icons@github:eggheadio/react-icons#3.6.0":
+  version "3.6.0"
+  resolved "https://codeload.github.com/eggheadio/react-icons/tar.gz/9eaf3214396abf8cdb4041da188b1246b1f067ca"
+>>>>>>> a57eeda8cbc7c8b04ef466758bf06a58e3da5135
   dependencies:
     react "^15.0.0"
     react-dom "^15.0.0"

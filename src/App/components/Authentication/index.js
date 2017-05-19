@@ -27,7 +27,7 @@ const Authentication = ({children, loginUrl, userPermissionProperty}) => {
   }
 
   return (
-    <Request url={`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1`}>
+    <Request auth={true} url={`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1`}>
       {({data}) => children({data})}
     </Request>
   )

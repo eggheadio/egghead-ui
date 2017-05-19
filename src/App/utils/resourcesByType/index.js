@@ -313,7 +313,7 @@ export const resourcesByType = {
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
             {({data}) => (
-              <Request url={data.instructors_url}>
+              <Request auth={true} url={data.instructors_url}>
                 {({data}) => (
                   <InstructorLessons instructor={random.arrayElement(data)} />
                 )}
@@ -331,7 +331,7 @@ export const resourcesByType = {
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
             {({data}) => (
-              <Request url={data.instructors_url}>
+              <Request auth={true} url={data.instructors_url}>
                 {({data}) => (
                   <InstructorRevenue revenueUrl={random.arrayElement(data).revenue_url} />
                 )}
@@ -349,7 +349,7 @@ export const resourcesByType = {
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
             {({data}) => (
-              <Request url={data.instructors_url}>
+              <Request auth={true} url={data.instructors_url}>
                 {({data}) => (
                   <InstructorStats instructor={random.arrayElement(data)} />
                 )}
@@ -399,7 +399,7 @@ export const resourcesByType = {
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
             {({data}) => (
-              <Request url={data.lessons_url}>
+              <Request auth={true} url={data.lessons_url}>
                 {({request, data}) => (
                   <LessonActions
                     lesson={random.arrayElement(data)}
@@ -426,7 +426,7 @@ export const resourcesByType = {
             {({data}) => {
               const rootData = data
               return (
-                <Request url={rootData.instructors_url}>
+                <Request auth={true} url={rootData.instructors_url}>
                   {({data}) => (
                     <LessonOverviews
                       states={[random.arrayElement(lessonStates)]}
@@ -456,7 +456,7 @@ export const resourcesByType = {
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
             {({data}) => (
-              <Request url={data.instructors_url}>
+              <Request auth={true} url={data.instructors_url}>
                 {({data}) => {
                   const instructor = random.arrayElement(data)
                   return (
@@ -622,14 +622,14 @@ export const resourcesByType = {
           'response': 'object',
         },
         createExamples: () => [
-          <Request url='https://jsonplaceholder.typicode.com/users/1'>
+          <Request auth={true} url='https://jsonplaceholder.typicode.com/users/1'>
             {({data}) => (
               <div>
                 {JSON.stringify(data, null, 2)}
               </div>
             )}
           </Request>,
-          <Request url='https://error'>
+          <Request auth={true} url='https://error'>
             {({data}) => (
               <div>
                 {JSON.stringify(data, null, 2)}
@@ -666,7 +666,7 @@ export const resourcesByType = {
             {({data}) => {
               const rootData = data
               return (
-                <Request url={rootData.instructor_url}>
+                <Request auth={true} url={rootData.instructor_url}>
                   {({data}) => (
                     <RequestedLessons 
                       instructor={data} 
@@ -760,7 +760,7 @@ export const resourcesByType = {
             {({data}) => {
               const rootData = data
               return (
-                <Request url={rootData.instructors_url}>
+                <Request auth={true} url={rootData.instructors_url}>
                   {({data}) => (
                     <InstructorDashboard 
                       instructor={random.arrayElement(data)} 
@@ -783,7 +783,7 @@ export const resourcesByType = {
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
             {({data}) => (
-              <Request url={data.instructors_url}>
+              <Request auth={true} url={data.instructors_url}>
                 {({data}) => (
                   <InstructorDetails instructor={random.arrayElement(data)} />
                 )}
@@ -816,7 +816,7 @@ export const resourcesByType = {
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
             {({data}) => (
-              <Request url={data.lessons_url}>
+              <Request auth={true} url={data.lessons_url}>
                 {({request, data}) => (
                   <LessonDetails
                     lesson={random.arrayElement(data)}
@@ -850,7 +850,7 @@ export const resourcesByType = {
             {({data}) => {
               const rootData = data
               return (
-                <Request url={data.instructor_url}>
+                <Request auth={true} url={data.instructor_url}>
                   {({data}) => (
                     <NewLesson 
                       instructor={data} 
