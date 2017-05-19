@@ -28,7 +28,8 @@ class InstructorOverviews extends Component {
     const {instructorsUrl, pageSize} = this.props
 
     return (
-      <Request 
+      <Request
+        auth={true}
         url={createInstructorsUrlWithParams({
           pageSize,
           page: currentPage,

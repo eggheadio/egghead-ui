@@ -17,7 +17,7 @@ const minutesColor = colorValues['dark-gray-secondary']
 const activeLabelClassName = 'dark-gray b'
 
 const InstructorRevenue = ({revenueUrl}) => revenueUrl
-  ? <Request url={revenueUrl}>
+  ? <Request auth={true} url={revenueUrl}>
       {({data}) => {
         const currentMonthRevenue = find(data, ['month', currentMonthStartDate()])
         const currentTotalRevenue = totalRevenue(removeRevenueMonth(data, currentMonthStartDate()))

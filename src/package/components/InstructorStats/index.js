@@ -37,7 +37,7 @@ const InstructorStats = ({instructor}) => {
 
         {hasUnlockedCoursePublished(instructor.published_courses)
           ? <div className='mt4'>
-              <Request url={instructor.courses_url}>
+              <Request auth={true} url={instructor.courses_url}>
                 {({data}) => (
                   <InstructorStat
                     count={instructor.published_courses}
