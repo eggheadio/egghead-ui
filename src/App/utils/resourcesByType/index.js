@@ -41,14 +41,20 @@ import NewLesson from 'package/screens/NewLesson'
 
 import colors from 'package/utils/colors'
 import colorValues from 'package/utils/colorValues'
+import login from 'package/utils/login'
+import logout from 'package/utils/logout'
 import {containerWidths} from 'package/utils/hardCodedSizes'
 import {lessonStates} from 'package/utils/lessonStates'
+import windowMock from 'package/utils/windowMock'
 
 import Authentication from 'App/components/Authentication'
 
-const getLoginUrl = () => (
-  `${process.env.REACT_APP_EGGHEAD_BASE_URL}/users/jwt?return_to=${window.location.href}`
-)
+const universalWindow = typeof(window) === 'undefined' 
+  ? windowMock 
+  : window
+
+const getLoginUrl = () =>
+  `${process.env.REACT_APP_EGGHEAD_BASE_URL}/users/jwt?return_to=${universalWindow.location.href}`
 
 const createNodeExample = () => random.arrayElement([
 
@@ -195,7 +201,7 @@ export const resourcesByType = {
             {(containerWidth) => <div>containerWidth: {containerWidth}</div>}
           </ContainerWidth>,
         ],
-        optOut: ['types', 'containerBackground', 'containerPadding'],
+        optOut: ['types', 'containerBackground'],
       },
 
       Error: {
@@ -307,7 +313,7 @@ export const resourcesByType = {
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
             {({data}) => (
-              <Request url={data.instructors_url}>
+              <Request auth={true} url={data.instructors_url}>
                 {({data}) => (
                   <InstructorLessons instructor={random.arrayElement(data)} />
                 )}
@@ -325,7 +331,7 @@ export const resourcesByType = {
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
             {({data}) => (
-              <Request url={data.instructors_url}>
+              <Request auth={true} url={data.instructors_url}>
                 {({data}) => (
                   <InstructorRevenue revenueUrl={random.arrayElement(data).revenue_url} />
                 )}
@@ -343,7 +349,7 @@ export const resourcesByType = {
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
             {({data}) => (
-              <Request url={data.instructors_url}>
+              <Request auth={true} url={data.instructors_url}>
                 {({data}) => (
                   <InstructorStats instructor={random.arrayElement(data)} />
                 )}
@@ -393,7 +399,7 @@ export const resourcesByType = {
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
             {({data}) => (
-              <Request url={data.lessons_url}>
+              <Request auth={true} url={data.lessons_url}>
                 {({request, data}) => (
                   <LessonActions
                     lesson={random.arrayElement(data)}
@@ -420,7 +426,7 @@ export const resourcesByType = {
             {({data}) => {
               const rootData = data
               return (
-                <Request url={rootData.instructors_url}>
+                <Request auth={true} url={rootData.instructors_url}>
                   {({data}) => (
                     <LessonOverviews
                       states={[random.arrayElement(lessonStates)]}
@@ -450,7 +456,7 @@ export const resourcesByType = {
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
             {({data}) => (
-              <Request url={data.instructors_url}>
+              <Request auth={true} url={data.instructors_url}>
                 {({data}) => {
                   const instructor = random.arrayElement(data)
                   return (
@@ -604,7 +610,8 @@ export const resourcesByType = {
           'onError': 'func',
           'method': requestMethods,
           'subscribe': 'bool',
-          'subscribeInterval': 'number'
+          'subscribeInterval': 'number',
+          'showLoadingBetweenRequests': 'bool',
         },
         childrenTypes: {
           'handleOpenToggleClick': 'func',
@@ -615,14 +622,14 @@ export const resourcesByType = {
           'response': 'object',
         },
         createExamples: () => [
-          <Request url='https://jsonplaceholder.typicode.com/users/1'>
+          <Request auth={true} url='https://jsonplaceholder.typicode.com/users/1'>
             {({data}) => (
               <div>
                 {JSON.stringify(data, null, 2)}
               </div>
             )}
           </Request>,
-          <Request url='https://error'>
+          <Request auth={true} url='https://error'>
             {({data}) => (
               <div>
                 {JSON.stringify(data, null, 2)}
@@ -659,7 +666,7 @@ export const resourcesByType = {
             {({data}) => {
               const rootData = data
               return (
-                <Request url={rootData.instructor_url}>
+                <Request auth={true} url={rootData.instructor_url}>
                   {({data}) => (
                     <RequestedLessons
                       instructor={data}
@@ -753,7 +760,7 @@ export const resourcesByType = {
             {({data}) => {
               const rootData = data
               return (
-                <Request url={rootData.instructors_url}>
+                <Request auth={true} url={rootData.instructors_url}>
                   {({data}) => (
                     <InstructorDashboard
                       instructor={random.arrayElement(data)}
@@ -776,7 +783,7 @@ export const resourcesByType = {
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
             {({data}) => (
-              <Request url={data.instructors_url}>
+              <Request auth={true} url={data.instructors_url}>
                 {({data}) => (
                   <InstructorDetails instructor={random.arrayElement(data)} />
                 )}
@@ -809,7 +816,7 @@ export const resourcesByType = {
         createExamples: () => [
           <Authentication loginUrl={getLoginUrl()}>
             {({data}) => (
-              <Request url={data.lessons_url}>
+              <Request auth={true} url={data.lessons_url}>
                 {({request, data}) => (
                   <LessonDetails
                     lesson={random.arrayElement(data)}
@@ -843,7 +850,7 @@ export const resourcesByType = {
             {({data}) => {
               const rootData = data
               return (
-                <Request url={data.instructor_url}>
+                <Request auth={true} url={data.instructor_url}>
                   {({data}) => (
                     <NewLesson
                       instructor={data}
@@ -886,10 +893,16 @@ export const resourcesByType = {
 
       login: {
         useCase: `Uses local storage "token" if it exists. Adds/updates local storage "token" if there is a "jwt" query param in the URL from an egghead login URL redirect.`,
+        createExamples: () => [
+          login(),
+        ],
       },
 
       logout: {
         useCase: `Removes "token" from local storage and refreshes the page to log the user out.`,
+        createExamples: () => [
+          logout(),
+        ],
       },
 
     },

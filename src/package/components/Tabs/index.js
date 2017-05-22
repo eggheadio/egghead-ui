@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
-import {Tab, Tabs, TabList, TabPanel} from 'react-tabs'
+import {Tab, Tabs, TabList, TabPanel, resetIdCounter} from 'react-tabs'
 import {map} from 'lodash'
 
-Tabs.setUseDefaultStyles(false)
+resetIdCounter()
 
 class TabsComponent extends Component {
 

@@ -7,6 +7,7 @@ import Navigation from './components/Navigation'
 import Main from './components/Main'
 import Readme from './components/Readme'
 import Colors from './components/Colors'
+import Icons from './components/Icons'
 import ResourceDirectory from './components/ResourceDirectory'
 import Resource from './components/Resource'
 import Contributing from './components/Contributing'
@@ -22,6 +23,11 @@ const navigationItems = [
     label: 'Colors',
     path: '/colors',
     children: <Colors />,
+  },
+  {
+    label: 'Icons',
+    path: '/icons',
+    children: <Icons />,
   },
   {
     label: 'Components',

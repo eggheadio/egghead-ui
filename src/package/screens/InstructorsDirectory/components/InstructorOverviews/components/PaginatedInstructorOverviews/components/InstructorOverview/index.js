@@ -7,6 +7,10 @@ import LessonGroupsStat from './components/LessonGroupsStat'
 
 export default ({instructor}) => {
 
+  if(!instructor) {
+    return null
+  }
+
   const lessonOverviewsByGroupStats = [
     {
       label: 'In Progress',
@@ -27,7 +31,7 @@ export default ({instructor}) => {
   ]
 
   return (
-    <div className='flex flex-wrap items-center justify-between'>
+    <div className='pa4 flex flex-wrap items-center justify-between'>
 
       <Link
         to={`/instructors/${instructor.slug}`}

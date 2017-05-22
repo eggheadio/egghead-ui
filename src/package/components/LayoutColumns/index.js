@@ -12,6 +12,7 @@ const LayoutColumns = ({items, relativeSizes}) => (
             key={index}
             className={`
               mb4
+              mw-100
               ${containerWidth !== 'xsmall' && index < items.length - 1 ? 'mr4' : ''}
             `}
             style={{

@@ -75,7 +75,7 @@ export default class extends Component {
           />
         </div>
 
-        <Request url={technologiesUrl}>
+        <Request auth={true} url={technologiesUrl}>
           {({data}) => (
             <div className='mb3'>
               <div className='b'>

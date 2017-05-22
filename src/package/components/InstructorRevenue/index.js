@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import {find, size, map} from 'lodash'
+import {find, size, map, includes} from 'lodash'
 import colorValues from 'package/utils/colorValues'
 import Card from 'package/components/Card'
 import Request from 'package/components/Request'
@@ -17,7 +17,7 @@ const minutesColor = colorValues['dark-gray-secondary']
 const activeLabelClassName = 'dark-gray b'
 
 const InstructorRevenue = ({revenueUrl}) => revenueUrl
-  ? <Request url={revenueUrl}>
+  ? <Request auth={true} url={revenueUrl}>
       {({data}) => {
         const currentMonthRevenue = find(data, ['month', currentMonthStartDate()])
         const currentTotalRevenue = totalRevenue(removeRevenueMonth(data, currentMonthStartDate()))
@@ -36,84 +36,87 @@ const InstructorRevenue = ({revenueUrl}) => revenueUrl
           <Open>
             {({isOpen, handleOpenToggleClick}) => (
               <ContainerWidth>
-                {(containerWidth) => (
-                  <Card>
-                    <div className={containerWidth === 'small'
-                      ? 'tc'
-                      : 'tl flex justify-between'
-                    }>
-
-                      <div 
-                        className={`pa5 ${containerWidth === 'small' ? '' : 'nowrap'}`}
-                        style={{
-                          boxShadow: containerWidth === 'small'
-                            ? '0px 25px 25px -25px rgba(35,45,59, 0.1)'
-                            : '10px 0px 25px -10px rgba(35,45,59, 0.1)',
-                        }}
-                      >
-
-                        <div className='mb4'>
-                          <RevenuePeriod
-                            title='This Month'
-                            revenue={currentMonthRevenue.revenue}
-                            subscriberMinutes={currentMonthRevenue.minutes_watched}
-                          />
-                        </div>
-
-                        <RevenuePeriod
-                          title={`Last ${currentTotalRevenue.monthCount} months`}
-                          revenue={currentTotalRevenue.revenue}
-                          subscriberMinutes={currentTotalRevenue.minutes_watched}
-                        />
-
-                      </div>
-
-                      <div className='w-100 pa3 flex flex-column justify-between'>
+                {(containerWidth) => {
+                  const shouldStack = includes(['xsmall', 'small'], containerWidth) 
+                  return (
+                    <Card>
+                      <div className={shouldStack
+                        ? 'tc'
+                        : 'tl flex justify-between'
+                      }>
 
                         <div 
-                          onClick={handleOpenToggleClick}
-                          className={`dark-gray-secondary ttl f6 pa2 ${containerWidth === 'small' ? '' : 'tr'}`}
+                          className={shouldStack ? 'pa3' : 'nowrap pa5'}
+                          style={{
+                            boxShadow: shouldStack
+                              ? '0px 25px 25px -25px rgba(35,45,59, 0.1)'
+                              : '10px 0px 25px -10px rgba(35,45,59, 0.1)',
+                          }}
                         >
-                          <span className={`${isOpen ? '' : activeLabelClassName} mr2`}>
-                            Revenue
-                          </span>
-                          <span className='mr2'>
-                            /
-                          </span>
-                          <span className={isOpen ? activeLabelClassName : ''}>
-                            Minutes
-                          </span>
+
+                          <div className='mb4'>
+                            <RevenuePeriod
+                              title='This Month'
+                              revenue={currentMonthRevenue.revenue}
+                              subscriberMinutes={currentMonthRevenue.minutes_watched}
+                            />
+                          </div>
+
+                          <RevenuePeriod
+                            title={`Last ${currentTotalRevenue.monthCount} months`}
+                            revenue={currentTotalRevenue.revenue}
+                            subscriberMinutes={currentTotalRevenue.minutes_watched}
+                          />
+
                         </div>
 
-                        {isOpen
-                          ? <LineChart
-                              key={`minutes-${containerWidth}`}
-                              xAxis={currentMonthNames}
-                              yAxis={[
-                                {
-                                  color: minutesColor,
-                                  points: currentMinutesPoints,
-                                },
-                              ]}
-                            />
-                          : <LineChart
-                              key={`revenue-${containerWidth}`}
-                              xAxis={currentMonthNames}
-                              yAxis={[
-                                {
-                                  color: revenueColor,
-                                  points: currentRevenuePoints,
-                                },
-                              ]}
-                              currency
-                            />
-                        }
+                        <div className='w-100 pa3 flex flex-column justify-between'>
+
+                          <div 
+                            onClick={handleOpenToggleClick}
+                            className={`dark-gray-secondary ttl f6 pa2 ${shouldStack ? '' : 'tr'}`}
+                          >
+                            <span className={`${isOpen ? '' : activeLabelClassName} mr2`}>
+                              Revenue
+                            </span>
+                            <span className='mr2'>
+                              /
+                            </span>
+                            <span className={isOpen ? activeLabelClassName : ''}>
+                              Minutes
+                            </span>
+                          </div>
+
+                          {isOpen
+                            ? <LineChart
+                                key={`minutes-${containerWidth}`}
+                                xAxis={currentMonthNames}
+                                yAxis={[
+                                  {
+                                    color: minutesColor,
+                                    points: currentMinutesPoints,
+                                  },
+                                ]}
+                              />
+                            : <LineChart
+                                key={`revenue-${containerWidth}`}
+                                xAxis={currentMonthNames}
+                                yAxis={[
+                                  {
+                                    color: revenueColor,
+                                    points: currentRevenuePoints,
+                                  },
+                                ]}
+                                currency
+                              />
+                          }
+
+                        </div>
 
                       </div>
-
-                    </div>
-                  </Card>
-                )}
+                    </Card>
+                  )
+                }}
               </ContainerWidth>
             )}
           </Open>
