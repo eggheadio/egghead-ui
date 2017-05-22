@@ -22,13 +22,20 @@ class TabsComponent extends Component {
     return (
       <Tabs onSelect={this.handleSelect}>
 
-        <TabList className='list pa0 ma0 flex flex-wrap br2 br--top'>
+        <TabList
+          className='list pa0 ma0
+                    flex br2 br--top
+                    items-center'
+          style={{justifyContent: 'inherit'}}>
           {map(groups, (group, index) => (
             <Tab
               key={index}
               className={`
                 f6
-                pv3 ph4
+                pv3 ph4-ns
+                flex-grow-1
+                flex-grow-0-ns
+                tc
                 ttu
                 pointer
                 dim
@@ -52,7 +59,7 @@ class TabsComponent extends Component {
           <TabPanel key={index}>
             {group.component}
           </TabPanel>
-        ))}  
+        ))}
 
       </Tabs>
     )
