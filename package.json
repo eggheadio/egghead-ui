@@ -63,7 +63,7 @@
     "react-scripts": "^0.9.5"
   },
   "dependencies": {
-    "axios": "^0.16.1",
+    "axios": "^0.32.0",
     "chart.js": "chartjs/Chart.js",
     "element-resize-event": "^2.0.9",
     "eslint": "^3.19.0",
