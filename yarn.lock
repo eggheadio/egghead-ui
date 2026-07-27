@@ -231,11 +231,13 @@ aws4@^1.2.1:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
-axios@^0.16.1:
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.16.1.tgz#c0b6d26600842384b8f509e57111f0d2df8223ca"
+axios@^0.33.0:
+  version "0.33.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.33.0.tgz#91fc5e231db5b81ab6474c0a945a603c55601f6e"
   dependencies:
-    follow-redirects "^1.2.3"
+    follow-redirects "^1.15.4"
+    form-data "^4.0.4"
+    proxy-from-env "^1.1.0"
 
 babel-cli@^6.24.1:
   version "6.24.1"
@@ -1132,6 +1134,13 @@ bytes@2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-2.3.0.tgz#d5b680a165b6201739acb611542aabc2d8ceb070"
 
+call-bind-apply-helpers@^1.0.1, call-bind-apply-helpers@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/call-bind-apply-helpers/-/call-bind-apply-helpers-1.0.2.tgz#4b5428c222be985d79c3d82657479dbe0b59b2d6"
+  dependencies:
+    es-errors "^1.3.0"
+    function-bind "^1.1.2"
+
 caller-path@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/caller-path/-/caller-path-0.1.0.tgz#94085ef63581ecd3daa92444a8fe94e82577751f"
@@ -1373,6 +1382,12 @@ colors@~1.1.2:
 combined-stream@^1.0.5, combined-stream@~1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.5.tgz#938370a57b4a51dea2c77c15d5c5fdf895164009"
+  dependencies:
+    delayed-stream "~1.0.0"
+
+combined-stream@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.8.tgz#c3d45a8b34fd730631a110a8a2520682b31d5a7f"
   dependencies:
     delayed-stream "~1.0.0"
 
@@ -1683,7 +1698,7 @@ debug@2.6.7:
   dependencies:
     ms "2.0.0"
 
-debug@^2.1.0, debug@^2.1.1, debug@^2.2.0, debug@^2.4.5, debug@^2.6.0, debug@^2.6.3, debug@^2.6.6:
+debug@^2.1.0, debug@^2.1.1, debug@^2.2.0, debug@^2.6.0, debug@^2.6.3, debug@^2.6.6:
   version "2.6.8"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.8.tgz#e731531ca2ede27d188222427da17821d68ff4fc"
   dependencies:
@@ -1828,6 +1843,14 @@ dotenv@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-2.0.0.tgz#bd759c357aaa70365e01c96b7b0bec08a6e0d949"
 
+dunder-proto@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/dunder-proto/-/dunder-proto-1.0.1.tgz#d7ae667e1dc83482f8b70fd0f6eefc50da30f58a"
+  dependencies:
+    call-bind-apply-helpers "^1.0.1"
+    es-errors "^1.3.0"
+    gopd "^1.2.0"
+
 duplexer@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.1.tgz#ace6ff808c1ce66b57d1ebf97977acb02334cfc1"
@@ -1891,6 +1914,29 @@ error-ex@^1.2.0:
   resolved "https://registry.yarnpkg.com/error-ex/-/error-ex-1.3.1.tgz#f855a86ce61adc4e8621c3cda21e7a7612c3a8dc"
   dependencies:
     is-arrayish "^0.2.1"
+
+es-define-property@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/es-define-property/-/es-define-property-1.0.1.tgz#983eb2f9a6724e9303f61addf011c72e09e0b0fa"
+
+es-errors@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/es-errors/-/es-errors-1.3.0.tgz#05f75a25dab98e4fb1dcd5e1472c0546d5057c8f"
+
+es-object-atoms@^1.0.0, es-object-atoms@^1.1.1:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/es-object-atoms/-/es-object-atoms-1.1.2.tgz#a2d0b373205724dfa525d23b0c3e1b1ca582c99b"
+  dependencies:
+    es-errors "^1.3.0"
+
+es-set-tostringtag@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/es-set-tostringtag/-/es-set-tostringtag-2.1.0.tgz#f31dbbe0c183b00a6d26eb6325c810c0fd18bd4d"
+  dependencies:
+    es-errors "^1.3.0"
+    get-intrinsic "^1.2.6"
+    has-tostringtag "^1.0.2"
+    hasown "^2.0.2"
 
 es5-ext@^0.10.14, es5-ext@^0.10.9, es5-ext@~0.10.14:
   version "0.10.20"
@@ -2407,11 +2453,9 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
-follow-redirects@^1.2.3:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.2.3.tgz#01abaeca85e3609837d9fcda3167a7e42fdaca21"
-  dependencies:
-    debug "^2.4.5"
+follow-redirects@^1.15.4:
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.16.0.tgz#28474a159d3b9d11ef62050a14ed60e4df6d61bc"
 
 for-in@^1.0.1:
   version "1.0.2"
@@ -2426,6 +2470,16 @@ for-own@^0.1.4:
 forever-agent@~0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/forever-agent/-/forever-agent-0.6.1.tgz#fbc71f0c41adeb37f96c577ad1ed42d8fdacca91"
+
+form-data@^4.0.4:
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/form-data/-/form-data-4.0.6.tgz#28e864e1b786dbebb68db1f452f9635278665827"
+  dependencies:
+    asynckit "^0.4.0"
+    combined-stream "^1.0.8"
+    es-set-tostringtag "^2.1.0"
+    hasown "^2.0.4"
+    mime-types "^2.1.35"
 
 form-data@~2.1.1:
   version "2.1.4"
@@ -2493,6 +2547,10 @@ function-bind@^1.0.2:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.0.tgz#16176714c801798e4e8f2cf7f7529467bb4a5771"
 
+function-bind@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.2.tgz#2c02d864d97f3ea6c8830c464cbd11ab6eab7a1c"
+
 gauge@~2.7.3:
   version "2.7.4"
   resolved "https://registry.yarnpkg.com/gauge/-/gauge-2.7.4.tgz#2c03405c7538c39d7eb37b317022e325fb018bf7"
@@ -2519,6 +2577,28 @@ generate-object-property@^1.1.0:
 get-caller-file@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-1.0.2.tgz#f702e63127e7e231c160a80c1554acb70d5047e5"
+
+get-intrinsic@^1.2.6:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/get-intrinsic/-/get-intrinsic-1.3.0.tgz#743f0e3b6964a93a5491ed1bffaae054d7f98d01"
+  dependencies:
+    call-bind-apply-helpers "^1.0.2"
+    es-define-property "^1.0.1"
+    es-errors "^1.3.0"
+    es-object-atoms "^1.1.1"
+    function-bind "^1.1.2"
+    get-proto "^1.0.1"
+    gopd "^1.2.0"
+    has-symbols "^1.1.0"
+    hasown "^2.0.2"
+    math-intrinsics "^1.1.0"
+
+get-proto@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/get-proto/-/get-proto-1.0.1.tgz#150b3f2743869ef3e851ec0c49d15b1d14d00ee1"
+  dependencies:
+    dunder-proto "^1.0.1"
+    es-object-atoms "^1.0.0"
 
 getpass@^0.1.1:
   version "0.1.7"
@@ -2564,6 +2644,10 @@ globby@^5.0.0:
     object-assign "^4.0.1"
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
+
+gopd@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/gopd/-/gopd-1.2.0.tgz#89f56b8217bdbc8802bd299df6d7f1081d7e51a1"
 
 graceful-fs@^4.1.2, graceful-fs@^4.1.4, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   version "4.1.11"
@@ -2614,6 +2698,16 @@ has-flag@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-1.0.0.tgz#9d9e793165ce017a00f00418c43f942a7b1d11fa"
 
+has-symbols@^1.0.3, has-symbols@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/has-symbols/-/has-symbols-1.1.0.tgz#fc9c6a783a084951d0b971fe1018de813707a338"
+
+has-tostringtag@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/has-tostringtag/-/has-tostringtag-1.0.2.tgz#2cdc42d40bef2e5b4eeab7c01a73c54ce7ab5abc"
+  dependencies:
+    has-symbols "^1.0.3"
+
 has-unicode@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/has-unicode/-/has-unicode-2.0.1.tgz#e0e6fe6a28cf51138855e086d1691e771de2a8b9"
@@ -2623,6 +2717,12 @@ has@^1.0.1:
   resolved "https://registry.yarnpkg.com/has/-/has-1.0.1.tgz#8461733f538b0837c9361e39a9ab9e9704dc2f28"
   dependencies:
     function-bind "^1.0.2"
+
+hasown@^2.0.2, hasown@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/hasown/-/hasown-2.0.4.tgz#8c62d8cb90beb2aad5d0a5b67581ad9854c3f003"
+  dependencies:
+    function-bind "^1.1.2"
 
 hawk@~3.1.3:
   version "3.1.3"
@@ -3630,6 +3730,10 @@ math-expression-evaluator@^1.2.14:
   version "1.2.17"
   resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.2.17.tgz#de819fdbcd84dccd8fae59c6aeb79615b9d266ac"
 
+math-intrinsics@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/math-intrinsics/-/math-intrinsics-1.1.0.tgz#a0dd74be81e2aa5c2f27e65ce283605ee4e2b7f9"
+
 "mdurl@~ 1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
@@ -3686,6 +3790,10 @@ micromatch@^2.1.5, micromatch@^2.3.11:
     parse-glob "^3.0.4"
     regex-cache "^0.4.2"
 
+mime-db@1.52.0:
+  version "1.52.0"
+  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.52.0.tgz#bbabcdc02859f4987301c856e3387ce5ec43bf70"
+
 "mime-db@>= 1.27.0 < 2", mime-db@~1.27.0:
   version "1.27.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.27.0.tgz#820f572296bbd20ec25ed55e5b5de869e5436eb1"
@@ -3695,6 +3803,12 @@ mime-types@^2.1.12, mime-types@~2.1.11, mime-types@~2.1.15, mime-types@~2.1.7:
   resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.15.tgz#a4ebf5064094569237b8cf70046776d09fc92aed"
   dependencies:
     mime-db "~1.27.0"
+
+mime-types@^2.1.35:
+  version "2.1.35"
+  resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.35.tgz#381a871b62a734450660ae3deee44813f70d959a"
+  dependencies:
+    mime-db "1.52.0"
 
 mime@1.2.x:
   version "1.2.11"
@@ -4484,6 +4598,10 @@ proxy-addr@~1.1.4:
   dependencies:
     forwarded "~0.1.0"
     ipaddr.js "1.3.0"
+
+proxy-from-env@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
 
 prr@~0.0.0:
   version "0.0.0"
@@ -5359,13 +5477,15 @@ tachyons-background-size@^5.0.4:
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/tachyons-background-size/-/tachyons-background-size-5.0.5.tgz#445fbe008125308ebe750262649e3f3f7c9de56f"
 
-"tachyons-base@github:eggheadio/tachyons-base#20454fc":
+tachyons-base@eggheadio/tachyons-base#20454fc:
   version "1.4.1"
-  resolved "https://codeload.github.com/eggheadio/tachyons-base/tar.gz/20454fc"
+  uid "20454fc350c47b5b3e35f8cfa195bc1fcbbf7646"
+  resolved "https://codeload.github.com/eggheadio/tachyons-base/tar.gz/20454fc350c47b5b3e35f8cfa195bc1fcbbf7646"
 
-"tachyons-border-colors@github:eggheadio/tachyons-border-colors#d3e31f2":
+tachyons-border-colors@eggheadio/tachyons-border-colors#d3e31f2:
   version "4.2.3"
-  resolved "https://codeload.github.com/eggheadio/tachyons-border-colors/tar.gz/d3e31f2"
+  uid d3e31f21af4f1d16a921add79753af15c66e2bd8
+  resolved "https://codeload.github.com/eggheadio/tachyons-border-colors/tar.gz/d3e31f21af4f1d16a921add79753af15c66e2bd8"
 
 tachyons-border-radius@^5.1.2:
   version "5.1.3"
@@ -5383,9 +5503,10 @@ tachyons-borders@^3.0.3:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/tachyons-borders/-/tachyons-borders-3.0.4.tgz#4d52c19ad3bcb7817a5c1078a2eb9dfb0b3dc40f"
 
-"tachyons-box-shadow@github:eggheadio/tachyons-box-shadow#cb5fb6e":
+tachyons-box-shadow@eggheadio/tachyons-box-shadow#cb5fb6e:
   version "2.1.0"
-  resolved "https://codeload.github.com/eggheadio/tachyons-box-shadow/tar.gz/cb5fb6e"
+  uid cb5fb6e0c0d360536e66b2c92909bd36d5939b77
+  resolved "https://codeload.github.com/eggheadio/tachyons-box-shadow/tar.gz/cb5fb6e0c0d360536e66b2c92909bd36d5939b77"
 
 tachyons-box-sizing@^3.2.0:
   version "3.2.1"
@@ -5399,9 +5520,10 @@ tachyons-code@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/tachyons-code/-/tachyons-code-1.0.0.tgz#5c3defc4b9250c64227dcf95b961fc5c1d8fcb28"
 
-"tachyons-colors@github:eggheadio/tachyons-colors#28fd66a":
+tachyons-colors@eggheadio/tachyons-colors#28fd66a:
   version "5.3.2"
-  resolved "https://codeload.github.com/eggheadio/tachyons-colors/tar.gz/28fd66a"
+  uid "28fd66ae2b0ed9ca426b2e65f70b241377f18b40"
+  resolved "https://codeload.github.com/eggheadio/tachyons-colors/tar.gz/28fd66ae2b0ed9ca426b2e65f70b241377f18b40"
 
 tachyons-coordinates@^4.0.3:
   version "4.0.4"
@@ -5469,9 +5591,10 @@ tachyons-egghead@^2.3.1:
     tachyons-word-break "^3.0.3"
     tachyons-z-index "^1.0.7"
 
-"tachyons-flexbox@github:eggheadio/tachyons-flexbox#6e8ddff":
+tachyons-flexbox@eggheadio/tachyons-flexbox#6e8ddff:
   version "2.0.3"
-  resolved "https://codeload.github.com/eggheadio/tachyons-flexbox/tar.gz/6e8ddff"
+  uid "6e8ddffddd2e23870e8821880b87757e9609aeb4"
+  resolved "https://codeload.github.com/eggheadio/tachyons-flexbox/tar.gz/6e8ddffddd2e23870e8821880b87757e9609aeb4"
 
 tachyons-floats@^3.0.3:
   version "3.0.4"
@@ -5549,13 +5672,15 @@ tachyons-rotations@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/tachyons-rotations/-/tachyons-rotations-1.0.2.tgz#19bb7cc29aceaea56dc02b650241dafa32f0de62"
 
-"tachyons-skins-pseudo@github:eggheadio/tachyons-skins-pseudo#06f4d9f":
+tachyons-skins-pseudo@eggheadio/tachyons-skins-pseudo#06f4d9f:
   version "1.0.3"
-  resolved "https://codeload.github.com/eggheadio/tachyons-skins-pseudo/tar.gz/06f4d9f"
+  uid "06f4d9f29d864e900cec48b16a03943b74f8a982"
+  resolved "https://codeload.github.com/eggheadio/tachyons-skins-pseudo/tar.gz/06f4d9f29d864e900cec48b16a03943b74f8a982"
 
-"tachyons-skins@github:eggheadio/tachyons-skins#d40295c":
+tachyons-skins@eggheadio/tachyons-skins#d40295c:
   version "4.0.2"
-  resolved "https://codeload.github.com/eggheadio/tachyons-skins/tar.gz/d40295c"
+  uid d40295ccbee6b9bc794055385470d481b169b456
+  resolved "https://codeload.github.com/eggheadio/tachyons-skins/tar.gz/d40295ccbee6b9bc794055385470d481b169b456"
 
 tachyons-spacing@^6.0.3:
   version "6.0.4"
